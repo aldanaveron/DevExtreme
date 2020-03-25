@@ -1,19 +1,24 @@
 /* #StartGlobalDeclaration */
-interface JQuery {
-}
-interface JQueryPromise<T> {
-}
-interface JQueryCallback {
-}
+interface JQuery {}
+interface JQueryPromise<T> {}
+interface JQueryCallback {}
 interface JQueryEventObject {
     cancel?: boolean;
 }
-interface PromiseLike<T> {
-}
+interface PromiseLike<T> {}
 interface Promise<T> {
     then<TResult1 = T, TResult2 = never>(
-        onfulfilled?: ((value: T, extraParameters: T) => TResult1 | PromiseLike<TResult1>) | undefined | null,
-        onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null
+        onfulfilled?:
+            | ((
+                  value: T,
+                  extraParameters: T
+              ) => TResult1 | PromiseLike<TResult1>)
+            | undefined
+            | null,
+        onrejected?:
+            | ((reason: any) => TResult2 | PromiseLike<TResult2>)
+            | undefined
+            | null
     ): Promise<TResult1 | TResult2>;
 }
 /* #EndGlobalDeclaration */
@@ -265,10 +270,14 @@ interface JQuery {
 }
 interface JQuery {
     dxPivotGridFieldChooser(): JQuery;
-    dxPivotGridFieldChooser(options: "instance"): DevExpress.ui.dxPivotGridFieldChooser;
+    dxPivotGridFieldChooser(
+        options: "instance"
+    ): DevExpress.ui.dxPivotGridFieldChooser;
     dxPivotGridFieldChooser(options: string): any;
     dxPivotGridFieldChooser(options: string, ...params: any[]): any;
-    dxPivotGridFieldChooser(options: DevExpress.ui.dxPivotGridFieldChooserOptions): JQuery;
+    dxPivotGridFieldChooser(
+        options: DevExpress.ui.dxPivotGridFieldChooserOptions
+    ): JQuery;
 }
 interface JQuery {
     dxPopover(): JQuery;
@@ -310,7 +319,9 @@ interface JQuery {
     dxRecurrenceEditor(options: "instance"): DevExpress.ui.dxRecurrenceEditor;
     dxRecurrenceEditor(options: string): any;
     dxRecurrenceEditor(options: string, ...params: any[]): any;
-    dxRecurrenceEditor(options: DevExpress.ui.dxRecurrenceEditorOptions): JQuery;
+    dxRecurrenceEditor(
+        options: DevExpress.ui.dxRecurrenceEditorOptions
+    ): JQuery;
 }
 interface JQuery {
     dxResizable(): JQuery;
@@ -478,7 +489,9 @@ interface JQuery {
     dxValidationSummary(options: "instance"): DevExpress.ui.dxValidationSummary;
     dxValidationSummary(options: string): any;
     dxValidationSummary(options: string, ...params: any[]): any;
-    dxValidationSummary(options: DevExpress.ui.dxValidationSummaryOptions): JQuery;
+    dxValidationSummary(
+        options: DevExpress.ui.dxValidationSummaryOptions
+    ): JQuery;
 }
 interface JQuery {
     dxValidator(): JQuery;
@@ -583,11 +596,19 @@ declare module DevExpress {
     /** @name Component.Options */
     export interface ComponentOptions<T = Component> {
         /** @name Component.Options.onDisposing */
-        onDisposing?: ((e: { component?: T }) => any);
+        onDisposing?: (e: { component?: T }) => any;
         /** @name Component.Options.onInitialized */
-        onInitialized?: ((e: { component?: T, element?: DevExpress.core.dxElement }) => any);
+        onInitialized?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+        }) => any;
         /** @name Component.Options.onOptionChanged */
-        onOptionChanged?: ((e: { component?: T, name?: string, fullName?: string, value?: any }) => any);
+        onOptionChanged?: (e: {
+            component?: T;
+            name?: string;
+            fullName?: string;
+            value?: any;
+        }) => any;
     }
     /** @name Component */
     export class Component {
@@ -618,7 +639,8 @@ declare module DevExpress {
         resetOption(optionName: string): void;
     }
     /** @name DOMComponent.Options */
-    export interface DOMComponentOptions<T = DOMComponent> extends ComponentOptions<T> {
+    export interface DOMComponentOptions<T = DOMComponent>
+        extends ComponentOptions<T> {
         /** @name DOMComponent.Options.bindingOptions */
         bindingOptions?: any;
         /** @name DOMComponent.Options.elementAttr */
@@ -626,9 +648,20 @@ declare module DevExpress {
         /** @name DOMComponent.Options.height */
         height?: number | string | (() => number | string);
         /** @name DOMComponent.Options.onDisposing */
-        onDisposing?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onDisposing?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name DOMComponent.Options.onOptionChanged */
-        onOptionChanged?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, name?: string, fullName?: string, value?: any }) => any);
+        onOptionChanged?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            name?: string;
+            fullName?: string;
+            value?: any;
+        }) => any;
         /** @name DOMComponent.Options.rtlEnabled */
         rtlEnabled?: boolean;
         /** @name DOMComponent.Options.width */
@@ -638,7 +671,10 @@ declare module DevExpress {
     export class DOMComponent extends Component {
         constructor(element: Element | JQuery, options?: DOMComponentOptions);
         /** @name DOMComponent.defaultOptions(rule) */
-        static defaultOptions(rule: { device?: Device | Array<Device> | Function, options?: any }): void;
+        static defaultOptions(rule: {
+            device?: Device | Array<Device> | Function;
+            options?: any;
+        }): void;
         /** @name DOMComponent.dispose() */
         dispose(): void;
         /** @name DOMComponent.element() */
@@ -656,17 +692,17 @@ declare module DevExpress {
         /** @name Device.android */
         android?: boolean;
         /** @name Device.deviceType */
-        deviceType?: 'phone' | 'tablet' | 'desktop';
+        deviceType?: "phone" | "tablet" | "desktop";
         /** @name Device.generic */
         generic?: boolean;
         /** @name Device.grade */
-        grade?: 'A' | 'B' | 'C';
+        grade?: "A" | "B" | "C";
         /** @name Device.ios */
         ios?: boolean;
         /** @name Device.phone */
         phone?: boolean;
         /** @name Device.platform */
-        platform?: 'android' | 'ios' | 'generic';
+        platform?: "android" | "ios" | "generic";
         /** @name Device.tablet */
         tablet?: boolean;
         /** @name Device.version */
@@ -714,11 +750,11 @@ declare module DevExpress {
     /** @name animationConfig */
     export interface animationConfig {
         /** @name animationConfig.complete */
-        complete?: (($element: DevExpress.core.dxElement, config: any) => any);
+        complete?: ($element: DevExpress.core.dxElement, config: any) => any;
         /** @name animationConfig.delay */
         delay?: number;
         /** @name animationConfig.direction */
-        direction?: 'bottom' | 'left' | 'right' | 'top';
+        direction?: "bottom" | "left" | "right" | "top";
         /** @name animationConfig.duration */
         duration?: number;
         /** @name animationConfig.easing */
@@ -728,11 +764,19 @@ declare module DevExpress {
         /** @name animationConfig.staggerDelay */
         staggerDelay?: number;
         /** @name animationConfig.start */
-        start?: (($element: DevExpress.core.dxElement, config: any) => any);
+        start?: ($element: DevExpress.core.dxElement, config: any) => any;
         /** @name animationConfig.to */
         to?: number | string | any;
         /** @name animationConfig.type */
-        type?: 'css' | 'fade' | 'fadeIn' | 'fadeOut' | 'pop' | 'slide' | 'slideIn' | 'slideOut';
+        type?:
+            | "css"
+            | "fade"
+            | "fadeIn"
+            | "fadeOut"
+            | "pop"
+            | "slide"
+            | "slideIn"
+            | "slideOut";
     }
     /** @name animationPresets */
     export class animationPresets {
@@ -747,7 +791,10 @@ declare module DevExpress {
         /** @name animationPresets.registerDefaultPresets() */
         registerDefaultPresets(): void;
         /** @name animationPresets.registerPreset(name, config) */
-        registerPreset(name: string, config: { animation?: animationConfig, device?: Device }): void;
+        registerPreset(
+            name: string,
+            config: { animation?: animationConfig; device?: Device }
+        ): void;
         /** @name animationPresets.resetToDefaults() */
         resetToDefaults(): void;
     }
@@ -765,9 +812,28 @@ declare module DevExpress {
         /** @name globalConfig.defaultCurrency */
         defaultCurrency?: string;
         /** @name globalConfig.editorStylingMode */
-        editorStylingMode?: 'outlined' | 'underlined' | 'filled';
+        editorStylingMode?: "outlined" | "underlined" | "filled";
         /** @name globalConfig.floatingActionButtonConfig */
-        floatingActionButtonConfig?: { closeIcon?: string, direction?: 'auto' | 'up' | 'down', icon?: string, label?: string, maxSpeedDialActionCount?: number, position?: 'bottom' | 'center' | 'left' | 'left bottom' | 'left top' | 'right' | 'right bottom' | 'right top' | 'top' | positionConfig | Function, shading?: boolean };
+        floatingActionButtonConfig?: {
+            closeIcon?: string;
+            direction?: "auto" | "up" | "down";
+            icon?: string;
+            label?: string;
+            maxSpeedDialActionCount?: number;
+            position?:
+                | "bottom"
+                | "center"
+                | "left"
+                | "left bottom"
+                | "left top"
+                | "right"
+                | "right bottom"
+                | "right top"
+                | "top"
+                | positionConfig
+                | Function;
+            shading?: boolean;
+        };
         /** @name globalConfig.forceIsoDateParsing */
         forceIsoDateParsing?: boolean;
         /** @name globalConfig.oDataFilterToLower */
@@ -791,9 +857,15 @@ declare module DevExpress {
         /** @name localization.formatDate(value, format) */
         static formatDate(value: Date, format: DevExpress.ui.format): string;
         /** @name localization.formatMessage(key, value) */
-        static formatMessage(key: string, value: string | Array<string>): string;
+        static formatMessage(
+            key: string,
+            value: string | Array<string>
+        ): string;
         /** @name localization.formatNumber(value, format) */
-        static formatNumber(value: number, format: DevExpress.ui.format): string;
+        static formatNumber(
+            value: number,
+            format: DevExpress.ui.format
+        ): string;
         /** @name localization.loadMessages(messages) */
         static loadMessages(messages: any): void;
         /** @name localization.locale() */
@@ -808,32 +880,87 @@ declare module DevExpress {
     /** @name positionConfig */
     export interface positionConfig {
         /** @name positionConfig.at */
-        at?: 'bottom' | 'center' | 'left' | 'left bottom' | 'left top' | 'right' | 'right bottom' | 'right top' | 'top' | { x?: 'center' | 'left' | 'right', y?: 'bottom' | 'center' | 'top' };
+        at?:
+            | "bottom"
+            | "center"
+            | "left"
+            | "left bottom"
+            | "left top"
+            | "right"
+            | "right bottom"
+            | "right top"
+            | "top"
+            | {
+                  x?: "center" | "left" | "right";
+                  y?: "bottom" | "center" | "top";
+              };
         /** @name positionConfig.boundary */
         boundary?: string | Element | JQuery | Window;
         /** @name positionConfig.boundaryOffset */
-        boundaryOffset?: string | { x?: number, y?: number };
+        boundaryOffset?: string | { x?: number; y?: number };
         /** @name positionConfig.collision */
-        collision?: 'fit' | 'fit flip' | 'fit flipfit' | 'fit none' | 'flip' | 'flip fit' | 'flip none' | 'flipfit' | 'flipfit fit' | 'flipfit none' | 'none' | 'none fit' | 'none flip' | 'none flipfit' | { x?: 'fit' | 'flip' | 'flipfit' | 'none', y?: 'fit' | 'flip' | 'flipfit' | 'none' };
+        collision?:
+            | "fit"
+            | "fit flip"
+            | "fit flipfit"
+            | "fit none"
+            | "flip"
+            | "flip fit"
+            | "flip none"
+            | "flipfit"
+            | "flipfit fit"
+            | "flipfit none"
+            | "none"
+            | "none fit"
+            | "none flip"
+            | "none flipfit"
+            | {
+                  x?: "fit" | "flip" | "flipfit" | "none";
+                  y?: "fit" | "flip" | "flipfit" | "none";
+              };
         /** @name positionConfig.my */
-        my?: 'bottom' | 'center' | 'left' | 'left bottom' | 'left top' | 'right' | 'right bottom' | 'right top' | 'top' | { x?: 'center' | 'left' | 'right', y?: 'bottom' | 'center' | 'top' };
+        my?:
+            | "bottom"
+            | "center"
+            | "left"
+            | "left bottom"
+            | "left top"
+            | "right"
+            | "right bottom"
+            | "right top"
+            | "top"
+            | {
+                  x?: "center" | "left" | "right";
+                  y?: "bottom" | "center" | "top";
+              };
         /** @name positionConfig.of */
         of?: string | Element | JQuery | Window;
         /** @name positionConfig.offset */
-        offset?: string | { x?: number, y?: number };
+        offset?: string | { x?: number; y?: number };
     }
     /** @name registerComponent(name, componentClass) */
     export function registerComponent(name: string, componentClass: any): void;
     /** @name registerComponent(name, namespace, componentClass) */
-    export function registerComponent(name: string, namespace: any, componentClass: any): void;
+    export function registerComponent(
+        name: string,
+        namespace: any,
+        componentClass: any
+    ): void;
     /** @name setTemplateEngine(name) */
     export function setTemplateEngine(templateEngineName: string): void;
     /** @name setTemplateEngine(options) */
-    export function setTemplateEngine(templateEngineOptions: { compile?: Function, render?: Function }): void;
+    export function setTemplateEngine(templateEngineOptions: {
+        compile?: Function;
+        render?: Function;
+    }): void;
     /** @name ui */
     export class ui {
         /** @name ui.notify(message,type,displayTime) */
-        static notify(message: string, type?: string, displayTime?: number): void;
+        static notify(
+            message: string,
+            type?: string,
+            displayTime?: number
+        ): void;
         /** @name ui.notify(options,type,displayTime) */
         static notify(options: any, type?: string, displayTime?: number): void;
         /** @name ui.repaintFloatingActionButton() */
@@ -841,7 +968,10 @@ declare module DevExpress {
         /** @name ui.setTemplateEngine(name) */
         static setTemplateEngine(templateEngineName: string): void;
         /** @name ui.setTemplateEngine(options) */
-        static setTemplateEngine(templateEngineOptions: { compile?: Function, render?: Function }): void;
+        static setTemplateEngine(templateEngineOptions: {
+            compile?: Function;
+            render?: Function;
+        }): void;
     }
     /** @name validationEngine */
     export class validationEngine {
@@ -860,7 +990,9 @@ declare module DevExpress {
         /** @name validationEngine.validateGroup() */
         static validateGroup(): DevExpress.ui.dxValidationGroupResult;
         /** @name validationEngine.validateGroup(group) */
-        static validateGroup(group: string | any): DevExpress.ui.dxValidationGroupResult;
+        static validateGroup(
+            group: string | any
+        ): DevExpress.ui.dxValidationGroupResult;
         /** @name validationEngine.validateModel(model) */
         static validateModel(model: any): any;
     }
@@ -877,13 +1009,68 @@ declare module DevExpress {
         /** @name viz.currentTheme(theme) */
         static currentTheme(theme: string): void;
         /** @name viz.exportFromMarkup(markup, options) */
-        static exportFromMarkup(markup: string, options: { fileName?: string, format?: string, backgroundColor?: string, proxyUrl?: string, width?: number, height?: number, onExporting?: Function, onExported?: Function, onFileSaving?: Function, margin?: number, svgToCanvas?: Function }): void;
+        static exportFromMarkup(
+            markup: string,
+            options: {
+                fileName?: string;
+                format?: string;
+                backgroundColor?: string;
+                proxyUrl?: string;
+                width?: number;
+                height?: number;
+                onExporting?: Function;
+                onExported?: Function;
+                onFileSaving?: Function;
+                margin?: number;
+                svgToCanvas?: Function;
+            }
+        ): void;
         /** @name viz.exportWidgets(widgetInstances) */
         static exportWidgets(widgetInstances: Array<Array<DOMComponent>>): void;
         /** @name viz.exportWidgets(widgetInstances, options) */
-        static exportWidgets(widgetInstances: Array<Array<DOMComponent>>, options: { fileName?: string, format?: 'GIF' | 'JPEG' | 'PDF' | 'PNG' | 'SVG', backgroundColor?: string, margin?: number, gridLayout?: boolean, verticalAlignment?: 'bottom' | 'center' | 'top', horizontalAlignment?: 'center' | 'left' | 'right', proxyUrl?: string, onExporting?: Function, onExported?: Function, onFileSaving?: Function, svgToCanvas?: Function }): void;
+        static exportWidgets(
+            widgetInstances: Array<Array<DOMComponent>>,
+            options: {
+                fileName?: string;
+                format?: "GIF" | "JPEG" | "PDF" | "PNG" | "SVG";
+                backgroundColor?: string;
+                margin?: number;
+                gridLayout?: boolean;
+                verticalAlignment?: "bottom" | "center" | "top";
+                horizontalAlignment?: "center" | "left" | "right";
+                proxyUrl?: string;
+                onExporting?: Function;
+                onExported?: Function;
+                onFileSaving?: Function;
+                svgToCanvas?: Function;
+            }
+        ): void;
         /** @name viz.generateColors(palette, count, options) */
-        static generateColors(palette: 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office' | Array<string>, count: number, options: { paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate', baseColorSet?: 'simpleSet' | 'indicatingSet' | 'gradientSet' }): Array<string>;
+        static generateColors(
+            palette:
+                | "Bright"
+                | "Default"
+                | "Harmony Light"
+                | "Ocean"
+                | "Pastel"
+                | "Soft"
+                | "Soft Pastel"
+                | "Vintage"
+                | "Violet"
+                | "Carmine"
+                | "Dark Moon"
+                | "Dark Violet"
+                | "Green Mist"
+                | "Soft Blue"
+                | "Material"
+                | "Office"
+                | Array<string>,
+            count: number,
+            options: {
+                paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
+                baseColorSet?: "simpleSet" | "indicatingSet" | "gradientSet";
+            }
+        ): Array<string>;
         /** @name viz.getMarkup(widgetInstances) */
         static getMarkup(widgetInstances: Array<DOMComponent>): string;
         /** @name viz.getPalette(paletteName) */
@@ -910,7 +1097,7 @@ declare module DevExpress.core {
     }
     /** @name dxTemplate */
     export class dxTemplate {
-        constructor(options?: dxTemplateOptions)
+        constructor(options?: dxTemplateOptions);
     }
     /** @name template */
     export type template = string | Function | Element | JQuery;
@@ -923,7 +1110,7 @@ declare module DevExpress.data {
     }
     /** @name ArrayStore */
     export class ArrayStore extends Store {
-        constructor(options?: ArrayStoreOptions)
+        constructor(options?: ArrayStoreOptions);
         /** @name ArrayStore.clear() */
         clear(): void;
         /** @name ArrayStore.createQuery() */
@@ -932,27 +1119,39 @@ declare module DevExpress.data {
     /** @name CustomStore.Options */
     export interface CustomStoreOptions extends StoreOptions<CustomStore> {
         /** @name CustomStore.Options.byKey */
-        byKey?: ((key: any | string | number) => Promise<any> | JQueryPromise<any>);
+        byKey?: (
+            key: any | string | number
+        ) => Promise<any> | JQueryPromise<any>;
         /** @name CustomStore.Options.cacheRawData */
         cacheRawData?: boolean;
         /** @name CustomStore.Options.insert */
-        insert?: ((values: any) => Promise<any> | JQueryPromise<any>);
+        insert?: (values: any) => Promise<any> | JQueryPromise<any>;
         /** @name CustomStore.Options.load */
-        load?: ((options: LoadOptions) => Promise<any> | JQueryPromise<any> | Array<any>);
+        load?: (
+            options: LoadOptions
+        ) => Promise<any> | JQueryPromise<any> | Array<any>;
         /** @name CustomStore.Options.loadMode */
-        loadMode?: 'processed' | 'raw';
+        loadMode?: "processed" | "raw";
         /** @name CustomStore.Options.remove */
-        remove?: ((key: any | string | number) => Promise<void> | JQueryPromise<void>);
+        remove?: (
+            key: any | string | number
+        ) => Promise<void> | JQueryPromise<void>;
         /** @name CustomStore.Options.totalCount */
-        totalCount?: ((loadOptions: { filter?: any, group?: any }) => Promise<number> | JQueryPromise<number>);
+        totalCount?: (loadOptions: {
+            filter?: any;
+            group?: any;
+        }) => Promise<number> | JQueryPromise<number>;
         /** @name CustomStore.Options.update */
-        update?: ((key: any | string | number, values: any) => Promise<any> | JQueryPromise<any>);
+        update?: (
+            key: any | string | number,
+            values: any
+        ) => Promise<any> | JQueryPromise<any>;
         /** @name CustomStore.Options.useDefaultSearch */
         useDefaultSearch?: boolean;
     }
     /** @name CustomStore */
     export class CustomStore extends Store {
-        constructor(options?: CustomStoreOptions)
+        constructor(options?: CustomStoreOptions);
         /** @name CustomStore.clearRawDataCache() */
         clearRawDataCache(): void;
     }
@@ -967,19 +1166,19 @@ declare module DevExpress.data {
         /** @name DataSource.Options.group */
         group?: string | Array<any> | Function;
         /** @name DataSource.Options.map */
-        map?: ((dataItem: any) => any);
+        map?: (dataItem: any) => any;
         /** @name DataSource.Options.onChanged */
-        onChanged?: ((e: { changes?: Array<any> }) => any);
+        onChanged?: (e: { changes?: Array<any> }) => any;
         /** @name DataSource.Options.onLoadError */
-        onLoadError?: ((error: { message?: string }) => any);
+        onLoadError?: (error: { message?: string }) => any;
         /** @name DataSource.Options.onLoadingChanged */
-        onLoadingChanged?: ((isLoading: boolean) => any);
+        onLoadingChanged?: (isLoading: boolean) => any;
         /** @name DataSource.Options.pageSize */
         pageSize?: number;
         /** @name DataSource.Options.paginate */
         paginate?: boolean;
         /** @name DataSource.Options.postProcess */
-        postProcess?: ((data: Array<any>) => Array<any>);
+        postProcess?: (data: Array<any>) => Array<any>;
         /** @name DataSource.Options.pushAggregationTimeout */
         pushAggregationTimeout?: number;
         /** @name DataSource.Options.requireTotalCount */
@@ -1145,20 +1344,32 @@ declare module DevExpress.data {
     }
     /** @name LocalStore */
     export class LocalStore extends ArrayStore {
-        constructor(options?: LocalStoreOptions)
+        constructor(options?: LocalStoreOptions);
         /** @name LocalStore.clear() */
         clear(): void;
     }
     /** @name ODataContext.Options */
     export interface ODataContextOptions {
         /** @name ODataContext.Options.beforeSend */
-        beforeSend?: ((options: { url?: string, async?: boolean, method?: string, timeout?: number, params?: any, payload?: any, headers?: any }) => any);
+        beforeSend?: (options: {
+            url?: string;
+            async?: boolean;
+            method?: string;
+            timeout?: number;
+            params?: any;
+            payload?: any;
+            headers?: any;
+        }) => any;
         /** @name ODataContext.Options.deserializeDates */
         deserializeDates?: boolean;
         /** @name ODataContext.Options.entities */
         entities?: any;
         /** @name ODataContext.Options.errorHandler */
-        errorHandler?: ((e: { httpStatus?: number, errorDetails?: any, requestOptions?: any }) => any);
+        errorHandler?: (e: {
+            httpStatus?: number;
+            errorDetails?: any;
+            requestOptions?: any;
+        }) => any;
         /** @name ODataContext.Options.filterToLower */
         filterToLower?: boolean;
         /** @name ODataContext.Options.jsonp */
@@ -1172,22 +1383,41 @@ declare module DevExpress.data {
     }
     /** @name ODataContext */
     export class ODataContext {
-        constructor(options?: ODataContextOptions)
+        constructor(options?: ODataContextOptions);
         /** @name ODataContext.get(operationName, params) */
-        get(operationName: string, params: any): Promise<any> & JQueryPromise<any>;
+        get(
+            operationName: string,
+            params: any
+        ): Promise<any> & JQueryPromise<any>;
         /** @name ODataContext.invoke(operationName, params, httpMethod) */
-        invoke(operationName: string, params: any, httpMethod: any): Promise<void> & JQueryPromise<void>;
+        invoke(
+            operationName: string,
+            params: any,
+            httpMethod: any
+        ): Promise<void> & JQueryPromise<void>;
         /** @name ODataContext.objectLink(entityAlias, key) */
         objectLink(entityAlias: string, key: any | string | number): any;
     }
     /** @name ODataStore.Options */
     export interface ODataStoreOptions extends StoreOptions<ODataStore> {
         /** @name ODataStore.Options.beforeSend */
-        beforeSend?: ((options: { url?: string, async?: boolean, method?: string, timeout?: number, params?: any, payload?: any, headers?: any }) => any);
+        beforeSend?: (options: {
+            url?: string;
+            async?: boolean;
+            method?: string;
+            timeout?: number;
+            params?: any;
+            payload?: any;
+            headers?: any;
+        }) => any;
         /** @name ODataStore.Options.deserializeDates */
         deserializeDates?: boolean;
         /** @name ODataStore.Options.errorHandler */
-        errorHandler?: ((e: { httpStatus?: number, errorDetails?: any, requestOptions?: any }) => any);
+        errorHandler?: (e: {
+            httpStatus?: number;
+            errorDetails?: any;
+            requestOptions?: any;
+        }) => any;
         /** @name ODataStore.Options.fieldTypes */
         fieldTypes?: any;
         /** @name ODataStore.Options.filterToLower */
@@ -1195,9 +1425,17 @@ declare module DevExpress.data {
         /** @name ODataStore.Options.jsonp */
         jsonp?: boolean;
         /** @name ODataStore.Options.keyType */
-        keyType?: 'String' | 'Int32' | 'Int64' | 'Guid' | 'Boolean' | 'Single' | 'Decimal' | any;
+        keyType?:
+            | "String"
+            | "Int32"
+            | "Int64"
+            | "Guid"
+            | "Boolean"
+            | "Single"
+            | "Decimal"
+            | any;
         /** @name ODataStore.Options.onLoading */
-        onLoading?: ((loadOptions: LoadOptions) => any);
+        onLoading?: (loadOptions: LoadOptions) => any;
         /** @name ODataStore.Options.url */
         url?: string;
         /** @name ODataStore.Options.version */
@@ -1207,11 +1445,17 @@ declare module DevExpress.data {
     }
     /** @name ODataStore */
     export class ODataStore extends Store {
-        constructor(options?: ODataStoreOptions)
+        constructor(options?: ODataStoreOptions);
         /** @name Store.byKey(key) */
         byKey(key: any | string | number): Promise<any> & JQueryPromise<any>;
         /** @name ODataStore.byKey(key, extraOptions) */
-        byKey(key: any | string | number, extraOptions: { expand?: string | Array<string>, select?: string | Array<string> }): Promise<any> & JQueryPromise<any>;
+        byKey(
+            key: any | string | number,
+            extraOptions: {
+                expand?: string | Array<string>;
+                select?: string | Array<string>;
+            }
+        ): Promise<any> & JQueryPromise<any>;
         /** @name ODataStore.createQuery(loadOptions) */
         createQuery(loadOptions: any): any;
     }
@@ -1224,11 +1468,11 @@ declare module DevExpress.data {
         /** @name PivotGridDataSource.Options.onChanged */
         onChanged?: Function;
         /** @name PivotGridDataSource.Options.onFieldsPrepared */
-        onFieldsPrepared?: ((fields: Array<PivotGridDataSourceField>) => any);
+        onFieldsPrepared?: (fields: Array<PivotGridDataSourceField>) => any;
         /** @name PivotGridDataSource.Options.onLoadError */
-        onLoadError?: ((error: any) => any);
+        onLoadError?: (error: any) => any;
         /** @name PivotGridDataSource.Options.onLoadingChanged */
-        onLoadingChanged?: ((isLoading: boolean) => any);
+        onLoadingChanged?: (isLoading: boolean) => any;
         /** @name PivotGridDataSource.Options.paginate */
         paginate?: boolean;
         /** @name PivotGridDataSource.Options.remoteOperations */
@@ -1236,7 +1480,13 @@ declare module DevExpress.data {
         /** @name PivotGridDataSource.Options.retrieveFields */
         retrieveFields?: boolean;
         /** @name PivotGridDataSource.Options.store */
-        store?: Store | StoreOptions | XmlaStore | XmlaStoreOptions | Array<{ type?: 'array' | 'local' | 'odata' | 'xmla' }> | { type?: 'array' | 'local' | 'odata' | 'xmla' };
+        store?:
+            | Store
+            | StoreOptions
+            | XmlaStore
+            | XmlaStoreOptions
+            | Array<{ type?: "array" | "local" | "odata" | "xmla" }>
+            | { type?: "array" | "local" | "odata" | "xmla" };
     }
     /** @name PivotGridDataSource.Options.fields */
     export interface PivotGridDataSourceField {
@@ -1251,27 +1501,36 @@ declare module DevExpress.data {
         /** @name PivotGridDataSource.Options.fields.allowSortingBySummary */
         allowSortingBySummary?: boolean;
         /** @name PivotGridDataSource.Options.fields.area */
-        area?: 'column' | 'data' | 'filter' | 'row' | undefined;
+        area?: "column" | "data" | "filter" | "row" | undefined;
         /** @name PivotGridDataSource.Options.fields.areaIndex */
         areaIndex?: number;
         /** @name PivotGridDataSource.Options.fields.calculateCustomSummary */
-        calculateCustomSummary?: ((options: { summaryProcess?: string, value?: any, totalValue?: any }) => any);
+        calculateCustomSummary?: (options: {
+            summaryProcess?: string;
+            value?: any;
+            totalValue?: any;
+        }) => any;
         /** @name PivotGridDataSource.Options.fields.calculateSummaryValue */
-        calculateSummaryValue?: ((e: DevExpress.ui.dxPivotGridSummaryCell) => number);
+        calculateSummaryValue?: (
+            e: DevExpress.ui.dxPivotGridSummaryCell
+        ) => number;
         /** @name PivotGridDataSource.Options.fields.caption */
         caption?: string;
         /** @name PivotGridDataSource.Options.fields.customizeText */
-        customizeText?: ((cellInfo: { value?: string | number | Date, valueText?: string }) => string);
+        customizeText?: (cellInfo: {
+            value?: string | number | Date;
+            valueText?: string;
+        }) => string;
         /** @name PivotGridDataSource.Options.fields.dataField */
         dataField?: string;
         /** @name PivotGridDataSource.Options.fields.dataType */
-        dataType?: 'date' | 'number' | 'string';
+        dataType?: "date" | "number" | "string";
         /** @name PivotGridDataSource.Options.fields.displayFolder */
         displayFolder?: string;
         /** @name PivotGridDataSource.Options.fields.expanded */
         expanded?: boolean;
         /** @name PivotGridDataSource.Options.fields.filterType */
-        filterType?: 'exclude' | 'include';
+        filterType?: "exclude" | "include";
         /** @name PivotGridDataSource.Options.fields.filterValues */
         filterValues?: Array<any>;
         /** @name PivotGridDataSource.Options.fields.format */
@@ -1279,17 +1538,27 @@ declare module DevExpress.data {
         /** @name PivotGridDataSource.Options.fields.groupIndex */
         groupIndex?: number;
         /** @name PivotGridDataSource.Options.fields.groupInterval */
-        groupInterval?: 'day' | 'dayOfWeek' | 'month' | 'quarter' | 'year' | number;
+        groupInterval?:
+            | "day"
+            | "dayOfWeek"
+            | "month"
+            | "quarter"
+            | "year"
+            | number;
         /** @name PivotGridDataSource.Options.fields.groupName */
         groupName?: string;
         /** @name PivotGridDataSource.Options.fields.headerFilter */
-        headerFilter?: { allowSearch?: boolean, height?: number, width?: number };
+        headerFilter?: {
+            allowSearch?: boolean;
+            height?: number;
+            width?: number;
+        };
         /** @name PivotGridDataSource.Options.fields.isMeasure */
         isMeasure?: boolean;
         /** @name PivotGridDataSource.Options.fields.name */
         name?: string;
         /** @name PivotGridDataSource.Options.fields.runningTotal */
-        runningTotal?: 'column' | 'row';
+        runningTotal?: "column" | "row";
         /** @name PivotGridDataSource.Options.fields.selector */
         selector?: Function;
         /** @name PivotGridDataSource.Options.fields.showGrandTotals */
@@ -1299,19 +1568,36 @@ declare module DevExpress.data {
         /** @name PivotGridDataSource.Options.fields.showValues */
         showValues?: boolean;
         /** @name PivotGridDataSource.Options.fields.sortBy */
-        sortBy?: 'displayText' | 'value' | 'none';
+        sortBy?: "displayText" | "value" | "none";
         /** @name PivotGridDataSource.Options.fields.sortBySummaryField */
         sortBySummaryField?: string;
         /** @name PivotGridDataSource.Options.fields.sortBySummaryPath */
         sortBySummaryPath?: Array<number | string>;
         /** @name PivotGridDataSource.Options.fields.sortOrder */
-        sortOrder?: 'asc' | 'desc';
+        sortOrder?: "asc" | "desc";
         /** @name PivotGridDataSource.Options.fields.sortingMethod */
-        sortingMethod?: ((a: { value?: string | number, children?: Array<any> }, b: { value?: string | number, children?: Array<any> }) => number);
+        sortingMethod?: (
+            a: { value?: string | number; children?: Array<any> },
+            b: { value?: string | number; children?: Array<any> }
+        ) => number;
         /** @name PivotGridDataSource.Options.fields.summaryDisplayMode */
-        summaryDisplayMode?: 'absoluteVariation' | 'percentOfColumnGrandTotal' | 'percentOfColumnTotal' | 'percentOfGrandTotal' | 'percentOfRowGrandTotal' | 'percentOfRowTotal' | 'percentVariation';
+        summaryDisplayMode?:
+            | "absoluteVariation"
+            | "percentOfColumnGrandTotal"
+            | "percentOfColumnTotal"
+            | "percentOfGrandTotal"
+            | "percentOfRowGrandTotal"
+            | "percentOfRowTotal"
+            | "percentVariation";
         /** @name PivotGridDataSource.Options.fields.summaryType */
-        summaryType?: 'avg' | 'count' | 'custom' | 'max' | 'min' | 'sum' | string;
+        summaryType?:
+            | "avg"
+            | "count"
+            | "custom"
+            | "max"
+            | "min"
+            | "sum"
+            | string;
         /** @name PivotGridDataSource.Options.fields.visible */
         visible?: boolean;
         /** @name PivotGridDataSource.Options.fields.width */
@@ -1321,13 +1607,22 @@ declare module DevExpress.data {
     }
     /** @name PivotGridDataSource */
     export class PivotGridDataSource {
-        constructor(options?: PivotGridDataSourceOptions)
+        constructor(options?: PivotGridDataSourceOptions);
         /** @name PivotGridDataSource.collapseAll(id) */
         collapseAll(id: number | string): void;
         /** @name PivotGridDataSource.collapseHeaderItem(area, path) */
-        collapseHeaderItem(area: string, path: Array<string | number | Date>): void;
+        collapseHeaderItem(
+            area: string,
+            path: Array<string | number | Date>
+        ): void;
         /** @name PivotGridDataSource.createDrillDownDataSource(options) */
-        createDrillDownDataSource(options: { columnPath?: Array<string | number | Date>, rowPath?: Array<string | number | Date>, dataIndex?: number, maxRowCount?: number, customColumns?: Array<string> }): DataSource;
+        createDrillDownDataSource(options: {
+            columnPath?: Array<string | number | Date>;
+            rowPath?: Array<string | number | Date>;
+            dataIndex?: number;
+            maxRowCount?: number;
+            customColumns?: Array<string>;
+        }): DataSource;
         /** @name PivotGridDataSource.dispose() */
         dispose(): void;
         /** @name PivotGridDataSource.expandAll(id) */
@@ -1347,7 +1642,10 @@ declare module DevExpress.data {
         /** @name PivotGridDataSource.filter(filterExpr) */
         filter(filterExpr: any): void;
         /** @name PivotGridDataSource.getAreaFields(area, collectGroups) */
-        getAreaFields(area: string, collectGroups: boolean): Array<PivotGridDataSourceField>;
+        getAreaFields(
+            area: string,
+            collectGroups: boolean
+        ): Array<PivotGridDataSourceField>;
         /** @name PivotGridDataSource.getData() */
         getData(): any;
         /** @name PivotGridDataSource.isLoading() */
@@ -1372,7 +1670,11 @@ declare module DevExpress.data {
     /** @name Query */
     export class Query {
         /** @name Query.aggregate(seed, step, finalize) */
-        aggregate(seed: any, step: Function, finalize: Function): Promise<any> & JQueryPromise<any>;
+        aggregate(
+            seed: any,
+            step: Function,
+            finalize: Function
+        ): Promise<any> & JQueryPromise<any>;
         /** @name Query.aggregate(step) */
         aggregate(step: Function): Promise<any> & JQueryPromise<any>;
         /** @name Query.avg() */
@@ -1423,31 +1725,31 @@ declare module DevExpress.data {
         /** @name Store.Options.key */
         key?: string | Array<string>;
         /** @name Store.Options.onInserted */
-        onInserted?: ((values: any, key: any | string | number) => any);
+        onInserted?: (values: any, key: any | string | number) => any;
         /** @name Store.Options.onInserting */
-        onInserting?: ((values: any) => any);
+        onInserting?: (values: any) => any;
         /** @name Store.Options.onLoaded */
-        onLoaded?: ((result: Array<any>) => any);
+        onLoaded?: (result: Array<any>) => any;
         /** @name Store.Options.onLoading */
-        onLoading?: ((loadOptions: LoadOptions) => any);
+        onLoading?: (loadOptions: LoadOptions) => any;
         /** @name Store.Options.onModified */
         onModified?: Function;
         /** @name Store.Options.onModifying */
         onModifying?: Function;
         /** @name Store.Options.onPush */
-        onPush?: ((changes: Array<any>) => any);
+        onPush?: (changes: Array<any>) => any;
         /** @name Store.Options.onRemoved */
-        onRemoved?: ((key: any | string | number) => any);
+        onRemoved?: (key: any | string | number) => any;
         /** @name Store.Options.onRemoving */
-        onRemoving?: ((key: any | string | number) => any);
+        onRemoving?: (key: any | string | number) => any;
         /** @name Store.Options.onUpdated */
-        onUpdated?: ((key: any | string | number, values: any) => any);
+        onUpdated?: (key: any | string | number, values: any) => any;
         /** @name Store.Options.onUpdating */
-        onUpdating?: ((key: any | string | number, values: any) => any);
+        onUpdating?: (key: any | string | number, values: any) => any;
     }
     /** @name Store */
     export class Store {
-        constructor(options?: StoreOptions)
+        constructor(options?: StoreOptions);
         /** @name Store.byKey(key) */
         byKey(key: any | string | number): Promise<any> & JQueryPromise<any>;
         /** @name Store.insert(values) */
@@ -1473,14 +1775,27 @@ declare module DevExpress.data {
         /** @name Store.remove(key) */
         remove(key: any | string | number): Promise<void> & JQueryPromise<void>;
         /** @name Store.totalCount(options) */
-        totalCount(obj: { filter?: any, group?: any }): Promise<number> & JQueryPromise<number>;
+        totalCount(obj: {
+            filter?: any;
+            group?: any;
+        }): Promise<number> & JQueryPromise<number>;
         /** @name Store.update(key, values) */
-        update(key: any | string | number, values: any): Promise<any> & JQueryPromise<any>;
+        update(
+            key: any | string | number,
+            values: any
+        ): Promise<any> & JQueryPromise<any>;
     }
     /** @name XmlaStore.Options */
     export interface XmlaStoreOptions {
         /** @name XmlaStore.Options.beforeSend */
-        beforeSend?: ((options: { url?: string, method?: string, headers?: any, xhrFields?: any, data?: string, dataType?: string }) => any);
+        beforeSend?: (options: {
+            url?: string;
+            method?: string;
+            headers?: any;
+            xhrFields?: any;
+            data?: string;
+            dataType?: string;
+        }) => any;
         /** @name XmlaStore.Options.catalog */
         catalog?: string;
         /** @name XmlaStore.Options.cube */
@@ -1490,7 +1805,7 @@ declare module DevExpress.data {
     }
     /** @name XmlaStore */
     export class XmlaStore {
-        constructor(options?: XmlaStoreOptions)
+        constructor(options?: XmlaStoreOptions);
     }
     /** @name Utils.base64_encode(input) */
     export function base64_encode(input: string | Array<number>): string;
@@ -1538,41 +1853,114 @@ declare module DevExpress.events {
     /** @name event */
     export type event = dxEvent | JQueryEventObject;
     /** @name eventsHandler */
-    export function eventsHandler(event: dxEvent, extraParameters: any): boolean;
+    export function eventsHandler(
+        event: dxEvent,
+        extraParameters: any
+    ): boolean;
     /** @name events.off(element) */
     export function off(element: Element | Array<Element>): void;
     /** @name events.off(element, eventName) */
-    export function off(element: Element | Array<Element>, eventName: string): void;
+    export function off(
+        element: Element | Array<Element>,
+        eventName: string
+    ): void;
     /** @name events.off(element, eventName, handler) */
-    export function off(element: Element | Array<Element>, eventName: string, handler: Function): void;
+    export function off(
+        element: Element | Array<Element>,
+        eventName: string,
+        handler: Function
+    ): void;
     /** @name events.off(element, eventName, selector) */
-    export function off(element: Element | Array<Element>, eventName: string, selector: string): void;
+    export function off(
+        element: Element | Array<Element>,
+        eventName: string,
+        selector: string
+    ): void;
     /** @name events.off(element, eventName, selector, handler) */
-    export function off(element: Element | Array<Element>, eventName: string, selector: string, handler: Function): void;
+    export function off(
+        element: Element | Array<Element>,
+        eventName: string,
+        selector: string,
+        handler: Function
+    ): void;
     /** @name events.on(element, eventName, data, handler) */
-    export function on(element: Element | Array<Element>, eventName: string, data: any, handler: Function): void;
+    export function on(
+        element: Element | Array<Element>,
+        eventName: string,
+        data: any,
+        handler: Function
+    ): void;
     /** @name events.on(element, eventName, handler) */
-    export function on(element: Element | Array<Element>, eventName: string, handler: Function): void;
+    export function on(
+        element: Element | Array<Element>,
+        eventName: string,
+        handler: Function
+    ): void;
     /** @name events.on(element, eventName, selector, data, handler) */
-    export function on(element: Element | Array<Element>, eventName: string, selector: string, data: any, handler: Function): void;
+    export function on(
+        element: Element | Array<Element>,
+        eventName: string,
+        selector: string,
+        data: any,
+        handler: Function
+    ): void;
     /** @name events.on(element, eventName, selector, handler) */
-    export function on(element: Element | Array<Element>, eventName: string, selector: string, handler: Function): void;
+    export function on(
+        element: Element | Array<Element>,
+        eventName: string,
+        selector: string,
+        handler: Function
+    ): void;
     /** @name events.one(element, eventName, data, handler) */
-    export function one(element: Element | Array<Element>, eventName: string, data: any, handler: Function): void;
+    export function one(
+        element: Element | Array<Element>,
+        eventName: string,
+        data: any,
+        handler: Function
+    ): void;
     /** @name events.one(element, eventName, handler) */
-    export function one(element: Element | Array<Element>, eventName: string, handler: Function): void;
+    export function one(
+        element: Element | Array<Element>,
+        eventName: string,
+        handler: Function
+    ): void;
     /** @name events.one(element, eventName, selector, data, handler) */
-    export function one(element: Element | Array<Element>, eventName: string, selector: string, data: any, handler: Function): void;
+    export function one(
+        element: Element | Array<Element>,
+        eventName: string,
+        selector: string,
+        data: any,
+        handler: Function
+    ): void;
     /** @name events.one(element, eventName, selector, handler) */
-    export function one(element: Element | Array<Element>, eventName: string, selector: string, handler: Function): void;
+    export function one(
+        element: Element | Array<Element>,
+        eventName: string,
+        selector: string,
+        handler: Function
+    ): void;
     /** @name events.trigger(element, event) */
-    export function trigger(element: Element | Array<Element>, event: string | event): void;
+    export function trigger(
+        element: Element | Array<Element>,
+        event: string | event
+    ): void;
     /** @name events.trigger(element, event, extraParameters) */
-    export function trigger(element: Element | Array<Element>, event: string | event, extraParameters: any): void;
+    export function trigger(
+        element: Element | Array<Element>,
+        event: string | event,
+        extraParameters: any
+    ): void;
     /** @name events.triggerHandler(element, event) */
-    export function triggerHandler(element: Element | Array<Element>, event: string | event): void;
+    export function triggerHandler(
+        element: Element | Array<Element>,
+        event: string | event
+    ): void;
     /** @name events.triggerHandler(element, event, extraParameters) */
-    export function triggerHandler(element: Element | Array<Element>, event: string | event, extraParameters: any): void;
+    export function triggerHandler(
+        element: Element | Array<Element>,
+        event: string | event,
+        extraParameters: any
+    ): void;
 }
 declare module DevExpress.excelExporter {
     /** @name CellAddress */
@@ -1598,7 +1986,7 @@ declare module DevExpress.excelExporter {
         /** @name ExcelDataGridCell.groupIndex */
         groupIndex?: number;
         /** @name ExcelDataGridCell.groupSummaryItems */
-        groupSummaryItems?: Array<{ name?: string, value?: any }>;
+        groupSummaryItems?: Array<{ name?: string; value?: any }>;
         /** @name ExcelDataGridCell.rowType */
         rowType?: string;
         /** @name ExcelDataGridCell.totalSummaryItemName */
@@ -1613,7 +2001,10 @@ declare module DevExpress.excelExporter {
         /** @name ExportDataGridProps.component */
         component?: DevExpress.ui.dxDataGrid;
         /** @name ExportDataGridProps.customizeCell */
-        customizeCell?: ((options: { gridCell?: ExcelDataGridCell, excelCell?: any }) => any);
+        customizeCell?: (options: {
+            gridCell?: ExcelDataGridCell;
+            excelCell?: any;
+        }) => any;
         /** @name ExportDataGridProps.keepColumnWidths */
         keepColumnWidths?: boolean;
         /** @name ExportDataGridProps.loadPanel */
@@ -1647,7 +2038,9 @@ declare module DevExpress.excelExporter {
         width?: number;
     }
     /** @name excelExporter.exportDataGrid(options) */
-    export function exportDataGrid(options: ExportDataGridProps): Promise<CellRange> & JQueryPromise<CellRange>;
+    export function exportDataGrid(
+        options: ExportDataGridProps
+    ): Promise<CellRange> & JQueryPromise<CellRange>;
 }
 declare module DevExpress.exporter {
     /** @name ExcelFont */
@@ -1663,38 +2056,68 @@ declare module DevExpress.exporter {
         /** @name ExcelFont.size */
         size?: number;
         /** @name ExcelFont.underline */
-        underline?: 'double' | 'doubleAccounting' | 'none' | 'single' | 'singleAccounting';
+        underline?:
+            | "double"
+            | "doubleAccounting"
+            | "none"
+            | "single"
+            | "singleAccounting";
     }
 }
 declare module DevExpress.fileManagement {
     /** @name CustomFileSystemProvider.Options */
-    export interface CustomFileSystemProviderOptions extends FileSystemProviderBaseOptions<CustomFileSystemProvider> {
+    export interface CustomFileSystemProviderOptions
+        extends FileSystemProviderBaseOptions<CustomFileSystemProvider> {
         /** @name CustomFileSystemProvider.Options.abortFileUpload */
-        abortFileUpload?: ((file: File, uploadInfo?: UploadInfo) => Promise<any> | JQueryPromise<any> | any);
+        abortFileUpload?: (
+            file: File,
+            uploadInfo?: UploadInfo
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name CustomFileSystemProvider.Options.copyItem */
-        copyItem?: ((item: FileSystemItem, destinationDirectory: FileSystemItem) => Promise<any> | JQueryPromise<any> | any);
+        copyItem?: (
+            item: FileSystemItem,
+            destinationDirectory: FileSystemItem
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name CustomFileSystemProvider.Options.createDirectory */
-        createDirectory?: ((parentDirectory: FileSystemItem, name: string) => Promise<any> | JQueryPromise<any> | any);
+        createDirectory?: (
+            parentDirectory: FileSystemItem,
+            name: string
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name CustomFileSystemProvider.Options.deleteItem */
-        deleteItem?: ((item: FileSystemItem) => Promise<any> | JQueryPromise<any> | any);
+        deleteItem?: (
+            item: FileSystemItem
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name CustomFileSystemProvider.Options.downloadItems */
-        downloadItems?: ((items: Array<FileSystemItem>) => any);
+        downloadItems?: (items: Array<FileSystemItem>) => any;
         /** @name CustomFileSystemProvider.Options.getItems */
-        getItems?: ((parentDirectory: FileSystemItem) => Promise<Array<any>> | JQueryPromise<Array<any>> | Array<any>);
+        getItems?: (
+            parentDirectory: FileSystemItem
+        ) => Promise<Array<any>> | JQueryPromise<Array<any>> | Array<any>;
         /** @name CustomFileSystemProvider.Options.getItemsContent */
-        getItemsContent?: ((items: Array<FileSystemItem>) => Promise<any> | JQueryPromise<any> | any);
+        getItemsContent?: (
+            items: Array<FileSystemItem>
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name CustomFileSystemProvider.Options.hasSubDirectoriesExpr */
         hasSubDirectoriesExpr?: string | Function;
         /** @name CustomFileSystemProvider.Options.moveItem */
-        moveItem?: ((item: FileSystemItem, destinationDirectory: FileSystemItem) => Promise<any> | JQueryPromise<any> | any);
+        moveItem?: (
+            item: FileSystemItem,
+            destinationDirectory: FileSystemItem
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name CustomFileSystemProvider.Options.renameItem */
-        renameItem?: ((item: FileSystemItem, newName: string) => Promise<any> | JQueryPromise<any> | any);
+        renameItem?: (
+            item: FileSystemItem,
+            newName: string
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name CustomFileSystemProvider.Options.uploadFileChunk */
-        uploadFileChunk?: ((file: File, uploadInfo: UploadInfo) => Promise<any> | JQueryPromise<any> | any);
+        uploadFileChunk?: (
+            file: File,
+            uploadInfo: UploadInfo
+        ) => Promise<any> | JQueryPromise<any> | any;
     }
     /** @name CustomFileSystemProvider */
     export class CustomFileSystemProvider extends FileSystemProviderBase {
-        constructor(options?: CustomFileSystemProviderOptions)
+        constructor(options?: CustomFileSystemProviderOptions);
     }
     /** @name FileSystemItem */
     export class FileSystemItem {
@@ -1734,30 +2157,57 @@ declare module DevExpress.fileManagement {
     }
     /** @name FileSystemProviderBase */
     export class FileSystemProviderBase {
-        constructor(options?: FileSystemProviderBaseOptions)
+        constructor(options?: FileSystemProviderBaseOptions);
         /** @name FileSystemProviderBase.abortFileUpload() */
-        abortFileUpload(fileData: File, uploadInfo: any, destinationDirectory: FileSystemItem): Promise<any> & JQueryPromise<any>;
+        abortFileUpload(
+            fileData: File,
+            uploadInfo: any,
+            destinationDirectory: FileSystemItem
+        ): Promise<any> & JQueryPromise<any>;
         /** @name FileSystemProviderBase.copyItems() */
-        copyItems(items: Array<FileSystemItem>, destinationDirectory: FileSystemItem): Array<Promise<any> | JQueryPromise<any>>;
+        copyItems(
+            items: Array<FileSystemItem>,
+            destinationDirectory: FileSystemItem
+        ): Array<Promise<any> | JQueryPromise<any>>;
         /** @name FileSystemProviderBase.createDirectory() */
-        createDirectory(parentDirectory: FileSystemItem, name: string): Promise<any> & JQueryPromise<any>;
+        createDirectory(
+            parentDirectory: FileSystemItem,
+            name: string
+        ): Promise<any> & JQueryPromise<any>;
         /** @name FileSystemProviderBase.deleteItems() */
-        deleteItems(items: Array<FileSystemItem>): Array<Promise<any> | JQueryPromise<any>>;
+        deleteItems(
+            items: Array<FileSystemItem>
+        ): Array<Promise<any> | JQueryPromise<any>>;
         /** @name FileSystemProviderBase.downloadItems() */
         downloadItems(items: Array<FileSystemItem>): any;
         /** @name FileSystemProviderBase.getItems() */
-        getItems(parentDirectory: FileSystemItem): Promise<Array<any>> & JQueryPromise<Array<any>>;
+        getItems(
+            parentDirectory: FileSystemItem
+        ): Promise<Array<any>> & JQueryPromise<Array<any>>;
         /** @name FileSystemProviderBase.getItemsContent() */
-        getItemsContent(items: Array<FileSystemItem>): Promise<any> & JQueryPromise<any>;
+        getItemsContent(
+            items: Array<FileSystemItem>
+        ): Promise<any> & JQueryPromise<any>;
         /** @name FileSystemProviderBase.moveItems() */
-        moveItems(items: Array<FileSystemItem>, destinationDirectory: FileSystemItem): Array<Promise<any> | JQueryPromise<any>>;
+        moveItems(
+            items: Array<FileSystemItem>,
+            destinationDirectory: FileSystemItem
+        ): Array<Promise<any> | JQueryPromise<any>>;
         /** @name FileSystemProviderBase.renameItem() */
-        renameItem(item: FileSystemItem, newName: string): Promise<any> & JQueryPromise<any>;
+        renameItem(
+            item: FileSystemItem,
+            newName: string
+        ): Promise<any> & JQueryPromise<any>;
         /** @name FileSystemProviderBase.uploadFileChunk() */
-        uploadFileChunk(fileData: File, uploadInfo: any, destinationDirectory: FileSystemItem): Promise<any> & JQueryPromise<any>;
+        uploadFileChunk(
+            fileData: File,
+            uploadInfo: any,
+            destinationDirectory: FileSystemItem
+        ): Promise<any> & JQueryPromise<any>;
     }
     /** @name ObjectFileSystemProvider.Options */
-    export interface ObjectFileSystemProviderOptions extends FileSystemProviderBaseOptions<ObjectFileSystemProvider> {
+    export interface ObjectFileSystemProviderOptions
+        extends FileSystemProviderBaseOptions<ObjectFileSystemProvider> {
         /** @name ObjectFileSystemProvider.Options.contentExpr */
         contentExpr?: string | Function;
         /** @name ObjectFileSystemProvider.Options.data */
@@ -1767,10 +2217,11 @@ declare module DevExpress.fileManagement {
     }
     /** @name ObjectFileSystemProvider */
     export class ObjectFileSystemProvider extends FileSystemProviderBase {
-        constructor(options?: ObjectFileSystemProviderOptions)
+        constructor(options?: ObjectFileSystemProviderOptions);
     }
     /** @name RemoteFileSystemProvider.Options */
-    export interface RemoteFileSystemProviderOptions extends FileSystemProviderBaseOptions<RemoteFileSystemProvider> {
+    export interface RemoteFileSystemProviderOptions
+        extends FileSystemProviderBaseOptions<RemoteFileSystemProvider> {
         /** @name RemoteFileSystemProvider.Options.endpointUrl */
         endpointUrl?: string;
         /** @name RemoteFileSystemProvider.Options.hasSubDirectoriesExpr */
@@ -1778,7 +2229,7 @@ declare module DevExpress.fileManagement {
     }
     /** @name RemoteFileSystemProvider */
     export class RemoteFileSystemProvider extends FileSystemProviderBase {
-        constructor(options?: RemoteFileSystemProviderOptions)
+        constructor(options?: RemoteFileSystemProviderOptions);
     }
     /** @name UploadInfo */
     export interface UploadInfo {
@@ -1796,7 +2247,10 @@ declare module DevExpress.fileManagement {
 }
 declare module DevExpress.fx {
     /** @name fx.animate(element, config) */
-    export function animate(element: Element, config: animationConfig): Promise<void> & JQueryPromise<void>;
+    export function animate(
+        element: Element,
+        config: animationConfig
+    ): Promise<void> & JQueryPromise<void>;
     /** @name fx.isAnimating(element) */
     export function isAnimating(element: Element): boolean;
     /** @name fx.stop(element, jumpToEnd) */
@@ -1812,9 +2266,25 @@ declare module DevExpress.ui {
         /** @name AsyncRule.reevaluate */
         reevaluate?: boolean;
         /** @name AsyncRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
         /** @name AsyncRule.validationCallback */
-        validationCallback?: ((options: { value?: string | number, rule?: any, validator?: any, data?: any, column?: any, formItem?: any }) => Promise<any> | JQueryPromise<any>);
+        validationCallback?: (options: {
+            value?: string | number;
+            rule?: any;
+            validator?: any;
+            data?: any;
+            column?: any;
+            formItem?: any;
+        }) => Promise<any> | JQueryPromise<any>;
     }
     /** @name ColCountResponsible */
     export interface ColCountResponsible {
@@ -1828,13 +2298,24 @@ declare module DevExpress.ui {
         xs?: number;
     }
     /** @name CollectionWidget.Options */
-    export interface CollectionWidgetOptions<T = CollectionWidget> extends WidgetOptions<T> {
+    export interface CollectionWidgetOptions<T = CollectionWidget>
+        extends WidgetOptions<T> {
         /** @name CollectionWidget.Options.dataSource */
-        dataSource?: string | Array<string | CollectionWidgetItem> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | CollectionWidgetItem>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name CollectionWidget.Options.itemHoldTimeout */
         itemHoldTimeout?: number;
         /** @name CollectionWidget.Options.itemTemplate */
-        itemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name CollectionWidget.Options.items */
         items?: Array<string | CollectionWidgetItem | any>;
         /** @name CollectionWidget.Options.keyExpr */
@@ -1842,15 +2323,56 @@ declare module DevExpress.ui {
         /** @name CollectionWidget.Options.noDataText */
         noDataText?: string;
         /** @name CollectionWidget.Options.onItemClick */
-        onItemClick?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any) | string;
+        onItemClick?:
+            | ((e: {
+                  component?: T;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  itemData?: any;
+                  itemElement?: DevExpress.core.dxElement;
+                  itemIndex?: number;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name CollectionWidget.Options.onItemContextMenu */
-        onItemContextMenu?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onItemContextMenu?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name CollectionWidget.Options.onItemHold */
-        onItemHold?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, event?: DevExpress.events.event }) => any);
+        onItemHold?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name CollectionWidget.Options.onItemRendered */
-        onItemRendered?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number }) => any);
+        onItemRendered?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+        }) => any;
         /** @name CollectionWidget.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, addedItems?: Array<any>, removedItems?: Array<any> }) => any);
+        onSelectionChanged?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            addedItems?: Array<any>;
+            removedItems?: Array<any>;
+        }) => any;
         /** @name CollectionWidget.Options.selectedIndex */
         selectedIndex?: number;
         /** @name CollectionWidget.Options.selectedItem */
@@ -1862,8 +2384,8 @@ declare module DevExpress.ui {
     }
     /** @name CollectionWidget */
     export class CollectionWidget extends Widget {
-        constructor(element: Element, options?: CollectionWidgetOptions)
-        constructor(element: JQuery, options?: CollectionWidgetOptions)
+        constructor(element: Element, options?: CollectionWidgetOptions);
+        constructor(element: JQuery, options?: CollectionWidgetOptions);
         /** @name DataHelperMixin.getDataSource() */
         getDataSource(): DevExpress.data.DataSource;
     }
@@ -1883,9 +2405,9 @@ declare module DevExpress.ui {
     /** @name CompareRule */
     export interface CompareRule {
         /** @name CompareRule.comparisonTarget */
-        comparisonTarget?: (() => any);
+        comparisonTarget?: () => any;
         /** @name CompareRule.comparisonType */
-        comparisonType?: '!=' | '!==' | '<' | '<=' | '==' | '===' | '>' | '>=';
+        comparisonType?: "!=" | "!==" | "<" | "<=" | "==" | "===" | ">" | ">=";
         /** @name CompareRule.ignoreEmptyValue */
         ignoreEmptyValue?: boolean;
         /** @name CompareRule.message */
@@ -1893,7 +2415,16 @@ declare module DevExpress.ui {
         /** @name CompareRule.reevaluate */
         reevaluate?: boolean;
         /** @name CompareRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
     }
     /** @name CustomRule */
     export interface CustomRule {
@@ -1904,18 +2435,44 @@ declare module DevExpress.ui {
         /** @name CustomRule.reevaluate */
         reevaluate?: boolean;
         /** @name CustomRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
         /** @name CustomRule.validationCallback */
-        validationCallback?: ((options: { value?: string | number, rule?: any, validator?: any, data?: any, column?: any, formItem?: any }) => boolean);
+        validationCallback?: (options: {
+            value?: string | number;
+            rule?: any;
+            validator?: any;
+            data?: any;
+            column?: any;
+            formItem?: any;
+        }) => boolean;
     }
     /** @name DataExpressionMixin.Options */
     export interface DataExpressionMixinOptions<T = DataExpressionMixin> {
         /** @name DataExpressionMixin.Options.dataSource */
-        dataSource?: string | Array<CollectionWidgetItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<CollectionWidgetItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name DataExpressionMixin.Options.displayExpr */
         displayExpr?: string | ((item: any) => string);
         /** @name DataExpressionMixin.Options.itemTemplate */
-        itemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name DataExpressionMixin.Options.items */
         items?: Array<CollectionWidgetItem | any>;
         /** @name DataExpressionMixin.Options.value */
@@ -1925,12 +2482,13 @@ declare module DevExpress.ui {
     }
     /** @name DataExpressionMixin */
     export class DataExpressionMixin {
-        constructor(options?: DataExpressionMixinOptions)
+        constructor(options?: DataExpressionMixinOptions);
         /** @name DataHelperMixin.getDataSource() */
         getDataSource(): DevExpress.data.DataSource;
     }
     /** @name DraggableBase.Options */
-    export interface DraggableBaseOptions<T = DraggableBase> extends DOMComponentOptions<T> {
+    export interface DraggableBaseOptions<T = DraggableBase>
+        extends DOMComponentOptions<T> {
         /** @name DraggableBase.Options.autoScroll */
         autoScroll?: boolean;
         /** @name DraggableBase.Options.boundary */
@@ -1938,11 +2496,11 @@ declare module DevExpress.ui {
         /** @name DraggableBase.Options.container */
         container?: string | Element | JQuery;
         /** @name DraggableBase.Options.cursorOffset */
-        cursorOffset?: string | { x?: number, y?: number };
+        cursorOffset?: string | { x?: number; y?: number };
         /** @name DraggableBase.Options.data */
         data?: any;
         /** @name DraggableBase.Options.dragDirection */
-        dragDirection?: 'both' | 'horizontal' | 'vertical';
+        dragDirection?: "both" | "horizontal" | "vertical";
         /** @name DraggableBase.Options.group */
         group?: string;
         /** @name DraggableBase.Options.handle */
@@ -1954,15 +2512,23 @@ declare module DevExpress.ui {
     }
     /** @name DraggableBase */
     export class DraggableBase extends DOMComponent {
-        constructor(element: Element, options?: DraggableBaseOptions)
-        constructor(element: JQuery, options?: DraggableBaseOptions)
+        constructor(element: Element, options?: DraggableBaseOptions);
+        constructor(element: JQuery, options?: DraggableBaseOptions);
     }
     /** @name Editor.Options */
     export interface EditorOptions<T = Editor> extends WidgetOptions<T> {
         /** @name Editor.Options.isValid */
         isValid?: boolean;
         /** @name Editor.Options.onValueChanged */
-        onValueChanged?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, value?: any, previousValue?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onValueChanged?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: any;
+            previousValue?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name Editor.Options.readOnly */
         readOnly?: boolean;
         /** @name Editor.Options.validationError */
@@ -1970,16 +2536,16 @@ declare module DevExpress.ui {
         /** @name Editor.Options.validationErrors */
         validationErrors?: Array<any>;
         /** @name Editor.Options.validationMessageMode */
-        validationMessageMode?: 'always' | 'auto';
+        validationMessageMode?: "always" | "auto";
         /** @name Editor.Options.validationStatus */
-        validationStatus?: 'valid' | 'invalid' | 'pending';
+        validationStatus?: "valid" | "invalid" | "pending";
         /** @name Editor.Options.value */
         value?: any;
     }
     /** @name Editor */
     export class Editor extends Widget {
-        constructor(element: Element, options?: EditorOptions)
-        constructor(element: JQuery, options?: EditorOptions)
+        constructor(element: Element, options?: EditorOptions);
+        constructor(element: JQuery, options?: EditorOptions);
         /** @name Editor.reset() */
         reset(): void;
     }
@@ -1990,7 +2556,16 @@ declare module DevExpress.ui {
         /** @name EmailRule.message */
         message?: string;
         /** @name EmailRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
     }
     /** @name GridBase.Options */
     export interface GridBaseOptions<T = GridBase> extends WidgetOptions<T> {
@@ -2007,21 +2582,42 @@ declare module DevExpress.ui {
         /** @name GridBase.Options.columnAutoWidth */
         columnAutoWidth?: boolean;
         /** @name GridBase.Options.columnChooser */
-        columnChooser?: { allowSearch?: boolean, emptyPanelText?: string, enabled?: boolean, height?: number, mode?: 'dragAndDrop' | 'select', searchTimeout?: number, title?: string, width?: number };
+        columnChooser?: {
+            allowSearch?: boolean;
+            emptyPanelText?: string;
+            enabled?: boolean;
+            height?: number;
+            mode?: "dragAndDrop" | "select";
+            searchTimeout?: number;
+            title?: string;
+            width?: number;
+        };
         /** @name GridBase.Options.columnFixing */
-        columnFixing?: { enabled?: boolean, texts?: { fix?: string, leftPosition?: string, rightPosition?: string, unfix?: string } };
+        columnFixing?: {
+            enabled?: boolean;
+            texts?: {
+                fix?: string;
+                leftPosition?: string;
+                rightPosition?: string;
+                unfix?: string;
+            };
+        };
         /** @name GridBase.Options.columnHidingEnabled */
         columnHidingEnabled?: boolean;
         /** @name GridBase.Options.columnMinWidth */
         columnMinWidth?: number;
         /** @name GridBase.Options.columnResizingMode */
-        columnResizingMode?: 'nextColumn' | 'widget';
+        columnResizingMode?: "nextColumn" | "widget";
         /** @name GridBase.Options.columnWidth */
         columnWidth?: number;
         /** @name GridBase.Options.columns */
         columns?: Array<GridBaseColumn | string>;
         /** @name GridBase.Options.dataSource */
-        dataSource?: string | Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name GridBase.Options.dateSerializationFormat */
         dateSerializationFormat?: string;
         /** @name GridBase.Options.editing */
@@ -2033,11 +2629,46 @@ declare module DevExpress.ui {
         /** @name GridBase.Options.filterBuilderPopup */
         filterBuilderPopup?: dxPopupOptions;
         /** @name GridBase.Options.filterPanel */
-        filterPanel?: { customizeText?: ((e: { component?: T, filterValue?: any, text?: string }) => string), filterEnabled?: boolean, texts?: { clearFilter?: string, createFilter?: string, filterEnabledHint?: string }, visible?: boolean };
+        filterPanel?: {
+            customizeText?: (e: {
+                component?: T;
+                filterValue?: any;
+                text?: string;
+            }) => string;
+            filterEnabled?: boolean;
+            texts?: {
+                clearFilter?: string;
+                createFilter?: string;
+                filterEnabledHint?: string;
+            };
+            visible?: boolean;
+        };
         /** @name GridBase.Options.filterRow */
-        filterRow?: { applyFilter?: 'auto' | 'onClick', applyFilterText?: string, betweenEndText?: string, betweenStartText?: string, operationDescriptions?: { between?: string, contains?: string, endsWith?: string, equal?: string, greaterThan?: string, greaterThanOrEqual?: string, lessThan?: string, lessThanOrEqual?: string, notContains?: string, notEqual?: string, startsWith?: string }, resetOperationText?: string, showAllText?: string, showOperationChooser?: boolean, visible?: boolean };
+        filterRow?: {
+            applyFilter?: "auto" | "onClick";
+            applyFilterText?: string;
+            betweenEndText?: string;
+            betweenStartText?: string;
+            operationDescriptions?: {
+                between?: string;
+                contains?: string;
+                endsWith?: string;
+                equal?: string;
+                greaterThan?: string;
+                greaterThanOrEqual?: string;
+                lessThan?: string;
+                lessThanOrEqual?: string;
+                notContains?: string;
+                notEqual?: string;
+                startsWith?: string;
+            };
+            resetOperationText?: string;
+            showAllText?: string;
+            showOperationChooser?: boolean;
+            visible?: boolean;
+        };
         /** @name GridBase.Options.filterSyncEnabled */
-        filterSyncEnabled?: boolean | 'auto';
+        filterSyncEnabled?: boolean | "auto";
         /** @name GridBase.Options.filterValue */
         filterValue?: string | Array<any> | Function;
         /** @name GridBase.Options.focusedColumnIndex */
@@ -2049,51 +2680,201 @@ declare module DevExpress.ui {
         /** @name GridBase.Options.focusedRowKey */
         focusedRowKey?: any;
         /** @name GridBase.Options.headerFilter */
-        headerFilter?: { allowSearch?: boolean, height?: number, searchTimeout?: number, texts?: { cancel?: string, emptyValue?: string, ok?: string }, visible?: boolean, width?: number };
+        headerFilter?: {
+            allowSearch?: boolean;
+            height?: number;
+            searchTimeout?: number;
+            texts?: { cancel?: string; emptyValue?: string; ok?: string };
+            visible?: boolean;
+            width?: number;
+        };
         /** @name GridBase.Options.highlightChanges */
         highlightChanges?: boolean;
         /** @name GridBase.Options.keyboardNavigation */
-        keyboardNavigation?: { editOnKeyPress?: boolean, enabled?: boolean, enterKeyAction?: 'startEdit' | 'moveFocus', enterKeyDirection?: 'none' | 'column' | 'row' };
+        keyboardNavigation?: {
+            editOnKeyPress?: boolean;
+            enabled?: boolean;
+            enterKeyAction?: "startEdit" | "moveFocus";
+            enterKeyDirection?: "none" | "column" | "row";
+        };
         /** @name GridBase.Options.loadPanel */
-        loadPanel?: { enabled?: boolean | 'auto', height?: number, indicatorSrc?: string, shading?: boolean, shadingColor?: string, showIndicator?: boolean, showPane?: boolean, text?: string, width?: number };
+        loadPanel?: {
+            enabled?: boolean | "auto";
+            height?: number;
+            indicatorSrc?: string;
+            shading?: boolean;
+            shadingColor?: string;
+            showIndicator?: boolean;
+            showPane?: boolean;
+            text?: string;
+            width?: number;
+        };
         /** @name GridBase.Options.noDataText */
         noDataText?: string;
         /** @name GridBase.Options.onAdaptiveDetailRowPreparing */
-        onAdaptiveDetailRowPreparing?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, formOptions?: any }) => any);
+        onAdaptiveDetailRowPreparing?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            formOptions?: any;
+        }) => any;
         /** @name GridBase.Options.onDataErrorOccurred */
-        onDataErrorOccurred?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, error?: Error }) => any);
+        onDataErrorOccurred?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            error?: Error;
+        }) => any;
         /** @name GridBase.Options.onInitNewRow */
-        onInitNewRow?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, data?: any, promise?: Promise<void> | JQueryPromise<void> }) => any);
+        onInitNewRow?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            promise?: Promise<void> | JQueryPromise<void>;
+        }) => any;
         /** @name GridBase.Options.onKeyDown */
-        onKeyDown?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, handled?: boolean }) => any);
+        onKeyDown?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            handled?: boolean;
+        }) => any;
         /** @name GridBase.Options.onRowCollapsed */
-        onRowCollapsed?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, key?: any }) => any);
+        onRowCollapsed?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            key?: any;
+        }) => any;
         /** @name GridBase.Options.onRowCollapsing */
-        onRowCollapsing?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, key?: any, cancel?: boolean }) => any);
+        onRowCollapsing?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            key?: any;
+            cancel?: boolean;
+        }) => any;
         /** @name GridBase.Options.onRowExpanded */
-        onRowExpanded?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, key?: any }) => any);
+        onRowExpanded?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            key?: any;
+        }) => any;
         /** @name GridBase.Options.onRowExpanding */
-        onRowExpanding?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, key?: any, cancel?: boolean }) => any);
+        onRowExpanding?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            key?: any;
+            cancel?: boolean;
+        }) => any;
         /** @name GridBase.Options.onRowInserted */
-        onRowInserted?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, error?: Error }) => any);
+        onRowInserted?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            error?: Error;
+        }) => any;
         /** @name GridBase.Options.onRowInserting */
-        onRowInserting?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, data?: any, cancel?: boolean | Promise<void> | JQueryPromise<void> }) => any);
+        onRowInserting?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            cancel?: boolean | Promise<void> | JQueryPromise<void>;
+        }) => any;
         /** @name GridBase.Options.onRowRemoved */
-        onRowRemoved?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, error?: Error }) => any);
+        onRowRemoved?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            error?: Error;
+        }) => any;
         /** @name GridBase.Options.onRowRemoving */
-        onRowRemoving?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, cancel?: boolean | Promise<void> | JQueryPromise<void> }) => any);
+        onRowRemoving?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            cancel?: boolean | Promise<void> | JQueryPromise<void>;
+        }) => any;
         /** @name GridBase.Options.onRowUpdated */
-        onRowUpdated?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, error?: Error }) => any);
+        onRowUpdated?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            error?: Error;
+        }) => any;
         /** @name GridBase.Options.onRowUpdating */
-        onRowUpdating?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, oldData?: any, newData?: any, key?: any, cancel?: boolean | Promise<void> | JQueryPromise<void> }) => any);
+        onRowUpdating?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            oldData?: any;
+            newData?: any;
+            key?: any;
+            cancel?: boolean | Promise<void> | JQueryPromise<void>;
+        }) => any;
         /** @name GridBase.Options.onRowValidating */
-        onRowValidating?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, brokenRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>, isValid?: boolean, key?: any, newData?: any, oldData?: any, errorText?: string, promise?: Promise<void> | JQueryPromise<void> }) => any);
+        onRowValidating?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            brokenRules?: Array<
+                | RequiredRule
+                | NumericRule
+                | RangeRule
+                | StringLengthRule
+                | CustomRule
+                | CompareRule
+                | PatternRule
+                | EmailRule
+                | AsyncRule
+            >;
+            isValid?: boolean;
+            key?: any;
+            newData?: any;
+            oldData?: any;
+            errorText?: string;
+            promise?: Promise<void> | JQueryPromise<void>;
+        }) => any;
         /** @name GridBase.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, currentSelectedRowKeys?: Array<any>, currentDeselectedRowKeys?: Array<any>, selectedRowKeys?: Array<any>, selectedRowsData?: Array<any> }) => any);
+        onSelectionChanged?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            currentSelectedRowKeys?: Array<any>;
+            currentDeselectedRowKeys?: Array<any>;
+            selectedRowKeys?: Array<any>;
+            selectedRowsData?: Array<any>;
+        }) => any;
         /** @name GridBase.Options.onToolbarPreparing */
-        onToolbarPreparing?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, toolbarOptions?: dxToolbarOptions }) => any);
+        onToolbarPreparing?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            toolbarOptions?: dxToolbarOptions;
+        }) => any;
         /** @name GridBase.Options.pager */
-        pager?: { allowedPageSizes?: Array<number> | 'auto', infoText?: string, showInfo?: boolean, showNavigationButtons?: boolean, showPageSizeSelector?: boolean, visible?: boolean | 'auto' };
+        pager?: {
+            allowedPageSizes?: Array<number> | "auto";
+            infoText?: string;
+            showInfo?: boolean;
+            showNavigationButtons?: boolean;
+            showPageSizeSelector?: boolean;
+            visible?: boolean | "auto";
+        };
         /** @name GridBase.Options.paging */
         paging?: GridBasePaging;
         /** @name GridBase.Options.renderAsync */
@@ -2103,11 +2884,126 @@ declare module DevExpress.ui {
         /** @name GridBase.Options.rowAlternationEnabled */
         rowAlternationEnabled?: boolean;
         /** @name GridBase.Options.rowDragging */
-        rowDragging?: { allowDropInsideItem?: boolean, allowReordering?: boolean, autoScroll?: boolean, boundary?: string | Element | JQuery, container?: string | Element | JQuery, cursorOffset?: string | { x?: number, y?: number }, data?: any, dragDirection?: 'both' | 'horizontal' | 'vertical', dragTemplate?: DevExpress.core.template | ((dragInfo: { itemData?: any, itemElement?: DevExpress.core.dxElement }, containerElement: DevExpress.core.dxElement) => string | Element | JQuery), dropFeedbackMode?: 'push' | 'indicate', filter?: string, group?: string, handle?: string, onAdd?: ((e: { event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any), onDragChange?: ((e: { event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any), onDragEnd?: ((e: { event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any), onDragMove?: ((e: { event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any), onDragStart?: ((e: { event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, fromData?: any }) => any), onRemove?: ((e: { event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any }) => any), onReorder?: ((e: { event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any), scrollSensitivity?: number, scrollSpeed?: number, showDragIcons?: boolean };
+        rowDragging?: {
+            allowDropInsideItem?: boolean;
+            allowReordering?: boolean;
+            autoScroll?: boolean;
+            boundary?: string | Element | JQuery;
+            container?: string | Element | JQuery;
+            cursorOffset?: string | { x?: number; y?: number };
+            data?: any;
+            dragDirection?: "both" | "horizontal" | "vertical";
+            dragTemplate?:
+                | DevExpress.core.template
+                | ((
+                      dragInfo: {
+                          itemData?: any;
+                          itemElement?: DevExpress.core.dxElement;
+                      },
+                      containerElement: DevExpress.core.dxElement
+                  ) => string | Element | JQuery);
+            dropFeedbackMode?: "push" | "indicate";
+            filter?: string;
+            group?: string;
+            handle?: string;
+            onAdd?: (e: {
+                event?: DevExpress.events.event;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromIndex?: number;
+                toIndex?: number;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+                dropInsideItem?: boolean;
+            }) => any;
+            onDragChange?: (e: {
+                event?: DevExpress.events.event;
+                cancel?: boolean;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromIndex?: number;
+                toIndex?: number;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+                dropInsideItem?: boolean;
+            }) => any;
+            onDragEnd?: (e: {
+                event?: DevExpress.events.event;
+                cancel?: boolean;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromIndex?: number;
+                toIndex?: number;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+                dropInsideItem?: boolean;
+            }) => any;
+            onDragMove?: (e: {
+                event?: DevExpress.events.event;
+                cancel?: boolean;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromIndex?: number;
+                toIndex?: number;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+                dropInsideItem?: boolean;
+            }) => any;
+            onDragStart?: (e: {
+                event?: DevExpress.events.event;
+                cancel?: boolean;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromIndex?: number;
+                fromData?: any;
+            }) => any;
+            onRemove?: (e: {
+                event?: DevExpress.events.event;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromIndex?: number;
+                toIndex?: number;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+            }) => any;
+            onReorder?: (e: {
+                event?: DevExpress.events.event;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromIndex?: number;
+                toIndex?: number;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+                dropInsideItem?: boolean;
+            }) => any;
+            scrollSensitivity?: number;
+            scrollSpeed?: number;
+            showDragIcons?: boolean;
+        };
         /** @name GridBase.Options.scrolling */
         scrolling?: GridBaseScrolling;
         /** @name GridBase.Options.searchPanel */
-        searchPanel?: { highlightCaseSensitive?: boolean, highlightSearchText?: boolean, placeholder?: string, searchVisibleColumnsOnly?: boolean, text?: string, visible?: boolean, width?: number };
+        searchPanel?: {
+            highlightCaseSensitive?: boolean;
+            highlightSearchText?: boolean;
+            placeholder?: string;
+            searchVisibleColumnsOnly?: boolean;
+            text?: string;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name GridBase.Options.selectedRowKeys */
         selectedRowKeys?: Array<any>;
         /** @name GridBase.Options.selection */
@@ -2121,9 +3017,22 @@ declare module DevExpress.ui {
         /** @name GridBase.Options.showRowLines */
         showRowLines?: boolean;
         /** @name GridBase.Options.sorting */
-        sorting?: { ascendingText?: string, clearText?: string, descendingText?: string, mode?: 'multiple' | 'none' | 'single', showSortIndexes?: boolean };
+        sorting?: {
+            ascendingText?: string;
+            clearText?: string;
+            descendingText?: string;
+            mode?: "multiple" | "none" | "single";
+            showSortIndexes?: boolean;
+        };
         /** @name GridBase.Options.stateStoring */
-        stateStoring?: { customLoad?: (() => Promise<any> | JQueryPromise<any>), customSave?: ((gridState: any) => any), enabled?: boolean, savingTimeout?: number, storageKey?: string, type?: 'custom' | 'localStorage' | 'sessionStorage' };
+        stateStoring?: {
+            customLoad?: () => Promise<any> | JQueryPromise<any>;
+            customSave?: (gridState: any) => any;
+            enabled?: boolean;
+            savingTimeout?: number;
+            storageKey?: string;
+            type?: "custom" | "localStorage" | "sessionStorage";
+        };
         /** @name GridBase.Options.twoWayBindingEnabled */
         twoWayBindingEnabled?: boolean;
         /** @name GridBase.Options.wordWrapEnabled */
@@ -2136,15 +3045,15 @@ declare module DevExpress.ui {
         /** @name GridBase.Options.editing.form */
         form?: dxFormOptions;
         /** @name GridBase.Options.editing.mode */
-        mode?: 'batch' | 'cell' | 'row' | 'form' | 'popup';
+        mode?: "batch" | "cell" | "row" | "form" | "popup";
         /** @name GridBase.Options.editing.popup */
         popup?: dxPopupOptions;
         /** @name GridBase.Options.editing.refreshMode */
-        refreshMode?: 'full' | 'reshape' | 'repaint';
+        refreshMode?: "full" | "reshape" | "repaint";
         /** @name GridBase.Options.editing.selectTextOnEditStart */
         selectTextOnEditStart?: boolean;
         /** @name GridBase.Options.editing.startEditAction */
-        startEditAction?: 'click' | 'dblClick';
+        startEditAction?: "click" | "dblClick";
         /** @name GridBase.Options.editing.texts */
         texts?: GridBaseEditingTexts;
         /** @name GridBase.Options.editing.useIcons */
@@ -2187,31 +3096,31 @@ declare module DevExpress.ui {
     /** @name GridBase.Options.scrolling */
     export interface GridBaseScrolling {
         /** @name GridBase.Options.scrolling.columnRenderingMode */
-        columnRenderingMode?: 'standard' | 'virtual';
+        columnRenderingMode?: "standard" | "virtual";
         /** @name GridBase.Options.scrolling.preloadEnabled */
         preloadEnabled?: boolean;
         /** @name GridBase.Options.scrolling.rowRenderingMode */
-        rowRenderingMode?: 'standard' | 'virtual';
+        rowRenderingMode?: "standard" | "virtual";
         /** @name GridBase.Options.scrolling.scrollByContent */
         scrollByContent?: boolean;
         /** @name GridBase.Options.scrolling.scrollByThumb */
         scrollByThumb?: boolean;
         /** @name GridBase.Options.scrolling.showScrollbar */
-        showScrollbar?: 'always' | 'never' | 'onHover' | 'onScroll';
+        showScrollbar?: "always" | "never" | "onHover" | "onScroll";
         /** @name GridBase.Options.scrolling.useNative */
-        useNative?: boolean | 'auto';
+        useNative?: boolean | "auto";
     }
     /** @name GridBase.Options.selection */
     export interface GridBaseSelection {
         /** @name GridBase.Options.selection.allowSelectAll */
         allowSelectAll?: boolean;
         /** @name GridBase.Options.selection.mode */
-        mode?: 'multiple' | 'none' | 'single';
+        mode?: "multiple" | "none" | "single";
     }
     /** @name GridBase */
     export class GridBase extends Widget {
-        constructor(element: Element, options?: GridBaseOptions)
-        constructor(element: JQuery, options?: GridBaseOptions)
+        constructor(element: Element, options?: GridBaseOptions);
+        constructor(element: JQuery, options?: GridBaseOptions);
         /** @name GridBase.beginCustomLoading(messageText) */
         beginCustomLoading(messageText: string): void;
         /** @name GridBase.byKey(key) */
@@ -2225,7 +3134,11 @@ declare module DevExpress.ui {
         /** @name GridBase.cellValue(rowIndex, visibleColumnIndex) */
         cellValue(rowIndex: number, visibleColumnIndex: number): any;
         /** @name GridBase.cellValue(rowIndex, visibleColumnIndex, value) */
-        cellValue(rowIndex: number, visibleColumnIndex: number, value: any): void;
+        cellValue(
+            rowIndex: number,
+            visibleColumnIndex: number,
+            value: any
+        ): void;
         /** @name GridBase.clearFilter() */
         clearFilter(): void;
         /** @name GridBase.clearFilter(filterName) */
@@ -2245,7 +3158,11 @@ declare module DevExpress.ui {
         /** @name GridBase.columnOption(id, optionName) */
         columnOption(id: number | string, optionName: string): any;
         /** @name GridBase.columnOption(id, optionName, optionValue) */
-        columnOption(id: number | string, optionName: string, optionValue: any): void;
+        columnOption(
+            id: number | string,
+            optionName: string,
+            optionValue: any
+        ): void;
         /** @name GridBase.columnOption(id, options) */
         columnOption(id: number | string, options: any): void;
         /** @name GridBase.deleteColumn(id) */
@@ -2275,9 +3192,15 @@ declare module DevExpress.ui {
         /** @name GridBase.focus(element) */
         focus(element: Element | JQuery): void;
         /** @name GridBase.getCellElement(rowIndex, dataField) */
-        getCellElement(rowIndex: number, dataField: string): DevExpress.core.dxElement | undefined;
+        getCellElement(
+            rowIndex: number,
+            dataField: string
+        ): DevExpress.core.dxElement | undefined;
         /** @name GridBase.getCellElement(rowIndex, visibleColumnIndex) */
-        getCellElement(rowIndex: number, visibleColumnIndex: number): DevExpress.core.dxElement | undefined;
+        getCellElement(
+            rowIndex: number,
+            visibleColumnIndex: number
+        ): DevExpress.core.dxElement | undefined;
         /** @name GridBase.getCombinedFilter() */
         getCombinedFilter(): any;
         /** @name GridBase.getCombinedFilter(returnDataField) */
@@ -2287,7 +3210,7 @@ declare module DevExpress.ui {
         /** @name GridBase.getKeyByRowIndex(rowIndex) */
         getKeyByRowIndex(rowIndex: number): any;
         /** @name GridBase.getRowElement(rowIndex) */
-        getRowElement(rowIndex: number): Array<Element> & JQuery | undefined;
+        getRowElement(rowIndex: number): (Array<Element> & JQuery) | undefined;
         /** @name GridBase.getRowIndexByKey(key) */
         getRowIndexByKey(key: any | string | number): number;
         /** @name GridBase.getScrollable() */
@@ -2331,9 +3254,14 @@ declare module DevExpress.ui {
         /** @name GridBase.selectAll() */
         selectAll(): Promise<void> & JQueryPromise<void>;
         /** @name GridBase.selectRows(keys, preserve) */
-        selectRows(keys: Array<any>, preserve: boolean): Promise<any> & JQueryPromise<any>;
+        selectRows(
+            keys: Array<any>,
+            preserve: boolean
+        ): Promise<any> & JQueryPromise<any>;
         /** @name GridBase.selectRowsByIndexes(indexes) */
-        selectRowsByIndexes(indexes: Array<number>): Promise<any> & JQueryPromise<any>;
+        selectRowsByIndexes(
+            indexes: Array<number>
+        ): Promise<any> & JQueryPromise<any>;
         /** @name GridBase.showColumnChooser() */
         showColumnChooser(): void;
         /** @name GridBase.state() */
@@ -2348,7 +3276,7 @@ declare module DevExpress.ui {
     /** @name GridBaseColumn */
     export interface GridBaseColumn {
         /** @name GridBaseColumn.alignment */
-        alignment?: 'center' | 'left' | 'right' | undefined;
+        alignment?: "center" | "left" | "right" | undefined;
         /** @name GridBaseColumn.allowEditing */
         allowEditing?: boolean;
         /** @name GridBaseColumn.allowFiltering */
@@ -2368,11 +3296,15 @@ declare module DevExpress.ui {
         /** @name GridBaseColumn.allowSorting */
         allowSorting?: boolean;
         /** @name GridBaseColumn.calculateCellValue */
-        calculateCellValue?: ((rowData: any) => any);
+        calculateCellValue?: (rowData: any) => any;
         /** @name GridBaseColumn.calculateDisplayValue */
         calculateDisplayValue?: string | ((rowData: any) => any);
         /** @name GridBaseColumn.calculateFilterExpression */
-        calculateFilterExpression?: ((filterValue: any, selectedFilterOperation: string, target: string) => string | Array<any> | Function);
+        calculateFilterExpression?: (
+            filterValue: any,
+            selectedFilterOperation: string,
+            target: string
+        ) => string | Array<any> | Function;
         /** @name GridBaseColumn.calculateSortValue */
         calculateSortValue?: string | ((rowData: any) => any);
         /** @name GridBaseColumn.caption */
@@ -2380,11 +3312,22 @@ declare module DevExpress.ui {
         /** @name GridBaseColumn.cssClass */
         cssClass?: string;
         /** @name GridBaseColumn.customizeText */
-        customizeText?: ((cellInfo: { value?: string | number | Date, valueText?: string, target?: string, groupInterval?: string | number }) => string);
+        customizeText?: (cellInfo: {
+            value?: string | number | Date;
+            valueText?: string;
+            target?: string;
+            groupInterval?: string | number;
+        }) => string;
         /** @name GridBaseColumn.dataField */
         dataField?: string;
         /** @name GridBaseColumn.dataType */
-        dataType?: 'string' | 'number' | 'date' | 'boolean' | 'object' | 'datetime';
+        dataType?:
+            | "string"
+            | "number"
+            | "date"
+            | "boolean"
+            | "object"
+            | "datetime";
         /** @name GridBaseColumn.editorOptions */
         editorOptions?: any;
         /** @name GridBaseColumn.encodeHtml */
@@ -2392,9 +3335,21 @@ declare module DevExpress.ui {
         /** @name GridBaseColumn.falseText */
         falseText?: string;
         /** @name GridBaseColumn.filterOperations */
-        filterOperations?: Array<'=' | '<>' | '<' | '<=' | '>' | '>=' | 'notcontains' | 'contains' | 'startswith' | 'endswith' | 'between'>;
+        filterOperations?: Array<
+            | "="
+            | "<>"
+            | "<"
+            | "<="
+            | ">"
+            | ">="
+            | "notcontains"
+            | "contains"
+            | "startswith"
+            | "endswith"
+            | "between"
+        >;
         /** @name GridBaseColumn.filterType */
-        filterType?: 'exclude' | 'include';
+        filterType?: "exclude" | "include";
         /** @name GridBaseColumn.filterValue */
         filterValue?: any;
         /** @name GridBaseColumn.filterValues */
@@ -2402,19 +3357,55 @@ declare module DevExpress.ui {
         /** @name GridBaseColumn.fixed */
         fixed?: boolean;
         /** @name GridBaseColumn.fixedPosition */
-        fixedPosition?: 'left' | 'right';
+        fixedPosition?: "left" | "right";
         /** @name GridBaseColumn.formItem */
         formItem?: dxFormSimpleItem;
         /** @name GridBaseColumn.format */
         format?: format;
         /** @name GridBaseColumn.headerFilter */
-        headerFilter?: { allowSearch?: boolean, dataSource?: Array<any> | ((options: { component?: any, dataSource?: DevExpress.data.DataSourceOptions }) => any) | DevExpress.data.DataSourceOptions, groupInterval?: 'day' | 'hour' | 'minute' | 'month' | 'quarter' | 'second' | 'year' | number, height?: number, searchMode?: 'contains' | 'startswith' | 'equals', width?: number };
+        headerFilter?: {
+            allowSearch?: boolean;
+            dataSource?:
+                | Array<any>
+                | ((options: {
+                      component?: any;
+                      dataSource?: DevExpress.data.DataSourceOptions;
+                  }) => any)
+                | DevExpress.data.DataSourceOptions;
+            groupInterval?:
+                | "day"
+                | "hour"
+                | "minute"
+                | "month"
+                | "quarter"
+                | "second"
+                | "year"
+                | number;
+            height?: number;
+            searchMode?: "contains" | "startswith" | "equals";
+            width?: number;
+        };
         /** @name GridBaseColumn.hidingPriority */
         hidingPriority?: number;
         /** @name GridBaseColumn.isBand */
         isBand?: boolean;
         /** @name GridBaseColumn.lookup */
-        lookup?: { allowClearing?: boolean, dataSource?: Array<any> | DevExpress.data.DataSourceOptions | DevExpress.data.Store | ((options: { data?: any, key?: any }) => Array<any> | DevExpress.data.DataSourceOptions | DevExpress.data.Store), displayExpr?: string | ((data: any) => string), valueExpr?: string };
+        lookup?: {
+            allowClearing?: boolean;
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSourceOptions
+                | DevExpress.data.Store
+                | ((options: {
+                      data?: any;
+                      key?: any;
+                  }) =>
+                      | Array<any>
+                      | DevExpress.data.DataSourceOptions
+                      | DevExpress.data.Store);
+            displayExpr?: string | ((data: any) => string);
+            valueExpr?: string;
+        };
         /** @name GridBaseColumn.minWidth */
         minWidth?: number;
         /** @name GridBaseColumn.name */
@@ -2424,9 +3415,24 @@ declare module DevExpress.ui {
         /** @name GridBaseColumn.renderAsync */
         renderAsync?: boolean;
         /** @name GridBaseColumn.selectedFilterOperation */
-        selectedFilterOperation?: '<' | '<=' | '<>' | '=' | '>' | '>=' | 'between' | 'contains' | 'endswith' | 'notcontains' | 'startswith';
+        selectedFilterOperation?:
+            | "<"
+            | "<="
+            | "<>"
+            | "="
+            | ">"
+            | ">="
+            | "between"
+            | "contains"
+            | "endswith"
+            | "notcontains"
+            | "startswith";
         /** @name GridBaseColumn.setCellValue */
-        setCellValue?: ((newData: any, value: any, currentRowData: any) => void | Promise<void> | JQueryPromise<void>);
+        setCellValue?: (
+            newData: any,
+            value: any,
+            currentRowData: any
+        ) => void | Promise<void> | JQueryPromise<void>;
         /** @name GridBaseColumn.showEditorAlways */
         showEditorAlways?: boolean;
         /** @name GridBaseColumn.showInColumnChooser */
@@ -2434,13 +3440,23 @@ declare module DevExpress.ui {
         /** @name GridBaseColumn.sortIndex */
         sortIndex?: number;
         /** @name GridBaseColumn.sortOrder */
-        sortOrder?: 'asc' | 'desc' | undefined;
+        sortOrder?: "asc" | "desc" | undefined;
         /** @name GridBaseColumn.sortingMethod */
-        sortingMethod?: ((value1: any, value2: any) => number);
+        sortingMethod?: (value1: any, value2: any) => number;
         /** @name GridBaseColumn.trueText */
         trueText?: string;
         /** @name GridBaseColumn.validationRules */
-        validationRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>;
+        validationRules?: Array<
+            | RequiredRule
+            | NumericRule
+            | RangeRule
+            | StringLengthRule
+            | CustomRule
+            | CompareRule
+            | PatternRule
+            | EmailRule
+            | AsyncRule
+        >;
         /** @name GridBaseColumn.visible */
         visible?: boolean;
         /** @name GridBaseColumn.visibleIndex */
@@ -2460,7 +3476,9 @@ declare module DevExpress.ui {
         text?: string;
     }
     /** @name HierarchicalCollectionWidget.Options */
-    export interface HierarchicalCollectionWidgetOptions<T = HierarchicalCollectionWidget> extends CollectionWidgetOptions<T> {
+    export interface HierarchicalCollectionWidgetOptions<
+        T = HierarchicalCollectionWidget
+    > extends CollectionWidgetOptions<T> {
         /** @name HierarchicalCollectionWidget.Options.disabledExpr */
         disabledExpr?: string | Function;
         /** @name HierarchicalCollectionWidget.Options.displayExpr */
@@ -2478,8 +3496,14 @@ declare module DevExpress.ui {
     }
     /** @name HierarchicalCollectionWidget */
     export class HierarchicalCollectionWidget extends CollectionWidget {
-        constructor(element: Element, options?: HierarchicalCollectionWidgetOptions)
-        constructor(element: JQuery, options?: HierarchicalCollectionWidgetOptions)
+        constructor(
+            element: Element,
+            options?: HierarchicalCollectionWidgetOptions
+        );
+        constructor(
+            element: JQuery,
+            options?: HierarchicalCollectionWidgetOptions
+        );
     }
     /** @name MapLocation */
     export interface MapLocation {
@@ -2495,7 +3519,16 @@ declare module DevExpress.ui {
         /** @name NumericRule.message */
         message?: string;
         /** @name NumericRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
     }
     /** @name PatternRule */
     export interface PatternRule {
@@ -2506,7 +3539,16 @@ declare module DevExpress.ui {
         /** @name PatternRule.pattern */
         pattern?: RegExp | string;
         /** @name PatternRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
     }
     /** @name RangeRule */
     export interface RangeRule {
@@ -2521,7 +3563,16 @@ declare module DevExpress.ui {
         /** @name RangeRule.reevaluate */
         reevaluate?: boolean;
         /** @name RangeRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
     }
     /** @name RequiredRule */
     export interface RequiredRule {
@@ -2530,7 +3581,16 @@ declare module DevExpress.ui {
         /** @name RequiredRule.trim */
         trim?: boolean;
         /** @name RequiredRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
     }
     /** @name SearchBoxMixin.Options */
     export interface SearchBoxMixinOptions<T = SearchBoxMixin> {
@@ -2541,7 +3601,7 @@ declare module DevExpress.ui {
         /** @name SearchBoxMixin.Options.searchExpr */
         searchExpr?: string | Function | Array<string | Function>;
         /** @name SearchBoxMixin.Options.searchMode */
-        searchMode?: 'contains' | 'startswith' | 'equals';
+        searchMode?: "contains" | "startswith" | "equals";
         /** @name SearchBoxMixin.Options.searchTimeout */
         searchTimeout?: number;
         /** @name SearchBoxMixin.Options.searchValue */
@@ -2549,7 +3609,7 @@ declare module DevExpress.ui {
     }
     /** @name SearchBoxMixin */
     export class SearchBoxMixin {
-        constructor(options?: SearchBoxMixinOptions)
+        constructor(options?: SearchBoxMixinOptions);
     }
     /** @name StringLengthRule */
     export interface StringLengthRule {
@@ -2564,7 +3624,16 @@ declare module DevExpress.ui {
         /** @name StringLengthRule.trim */
         trim?: boolean;
         /** @name StringLengthRule.type */
-        type?: 'required' | 'numeric' | 'range' | 'stringLength' | 'custom' | 'compare' | 'pattern' | 'email' | 'async';
+        type?:
+            | "required"
+            | "numeric"
+            | "range"
+            | "stringLength"
+            | "custom"
+            | "compare"
+            | "pattern"
+            | "email"
+            | "async";
     }
     /** @name Widget.Options */
     export interface WidgetOptions<T = Widget> extends DOMComponentOptions<T> {
@@ -2581,7 +3650,11 @@ declare module DevExpress.ui {
         /** @name Widget.Options.hoverStateEnabled */
         hoverStateEnabled?: boolean;
         /** @name Widget.Options.onContentReady */
-        onContentReady?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onContentReady?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name Widget.Options.tabIndex */
         tabIndex?: number;
         /** @name Widget.Options.visible */
@@ -2589,8 +3662,8 @@ declare module DevExpress.ui {
     }
     /** @name Widget */
     export class Widget extends DOMComponent {
-        constructor(element: Element, options?: WidgetOptions)
-        constructor(element: JQuery, options?: WidgetOptions)
+        constructor(element: Element, options?: WidgetOptions);
+        constructor(element: JQuery, options?: WidgetOptions);
         /** @name Widget.focus() */
         focus(): void;
         /** @name Widget.registerKeyHandler(key, handler) */
@@ -2599,13 +3672,18 @@ declare module DevExpress.ui {
         repaint(): void;
     }
     /** @name dxAccordion.Options */
-    export interface dxAccordionOptions extends CollectionWidgetOptions<dxAccordion> {
+    export interface dxAccordionOptions
+        extends CollectionWidgetOptions<dxAccordion> {
         /** @name dxAccordion.Options.animationDuration */
         animationDuration?: number;
         /** @name dxAccordion.Options.collapsible */
         collapsible?: boolean;
         /** @name dxAccordion.Options.dataSource */
-        dataSource?: string | Array<string | dxAccordionItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxAccordionItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxAccordion.Options.deferRendering */
         deferRendering?: boolean;
         /** @name dxAccordion.Options.focusStateEnabled */
@@ -2615,15 +3693,37 @@ declare module DevExpress.ui {
         /** @name dxAccordion.Options.hoverStateEnabled */
         hoverStateEnabled?: boolean;
         /** @name dxAccordion.Options.itemTemplate */
-        itemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxAccordion.Options.itemTitleTemplate */
-        itemTitleTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTitleTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxAccordion.Options.items */
         items?: Array<string | dxAccordionItem | any>;
         /** @name dxAccordion.Options.multiple */
         multiple?: boolean;
         /** @name dxAccordion.Options.onItemTitleClick */
-        onItemTitleClick?: ((e: { component?: dxAccordion, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, event?: DevExpress.events.event }) => any) | string;
+        onItemTitleClick?:
+            | ((e: {
+                  component?: dxAccordion;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  itemData?: any;
+                  itemElement?: DevExpress.core.dxElement;
+                  itemIndex?: number;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxAccordion.Options.repaintChangesOnly */
         repaintChangesOnly?: boolean;
         /** @name dxAccordion.Options.selectedIndex */
@@ -2631,8 +3731,8 @@ declare module DevExpress.ui {
     }
     /** @name dxAccordion */
     export class dxAccordion extends CollectionWidget {
-        constructor(element: Element, options?: dxAccordionOptions)
-        constructor(element: JQuery, options?: dxAccordionOptions)
+        constructor(element: Element, options?: dxAccordionOptions);
+        constructor(element: JQuery, options?: dxAccordionOptions);
         /** @name dxAccordion.collapseItem(index) */
         collapseItem(index: number): Promise<void> & JQueryPromise<void>;
         /** @name dxAccordion.expandItem(index) */
@@ -2648,15 +3748,27 @@ declare module DevExpress.ui {
         title?: string;
     }
     /** @name dxActionSheet.Options */
-    export interface dxActionSheetOptions extends CollectionWidgetOptions<dxActionSheet> {
+    export interface dxActionSheetOptions
+        extends CollectionWidgetOptions<dxActionSheet> {
         /** @name dxActionSheet.Options.cancelText */
         cancelText?: string;
         /** @name dxActionSheet.Options.dataSource */
-        dataSource?: string | Array<string | dxActionSheetItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxActionSheetItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxActionSheet.Options.items */
         items?: Array<string | dxActionSheetItem | any>;
         /** @name dxActionSheet.Options.onCancelClick */
-        onCancelClick?: ((e: { component?: dxActionSheet, element?: DevExpress.core.dxElement, model?: any, cancel?: boolean }) => any) | string;
+        onCancelClick?:
+            | ((e: {
+                  component?: dxActionSheet;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  cancel?: boolean;
+              }) => any)
+            | string;
         /** @name dxActionSheet.Options.showCancelButton */
         showCancelButton?: boolean;
         /** @name dxActionSheet.Options.showTitle */
@@ -2672,8 +3784,8 @@ declare module DevExpress.ui {
     }
     /** @name dxActionSheet */
     export class dxActionSheet extends CollectionWidget {
-        constructor(element: Element, options?: dxActionSheetOptions)
-        constructor(element: JQuery, options?: dxActionSheetOptions)
+        constructor(element: Element, options?: dxActionSheetOptions);
+        constructor(element: JQuery, options?: dxActionSheetOptions);
         /** @name dxActionSheet.hide() */
         hide(): Promise<void> & JQueryPromise<void>;
         /** @name dxActionSheet.show() */
@@ -2686,12 +3798,21 @@ declare module DevExpress.ui {
         /** @name dxActionSheetItem.icon */
         icon?: string;
         /** @name dxActionSheetItem.onClick */
-        onClick?: ((e: { component?: dxActionSheet, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any) | string;
+        onClick?:
+            | ((e: {
+                  component?: dxActionSheet;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxActionSheetItem.type */
-        type?: 'back' | 'danger' | 'default' | 'normal' | 'success';
+        type?: "back" | "danger" | "default" | "normal" | "success";
     }
     /** @name dxAutocomplete.Options */
-    export interface dxAutocompleteOptions extends dxDropDownListOptions<dxAutocomplete> {
+    export interface dxAutocompleteOptions
+        extends dxDropDownListOptions<dxAutocomplete> {
         /** @name dxAutocomplete.Options.maxItemCount */
         maxItemCount?: number;
         /** @name dxAutocomplete.Options.minSearchLength */
@@ -2703,31 +3824,35 @@ declare module DevExpress.ui {
     }
     /** @name dxAutocomplete */
     export class dxAutocomplete extends dxDropDownList {
-        constructor(element: Element, options?: dxAutocompleteOptions)
-        constructor(element: JQuery, options?: dxAutocompleteOptions)
+        constructor(element: Element, options?: dxAutocompleteOptions);
+        constructor(element: JQuery, options?: dxAutocompleteOptions);
     }
     /** @name dxBox.Options */
     export interface dxBoxOptions extends CollectionWidgetOptions<dxBox> {
         /** @name dxBox.Options.align */
-        align?: 'center' | 'end' | 'space-around' | 'space-between' | 'start';
+        align?: "center" | "end" | "space-around" | "space-between" | "start";
         /** @name dxBox.Options.crossAlign */
-        crossAlign?: 'center' | 'end' | 'start' | 'stretch';
+        crossAlign?: "center" | "end" | "start" | "stretch";
         /** @name dxBox.Options.dataSource */
-        dataSource?: string | Array<string | dxBoxItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxBoxItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxBox.Options.direction */
-        direction?: 'col' | 'row';
+        direction?: "col" | "row";
         /** @name dxBox.Options.items */
         items?: Array<string | dxBoxItem | any>;
     }
     /** @name dxBox */
     export class dxBox extends CollectionWidget {
-        constructor(element: Element, options?: dxBoxOptions)
-        constructor(element: JQuery, options?: dxBoxOptions)
+        constructor(element: Element, options?: dxBoxOptions);
+        constructor(element: JQuery, options?: dxBoxOptions);
     }
     /** @name dxBoxItem */
     export interface dxBoxItem extends CollectionWidgetItem {
         /** @name dxBoxItem.baseSize */
-        baseSize?: number | 'auto';
+        baseSize?: number | "auto";
         /** @name dxBoxItem.box */
         box?: dxBoxOptions;
         /** @name dxBoxItem.ratio */
@@ -2746,15 +3871,27 @@ declare module DevExpress.ui {
         /** @name dxButton.Options.icon */
         icon?: string;
         /** @name dxButton.Options.onClick */
-        onClick?: ((e: { component?: dxButton, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, validationGroup?: any }) => any);
+        onClick?: (e: {
+            component?: dxButton;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            validationGroup?: any;
+        }) => any;
         /** @name dxButton.Options.stylingMode */
-        stylingMode?: 'text' | 'outlined' | 'contained';
+        stylingMode?: "text" | "outlined" | "contained";
         /** @name dxButton.Options.template */
-        template?: DevExpress.core.template | ((buttonData: { text?: string, icon?: string }, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        template?:
+            | DevExpress.core.template
+            | ((
+                  buttonData: { text?: string; icon?: string },
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxButton.Options.text */
         text?: string;
         /** @name dxButton.Options.type */
-        type?: 'back' | 'danger' | 'default' | 'normal' | 'success';
+        type?: "back" | "danger" | "default" | "normal" | "success";
         /** @name dxButton.Options.useSubmitBehavior */
         useSubmitBehavior?: boolean;
         /** @name dxButton.Options.validationGroup */
@@ -2762,13 +3899,18 @@ declare module DevExpress.ui {
     }
     /** @name dxButton */
     export class dxButton extends Widget {
-        constructor(element: Element, options?: dxButtonOptions)
-        constructor(element: JQuery, options?: dxButtonOptions)
+        constructor(element: Element, options?: dxButtonOptions);
+        constructor(element: JQuery, options?: dxButtonOptions);
     }
     /** @name dxButtonGroup.Options */
     export interface dxButtonGroupOptions extends WidgetOptions<dxButtonGroup> {
         /** @name dxButtonGroup.Options.buttonTemplate */
-        buttonTemplate?: DevExpress.core.template | ((buttonData: any, buttonContent: DevExpress.core.dxElement) => string | Element | JQuery);
+        buttonTemplate?:
+            | DevExpress.core.template
+            | ((
+                  buttonData: any,
+                  buttonContent: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxButtonGroup.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxButtonGroup.Options.hoverStateEnabled */
@@ -2781,22 +3923,36 @@ declare module DevExpress.ui {
         /** @name dxButtonGroup.Options.keyExpr */
         keyExpr?: string | Function;
         /** @name dxButtonGroup.Options.onItemClick */
-        onItemClick?: ((e: { component?: dxButtonGroup, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, event?: DevExpress.events.event }) => any);
+        onItemClick?: (e: {
+            component?: dxButtonGroup;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxButtonGroup.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxButtonGroup, element?: DevExpress.core.dxElement, model?: any, addedItems?: Array<any>, removedItems?: Array<any> }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxButtonGroup;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            addedItems?: Array<any>;
+            removedItems?: Array<any>;
+        }) => any;
         /** @name dxButtonGroup.Options.selectedItemKeys */
         selectedItemKeys?: Array<any>;
         /** @name dxButtonGroup.Options.selectedItems */
         selectedItems?: Array<any>;
         /** @name dxButtonGroup.Options.selectionMode */
-        selectionMode?: 'multiple' | 'single';
+        selectionMode?: "multiple" | "single";
         /** @name dxButtonGroup.Options.stylingMode */
-        stylingMode?: 'text' | 'outlined' | 'contained';
+        stylingMode?: "text" | "outlined" | "contained";
     }
     /** @name dxButtonGroup */
     export class dxButtonGroup extends Widget {
-        constructor(element: Element, options?: dxButtonGroupOptions)
-        constructor(element: JQuery, options?: dxButtonGroupOptions)
+        constructor(element: Element, options?: dxButtonGroupOptions);
+        constructor(element: JQuery, options?: dxButtonGroupOptions);
     }
     /** @name dxButtonGroupItem */
     export interface dxButtonGroupItem extends CollectionWidgetItem {
@@ -2805,18 +3961,30 @@ declare module DevExpress.ui {
         /** @name dxButtonGroupItem.icon */
         icon?: string;
         /** @name dxButtonGroupItem.type */
-        type?: 'back' | 'danger' | 'default' | 'normal' | 'success';
+        type?: "back" | "danger" | "default" | "normal" | "success";
     }
     /** @name dxCalendar.Options */
     export interface dxCalendarOptions extends EditorOptions<dxCalendar> {
         /** @name dxCalendar.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxCalendar.Options.cellTemplate */
-        cellTemplate?: DevExpress.core.template | ((itemData: { date?: Date, view?: string, text?: string }, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        cellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: { date?: Date; view?: string; text?: string },
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxCalendar.Options.dateSerializationFormat */
         dateSerializationFormat?: string;
         /** @name dxCalendar.Options.disabledDates */
-        disabledDates?: Array<Date> | ((data: { component?: any, date?: Date, view?: string }) => boolean);
+        disabledDates?:
+            | Array<Date>
+            | ((data: {
+                  component?: any;
+                  date?: Date;
+                  view?: string;
+              }) => boolean);
         /** @name dxCalendar.Options.firstDayOfWeek */
         firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
         /** @name dxCalendar.Options.focusStateEnabled */
@@ -2826,11 +3994,11 @@ declare module DevExpress.ui {
         /** @name dxCalendar.Options.max */
         max?: Date | number | string;
         /** @name dxCalendar.Options.maxZoomLevel */
-        maxZoomLevel?: 'century' | 'decade' | 'month' | 'year';
+        maxZoomLevel?: "century" | "decade" | "month" | "year";
         /** @name dxCalendar.Options.min */
         min?: Date | number | string;
         /** @name dxCalendar.Options.minZoomLevel */
-        minZoomLevel?: 'century' | 'decade' | 'month' | 'year';
+        minZoomLevel?: "century" | "decade" | "month" | "year";
         /** @name dxCalendar.Options.name */
         name?: string;
         /** @name dxCalendar.Options.showTodayButton */
@@ -2838,12 +4006,12 @@ declare module DevExpress.ui {
         /** @name dxCalendar.Options.value */
         value?: Date | number | string;
         /** @name dxCalendar.Options.zoomLevel */
-        zoomLevel?: 'century' | 'decade' | 'month' | 'year';
+        zoomLevel?: "century" | "decade" | "month" | "year";
     }
     /** @name dxCalendar */
     export class dxCalendar extends Editor {
-        constructor(element: Element, options?: dxCalendarOptions)
-        constructor(element: JQuery, options?: dxCalendarOptions)
+        constructor(element: Element, options?: dxCalendarOptions);
+        constructor(element: JQuery, options?: dxCalendarOptions);
     }
     /** @name dxCheckBox.Options */
     export interface dxCheckBoxOptions extends EditorOptions<dxCheckBox> {
@@ -2862,21 +4030,27 @@ declare module DevExpress.ui {
     }
     /** @name dxCheckBox */
     export class dxCheckBox extends Editor {
-        constructor(element: Element, options?: dxCheckBoxOptions)
-        constructor(element: JQuery, options?: dxCheckBoxOptions)
+        constructor(element: Element, options?: dxCheckBoxOptions);
+        constructor(element: JQuery, options?: dxCheckBoxOptions);
     }
     /** @name dxColorBox.Options */
-    export interface dxColorBoxOptions extends dxDropDownEditorOptions<dxColorBox> {
+    export interface dxColorBoxOptions
+        extends dxDropDownEditorOptions<dxColorBox> {
         /** @name dxColorBox.Options.applyButtonText */
         applyButtonText?: string;
         /** @name dxColorBox.Options.applyValueMode */
-        applyValueMode?: 'instantly' | 'useButtons';
+        applyValueMode?: "instantly" | "useButtons";
         /** @name dxColorBox.Options.cancelButtonText */
         cancelButtonText?: string;
         /** @name dxColorBox.Options.editAlphaChannel */
         editAlphaChannel?: boolean;
         /** @name dxColorBox.Options.fieldTemplate */
-        fieldTemplate?: DevExpress.core.template | ((value: string, fieldElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        fieldTemplate?:
+            | DevExpress.core.template
+            | ((
+                  value: string,
+                  fieldElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxColorBox.Options.keyStep */
         keyStep?: number;
         /** @name dxColorBox.Options.value */
@@ -2884,33 +4058,65 @@ declare module DevExpress.ui {
     }
     /** @name dxColorBox */
     export class dxColorBox extends dxDropDownEditor {
-        constructor(element: Element, options?: dxColorBoxOptions)
-        constructor(element: JQuery, options?: dxColorBoxOptions)
+        constructor(element: Element, options?: dxColorBoxOptions);
+        constructor(element: JQuery, options?: dxColorBoxOptions);
     }
     /** @name dxContextMenu.Options */
-    export interface dxContextMenuOptions extends dxMenuBaseOptions<dxContextMenu> {
+    export interface dxContextMenuOptions
+        extends dxMenuBaseOptions<dxContextMenu> {
         /** @name dxContextMenu.Options.closeOnOutsideClick */
-        closeOnOutsideClick?: boolean | ((event: DevExpress.events.event) => boolean);
+        closeOnOutsideClick?:
+            | boolean
+            | ((event: DevExpress.events.event) => boolean);
         /** @name dxContextMenu.Options.dataSource */
-        dataSource?: string | Array<dxContextMenuItem> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<dxContextMenuItem>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxContextMenu.Options.items */
         items?: Array<dxContextMenuItem>;
         /** @name dxContextMenu.Options.onHidden */
-        onHidden?: ((e: { component?: dxContextMenu, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onHidden?: (e: {
+            component?: dxContextMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxContextMenu.Options.onHiding */
-        onHiding?: ((e: { component?: dxContextMenu, element?: DevExpress.core.dxElement, model?: any, cancel?: boolean }) => any);
+        onHiding?: (e: {
+            component?: dxContextMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            cancel?: boolean;
+        }) => any;
         /** @name dxContextMenu.Options.onPositioning */
-        onPositioning?: ((e: { component?: dxContextMenu, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, position?: positionConfig }) => any);
+        onPositioning?: (e: {
+            component?: dxContextMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            position?: positionConfig;
+        }) => any;
         /** @name dxContextMenu.Options.onShowing */
-        onShowing?: ((e: { component?: dxContextMenu, element?: DevExpress.core.dxElement, model?: any, cancel?: boolean }) => any);
+        onShowing?: (e: {
+            component?: dxContextMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            cancel?: boolean;
+        }) => any;
         /** @name dxContextMenu.Options.onShown */
-        onShown?: ((e: { component?: dxContextMenu, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onShown?: (e: {
+            component?: dxContextMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxContextMenu.Options.position */
         position?: positionConfig;
         /** @name dxContextMenu.Options.showEvent */
-        showEvent?: { delay?: number, name?: string } | string;
+        showEvent?: { delay?: number; name?: string } | string;
         /** @name dxContextMenu.Options.submenuDirection */
-        submenuDirection?: 'auto' | 'left' | 'right';
+        submenuDirection?: "auto" | "left" | "right";
         /** @name dxContextMenu.Options.target */
         target?: string | Element | JQuery;
         /** @name dxContextMenu.Options.visible */
@@ -2918,8 +4124,8 @@ declare module DevExpress.ui {
     }
     /** @name dxContextMenu */
     export class dxContextMenu extends dxMenuBase {
-        constructor(element: Element, options?: dxContextMenuOptions)
-        constructor(element: JQuery, options?: dxContextMenuOptions)
+        constructor(element: Element, options?: dxContextMenuOptions);
+        constructor(element: JQuery, options?: dxContextMenuOptions);
         /** @name dxContextMenu.hide() */
         hide(): Promise<void> & JQueryPromise<void>;
         /** @name dxContextMenu.show() */
@@ -2937,61 +4143,390 @@ declare module DevExpress.ui {
         /** @name dxDataGrid.Options.columns */
         columns?: Array<dxDataGridColumn | string>;
         /** @name dxDataGrid.Options.customizeColumns */
-        customizeColumns?: ((columns: Array<dxDataGridColumn>) => any);
+        customizeColumns?: (columns: Array<dxDataGridColumn>) => any;
         /** @name dxDataGrid.Options.customizeExportData */
-        customizeExportData?: ((columns: Array<dxDataGridColumn>, rows: Array<dxDataGridRowObject>) => any);
+        customizeExportData?: (
+            columns: Array<dxDataGridColumn>,
+            rows: Array<dxDataGridRowObject>
+        ) => any;
         /** @name dxDataGrid.Options.editing */
         editing?: dxDataGridEditing;
         /** @name dxDataGrid.Options.export */
-        export?: { allowExportSelectedData?: boolean, customizeExcelCell?: ((options: { component?: dxDataGrid, horizontalAlignment?: 'center' | 'centerContinuous' | 'distributed' | 'fill' | 'general' | 'justify' | 'left' | 'right', verticalAlignment?: 'bottom' | 'center' | 'distributed' | 'justify' | 'top', wrapTextEnabled?: boolean, backgroundColor?: string, fillPatternType?: 'darkDown' | 'darkGray' | 'darkGrid' | 'darkHorizontal' | 'darkTrellis' | 'darkUp' | 'darkVertical' | 'gray0625' | 'gray125' | 'lightDown' | 'lightGray' | 'lightGrid' | 'lightHorizontal' | 'lightTrellis' | 'lightUp' | 'lightVertical' | 'mediumGray' | 'none' | 'solid', fillPatternColor?: string, font?: DevExpress.exporter.ExcelFont, value?: string | number | Date, numberFormat?: string, gridCell?: DevExpress.excelExporter.ExcelDataGridCell }) => any), enabled?: boolean, excelFilterEnabled?: boolean, excelWrapTextEnabled?: boolean, fileName?: string, ignoreExcelErrors?: boolean, proxyUrl?: string, texts?: { exportAll?: string, exportSelectedRows?: string, exportTo?: string } };
+        export?: {
+            allowExportSelectedData?: boolean;
+            customizeExcelCell?: (options: {
+                component?: dxDataGrid;
+                horizontalAlignment?:
+                    | "center"
+                    | "centerContinuous"
+                    | "distributed"
+                    | "fill"
+                    | "general"
+                    | "justify"
+                    | "left"
+                    | "right";
+                verticalAlignment?:
+                    | "bottom"
+                    | "center"
+                    | "distributed"
+                    | "justify"
+                    | "top";
+                wrapTextEnabled?: boolean;
+                backgroundColor?: string;
+                fillPatternType?:
+                    | "darkDown"
+                    | "darkGray"
+                    | "darkGrid"
+                    | "darkHorizontal"
+                    | "darkTrellis"
+                    | "darkUp"
+                    | "darkVertical"
+                    | "gray0625"
+                    | "gray125"
+                    | "lightDown"
+                    | "lightGray"
+                    | "lightGrid"
+                    | "lightHorizontal"
+                    | "lightTrellis"
+                    | "lightUp"
+                    | "lightVertical"
+                    | "mediumGray"
+                    | "none"
+                    | "solid";
+                fillPatternColor?: string;
+                font?: DevExpress.exporter.ExcelFont;
+                value?: string | number | Date;
+                numberFormat?: string;
+                gridCell?: DevExpress.excelExporter.ExcelDataGridCell;
+            }) => any;
+            enabled?: boolean;
+            excelFilterEnabled?: boolean;
+            excelWrapTextEnabled?: boolean;
+            fileName?: string;
+            ignoreExcelErrors?: boolean;
+            proxyUrl?: string;
+            texts?: {
+                exportAll?: string;
+                exportSelectedRows?: string;
+                exportTo?: string;
+            };
+        };
         /** @name dxDataGrid.Options.groupPanel */
-        groupPanel?: { allowColumnDragging?: boolean, emptyPanelText?: string, visible?: boolean | 'auto' };
+        groupPanel?: {
+            allowColumnDragging?: boolean;
+            emptyPanelText?: string;
+            visible?: boolean | "auto";
+        };
         /** @name dxDataGrid.Options.grouping */
-        grouping?: { allowCollapsing?: boolean, autoExpandAll?: boolean, contextMenuEnabled?: boolean, expandMode?: 'buttonClick' | 'rowClick', texts?: { groupByThisColumn?: string, groupContinuedMessage?: string, groupContinuesMessage?: string, ungroup?: string, ungroupAll?: string } };
+        grouping?: {
+            allowCollapsing?: boolean;
+            autoExpandAll?: boolean;
+            contextMenuEnabled?: boolean;
+            expandMode?: "buttonClick" | "rowClick";
+            texts?: {
+                groupByThisColumn?: string;
+                groupContinuedMessage?: string;
+                groupContinuesMessage?: string;
+                ungroup?: string;
+                ungroupAll?: string;
+            };
+        };
         /** @name dxDataGrid.Options.keyExpr */
         keyExpr?: string | Array<string>;
         /** @name dxDataGrid.Options.masterDetail */
-        masterDetail?: { autoExpandAll?: boolean, enabled?: boolean, template?: DevExpress.core.template | ((detailElement: DevExpress.core.dxElement, detailInfo: { key?: any, data?: any, watch?: Function }) => any) };
+        masterDetail?: {
+            autoExpandAll?: boolean;
+            enabled?: boolean;
+            template?:
+                | DevExpress.core.template
+                | ((
+                      detailElement: DevExpress.core.dxElement,
+                      detailInfo: { key?: any; data?: any; watch?: Function }
+                  ) => any);
+        };
         /** @name dxDataGrid.Options.onCellClick */
-        onCellClick?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, data?: any, key?: any, value?: any, displayValue?: any, text?: string, columnIndex?: number, column?: any, rowIndex?: number, rowType?: string, cellElement?: DevExpress.core.dxElement, row?: dxDataGridRowObject }) => any) | string;
+        onCellClick?:
+            | ((e: {
+                  component?: dxDataGrid;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  data?: any;
+                  key?: any;
+                  value?: any;
+                  displayValue?: any;
+                  text?: string;
+                  columnIndex?: number;
+                  column?: any;
+                  rowIndex?: number;
+                  rowType?: string;
+                  cellElement?: DevExpress.core.dxElement;
+                  row?: dxDataGridRowObject;
+              }) => any)
+            | string;
         /** @name dxDataGrid.Options.onCellDblClick */
-        onCellDblClick?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, data?: any, key?: any, value?: any, displayValue?: any, text?: string, columnIndex?: number, column?: dxDataGridColumn, rowIndex?: number, rowType?: string, cellElement?: DevExpress.core.dxElement, row?: dxDataGridRowObject }) => any);
+        onCellDblClick?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            data?: any;
+            key?: any;
+            value?: any;
+            displayValue?: any;
+            text?: string;
+            columnIndex?: number;
+            column?: dxDataGridColumn;
+            rowIndex?: number;
+            rowType?: string;
+            cellElement?: DevExpress.core.dxElement;
+            row?: dxDataGridRowObject;
+        }) => any;
         /** @name dxDataGrid.Options.onCellHoverChanged */
-        onCellHoverChanged?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, eventType?: string, data?: any, key?: any, value?: any, text?: string, displayValue?: any, columnIndex?: number, rowIndex?: number, column?: dxDataGridColumn, rowType?: string, cellElement?: DevExpress.core.dxElement, row?: dxDataGridRowObject }) => any);
+        onCellHoverChanged?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            eventType?: string;
+            data?: any;
+            key?: any;
+            value?: any;
+            text?: string;
+            displayValue?: any;
+            columnIndex?: number;
+            rowIndex?: number;
+            column?: dxDataGridColumn;
+            rowType?: string;
+            cellElement?: DevExpress.core.dxElement;
+            row?: dxDataGridRowObject;
+        }) => any;
         /** @name dxDataGrid.Options.onCellPrepared */
-        onCellPrepared?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, value?: any, displayValue?: any, text?: string, columnIndex?: number, column?: dxDataGridColumn, rowIndex?: number, rowType?: string, row?: dxDataGridRowObject, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, cellElement?: DevExpress.core.dxElement, watch?: Function, oldValue?: any }) => any);
+        onCellPrepared?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            value?: any;
+            displayValue?: any;
+            text?: string;
+            columnIndex?: number;
+            column?: dxDataGridColumn;
+            rowIndex?: number;
+            rowType?: string;
+            row?: dxDataGridRowObject;
+            isSelected?: boolean;
+            isExpanded?: boolean;
+            isNewRow?: boolean;
+            cellElement?: DevExpress.core.dxElement;
+            watch?: Function;
+            oldValue?: any;
+        }) => any;
         /** @name dxDataGrid.Options.onContextMenuPreparing */
-        onContextMenuPreparing?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, items?: Array<any>, target?: string, targetElement?: DevExpress.core.dxElement, columnIndex?: number, column?: dxDataGridColumn, rowIndex?: number, row?: dxDataGridRowObject }) => any);
+        onContextMenuPreparing?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            items?: Array<any>;
+            target?: string;
+            targetElement?: DevExpress.core.dxElement;
+            columnIndex?: number;
+            column?: dxDataGridColumn;
+            rowIndex?: number;
+            row?: dxDataGridRowObject;
+        }) => any;
         /** @name dxDataGrid.Options.onEditingStart */
-        onEditingStart?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, cancel?: boolean, column?: any }) => any);
+        onEditingStart?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            cancel?: boolean;
+            column?: any;
+        }) => any;
         /** @name dxDataGrid.Options.onEditorPrepared */
-        onEditorPrepared?: ((options: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, parentType?: string, value?: any, setValue?: any, updateValueTimeout?: number, width?: number, disabled?: boolean, rtlEnabled?: boolean, editorElement?: DevExpress.core.dxElement, readOnly?: boolean, dataField?: string, row?: dxDataGridRowObject }) => any);
+        onEditorPrepared?: (options: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            parentType?: string;
+            value?: any;
+            setValue?: any;
+            updateValueTimeout?: number;
+            width?: number;
+            disabled?: boolean;
+            rtlEnabled?: boolean;
+            editorElement?: DevExpress.core.dxElement;
+            readOnly?: boolean;
+            dataField?: string;
+            row?: dxDataGridRowObject;
+        }) => any;
         /** @name dxDataGrid.Options.onEditorPreparing */
-        onEditorPreparing?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, parentType?: string, value?: any, setValue?: any, updateValueTimeout?: number, width?: number, disabled?: boolean, rtlEnabled?: boolean, cancel?: boolean, editorElement?: DevExpress.core.dxElement, readOnly?: boolean, editorName?: string, editorOptions?: any, dataField?: string, row?: dxDataGridRowObject }) => any);
+        onEditorPreparing?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            parentType?: string;
+            value?: any;
+            setValue?: any;
+            updateValueTimeout?: number;
+            width?: number;
+            disabled?: boolean;
+            rtlEnabled?: boolean;
+            cancel?: boolean;
+            editorElement?: DevExpress.core.dxElement;
+            readOnly?: boolean;
+            editorName?: string;
+            editorOptions?: any;
+            dataField?: string;
+            row?: dxDataGridRowObject;
+        }) => any;
         /** @name dxDataGrid.Options.onExported */
-        onExported?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onExported?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxDataGrid.Options.onExporting */
-        onExporting?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, fileName?: string, cancel?: boolean }) => any);
+        onExporting?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            fileName?: string;
+            cancel?: boolean;
+        }) => any;
         /** @name dxDataGrid.Options.onFileSaving */
-        onFileSaving?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, fileName?: string, format?: string, data?: Blob, cancel?: boolean }) => any);
+        onFileSaving?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            fileName?: string;
+            format?: string;
+            data?: Blob;
+            cancel?: boolean;
+        }) => any;
         /** @name dxDataGrid.Options.onFocusedCellChanged */
-        onFocusedCellChanged?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, cellElement?: DevExpress.core.dxElement, columnIndex?: number, rowIndex?: number, row?: dxDataGridRowObject, column?: dxDataGridColumn }) => any);
+        onFocusedCellChanged?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            cellElement?: DevExpress.core.dxElement;
+            columnIndex?: number;
+            rowIndex?: number;
+            row?: dxDataGridRowObject;
+            column?: dxDataGridColumn;
+        }) => any;
         /** @name dxDataGrid.Options.onFocusedCellChanging */
-        onFocusedCellChanging?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, cellElement?: DevExpress.core.dxElement, prevColumnIndex?: number, prevRowIndex?: number, newColumnIndex?: number, newRowIndex?: number, event?: DevExpress.events.event, rows?: Array<dxDataGridRowObject>, columns?: Array<dxDataGridColumn>, cancel?: boolean, isHighlighted?: boolean }) => any);
+        onFocusedCellChanging?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            cellElement?: DevExpress.core.dxElement;
+            prevColumnIndex?: number;
+            prevRowIndex?: number;
+            newColumnIndex?: number;
+            newRowIndex?: number;
+            event?: DevExpress.events.event;
+            rows?: Array<dxDataGridRowObject>;
+            columns?: Array<dxDataGridColumn>;
+            cancel?: boolean;
+            isHighlighted?: boolean;
+        }) => any;
         /** @name dxDataGrid.Options.onFocusedRowChanged */
-        onFocusedRowChanged?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, rowElement?: DevExpress.core.dxElement, rowIndex?: number, row?: dxDataGridRowObject }) => any);
+        onFocusedRowChanged?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rowElement?: DevExpress.core.dxElement;
+            rowIndex?: number;
+            row?: dxDataGridRowObject;
+        }) => any;
         /** @name dxDataGrid.Options.onFocusedRowChanging */
-        onFocusedRowChanging?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, rowElement?: DevExpress.core.dxElement, prevRowIndex?: number, newRowIndex?: number, event?: DevExpress.events.event, rows?: Array<dxDataGridRowObject>, cancel?: boolean }) => any);
+        onFocusedRowChanging?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rowElement?: DevExpress.core.dxElement;
+            prevRowIndex?: number;
+            newRowIndex?: number;
+            event?: DevExpress.events.event;
+            rows?: Array<dxDataGridRowObject>;
+            cancel?: boolean;
+        }) => any;
         /** @name dxDataGrid.Options.onRowClick */
-        onRowClick?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, data?: any, key?: any, values?: Array<any>, columns?: Array<any>, rowIndex?: number, rowType?: string, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, groupIndex?: number, rowElement?: DevExpress.core.dxElement, handled?: boolean }) => any) | string;
+        onRowClick?:
+            | ((e: {
+                  component?: dxDataGrid;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  data?: any;
+                  key?: any;
+                  values?: Array<any>;
+                  columns?: Array<any>;
+                  rowIndex?: number;
+                  rowType?: string;
+                  isSelected?: boolean;
+                  isExpanded?: boolean;
+                  isNewRow?: boolean;
+                  groupIndex?: number;
+                  rowElement?: DevExpress.core.dxElement;
+                  handled?: boolean;
+              }) => any)
+            | string;
         /** @name dxDataGrid.Options.onRowDblClick */
-        onRowDblClick?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, data?: any, key?: any, values?: Array<any>, columns?: Array<dxDataGridColumn>, rowIndex?: number, rowType?: string, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, groupIndex?: number, rowElement?: DevExpress.core.dxElement }) => any);
+        onRowDblClick?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            data?: any;
+            key?: any;
+            values?: Array<any>;
+            columns?: Array<dxDataGridColumn>;
+            rowIndex?: number;
+            rowType?: string;
+            isSelected?: boolean;
+            isExpanded?: boolean;
+            isNewRow?: boolean;
+            groupIndex?: number;
+            rowElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxDataGrid.Options.onRowPrepared */
-        onRowPrepared?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, values?: Array<any>, columns?: Array<dxDataGridColumn>, rowIndex?: number, rowType?: string, groupIndex?: number, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, rowElement?: DevExpress.core.dxElement }) => any);
+        onRowPrepared?: (e: {
+            component?: dxDataGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            values?: Array<any>;
+            columns?: Array<dxDataGridColumn>;
+            rowIndex?: number;
+            rowType?: string;
+            groupIndex?: number;
+            isSelected?: boolean;
+            isExpanded?: boolean;
+            isNewRow?: boolean;
+            rowElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxDataGrid.Options.remoteOperations */
-        remoteOperations?: boolean | { filtering?: boolean, groupPaging?: boolean, grouping?: boolean, paging?: boolean, sorting?: boolean, summary?: boolean } | 'auto';
+        remoteOperations?:
+            | boolean
+            | {
+                  filtering?: boolean;
+                  groupPaging?: boolean;
+                  grouping?: boolean;
+                  paging?: boolean;
+                  sorting?: boolean;
+                  summary?: boolean;
+              }
+            | "auto";
         /** @name dxDataGrid.Options.rowTemplate */
-        rowTemplate?: DevExpress.core.template | ((rowElement: DevExpress.core.dxElement, rowInfo: any) => any);
+        rowTemplate?:
+            | DevExpress.core.template
+            | ((rowElement: DevExpress.core.dxElement, rowInfo: any) => any);
         /** @name dxDataGrid.Options.scrolling */
         scrolling?: dxDataGridScrolling;
         /** @name dxDataGrid.Options.selection */
@@ -2999,39 +4534,119 @@ declare module DevExpress.ui {
         /** @name dxDataGrid.Options.selectionFilter */
         selectionFilter?: string | Array<any> | Function;
         /** @name dxDataGrid.Options.sortByGroupSummaryInfo */
-        sortByGroupSummaryInfo?: Array<{ groupColumn?: string, sortOrder?: 'asc' | 'desc', summaryItem?: string | number }>;
+        sortByGroupSummaryInfo?: Array<{
+            groupColumn?: string;
+            sortOrder?: "asc" | "desc";
+            summaryItem?: string | number;
+        }>;
         /** @name dxDataGrid.Options.summary */
-        summary?: { calculateCustomSummary?: ((options: { component?: dxDataGrid, name?: string, summaryProcess?: string, value?: any, totalValue?: any, groupIndex?: number }) => any), groupItems?: Array<{ alignByColumn?: boolean, column?: string, customizeText?: ((itemInfo: { value?: string | number | Date, valueText?: string }) => string), displayFormat?: string, name?: string, showInColumn?: string, showInGroupFooter?: boolean, skipEmptyValues?: boolean, summaryType?: 'avg' | 'count' | 'custom' | 'max' | 'min' | 'sum' | string, valueFormat?: format }>, recalculateWhileEditing?: boolean, skipEmptyValues?: boolean, texts?: { avg?: string, avgOtherColumn?: string, count?: string, max?: string, maxOtherColumn?: string, min?: string, minOtherColumn?: string, sum?: string, sumOtherColumn?: string }, totalItems?: Array<{ alignment?: 'center' | 'left' | 'right', column?: string, cssClass?: string, customizeText?: ((itemInfo: { value?: string | number | Date, valueText?: string }) => string), displayFormat?: string, name?: string, showInColumn?: string, skipEmptyValues?: boolean, summaryType?: 'avg' | 'count' | 'custom' | 'max' | 'min' | 'sum' | string, valueFormat?: format }> };
+        summary?: {
+            calculateCustomSummary?: (options: {
+                component?: dxDataGrid;
+                name?: string;
+                summaryProcess?: string;
+                value?: any;
+                totalValue?: any;
+                groupIndex?: number;
+            }) => any;
+            groupItems?: Array<{
+                alignByColumn?: boolean;
+                column?: string;
+                customizeText?: (itemInfo: {
+                    value?: string | number | Date;
+                    valueText?: string;
+                }) => string;
+                displayFormat?: string;
+                name?: string;
+                showInColumn?: string;
+                showInGroupFooter?: boolean;
+                skipEmptyValues?: boolean;
+                summaryType?:
+                    | "avg"
+                    | "count"
+                    | "custom"
+                    | "max"
+                    | "min"
+                    | "sum"
+                    | string;
+                valueFormat?: format;
+            }>;
+            recalculateWhileEditing?: boolean;
+            skipEmptyValues?: boolean;
+            texts?: {
+                avg?: string;
+                avgOtherColumn?: string;
+                count?: string;
+                max?: string;
+                maxOtherColumn?: string;
+                min?: string;
+                minOtherColumn?: string;
+                sum?: string;
+                sumOtherColumn?: string;
+            };
+            totalItems?: Array<{
+                alignment?: "center" | "left" | "right";
+                column?: string;
+                cssClass?: string;
+                customizeText?: (itemInfo: {
+                    value?: string | number | Date;
+                    valueText?: string;
+                }) => string;
+                displayFormat?: string;
+                name?: string;
+                showInColumn?: string;
+                skipEmptyValues?: boolean;
+                summaryType?:
+                    | "avg"
+                    | "count"
+                    | "custom"
+                    | "max"
+                    | "min"
+                    | "sum"
+                    | string;
+                valueFormat?: format;
+            }>;
+        };
     }
     /** @name dxDataGrid.Options.editing */
     export interface dxDataGridEditing extends GridBaseEditing {
         /** @name dxDataGrid.Options.editing.allowAdding */
         allowAdding?: boolean;
         /** @name dxDataGrid.Options.editing.allowDeleting */
-        allowDeleting?: boolean | ((options: { component?: dxDataGrid, row?: dxDataGridRowObject }) => boolean);
+        allowDeleting?:
+            | boolean
+            | ((options: {
+                  component?: dxDataGrid;
+                  row?: dxDataGridRowObject;
+              }) => boolean);
         /** @name dxDataGrid.Options.editing.allowUpdating */
-        allowUpdating?: boolean | ((options: { component?: dxDataGrid, row?: dxDataGridRowObject }) => boolean);
+        allowUpdating?:
+            | boolean
+            | ((options: {
+                  component?: dxDataGrid;
+                  row?: dxDataGridRowObject;
+              }) => boolean);
         /** @name dxDataGrid.Options.editing.texts */
         texts?: any;
     }
     /** @name dxDataGrid.Options.scrolling */
     export interface dxDataGridScrolling extends GridBaseScrolling {
         /** @name dxDataGrid.Options.scrolling.mode */
-        mode?: 'infinite' | 'standard' | 'virtual';
+        mode?: "infinite" | "standard" | "virtual";
     }
     /** @name dxDataGrid.Options.selection */
     export interface dxDataGridSelection extends GridBaseSelection {
         /** @name dxDataGrid.Options.selection.deferred */
         deferred?: boolean;
         /** @name dxDataGrid.Options.selection.selectAllMode */
-        selectAllMode?: 'allPages' | 'page';
+        selectAllMode?: "allPages" | "page";
         /** @name dxDataGrid.Options.selection.showCheckBoxesMode */
-        showCheckBoxesMode?: 'always' | 'none' | 'onClick' | 'onLongTap';
+        showCheckBoxesMode?: "always" | "none" | "onClick" | "onLongTap";
     }
     /** @name dxDataGrid */
     export class dxDataGrid extends GridBase {
-        constructor(element: Element, options?: dxDataGridOptions)
-        constructor(element: JQuery, options?: dxDataGridOptions)
+        constructor(element: Element, options?: dxDataGridOptions);
+        constructor(element: JQuery, options?: dxDataGridOptions);
         /** @name dxDataGrid.addColumn(columnOptions) */
         addColumn(columnOptions: any | string): void;
         /** @name dxDataGrid.addRow() */
@@ -3084,36 +4699,141 @@ declare module DevExpress.ui {
         /** @name dxDataGridColumn.autoExpandGroup */
         autoExpandGroup?: boolean;
         /** @name dxDataGridColumn.buttons */
-        buttons?: Array<'cancel' | 'delete' | 'edit' | 'save' | 'undelete' | dxDataGridColumnButton>;
+        buttons?: Array<
+            | "cancel"
+            | "delete"
+            | "edit"
+            | "save"
+            | "undelete"
+            | dxDataGridColumnButton
+        >;
         /** @name dxDataGridColumn.calculateGroupValue */
         calculateGroupValue?: string | ((rowData: any) => any);
         /** @name dxDataGridColumn.cellTemplate */
-        cellTemplate?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { data?: any, component?: dxDataGrid, value?: any, oldValue?: any, displayValue?: any, text?: string, columnIndex?: number, rowIndex?: number, column?: dxDataGridColumn, row?: dxDataGridRowObject, rowType?: string, watch?: Function }) => any);
+        cellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  cellElement: DevExpress.core.dxElement,
+                  cellInfo: {
+                      data?: any;
+                      component?: dxDataGrid;
+                      value?: any;
+                      oldValue?: any;
+                      displayValue?: any;
+                      text?: string;
+                      columnIndex?: number;
+                      rowIndex?: number;
+                      column?: dxDataGridColumn;
+                      row?: dxDataGridRowObject;
+                      rowType?: string;
+                      watch?: Function;
+                  }
+              ) => any);
         /** @name dxDataGridColumn.columns */
         columns?: Array<dxDataGridColumn | string>;
         /** @name dxDataGridColumn.editCellTemplate */
-        editCellTemplate?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { setValue?: any, data?: any, component?: dxDataGrid, value?: any, displayValue?: any, text?: string, columnIndex?: number, rowIndex?: number, column?: dxDataGridColumn, row?: dxDataGridRowObject, rowType?: string, watch?: Function }) => any);
+        editCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  cellElement: DevExpress.core.dxElement,
+                  cellInfo: {
+                      setValue?: any;
+                      data?: any;
+                      component?: dxDataGrid;
+                      value?: any;
+                      displayValue?: any;
+                      text?: string;
+                      columnIndex?: number;
+                      rowIndex?: number;
+                      column?: dxDataGridColumn;
+                      row?: dxDataGridRowObject;
+                      rowType?: string;
+                      watch?: Function;
+                  }
+              ) => any);
         /** @name dxDataGridColumn.groupCellTemplate */
-        groupCellTemplate?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { data?: any, component?: dxDataGrid, value?: any, text?: string, displayValue?: any, columnIndex?: number, rowIndex?: number, column?: dxDataGridColumn, row?: dxDataGridRowObject, summaryItems?: Array<any>, groupContinuesMessage?: string, groupContinuedMessage?: string }) => any);
+        groupCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  cellElement: DevExpress.core.dxElement,
+                  cellInfo: {
+                      data?: any;
+                      component?: dxDataGrid;
+                      value?: any;
+                      text?: string;
+                      displayValue?: any;
+                      columnIndex?: number;
+                      rowIndex?: number;
+                      column?: dxDataGridColumn;
+                      row?: dxDataGridRowObject;
+                      summaryItems?: Array<any>;
+                      groupContinuesMessage?: string;
+                      groupContinuedMessage?: string;
+                  }
+              ) => any);
         /** @name dxDataGridColumn.groupIndex */
         groupIndex?: number;
+        index?: number;
         /** @name dxDataGridColumn.headerCellTemplate */
-        headerCellTemplate?: DevExpress.core.template | ((columnHeader: DevExpress.core.dxElement, headerInfo: { component?: dxDataGrid, columnIndex?: number, column?: dxDataGridColumn }) => any);
+        headerCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  columnHeader: DevExpress.core.dxElement,
+                  headerInfo: {
+                      component?: dxDataGrid;
+                      columnIndex?: number;
+                      column?: dxDataGridColumn;
+                  }
+              ) => any);
         /** @name dxDataGridColumn.showWhenGrouped */
         showWhenGrouped?: boolean;
         /** @name dxDataGridColumn.type */
-        type?: 'adaptive' | 'buttons' | 'detailExpand' | 'groupExpand' | 'selection';
+        type?:
+            | "adaptive"
+            | "buttons"
+            | "detailExpand"
+            | "groupExpand"
+            | "selection";
     }
     /** @name dxDataGridColumnButton */
     export interface dxDataGridColumnButton extends GridBaseColumnButton {
         /** @name dxDataGridColumnButton.name */
-        name?: 'cancel' | 'delete' | 'edit' | 'save' | 'undelete' | string;
+        name?: "cancel" | "delete" | "edit" | "save" | "undelete" | string;
         /** @name dxDataGridColumnButton.onClick */
-        onClick?: ((e: { component?: dxDataGrid, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, row?: dxDataGridRowObject, column?: dxDataGridColumn }) => any) | string;
+        onClick?:
+            | ((e: {
+                  component?: dxDataGrid;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  event?: DevExpress.events.event;
+                  row?: dxDataGridRowObject;
+                  column?: dxDataGridColumn;
+              }) => any)
+            | string;
         /** @name dxDataGridColumnButton.template */
-        template?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { component?: dxDataGrid, data?: any, key?: any, columnIndex?: number, column?: dxDataGridColumn, rowIndex?: number, rowType?: string, row?: dxDataGridRowObject }) => string | Element | JQuery);
+        template?:
+            | DevExpress.core.template
+            | ((
+                  cellElement: DevExpress.core.dxElement,
+                  cellInfo: {
+                      component?: dxDataGrid;
+                      data?: any;
+                      key?: any;
+                      columnIndex?: number;
+                      column?: dxDataGridColumn;
+                      rowIndex?: number;
+                      rowType?: string;
+                      row?: dxDataGridRowObject;
+                  }
+              ) => string | Element | JQuery);
         /** @name dxDataGridColumnButton.visible */
-        visible?: boolean | ((options: { component?: dxDataGrid, row?: dxDataGridRowObject, column?: dxDataGridColumn }) => boolean);
+        visible?:
+            | boolean
+            | ((options: {
+                  component?: dxDataGrid;
+                  row?: dxDataGridRowObject;
+                  column?: dxDataGridColumn;
+              }) => boolean);
     }
     /** @name dxDataGridRowObject */
     export interface dxDataGridRowObject {
@@ -3139,7 +4859,8 @@ declare module DevExpress.ui {
         values?: Array<any>;
     }
     /** @name dxDateBox.Options */
-    export interface dxDateBoxOptions extends dxDropDownEditorOptions<dxDateBox> {
+    export interface dxDateBoxOptions
+        extends dxDropDownEditorOptions<dxDateBox> {
         /** @name dxDateBox.Options.adaptivityEnabled */
         adaptivityEnabled?: boolean;
         /** @name dxDateBox.Options.applyButtonText */
@@ -3153,7 +4874,13 @@ declare module DevExpress.ui {
         /** @name dxDateBox.Options.dateSerializationFormat */
         dateSerializationFormat?: string;
         /** @name dxDateBox.Options.disabledDates */
-        disabledDates?: Array<Date> | ((data: { component?: dxDateBox, date?: Date, view?: string }) => boolean);
+        disabledDates?:
+            | Array<Date>
+            | ((data: {
+                  component?: dxDateBox;
+                  date?: Date;
+                  view?: string;
+              }) => boolean);
         /** @name dxDateBox.Options.displayFormat */
         displayFormat?: format;
         /** @name dxDateBox.Options.interval */
@@ -3164,20 +4891,20 @@ declare module DevExpress.ui {
         max?: Date | number | string;
         /** @deprecated */
         /** @name dxDateBox.Options.maxZoomLevel */
-        maxZoomLevel?: 'century' | 'decade' | 'month' | 'year';
+        maxZoomLevel?: "century" | "decade" | "month" | "year";
         /** @name dxDateBox.Options.min */
         min?: Date | number | string;
         /** @deprecated */
         /** @name dxDateBox.Options.minZoomLevel */
-        minZoomLevel?: 'century' | 'decade' | 'month' | 'year';
+        minZoomLevel?: "century" | "decade" | "month" | "year";
         /** @name dxDateBox.Options.pickerType */
-        pickerType?: 'calendar' | 'list' | 'native' | 'rollers';
+        pickerType?: "calendar" | "list" | "native" | "rollers";
         /** @name dxDateBox.Options.placeholder */
         placeholder?: string;
         /** @name dxDateBox.Options.showAnalogClock */
         showAnalogClock?: boolean;
         /** @name dxDateBox.Options.type */
-        type?: 'date' | 'datetime' | 'time';
+        type?: "date" | "datetime" | "time";
         /** @name dxDateBox.Options.useMaskBehavior */
         useMaskBehavior?: boolean;
         /** @name dxDateBox.Options.value */
@@ -3185,21 +4912,30 @@ declare module DevExpress.ui {
     }
     /** @name dxDateBox */
     export class dxDateBox extends dxDropDownEditor {
-        constructor(element: Element, options?: dxDateBoxOptions)
-        constructor(element: JQuery, options?: dxDateBoxOptions)
+        constructor(element: Element, options?: dxDateBoxOptions);
+        constructor(element: JQuery, options?: dxDateBoxOptions);
         /** @name dxDateBox.close() */
         close(): void;
         /** @name dxDateBox.open() */
         open(): void;
     }
     /** @name dxDeferRendering.Options */
-    export interface dxDeferRenderingOptions extends WidgetOptions<dxDeferRendering> {
+    export interface dxDeferRenderingOptions
+        extends WidgetOptions<dxDeferRendering> {
         /** @name dxDeferRendering.Options.animation */
         animation?: animationConfig;
         /** @name dxDeferRendering.Options.onRendered */
-        onRendered?: ((e: { component?: dxDeferRendering, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onRendered?: (e: {
+            component?: dxDeferRendering;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxDeferRendering.Options.onShown */
-        onShown?: ((e: { component?: dxDeferRendering, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onShown?: (e: {
+            component?: dxDeferRendering;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxDeferRendering.Options.renderWhen */
         renderWhen?: Promise<void> | JQueryPromise<void> | boolean;
         /** @name dxDeferRendering.Options.showLoadIndicator */
@@ -3209,53 +4945,549 @@ declare module DevExpress.ui {
     }
     /** @name dxDeferRendering */
     export class dxDeferRendering extends Widget {
-        constructor(element: Element, options?: dxDeferRenderingOptions)
-        constructor(element: JQuery, options?: dxDeferRenderingOptions)
+        constructor(element: Element, options?: dxDeferRenderingOptions);
+        constructor(element: JQuery, options?: dxDeferRenderingOptions);
     }
     /** @name dxDiagram.Options */
     export interface dxDiagramOptions extends WidgetOptions<dxDiagram> {
         /** @name dxDiagram.Options.autoZoomMode */
-        autoZoomMode?: 'fitContent' | 'fitWidth' | 'disabled';
+        autoZoomMode?: "fitContent" | "fitWidth" | "disabled";
         /** @name dxDiagram.Options.contextMenu */
-        contextMenu?: { commands?: Array<dxDiagramCustomCommand> | Array<'separator' | 'exportSvg' | 'exportPng' | 'exportJpg' | 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'selectAll' | 'delete' | 'fontName' | 'fontSize' | 'bold' | 'italic' | 'underline' | 'fontColor' | 'lineColor' | 'fillColor' | 'textAlignLeft' | 'textAlignCenter' | 'textAlignRight' | 'lock' | 'unlock' | 'sendToBack' | 'bringToFront' | 'insertShapeImage' | 'editShapeImage' | 'deleteShapeImage' | 'connectorLineType' | 'connectorLineStart' | 'connectorLineEnd' | 'layoutTreeTopToBottom' | 'layoutTreeBottomToTop' | 'layoutTreeLeftToRight' | 'layoutTreeRightToLeft' | 'layoutLayeredTopToBottom' | 'layoutLayeredBottomToTop' | 'layoutLayeredLeftToRight' | 'layoutLayeredRightToLeft' | 'fullScreen' | 'zoomLevel' | 'showGrid' | 'snapToGrid' | 'gridSize' | 'units' | 'pageSize' | 'pageOrientation' | 'pageColor'>, enabled?: boolean };
+        contextMenu?: {
+            commands?:
+                | Array<dxDiagramCustomCommand>
+                | Array<
+                      | "separator"
+                      | "exportSvg"
+                      | "exportPng"
+                      | "exportJpg"
+                      | "undo"
+                      | "redo"
+                      | "cut"
+                      | "copy"
+                      | "paste"
+                      | "selectAll"
+                      | "delete"
+                      | "fontName"
+                      | "fontSize"
+                      | "bold"
+                      | "italic"
+                      | "underline"
+                      | "fontColor"
+                      | "lineColor"
+                      | "fillColor"
+                      | "textAlignLeft"
+                      | "textAlignCenter"
+                      | "textAlignRight"
+                      | "lock"
+                      | "unlock"
+                      | "sendToBack"
+                      | "bringToFront"
+                      | "insertShapeImage"
+                      | "editShapeImage"
+                      | "deleteShapeImage"
+                      | "connectorLineType"
+                      | "connectorLineStart"
+                      | "connectorLineEnd"
+                      | "layoutTreeTopToBottom"
+                      | "layoutTreeBottomToTop"
+                      | "layoutTreeLeftToRight"
+                      | "layoutTreeRightToLeft"
+                      | "layoutLayeredTopToBottom"
+                      | "layoutLayeredBottomToTop"
+                      | "layoutLayeredLeftToRight"
+                      | "layoutLayeredRightToLeft"
+                      | "fullScreen"
+                      | "zoomLevel"
+                      | "showGrid"
+                      | "snapToGrid"
+                      | "gridSize"
+                      | "units"
+                      | "pageSize"
+                      | "pageOrientation"
+                      | "pageColor"
+                  >;
+            enabled?: boolean;
+        };
         /** @name dxDiagram.Options.contextToolbox */
-        contextToolbox?: { category?: 'general' | 'flowchart' | 'orgChart' | 'containers' | 'custom' | string, displayMode?: 'icons' | 'texts', enabled?: boolean, shapes?: Array<'text' | 'rectangle' | 'ellipse' | 'cross' | 'triangle' | 'diamond' | 'heart' | 'pentagon' | 'octagon' | 'star' | 'arrowLeft' | 'arrowTop' | 'arrowRight' | 'arrowBottom' | 'arrowNorthSouth' | 'arrowEastWest' | 'process' | 'decision' | 'terminator' | 'predefinedProcess' | 'document' | 'multipleDocuments' | 'manualInput' | 'preparation' | 'data' | 'database' | 'hardDisk' | 'internalStorage' | 'paperTape' | 'manualOperation' | 'delay' | 'storedData' | 'display' | 'merge' | 'connector' | 'or' | 'summingJunction' | 'verticalContainer' | 'horizontalContainer' | 'cardWithImageOnLeft' | 'cardWithImageOnTop' | 'cardWithImageOnRight'> | Array<string> };
+        contextToolbox?: {
+            category?:
+                | "general"
+                | "flowchart"
+                | "orgChart"
+                | "containers"
+                | "custom"
+                | string;
+            displayMode?: "icons" | "texts";
+            enabled?: boolean;
+            shapes?:
+                | Array<
+                      | "text"
+                      | "rectangle"
+                      | "ellipse"
+                      | "cross"
+                      | "triangle"
+                      | "diamond"
+                      | "heart"
+                      | "pentagon"
+                      | "octagon"
+                      | "star"
+                      | "arrowLeft"
+                      | "arrowTop"
+                      | "arrowRight"
+                      | "arrowBottom"
+                      | "arrowNorthSouth"
+                      | "arrowEastWest"
+                      | "process"
+                      | "decision"
+                      | "terminator"
+                      | "predefinedProcess"
+                      | "document"
+                      | "multipleDocuments"
+                      | "manualInput"
+                      | "preparation"
+                      | "data"
+                      | "database"
+                      | "hardDisk"
+                      | "internalStorage"
+                      | "paperTape"
+                      | "manualOperation"
+                      | "delay"
+                      | "storedData"
+                      | "display"
+                      | "merge"
+                      | "connector"
+                      | "or"
+                      | "summingJunction"
+                      | "verticalContainer"
+                      | "horizontalContainer"
+                      | "cardWithImageOnLeft"
+                      | "cardWithImageOnTop"
+                      | "cardWithImageOnRight"
+                  >
+                | Array<string>;
+        };
         /** @name dxDiagram.Options.customShapeTemplate */
-        customShapeTemplate?: DevExpress.core.template | ((container: DevExpress.core.dxElement, data: { item?: dxDiagramShape }) => any);
+        customShapeTemplate?:
+            | DevExpress.core.template
+            | ((
+                  container: DevExpress.core.dxElement,
+                  data: { item?: dxDiagramShape }
+              ) => any);
         /** @name dxDiagram.Options.customShapes */
-        customShapes?: Array<{ allowEditImage?: boolean, allowEditText?: boolean, allowResize?: boolean, backgroundImageHeight?: number, backgroundImageLeft?: number, backgroundImageToolboxUrl?: string, backgroundImageTop?: number, backgroundImageUrl?: string, backgroundImageWidth?: number, baseType?: 'text' | 'rectangle' | 'ellipse' | 'cross' | 'triangle' | 'diamond' | 'heart' | 'pentagon' | 'octagon' | 'star' | 'arrowLeft' | 'arrowTop' | 'arrowRight' | 'arrowBottom' | 'arrowNorthSouth' | 'arrowEastWest' | 'process' | 'decision' | 'terminator' | 'predefinedProcess' | 'document' | 'multipleDocuments' | 'manualInput' | 'preparation' | 'data' | 'database' | 'hardDisk' | 'internalStorage' | 'paperTape' | 'manualOperation' | 'delay' | 'storedData' | 'display' | 'merge' | 'connector' | 'or' | 'summingJunction' | 'verticalContainer' | 'horizontalContainer' | 'cardWithImageOnLeft' | 'cardWithImageOnTop' | 'cardWithImageOnRight' | string, category?: string, connectionPoints?: Array<{ x?: number, y?: number }>, defaultHeight?: number, defaultImageUrl?: string, defaultText?: string, defaultWidth?: number, imageHeight?: number, imageLeft?: number, imageTop?: number, imageWidth?: number, maxHeight?: number, maxWidth?: number, minHeight?: number, minWidth?: number, template?: DevExpress.core.template | ((container: DevExpress.core.dxElement, data: { item?: dxDiagramShape }) => any), templateHeight?: number, templateLeft?: number, templateTop?: number, templateWidth?: number, textHeight?: number, textLeft?: number, textTop?: number, textWidth?: number, title?: string, type?: string }>;
+        customShapes?: Array<{
+            allowEditImage?: boolean;
+            allowEditText?: boolean;
+            allowResize?: boolean;
+            backgroundImageHeight?: number;
+            backgroundImageLeft?: number;
+            backgroundImageToolboxUrl?: string;
+            backgroundImageTop?: number;
+            backgroundImageUrl?: string;
+            backgroundImageWidth?: number;
+            baseType?:
+                | "text"
+                | "rectangle"
+                | "ellipse"
+                | "cross"
+                | "triangle"
+                | "diamond"
+                | "heart"
+                | "pentagon"
+                | "octagon"
+                | "star"
+                | "arrowLeft"
+                | "arrowTop"
+                | "arrowRight"
+                | "arrowBottom"
+                | "arrowNorthSouth"
+                | "arrowEastWest"
+                | "process"
+                | "decision"
+                | "terminator"
+                | "predefinedProcess"
+                | "document"
+                | "multipleDocuments"
+                | "manualInput"
+                | "preparation"
+                | "data"
+                | "database"
+                | "hardDisk"
+                | "internalStorage"
+                | "paperTape"
+                | "manualOperation"
+                | "delay"
+                | "storedData"
+                | "display"
+                | "merge"
+                | "connector"
+                | "or"
+                | "summingJunction"
+                | "verticalContainer"
+                | "horizontalContainer"
+                | "cardWithImageOnLeft"
+                | "cardWithImageOnTop"
+                | "cardWithImageOnRight"
+                | string;
+            category?: string;
+            connectionPoints?: Array<{ x?: number; y?: number }>;
+            defaultHeight?: number;
+            defaultImageUrl?: string;
+            defaultText?: string;
+            defaultWidth?: number;
+            imageHeight?: number;
+            imageLeft?: number;
+            imageTop?: number;
+            imageWidth?: number;
+            maxHeight?: number;
+            maxWidth?: number;
+            minHeight?: number;
+            minWidth?: number;
+            template?:
+                | DevExpress.core.template
+                | ((
+                      container: DevExpress.core.dxElement,
+                      data: { item?: dxDiagramShape }
+                  ) => any);
+            templateHeight?: number;
+            templateLeft?: number;
+            templateTop?: number;
+            templateWidth?: number;
+            textHeight?: number;
+            textLeft?: number;
+            textTop?: number;
+            textWidth?: number;
+            title?: string;
+            type?: string;
+        }>;
         /** @name dxDiagram.Options.edges */
-        edges?: { dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions, fromExpr?: string | ((data: any) => any), fromLineEndExpr?: string | ((data: any) => any), fromPointIndexExpr?: string | ((data: any) => any), keyExpr?: string | ((data: any) => any), lineTypeExpr?: string | ((data: any) => any), lockedExpr?: string | ((data: any) => any), pointsExpr?: string | ((data: any) => any), styleExpr?: string | ((data: any) => any), textExpr?: string | ((data: any) => any), textStyleExpr?: string | ((data: any) => any), toExpr?: string | ((data: any) => any), toLineEndExpr?: string | ((data: any) => any), toPointIndexExpr?: string | ((data: any) => any), zIndexExpr?: string | ((data: any) => any) };
+        edges?: {
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSource
+                | DevExpress.data.DataSourceOptions;
+            fromExpr?: string | ((data: any) => any);
+            fromLineEndExpr?: string | ((data: any) => any);
+            fromPointIndexExpr?: string | ((data: any) => any);
+            keyExpr?: string | ((data: any) => any);
+            lineTypeExpr?: string | ((data: any) => any);
+            lockedExpr?: string | ((data: any) => any);
+            pointsExpr?: string | ((data: any) => any);
+            styleExpr?: string | ((data: any) => any);
+            textExpr?: string | ((data: any) => any);
+            textStyleExpr?: string | ((data: any) => any);
+            toExpr?: string | ((data: any) => any);
+            toLineEndExpr?: string | ((data: any) => any);
+            toPointIndexExpr?: string | ((data: any) => any);
+            zIndexExpr?: string | ((data: any) => any);
+        };
         /** @name dxDiagram.Options.export */
-        export?: { fileName?: string, proxyUrl?: string };
+        export?: { fileName?: string; proxyUrl?: string };
         /** @name dxDiagram.Options.fullScreen */
         fullScreen?: boolean;
         /** @name dxDiagram.Options.gridSize */
-        gridSize?: number | { items?: Array<number>, value?: number };
+        gridSize?: number | { items?: Array<number>; value?: number };
         /** @name dxDiagram.Options.hasChanges */
         hasChanges?: boolean;
         /** @name dxDiagram.Options.historyToolbar */
-        historyToolbar?: { commands?: Array<dxDiagramCustomCommand> | Array<'separator' | 'exportSvg' | 'exportPng' | 'exportJpg' | 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'selectAll' | 'delete' | 'fontName' | 'fontSize' | 'bold' | 'italic' | 'underline' | 'fontColor' | 'lineColor' | 'fillColor' | 'textAlignLeft' | 'textAlignCenter' | 'textAlignRight' | 'lock' | 'unlock' | 'sendToBack' | 'bringToFront' | 'insertShapeImage' | 'editShapeImage' | 'deleteShapeImage' | 'connectorLineType' | 'connectorLineStart' | 'connectorLineEnd' | 'layoutTreeTopToBottom' | 'layoutTreeBottomToTop' | 'layoutTreeLeftToRight' | 'layoutTreeRightToLeft' | 'layoutLayeredTopToBottom' | 'layoutLayeredBottomToTop' | 'layoutLayeredLeftToRight' | 'layoutLayeredRightToLeft' | 'fullScreen' | 'zoomLevel' | 'showGrid' | 'snapToGrid' | 'gridSize' | 'units' | 'pageSize' | 'pageOrientation' | 'pageColor'>, visible?: boolean };
+        historyToolbar?: {
+            commands?:
+                | Array<dxDiagramCustomCommand>
+                | Array<
+                      | "separator"
+                      | "exportSvg"
+                      | "exportPng"
+                      | "exportJpg"
+                      | "undo"
+                      | "redo"
+                      | "cut"
+                      | "copy"
+                      | "paste"
+                      | "selectAll"
+                      | "delete"
+                      | "fontName"
+                      | "fontSize"
+                      | "bold"
+                      | "italic"
+                      | "underline"
+                      | "fontColor"
+                      | "lineColor"
+                      | "fillColor"
+                      | "textAlignLeft"
+                      | "textAlignCenter"
+                      | "textAlignRight"
+                      | "lock"
+                      | "unlock"
+                      | "sendToBack"
+                      | "bringToFront"
+                      | "insertShapeImage"
+                      | "editShapeImage"
+                      | "deleteShapeImage"
+                      | "connectorLineType"
+                      | "connectorLineStart"
+                      | "connectorLineEnd"
+                      | "layoutTreeTopToBottom"
+                      | "layoutTreeBottomToTop"
+                      | "layoutTreeLeftToRight"
+                      | "layoutTreeRightToLeft"
+                      | "layoutLayeredTopToBottom"
+                      | "layoutLayeredBottomToTop"
+                      | "layoutLayeredLeftToRight"
+                      | "layoutLayeredRightToLeft"
+                      | "fullScreen"
+                      | "zoomLevel"
+                      | "showGrid"
+                      | "snapToGrid"
+                      | "gridSize"
+                      | "units"
+                      | "pageSize"
+                      | "pageOrientation"
+                      | "pageColor"
+                  >;
+            visible?: boolean;
+        };
         /** @name dxDiagram.Options.mainToolbar */
-        mainToolbar?: { commands?: Array<dxDiagramCustomCommand> | Array<'separator' | 'exportSvg' | 'exportPng' | 'exportJpg' | 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'selectAll' | 'delete' | 'fontName' | 'fontSize' | 'bold' | 'italic' | 'underline' | 'fontColor' | 'lineColor' | 'fillColor' | 'textAlignLeft' | 'textAlignCenter' | 'textAlignRight' | 'lock' | 'unlock' | 'sendToBack' | 'bringToFront' | 'insertShapeImage' | 'editShapeImage' | 'deleteShapeImage' | 'connectorLineType' | 'connectorLineStart' | 'connectorLineEnd' | 'layoutTreeTopToBottom' | 'layoutTreeBottomToTop' | 'layoutTreeLeftToRight' | 'layoutTreeRightToLeft' | 'layoutLayeredTopToBottom' | 'layoutLayeredBottomToTop' | 'layoutLayeredLeftToRight' | 'layoutLayeredRightToLeft' | 'fullScreen' | 'zoomLevel' | 'showGrid' | 'snapToGrid' | 'gridSize' | 'units' | 'pageSize' | 'pageOrientation' | 'pageColor'>, visible?: boolean };
+        mainToolbar?: {
+            commands?:
+                | Array<dxDiagramCustomCommand>
+                | Array<
+                      | "separator"
+                      | "exportSvg"
+                      | "exportPng"
+                      | "exportJpg"
+                      | "undo"
+                      | "redo"
+                      | "cut"
+                      | "copy"
+                      | "paste"
+                      | "selectAll"
+                      | "delete"
+                      | "fontName"
+                      | "fontSize"
+                      | "bold"
+                      | "italic"
+                      | "underline"
+                      | "fontColor"
+                      | "lineColor"
+                      | "fillColor"
+                      | "textAlignLeft"
+                      | "textAlignCenter"
+                      | "textAlignRight"
+                      | "lock"
+                      | "unlock"
+                      | "sendToBack"
+                      | "bringToFront"
+                      | "insertShapeImage"
+                      | "editShapeImage"
+                      | "deleteShapeImage"
+                      | "connectorLineType"
+                      | "connectorLineStart"
+                      | "connectorLineEnd"
+                      | "layoutTreeTopToBottom"
+                      | "layoutTreeBottomToTop"
+                      | "layoutTreeLeftToRight"
+                      | "layoutTreeRightToLeft"
+                      | "layoutLayeredTopToBottom"
+                      | "layoutLayeredBottomToTop"
+                      | "layoutLayeredLeftToRight"
+                      | "layoutLayeredRightToLeft"
+                      | "fullScreen"
+                      | "zoomLevel"
+                      | "showGrid"
+                      | "snapToGrid"
+                      | "gridSize"
+                      | "units"
+                      | "pageSize"
+                      | "pageOrientation"
+                      | "pageColor"
+                  >;
+            visible?: boolean;
+        };
         /** @name dxDiagram.Options.nodes */
-        nodes?: { autoLayout?: 'auto' | 'off' | 'tree' | 'layered' | { orientation?: 'auto' | 'vertical' | 'horizontal', type?: 'auto' | 'off' | 'tree' | 'layered' }, childrenExpr?: string | ((data: any) => any), containerKeyExpr?: string | ((data: any) => any), dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions, heightExpr?: string | ((data: any) => any), imageUrlExpr?: string | ((data: any) => any), itemsExpr?: string | ((data: any) => any), keyExpr?: string | ((data: any) => any), leftExpr?: string | ((data: any) => any), lockedExpr?: string | ((data: any) => any), parentKeyExpr?: string | ((data: any) => any), styleExpr?: string | ((data: any) => any), textExpr?: string | ((data: any) => any), textStyleExpr?: string | ((data: any) => any), topExpr?: string | ((data: any) => any), typeExpr?: string | ((data: any) => any), widthExpr?: string | ((data: any) => any), zIndexExpr?: string | ((data: any) => any) };
+        nodes?: {
+            autoLayout?:
+                | "auto"
+                | "off"
+                | "tree"
+                | "layered"
+                | {
+                      orientation?: "auto" | "vertical" | "horizontal";
+                      type?: "auto" | "off" | "tree" | "layered";
+                  };
+            childrenExpr?: string | ((data: any) => any);
+            containerKeyExpr?: string | ((data: any) => any);
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSource
+                | DevExpress.data.DataSourceOptions;
+            heightExpr?: string | ((data: any) => any);
+            imageUrlExpr?: string | ((data: any) => any);
+            itemsExpr?: string | ((data: any) => any);
+            keyExpr?: string | ((data: any) => any);
+            leftExpr?: string | ((data: any) => any);
+            lockedExpr?: string | ((data: any) => any);
+            parentKeyExpr?: string | ((data: any) => any);
+            styleExpr?: string | ((data: any) => any);
+            textExpr?: string | ((data: any) => any);
+            textStyleExpr?: string | ((data: any) => any);
+            topExpr?: string | ((data: any) => any);
+            typeExpr?: string | ((data: any) => any);
+            widthExpr?: string | ((data: any) => any);
+            zIndexExpr?: string | ((data: any) => any);
+        };
         /** @name dxDiagram.Options.onCustomCommand */
-        onCustomCommand?: ((e: { component?: dxDiagram, element?: DevExpress.core.dxElement, name?: string }) => any);
+        onCustomCommand?: (e: {
+            component?: dxDiagram;
+            element?: DevExpress.core.dxElement;
+            name?: string;
+        }) => any;
         /** @name dxDiagram.Options.onItemClick */
-        onItemClick?: ((e: { component?: dxDiagram, element?: DevExpress.core.dxElement, model?: any, item?: dxDiagramItem }) => any);
+        onItemClick?: (e: {
+            component?: dxDiagram;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            item?: dxDiagramItem;
+        }) => any;
         /** @name dxDiagram.Options.onItemDblClick */
-        onItemDblClick?: ((e: { component?: dxDiagram, element?: DevExpress.core.dxElement, model?: any, item?: dxDiagramItem }) => any);
+        onItemDblClick?: (e: {
+            component?: dxDiagram;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            item?: dxDiagramItem;
+        }) => any;
         /** @name dxDiagram.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxDiagram, element?: DevExpress.core.dxElement, model?: any, items?: Array<dxDiagramItem> }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxDiagram;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            items?: Array<dxDiagramItem>;
+        }) => any;
         /** @name dxDiagram.Options.pageColor */
         pageColor?: string;
         /** @name dxDiagram.Options.pageOrientation */
-        pageOrientation?: 'portrait' | 'landscape';
+        pageOrientation?: "portrait" | "landscape";
         /** @name dxDiagram.Options.pageSize */
-        pageSize?: { height?: number, items?: Array<{ height?: number, text?: string, width?: number }>, width?: number };
+        pageSize?: {
+            height?: number;
+            items?: Array<{ height?: number; text?: string; width?: number }>;
+            width?: number;
+        };
         /** @name dxDiagram.Options.propertiesPanel */
-        propertiesPanel?: { tabs?: Array<{ commands?: Array<dxDiagramCustomCommand> | Array<'separator' | 'exportSvg' | 'exportPng' | 'exportJpg' | 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'selectAll' | 'delete' | 'fontName' | 'fontSize' | 'bold' | 'italic' | 'underline' | 'fontColor' | 'lineColor' | 'fillColor' | 'textAlignLeft' | 'textAlignCenter' | 'textAlignRight' | 'lock' | 'unlock' | 'sendToBack' | 'bringToFront' | 'insertShapeImage' | 'editShapeImage' | 'deleteShapeImage' | 'connectorLineType' | 'connectorLineStart' | 'connectorLineEnd' | 'layoutTreeTopToBottom' | 'layoutTreeBottomToTop' | 'layoutTreeLeftToRight' | 'layoutTreeRightToLeft' | 'layoutLayeredTopToBottom' | 'layoutLayeredBottomToTop' | 'layoutLayeredLeftToRight' | 'layoutLayeredRightToLeft' | 'fullScreen' | 'zoomLevel' | 'showGrid' | 'snapToGrid' | 'gridSize' | 'units' | 'pageSize' | 'pageOrientation' | 'pageColor'>, groups?: Array<{ commands?: Array<dxDiagramCustomCommand> | Array<'separator' | 'exportSvg' | 'exportPng' | 'exportJpg' | 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'selectAll' | 'delete' | 'fontName' | 'fontSize' | 'bold' | 'italic' | 'underline' | 'fontColor' | 'lineColor' | 'fillColor' | 'textAlignLeft' | 'textAlignCenter' | 'textAlignRight' | 'lock' | 'unlock' | 'sendToBack' | 'bringToFront' | 'insertShapeImage' | 'editShapeImage' | 'deleteShapeImage' | 'connectorLineType' | 'connectorLineStart' | 'connectorLineEnd' | 'layoutTreeTopToBottom' | 'layoutTreeBottomToTop' | 'layoutTreeLeftToRight' | 'layoutTreeRightToLeft' | 'layoutLayeredTopToBottom' | 'layoutLayeredBottomToTop' | 'layoutLayeredLeftToRight' | 'layoutLayeredRightToLeft' | 'fullScreen' | 'zoomLevel' | 'showGrid' | 'snapToGrid' | 'gridSize' | 'units' | 'pageSize' | 'pageOrientation' | 'pageColor'>, title?: string }>, title?: string }>, visibility?: 'auto' | 'visible' | 'collapsed' | 'disabled' };
+        propertiesPanel?: {
+            tabs?: Array<{
+                commands?:
+                    | Array<dxDiagramCustomCommand>
+                    | Array<
+                          | "separator"
+                          | "exportSvg"
+                          | "exportPng"
+                          | "exportJpg"
+                          | "undo"
+                          | "redo"
+                          | "cut"
+                          | "copy"
+                          | "paste"
+                          | "selectAll"
+                          | "delete"
+                          | "fontName"
+                          | "fontSize"
+                          | "bold"
+                          | "italic"
+                          | "underline"
+                          | "fontColor"
+                          | "lineColor"
+                          | "fillColor"
+                          | "textAlignLeft"
+                          | "textAlignCenter"
+                          | "textAlignRight"
+                          | "lock"
+                          | "unlock"
+                          | "sendToBack"
+                          | "bringToFront"
+                          | "insertShapeImage"
+                          | "editShapeImage"
+                          | "deleteShapeImage"
+                          | "connectorLineType"
+                          | "connectorLineStart"
+                          | "connectorLineEnd"
+                          | "layoutTreeTopToBottom"
+                          | "layoutTreeBottomToTop"
+                          | "layoutTreeLeftToRight"
+                          | "layoutTreeRightToLeft"
+                          | "layoutLayeredTopToBottom"
+                          | "layoutLayeredBottomToTop"
+                          | "layoutLayeredLeftToRight"
+                          | "layoutLayeredRightToLeft"
+                          | "fullScreen"
+                          | "zoomLevel"
+                          | "showGrid"
+                          | "snapToGrid"
+                          | "gridSize"
+                          | "units"
+                          | "pageSize"
+                          | "pageOrientation"
+                          | "pageColor"
+                      >;
+                groups?: Array<{
+                    commands?:
+                        | Array<dxDiagramCustomCommand>
+                        | Array<
+                              | "separator"
+                              | "exportSvg"
+                              | "exportPng"
+                              | "exportJpg"
+                              | "undo"
+                              | "redo"
+                              | "cut"
+                              | "copy"
+                              | "paste"
+                              | "selectAll"
+                              | "delete"
+                              | "fontName"
+                              | "fontSize"
+                              | "bold"
+                              | "italic"
+                              | "underline"
+                              | "fontColor"
+                              | "lineColor"
+                              | "fillColor"
+                              | "textAlignLeft"
+                              | "textAlignCenter"
+                              | "textAlignRight"
+                              | "lock"
+                              | "unlock"
+                              | "sendToBack"
+                              | "bringToFront"
+                              | "insertShapeImage"
+                              | "editShapeImage"
+                              | "deleteShapeImage"
+                              | "connectorLineType"
+                              | "connectorLineStart"
+                              | "connectorLineEnd"
+                              | "layoutTreeTopToBottom"
+                              | "layoutTreeBottomToTop"
+                              | "layoutTreeLeftToRight"
+                              | "layoutTreeRightToLeft"
+                              | "layoutLayeredTopToBottom"
+                              | "layoutLayeredBottomToTop"
+                              | "layoutLayeredLeftToRight"
+                              | "layoutLayeredRightToLeft"
+                              | "fullScreen"
+                              | "zoomLevel"
+                              | "showGrid"
+                              | "snapToGrid"
+                              | "gridSize"
+                              | "units"
+                              | "pageSize"
+                              | "pageOrientation"
+                              | "pageColor"
+                          >;
+                    title?: string;
+                }>;
+                title?: string;
+            }>;
+            visibility?: "auto" | "visible" | "collapsed" | "disabled";
+        };
         /** @name dxDiagram.Options.readOnly */
         readOnly?: boolean;
         /** @name dxDiagram.Options.showGrid */
@@ -3265,24 +5497,147 @@ declare module DevExpress.ui {
         /** @name dxDiagram.Options.snapToGrid */
         snapToGrid?: boolean;
         /** @name dxDiagram.Options.toolbox */
-        toolbox?: { groups?: Array<{ category?: 'general' | 'flowchart' | 'orgChart' | 'containers' | 'custom' | string, displayMode?: 'icons' | 'texts', expanded?: boolean, shapes?: Array<'text' | 'rectangle' | 'ellipse' | 'cross' | 'triangle' | 'diamond' | 'heart' | 'pentagon' | 'octagon' | 'star' | 'arrowLeft' | 'arrowTop' | 'arrowRight' | 'arrowBottom' | 'arrowNorthSouth' | 'arrowEastWest' | 'process' | 'decision' | 'terminator' | 'predefinedProcess' | 'document' | 'multipleDocuments' | 'manualInput' | 'preparation' | 'data' | 'database' | 'hardDisk' | 'internalStorage' | 'paperTape' | 'manualOperation' | 'delay' | 'storedData' | 'display' | 'merge' | 'connector' | 'or' | 'summingJunction' | 'verticalContainer' | 'horizontalContainer' | 'cardWithImageOnLeft' | 'cardWithImageOnTop' | 'cardWithImageOnRight'> | Array<string>, title?: string }> | Array<'general' | 'flowchart' | 'orgChart' | 'containers' | 'custom'>, visibility?: 'auto' | 'visible' | 'collapsed' | 'disabled' };
+        toolbox?: {
+            groups?:
+                | Array<{
+                      category?:
+                          | "general"
+                          | "flowchart"
+                          | "orgChart"
+                          | "containers"
+                          | "custom"
+                          | string;
+                      displayMode?: "icons" | "texts";
+                      expanded?: boolean;
+                      shapes?:
+                          | Array<
+                                | "text"
+                                | "rectangle"
+                                | "ellipse"
+                                | "cross"
+                                | "triangle"
+                                | "diamond"
+                                | "heart"
+                                | "pentagon"
+                                | "octagon"
+                                | "star"
+                                | "arrowLeft"
+                                | "arrowTop"
+                                | "arrowRight"
+                                | "arrowBottom"
+                                | "arrowNorthSouth"
+                                | "arrowEastWest"
+                                | "process"
+                                | "decision"
+                                | "terminator"
+                                | "predefinedProcess"
+                                | "document"
+                                | "multipleDocuments"
+                                | "manualInput"
+                                | "preparation"
+                                | "data"
+                                | "database"
+                                | "hardDisk"
+                                | "internalStorage"
+                                | "paperTape"
+                                | "manualOperation"
+                                | "delay"
+                                | "storedData"
+                                | "display"
+                                | "merge"
+                                | "connector"
+                                | "or"
+                                | "summingJunction"
+                                | "verticalContainer"
+                                | "horizontalContainer"
+                                | "cardWithImageOnLeft"
+                                | "cardWithImageOnTop"
+                                | "cardWithImageOnRight"
+                            >
+                          | Array<string>;
+                      title?: string;
+                  }>
+                | Array<
+                      | "general"
+                      | "flowchart"
+                      | "orgChart"
+                      | "containers"
+                      | "custom"
+                  >;
+            visibility?: "auto" | "visible" | "collapsed" | "disabled";
+        };
         /** @name dxDiagram.Options.units */
-        units?: 'in' | 'cm' | 'px';
+        units?: "in" | "cm" | "px";
         /** @name dxDiagram.Options.viewToolbar */
-        viewToolbar?: { commands?: Array<dxDiagramCustomCommand> | Array<'separator' | 'exportSvg' | 'exportPng' | 'exportJpg' | 'undo' | 'redo' | 'cut' | 'copy' | 'paste' | 'selectAll' | 'delete' | 'fontName' | 'fontSize' | 'bold' | 'italic' | 'underline' | 'fontColor' | 'lineColor' | 'fillColor' | 'textAlignLeft' | 'textAlignCenter' | 'textAlignRight' | 'lock' | 'unlock' | 'sendToBack' | 'bringToFront' | 'insertShapeImage' | 'editShapeImage' | 'deleteShapeImage' | 'connectorLineType' | 'connectorLineStart' | 'connectorLineEnd' | 'layoutTreeTopToBottom' | 'layoutTreeBottomToTop' | 'layoutTreeLeftToRight' | 'layoutTreeRightToLeft' | 'layoutLayeredTopToBottom' | 'layoutLayeredBottomToTop' | 'layoutLayeredLeftToRight' | 'layoutLayeredRightToLeft' | 'fullScreen' | 'zoomLevel' | 'showGrid' | 'snapToGrid' | 'gridSize' | 'units' | 'pageSize' | 'pageOrientation' | 'pageColor'>, visible?: boolean };
+        viewToolbar?: {
+            commands?:
+                | Array<dxDiagramCustomCommand>
+                | Array<
+                      | "separator"
+                      | "exportSvg"
+                      | "exportPng"
+                      | "exportJpg"
+                      | "undo"
+                      | "redo"
+                      | "cut"
+                      | "copy"
+                      | "paste"
+                      | "selectAll"
+                      | "delete"
+                      | "fontName"
+                      | "fontSize"
+                      | "bold"
+                      | "italic"
+                      | "underline"
+                      | "fontColor"
+                      | "lineColor"
+                      | "fillColor"
+                      | "textAlignLeft"
+                      | "textAlignCenter"
+                      | "textAlignRight"
+                      | "lock"
+                      | "unlock"
+                      | "sendToBack"
+                      | "bringToFront"
+                      | "insertShapeImage"
+                      | "editShapeImage"
+                      | "deleteShapeImage"
+                      | "connectorLineType"
+                      | "connectorLineStart"
+                      | "connectorLineEnd"
+                      | "layoutTreeTopToBottom"
+                      | "layoutTreeBottomToTop"
+                      | "layoutTreeLeftToRight"
+                      | "layoutTreeRightToLeft"
+                      | "layoutLayeredTopToBottom"
+                      | "layoutLayeredBottomToTop"
+                      | "layoutLayeredLeftToRight"
+                      | "layoutLayeredRightToLeft"
+                      | "fullScreen"
+                      | "zoomLevel"
+                      | "showGrid"
+                      | "snapToGrid"
+                      | "gridSize"
+                      | "units"
+                      | "pageSize"
+                      | "pageOrientation"
+                      | "pageColor"
+                  >;
+            visible?: boolean;
+        };
         /** @name dxDiagram.Options.viewUnits */
-        viewUnits?: 'in' | 'cm' | 'px';
+        viewUnits?: "in" | "cm" | "px";
         /** @name dxDiagram.Options.zoomLevel */
-        zoomLevel?: number | { items?: Array<number>, value?: number };
+        zoomLevel?: number | { items?: Array<number>; value?: number };
     }
     /** @name dxDiagram */
     export class dxDiagram extends Widget {
-        constructor(element: Element, options?: dxDiagramOptions)
-        constructor(element: JQuery, options?: dxDiagramOptions)
+        constructor(element: Element, options?: dxDiagramOptions);
+        constructor(element: JQuery, options?: dxDiagramOptions);
         /** @name dxDiagram.export() */
         export(): string;
         /** @name dxDiagram.exportTo(format, callback) */
-        exportTo(format: 'svg' | 'png' | 'jpg', callback: Function): void;
+        exportTo(format: "svg" | "png" | "jpg", callback: Function): void;
         /** @name dxDiagram.import(data, updateExistingItemsOnly) */
         import(data: string, updateExistingItemsOnly?: boolean): void;
     }
@@ -3313,32 +5668,117 @@ declare module DevExpress.ui {
         /** @name dxDiagramItem.id */
         id?: string;
         /** @name dxDiagramItem.itemType */
-        itemType?: 'shape' | 'connector';
+        itemType?: "shape" | "connector";
     }
     /** @name dxDiagramShape */
     export interface dxDiagramShape extends dxDiagramItem {
         /** @name dxDiagramShape.text */
         text?: string;
         /** @name dxDiagramShape.type */
-        type?: 'text' | 'rectangle' | 'ellipse' | 'cross' | 'triangle' | 'diamond' | 'heart' | 'pentagon' | 'octagon' | 'star' | 'arrowLeft' | 'arrowTop' | 'arrowRight' | 'arrowBottom' | 'arrowNorthSouth' | 'arrowEastWest' | 'process' | 'decision' | 'terminator' | 'predefinedProcess' | 'document' | 'multipleDocuments' | 'manualInput' | 'preparation' | 'data' | 'database' | 'hardDisk' | 'internalStorage' | 'paperTape' | 'manualOperation' | 'delay' | 'storedData' | 'display' | 'merge' | 'connector' | 'or' | 'summingJunction' | 'verticalContainer' | 'horizontalContainer' | 'cardWithImageOnLeft' | 'cardWithImageOnTop' | 'cardWithImageOnRight' | string;
+        type?:
+            | "text"
+            | "rectangle"
+            | "ellipse"
+            | "cross"
+            | "triangle"
+            | "diamond"
+            | "heart"
+            | "pentagon"
+            | "octagon"
+            | "star"
+            | "arrowLeft"
+            | "arrowTop"
+            | "arrowRight"
+            | "arrowBottom"
+            | "arrowNorthSouth"
+            | "arrowEastWest"
+            | "process"
+            | "decision"
+            | "terminator"
+            | "predefinedProcess"
+            | "document"
+            | "multipleDocuments"
+            | "manualInput"
+            | "preparation"
+            | "data"
+            | "database"
+            | "hardDisk"
+            | "internalStorage"
+            | "paperTape"
+            | "manualOperation"
+            | "delay"
+            | "storedData"
+            | "display"
+            | "merge"
+            | "connector"
+            | "or"
+            | "summingJunction"
+            | "verticalContainer"
+            | "horizontalContainer"
+            | "cardWithImageOnLeft"
+            | "cardWithImageOnTop"
+            | "cardWithImageOnRight"
+            | string;
     }
     /** @name dxDraggable.Options */
-    export interface dxDraggableOptions extends DraggableBaseOptions<dxDraggable> {
+    export interface dxDraggableOptions
+        extends DraggableBaseOptions<dxDraggable> {
         /** @name dxDraggable.Options.clone */
         clone?: boolean;
         /** @name dxDraggable.Options.dragTemplate */
-        dragTemplate?: DevExpress.core.template | ((dragInfo: { itemData?: any, itemElement?: DevExpress.core.dxElement }, containerElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        dragTemplate?:
+            | DevExpress.core.template
+            | ((
+                  dragInfo: {
+                      itemData?: any;
+                      itemElement?: DevExpress.core.dxElement;
+                  },
+                  containerElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDraggable.Options.onDragEnd */
-        onDragEnd?: ((e: { component?: dxDraggable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any }) => any);
+        onDragEnd?: (e: {
+            component?: dxDraggable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+        }) => any;
         /** @name dxDraggable.Options.onDragMove */
-        onDragMove?: ((e: { component?: dxDraggable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any }) => any);
+        onDragMove?: (e: {
+            component?: dxDraggable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+        }) => any;
         /** @name dxDraggable.Options.onDragStart */
-        onDragStart?: ((e: { component?: dxDraggable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromData?: any }) => any);
+        onDragStart?: (e: {
+            component?: dxDraggable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromData?: any;
+        }) => any;
     }
     /** @name dxDraggable */
     export class dxDraggable extends DraggableBase {
-        constructor(element: Element, options?: dxDraggableOptions)
-        constructor(element: JQuery, options?: dxDraggableOptions)
+        constructor(element: Element, options?: dxDraggableOptions);
+        constructor(element: JQuery, options?: dxDraggableOptions);
     }
     /** @name dxDrawer.Options */
     export interface dxDrawerOptions extends WidgetOptions<dxDrawer> {
@@ -3347,7 +5787,9 @@ declare module DevExpress.ui {
         /** @name dxDrawer.Options.animationEnabled */
         animationEnabled?: boolean;
         /** @name dxDrawer.Options.closeOnOutsideClick */
-        closeOnOutsideClick?: boolean | ((event: DevExpress.events.event) => boolean);
+        closeOnOutsideClick?:
+            | boolean
+            | ((event: DevExpress.events.event) => boolean);
         /** @name dxDrawer.Options.maxSize */
         maxSize?: number;
         /** @name dxDrawer.Options.minSize */
@@ -3355,22 +5797,24 @@ declare module DevExpress.ui {
         /** @name dxDrawer.Options.opened */
         opened?: boolean;
         /** @name dxDrawer.Options.openedStateMode */
-        openedStateMode?: 'overlap' | 'shrink' | 'push';
+        openedStateMode?: "overlap" | "shrink" | "push";
         /** @name dxDrawer.Options.position */
-        position?: 'left' | 'right' | 'top' | 'bottom' | 'before' | 'after';
+        position?: "left" | "right" | "top" | "bottom" | "before" | "after";
         /** @name dxDrawer.Options.revealMode */
-        revealMode?: 'slide' | 'expand';
+        revealMode?: "slide" | "expand";
         /** @name dxDrawer.Options.shading */
         shading?: boolean;
         /** @name dxDrawer.Options.target */
         target?: string | Element | JQuery;
         /** @name dxDrawer.Options.template */
-        template?: DevExpress.core.template | ((Element: DevExpress.core.dxElement) => any);
+        template?:
+            | DevExpress.core.template
+            | ((Element: DevExpress.core.dxElement) => any);
     }
     /** @name dxDrawer */
     export class dxDrawer extends Widget {
-        constructor(element: Element, options?: dxDrawerOptions)
-        constructor(element: JQuery, options?: dxDrawerOptions)
+        constructor(element: Element, options?: dxDrawerOptions);
+        constructor(element: JQuery, options?: dxDrawerOptions);
         /** @name dxDrawer.content() */
         content(): DevExpress.core.dxElement;
         /** @name dxDrawer.hide() */
@@ -3381,15 +5825,27 @@ declare module DevExpress.ui {
         toggle(): Promise<void> & JQueryPromise<void>;
     }
     /** @name dxDropDownBox.Options */
-    export interface dxDropDownBoxOptions extends DataExpressionMixinOptions<dxDropDownBox>, dxDropDownEditorOptions<dxDropDownBox> {
+    export interface dxDropDownBoxOptions
+        extends DataExpressionMixinOptions<dxDropDownBox>,
+            dxDropDownEditorOptions<dxDropDownBox> {
         /** @name dxDropDownBox.Options.acceptCustomValue */
         acceptCustomValue?: boolean;
         /** @name dxDropDownBox.Options.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((templateData: { component?: dxDropDownBox, value?: any }, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  templateData: { component?: dxDropDownBox; value?: any },
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDropDownBox.Options.displayValueFormatter */
-        displayValueFormatter?: ((value: string | Array<any>) => string);
+        displayValueFormatter?: (value: string | Array<any>) => string;
         /** @name dxDropDownBox.Options.fieldTemplate */
-        fieldTemplate?: DevExpress.core.template | ((value: any, fieldElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        fieldTemplate?:
+            | DevExpress.core.template
+            | ((
+                  value: any,
+                  fieldElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDropDownBox.Options.openOnFieldClick */
         openOnFieldClick?: boolean;
         /** @name dxDropDownBox.Options.valueChangeEvent */
@@ -3397,21 +5853,33 @@ declare module DevExpress.ui {
     }
     /** @name dxDropDownBox */
     export class dxDropDownBox extends dxDropDownEditor {
-        constructor(element: Element, options?: dxDropDownBoxOptions)
-        constructor(element: JQuery, options?: dxDropDownBoxOptions)
+        constructor(element: Element, options?: dxDropDownBoxOptions);
+        constructor(element: JQuery, options?: dxDropDownBoxOptions);
         /** @name DataHelperMixin.getDataSource() */
         getDataSource(): DevExpress.data.DataSource;
     }
     /** @name dxDropDownButton.Options */
-    export interface dxDropDownButtonOptions extends WidgetOptions<dxDropDownButton> {
+    export interface dxDropDownButtonOptions
+        extends WidgetOptions<dxDropDownButton> {
         /** @name dxDropDownButton.Options.dataSource */
-        dataSource?: string | Array<dxDropDownButtonItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<dxDropDownButtonItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxDropDownButton.Options.deferRendering */
         deferRendering?: boolean;
         /** @name dxDropDownButton.Options.displayExpr */
         displayExpr?: string | ((itemData: any) => string);
         /** @name dxDropDownButton.Options.dropDownContentTemplate */
-        dropDownContentTemplate?: DevExpress.core.template | ((data: Array<string | number | any> | DevExpress.data.DataSource, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        dropDownContentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  data:
+                      | Array<string | number | any>
+                      | DevExpress.data.DataSource,
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDropDownButton.Options.dropDownOptions */
         dropDownOptions?: dxPopupOptions;
         /** @name dxDropDownButton.Options.focusStateEnabled */
@@ -3421,7 +5889,13 @@ declare module DevExpress.ui {
         /** @name dxDropDownButton.Options.icon */
         icon?: string;
         /** @name dxDropDownButton.Options.itemTemplate */
-        itemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDropDownButton.Options.items */
         items?: Array<dxDropDownButtonItem | any>;
         /** @name dxDropDownButton.Options.keyExpr */
@@ -3429,11 +5903,36 @@ declare module DevExpress.ui {
         /** @name dxDropDownButton.Options.noDataText */
         noDataText?: string;
         /** @name dxDropDownButton.Options.onButtonClick */
-        onButtonClick?: ((e: { component?: dxDropDownButton, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, selectedItem?: any }) => any) | string;
+        onButtonClick?:
+            | ((e: {
+                  component?: dxDropDownButton;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  event?: DevExpress.events.event;
+                  selectedItem?: any;
+              }) => any)
+            | string;
         /** @name dxDropDownButton.Options.onItemClick */
-        onItemClick?: ((e: { component?: dxDropDownButton, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement }) => any) | string;
+        onItemClick?:
+            | ((e: {
+                  component?: dxDropDownButton;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  event?: DevExpress.events.event;
+                  itemData?: any;
+                  itemElement?: DevExpress.core.dxElement;
+              }) => any)
+            | string;
         /** @name dxDropDownButton.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxDropDownButton, element?: DevExpress.core.dxElement, model?: any, item?: any, previousItem?: any }) => any) | string;
+        onSelectionChanged?:
+            | ((e: {
+                  component?: dxDropDownButton;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  item?: any;
+                  previousItem?: any;
+              }) => any)
+            | string;
         /** @name dxDropDownButton.Options.opened */
         opened?: boolean;
         /** @name dxDropDownButton.Options.selectedItem */
@@ -3445,7 +5944,7 @@ declare module DevExpress.ui {
         /** @name dxDropDownButton.Options.splitButton */
         splitButton?: boolean;
         /** @name dxDropDownButton.Options.stylingMode */
-        stylingMode?: 'text' | 'outlined' | 'contained';
+        stylingMode?: "text" | "outlined" | "contained";
         /** @name dxDropDownButton.Options.text */
         text?: string;
         /** @name dxDropDownButton.Options.useSelectMode */
@@ -3455,8 +5954,8 @@ declare module DevExpress.ui {
     }
     /** @name dxDropDownButton */
     export class dxDropDownButton extends Widget {
-        constructor(element: Element, options?: dxDropDownButtonOptions)
-        constructor(element: JQuery, options?: dxDropDownButtonOptions)
+        constructor(element: Element, options?: dxDropDownButtonOptions);
+        constructor(element: JQuery, options?: dxDropDownButtonOptions);
         /** @name dxDropDownButton.close() */
         close(): Promise<void> & JQueryPromise<void>;
         /** @name DataHelperMixin.getDataSource() */
@@ -3469,28 +5968,41 @@ declare module DevExpress.ui {
         toggle(visibility: boolean): Promise<void> & JQueryPromise<void>;
     }
     /** @name dxDropDownButtonItem */
-    export interface dxDropDownButtonItem extends dxListItem {
-    }
+    export interface dxDropDownButtonItem extends dxListItem {}
     /** @name dxDropDownEditor.Options */
-    export interface dxDropDownEditorOptions<T = dxDropDownEditor> extends dxTextBoxOptions<T> {
+    export interface dxDropDownEditorOptions<T = dxDropDownEditor>
+        extends dxTextBoxOptions<T> {
         /** @name dxDropDownEditor.Options.acceptCustomValue */
         acceptCustomValue?: boolean;
         /** @name dxDropDownEditor.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxDropDownEditor.Options.applyValueMode */
-        applyValueMode?: 'instantly' | 'useButtons';
+        applyValueMode?: "instantly" | "useButtons";
         /** @name dxDropDownEditor.Options.buttons */
-        buttons?: Array<'clear' | 'dropDown' | dxTextEditorButton>;
+        buttons?: Array<"clear" | "dropDown" | dxTextEditorButton>;
         /** @name dxDropDownEditor.Options.deferRendering */
         deferRendering?: boolean;
         /** @name dxDropDownEditor.Options.dropDownButtonTemplate */
-        dropDownButtonTemplate?: DevExpress.core.template | ((buttonData: { text?: string, icon?: string }, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        dropDownButtonTemplate?:
+            | DevExpress.core.template
+            | ((
+                  buttonData: { text?: string; icon?: string },
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDropDownEditor.Options.dropDownOptions */
         dropDownOptions?: dxPopupOptions;
         /** @name dxDropDownEditor.Options.onClosed */
-        onClosed?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onClosed?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxDropDownEditor.Options.onOpened */
-        onOpened?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onOpened?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxDropDownEditor.Options.openOnFieldClick */
         openOnFieldClick?: boolean;
         /** @name dxDropDownEditor.Options.opened */
@@ -3502,8 +6014,8 @@ declare module DevExpress.ui {
     }
     /** @name dxDropDownEditor */
     export class dxDropDownEditor extends dxTextBox {
-        constructor(element: Element, options?: dxDropDownEditorOptions)
-        constructor(element: JQuery, options?: dxDropDownEditorOptions)
+        constructor(element: Element, options?: dxDropDownEditorOptions);
+        constructor(element: JQuery, options?: dxDropDownEditorOptions);
         /** @name dxDropDownEditor.close() */
         close(): void;
         /** @name dxDropDownEditor.content() */
@@ -3514,11 +6026,19 @@ declare module DevExpress.ui {
         open(): void;
     }
     /** @name dxDropDownList.Options */
-    export interface dxDropDownListOptions<T = dxDropDownList> extends DataExpressionMixinOptions<T>, dxDropDownEditorOptions<T> {
+    export interface dxDropDownListOptions<T = dxDropDownList>
+        extends DataExpressionMixinOptions<T>,
+            dxDropDownEditorOptions<T> {
         /** @name dxDropDownList.Options.displayValue */
         displayValue?: string;
         /** @name dxDropDownList.Options.groupTemplate */
-        groupTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        groupTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDropDownList.Options.grouped */
         grouped?: boolean;
         /** @name dxDropDownList.Options.minSearchLength */
@@ -3526,17 +6046,38 @@ declare module DevExpress.ui {
         /** @name dxDropDownList.Options.noDataText */
         noDataText?: string;
         /** @name dxDropDownList.Options.onItemClick */
-        onItemClick?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: any, itemIndex?: number | any, event?: DevExpress.events.event }) => any);
+        onItemClick?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: any;
+            itemIndex?: number | any;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxDropDownList.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, selectedItem?: any }) => any);
+        onSelectionChanged?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            selectedItem?: any;
+        }) => any;
         /** @name dxDropDownList.Options.onValueChanged */
-        onValueChanged?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, value?: any, previousValue?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onValueChanged?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: any;
+            previousValue?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxDropDownList.Options.searchEnabled */
         searchEnabled?: boolean;
         /** @name dxDropDownList.Options.searchExpr */
         searchExpr?: string | Function | Array<string | Function>;
         /** @name dxDropDownList.Options.searchMode */
-        searchMode?: 'contains' | 'startswith';
+        searchMode?: "contains" | "startswith";
         /** @name dxDropDownList.Options.searchTimeout */
         searchTimeout?: number;
         /** @name dxDropDownList.Options.selectedItem */
@@ -3552,13 +6093,14 @@ declare module DevExpress.ui {
     }
     /** @name dxDropDownList */
     export class dxDropDownList extends dxDropDownEditor {
-        constructor(element: Element, options?: dxDropDownListOptions)
-        constructor(element: JQuery, options?: dxDropDownListOptions)
+        constructor(element: Element, options?: dxDropDownListOptions);
+        constructor(element: JQuery, options?: dxDropDownListOptions);
         /** @name DataHelperMixin.getDataSource() */
         getDataSource(): DevExpress.data.DataSource;
     }
     /** @name dxDropDownMenu.Options */
-    export interface dxDropDownMenuOptions extends WidgetOptions<dxDropDownMenu> {
+    export interface dxDropDownMenuOptions
+        extends WidgetOptions<dxDropDownMenu> {
         /** @name dxDropDownMenu.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxDropDownMenu.Options.buttonIcon */
@@ -3566,17 +6108,45 @@ declare module DevExpress.ui {
         /** @name dxDropDownMenu.Options.buttonText */
         buttonText?: string;
         /** @name dxDropDownMenu.Options.dataSource */
-        dataSource?: string | Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxDropDownMenu.Options.hoverStateEnabled */
         hoverStateEnabled?: boolean;
         /** @name dxDropDownMenu.Options.itemTemplate */
-        itemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxDropDownMenu.Options.items */
         items?: Array<any>;
         /** @name dxDropDownMenu.Options.onButtonClick */
-        onButtonClick?: ((e: { component?: dxDropDownMenu, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any) | string;
+        onButtonClick?:
+            | ((e: {
+                  component?: dxDropDownMenu;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxDropDownMenu.Options.onItemClick */
-        onItemClick?: ((e: { component?: dxDropDownMenu, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, event?: DevExpress.events.event }) => any) | string;
+        onItemClick?:
+            | ((e: {
+                  component?: dxDropDownMenu;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  itemData?: any;
+                  itemElement?: DevExpress.core.dxElement;
+                  itemIndex?: number;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxDropDownMenu.Options.opened */
         opened?: boolean;
         /** @name dxDropDownMenu.Options.popupHeight */
@@ -3588,8 +6158,8 @@ declare module DevExpress.ui {
     }
     /** @name dxDropDownMenu */
     export class dxDropDownMenu extends Widget {
-        constructor(element: Element, options?: dxDropDownMenuOptions)
-        constructor(element: JQuery, options?: dxDropDownMenuOptions)
+        constructor(element: Element, options?: dxDropDownMenuOptions);
+        constructor(element: JQuery, options?: dxDropDownMenuOptions);
         /** @name dxDropDownMenu.close() */
         close(): void;
         /** @name dxDropDownMenu.open() */
@@ -3606,46 +6176,110 @@ declare module DevExpress.ui {
         /** @name dxFileManager.Options.currentPathKeys */
         currentPathKeys?: Array<string>;
         /** @name dxFileManager.Options.customizeDetailColumns */
-        customizeDetailColumns?: ((columns: Array<dxDataGridColumn>) => Array<dxDataGridColumn>);
+        customizeDetailColumns?: (
+            columns: Array<dxDataGridColumn>
+        ) => Array<dxDataGridColumn>;
         /** @name dxFileManager.Options.customizeThumbnail */
-        customizeThumbnail?: ((fileSystemItem: DevExpress.fileManagement.FileSystemItem) => string);
+        customizeThumbnail?: (
+            fileSystemItem: DevExpress.fileManagement.FileSystemItem
+        ) => string;
         /** @name dxFileManager.Options.fileSystemProvider */
         fileSystemProvider?: any;
         /** @name dxFileManager.Options.focusedItemKey */
         focusedItemKey?: string;
         /** @name dxFileManager.Options.itemView */
-        itemView?: { details?: { columns?: Array<dxFileManagerDetailsColumn | string> }, mode?: 'details' | 'thumbnails', showFolders?: boolean, showParentFolder?: boolean };
+        itemView?: {
+            details?: { columns?: Array<dxFileManagerDetailsColumn | string> };
+            mode?: "details" | "thumbnails";
+            showFolders?: boolean;
+            showParentFolder?: boolean;
+        };
         /** @name dxFileManager.Options.onContextMenuItemClick */
-        onContextMenuItemClick?: ((e: { component?: dxFileManager, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, event?: DevExpress.events.event }) => any);
+        onContextMenuItemClick?: (e: {
+            component?: dxFileManager;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxFileManager.Options.onCurrentDirectoryChanged */
-        onCurrentDirectoryChanged?: ((e: { component?: dxFileManager, element?: DevExpress.core.dxElement, model?: any, directory?: DevExpress.fileManagement.FileSystemItem }) => any);
+        onCurrentDirectoryChanged?: (e: {
+            component?: dxFileManager;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            directory?: DevExpress.fileManagement.FileSystemItem;
+        }) => any;
         /** @name dxFileManager.Options.onErrorOccurred */
-        onErrorOccurred?: ((e: { component?: dxFileManager, element?: DevExpress.core.dxElement, model?: any, errorCode?: number, errorText?: string, fileSystemItem?: DevExpress.fileManagement.FileSystemItem }) => any);
+        onErrorOccurred?: (e: {
+            component?: dxFileManager;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            errorCode?: number;
+            errorText?: string;
+            fileSystemItem?: DevExpress.fileManagement.FileSystemItem;
+        }) => any;
         /** @name dxFileManager.Options.onFocusedItemChanged */
-        onFocusedItemChanged?: ((e: { component?: dxFileManager, element?: DevExpress.core.dxElement, model?: any, item?: DevExpress.fileManagement.FileSystemItem, itemElement?: DevExpress.core.dxElement }) => any);
+        onFocusedItemChanged?: (e: {
+            component?: dxFileManager;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            item?: DevExpress.fileManagement.FileSystemItem;
+            itemElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxFileManager.Options.onSelectedFileOpened */
-        onSelectedFileOpened?: ((e: { component?: dxFileManager, element?: DevExpress.core.dxElement, model?: any, file?: DevExpress.fileManagement.FileSystemItem }) => any);
+        onSelectedFileOpened?: (e: {
+            component?: dxFileManager;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            file?: DevExpress.fileManagement.FileSystemItem;
+        }) => any;
         /** @name dxFileManager.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxFileManager, element?: DevExpress.core.dxElement, model?: any, currentSelectedItemKeys?: Array<string>, currentDeselectedItemKeys?: Array<string>, selectedItems?: Array<DevExpress.fileManagement.FileSystemItem>, selectedItemKeys?: Array<string> }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxFileManager;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            currentSelectedItemKeys?: Array<string>;
+            currentDeselectedItemKeys?: Array<string>;
+            selectedItems?: Array<DevExpress.fileManagement.FileSystemItem>;
+            selectedItemKeys?: Array<string>;
+        }) => any;
         /** @name dxFileManager.Options.onToolbarItemClick */
-        onToolbarItemClick?: ((e: { component?: dxFileManager, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, event?: DevExpress.events.event }) => any);
+        onToolbarItemClick?: (e: {
+            component?: dxFileManager;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxFileManager.Options.permissions */
-        permissions?: { copy?: boolean, create?: boolean, delete?: boolean, download?: boolean, move?: boolean, rename?: boolean, upload?: boolean };
+        permissions?: {
+            copy?: boolean;
+            create?: boolean;
+            delete?: boolean;
+            download?: boolean;
+            move?: boolean;
+            rename?: boolean;
+            upload?: boolean;
+        };
         /** @name dxFileManager.Options.rootFolderName */
         rootFolderName?: string;
         /** @name dxFileManager.Options.selectedItemKeys */
         selectedItemKeys?: Array<string>;
         /** @name dxFileManager.Options.selectionMode */
-        selectionMode?: 'multiple' | 'single';
+        selectionMode?: "multiple" | "single";
         /** @name dxFileManager.Options.toolbar */
         toolbar?: dxFileManagerToolbar;
         /** @name dxFileManager.Options.upload */
-        upload?: { chunkSize?: number, maxFileSize?: number };
+        upload?: { chunkSize?: number; maxFileSize?: number };
     }
     /** @name dxFileManager */
     export class dxFileManager extends Widget {
-        constructor(element: Element, options?: dxFileManagerOptions)
-        constructor(element: JQuery, options?: dxFileManagerOptions)
+        constructor(element: Element, options?: dxFileManagerOptions);
+        constructor(element: JQuery, options?: dxFileManagerOptions);
         /** @name dxFileManager.getCurrentDirectory() */
         getCurrentDirectory(): any;
         /** @name dxFileManager.getSelectedItems() */
@@ -3656,21 +6290,40 @@ declare module DevExpress.ui {
     /** @name dxFileManagerContextMenu */
     export interface dxFileManagerContextMenu {
         /** @name dxFileManagerContextMenu.items */
-        items?: Array<dxFileManagerContextMenuItem | 'create' | 'upload' | 'refresh' | 'download' | 'move' | 'copy' | 'rename' | 'delete'>;
+        items?: Array<
+            | dxFileManagerContextMenuItem
+            | "create"
+            | "upload"
+            | "refresh"
+            | "download"
+            | "move"
+            | "copy"
+            | "rename"
+            | "delete"
+        >;
     }
     /** @name dxFileManagerContextMenuItem */
     export interface dxFileManagerContextMenuItem extends dxContextMenuItem {
         /** @name dxFileManagerContextMenuItem.items */
         items?: Array<dxFileManagerContextMenuItem>;
         /** @name dxFileManagerContextMenuItem.name */
-        name?: 'create' | 'upload' | 'refresh' | 'download' | 'move' | 'copy' | 'rename' | 'delete' | string;
+        name?:
+            | "create"
+            | "upload"
+            | "refresh"
+            | "download"
+            | "move"
+            | "copy"
+            | "rename"
+            | "delete"
+            | string;
         /** @name dxFileManagerContextMenuItem.visible */
         visible?: boolean;
     }
     /** @name dxFileManagerDetailsColumn */
     export interface dxFileManagerDetailsColumn {
         /** @name dxFileManagerDetailsColumn.alignment */
-        alignment?: 'center' | 'left' | 'right' | undefined;
+        alignment?: "center" | "left" | "right" | undefined;
         /** @name dxFileManagerDetailsColumn.caption */
         caption?: string;
         /** @name dxFileManagerDetailsColumn.dataField */
@@ -3680,7 +6333,7 @@ declare module DevExpress.ui {
         /** @name dxFileManagerDetailsColumn.sortIndex */
         sortIndex?: number;
         /** @name dxFileManagerDetailsColumn.sortOrder */
-        sortOrder?: 'asc' | 'desc' | undefined;
+        sortOrder?: "asc" | "desc" | undefined;
         /** @name dxFileManagerDetailsColumn.visible */
         visible?: boolean;
         /** @name dxFileManagerDetailsColumn.width */
@@ -3689,23 +6342,68 @@ declare module DevExpress.ui {
     /** @name dxFileManagerToolbar */
     export interface dxFileManagerToolbar {
         /** @name dxFileManagerToolbar.fileSelectionItems */
-        fileSelectionItems?: Array<dxFileManagerToolbarItem | 'showNavPane' | 'create' | 'upload' | 'refresh' | 'switchView' | 'download' | 'move' | 'copy' | 'rename' | 'delete' | 'clear' | 'separator'>;
+        fileSelectionItems?: Array<
+            | dxFileManagerToolbarItem
+            | "showNavPane"
+            | "create"
+            | "upload"
+            | "refresh"
+            | "switchView"
+            | "download"
+            | "move"
+            | "copy"
+            | "rename"
+            | "delete"
+            | "clear"
+            | "separator"
+        >;
         /** @name dxFileManagerToolbar.items */
-        items?: Array<dxFileManagerToolbarItem | 'showNavPane' | 'create' | 'upload' | 'refresh' | 'switchView' | 'download' | 'move' | 'copy' | 'rename' | 'delete' | 'clear' | 'separator'>;
+        items?: Array<
+            | dxFileManagerToolbarItem
+            | "showNavPane"
+            | "create"
+            | "upload"
+            | "refresh"
+            | "switchView"
+            | "download"
+            | "move"
+            | "copy"
+            | "rename"
+            | "delete"
+            | "clear"
+            | "separator"
+        >;
     }
     /** @name dxFileManagerToolbarItem */
     export interface dxFileManagerToolbarItem extends dxToolbarItem {
         /** @name dxFileManagerToolbarItem.location */
-        location?: 'after' | 'before' | 'center';
+        location?: "after" | "before" | "center";
         /** @name dxFileManagerToolbarItem.name */
-        name?: 'showNavPane' | 'create' | 'upload' | 'refresh' | 'switchView' | 'download' | 'move' | 'copy' | 'rename' | 'delete' | 'clear' | 'separator' | string;
+        name?:
+            | "showNavPane"
+            | "create"
+            | "upload"
+            | "refresh"
+            | "switchView"
+            | "download"
+            | "move"
+            | "copy"
+            | "rename"
+            | "delete"
+            | "clear"
+            | "separator"
+            | string;
         /** @name dxFileManagerToolbarItem.visible */
         visible?: boolean;
     }
     /** @name dxFileUploader.Options */
-    export interface dxFileUploaderOptions extends EditorOptions<dxFileUploader> {
+    export interface dxFileUploaderOptions
+        extends EditorOptions<dxFileUploader> {
         /** @name dxFileUploader.Options.abortUpload */
-        abortUpload?: ((file: File, uploadInfo?: DevExpress.fileManagement.UploadInfo) => Promise<any> | JQueryPromise<any> | any);
+        abortUpload?: (
+            file: File,
+            uploadInfo?: DevExpress.fileManagement.UploadInfo
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name dxFileUploader.Options.accept */
         accept?: string;
         /** @name dxFileUploader.Options.allowCanceling */
@@ -3733,17 +6431,69 @@ declare module DevExpress.ui {
         /** @name dxFileUploader.Options.name */
         name?: string;
         /** @name dxFileUploader.Options.onProgress */
-        onProgress?: ((e: { component?: dxFileUploader, element?: DevExpress.core.dxElement, model?: any, file?: File, segmentSize?: number, bytesLoaded?: number, bytesTotal?: number, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, request?: XMLHttpRequest }) => any);
+        onProgress?: (e: {
+            component?: dxFileUploader;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            file?: File;
+            segmentSize?: number;
+            bytesLoaded?: number;
+            bytesTotal?: number;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            request?: XMLHttpRequest;
+        }) => any;
         /** @name dxFileUploader.Options.onUploadAborted */
-        onUploadAborted?: ((e: { component?: dxFileUploader, element?: DevExpress.core.dxElement, model?: any, file?: File, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, request?: XMLHttpRequest }) => any);
+        onUploadAborted?: (e: {
+            component?: dxFileUploader;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            file?: File;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            request?: XMLHttpRequest;
+        }) => any;
         /** @name dxFileUploader.Options.onUploadError */
-        onUploadError?: ((e: { component?: dxFileUploader, element?: DevExpress.core.dxElement, model?: any, file?: File, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, request?: XMLHttpRequest, error?: any }) => any);
+        onUploadError?: (e: {
+            component?: dxFileUploader;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            file?: File;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            request?: XMLHttpRequest;
+            error?: any;
+        }) => any;
         /** @name dxFileUploader.Options.onUploadStarted */
-        onUploadStarted?: ((e: { component?: dxFileUploader, element?: DevExpress.core.dxElement, model?: any, file?: File, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, request?: XMLHttpRequest }) => any);
+        onUploadStarted?: (e: {
+            component?: dxFileUploader;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            file?: File;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            request?: XMLHttpRequest;
+        }) => any;
         /** @name dxFileUploader.Options.onUploaded */
-        onUploaded?: ((e: { component?: dxFileUploader, element?: DevExpress.core.dxElement, model?: any, file?: File, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, request?: XMLHttpRequest }) => any);
+        onUploaded?: (e: {
+            component?: dxFileUploader;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            file?: File;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            request?: XMLHttpRequest;
+        }) => any;
         /** @name dxFileUploader.Options.onValueChanged */
-        onValueChanged?: ((e: { component?: dxFileUploader, element?: DevExpress.core.dxElement, model?: any, value?: Array<File>, previousValue?: Array<File>, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onValueChanged?: (e: {
+            component?: dxFileUploader;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: Array<File>;
+            previousValue?: Array<File>;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxFileUploader.Options.progress */
         progress?: number;
         /** @name dxFileUploader.Options.readyToUploadMessage */
@@ -3755,17 +6505,23 @@ declare module DevExpress.ui {
         /** @name dxFileUploader.Options.uploadButtonText */
         uploadButtonText?: string;
         /** @name dxFileUploader.Options.uploadChunk */
-        uploadChunk?: ((file: File, uploadInfo: DevExpress.fileManagement.UploadInfo) => Promise<any> | JQueryPromise<any> | any);
+        uploadChunk?: (
+            file: File,
+            uploadInfo: DevExpress.fileManagement.UploadInfo
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name dxFileUploader.Options.uploadFailedMessage */
         uploadFailedMessage?: string;
         /** @name dxFileUploader.Options.uploadFile */
-        uploadFile?: ((file: File, progressCallback: Function) => Promise<any> | JQueryPromise<any> | any);
+        uploadFile?: (
+            file: File,
+            progressCallback: Function
+        ) => Promise<any> | JQueryPromise<any> | any;
         /** @name dxFileUploader.Options.uploadHeaders */
         uploadHeaders?: any;
         /** @name dxFileUploader.Options.uploadMethod */
-        uploadMethod?: 'POST' | 'PUT';
+        uploadMethod?: "POST" | "PUT";
         /** @name dxFileUploader.Options.uploadMode */
-        uploadMode?: 'instantly' | 'useButtons' | 'useForm';
+        uploadMode?: "instantly" | "useButtons" | "useForm";
         /** @name dxFileUploader.Options.uploadUrl */
         uploadUrl?: string;
         /** @name dxFileUploader.Options.uploadedMessage */
@@ -3775,11 +6531,12 @@ declare module DevExpress.ui {
     }
     /** @name dxFileUploader */
     export class dxFileUploader extends Editor {
-        constructor(element: Element, options?: dxFileUploaderOptions)
-        constructor(element: JQuery, options?: dxFileUploaderOptions)
+        constructor(element: Element, options?: dxFileUploaderOptions);
+        constructor(element: JQuery, options?: dxFileUploaderOptions);
     }
     /** @name dxFilterBuilder.Options */
-    export interface dxFilterBuilderOptions extends WidgetOptions<dxFilterBuilder> {
+    export interface dxFilterBuilderOptions
+        extends WidgetOptions<dxFilterBuilder> {
         /** @name dxFilterBuilder.Options.allowHierarchicalFields */
         allowHierarchicalFields?: boolean;
         /** @name dxFilterBuilder.Options.customOperations */
@@ -3787,41 +6544,116 @@ declare module DevExpress.ui {
         /** @name dxFilterBuilder.Options.fields */
         fields?: Array<dxFilterBuilderField>;
         /** @name dxFilterBuilder.Options.filterOperationDescriptions */
-        filterOperationDescriptions?: { between?: string, contains?: string, endsWith?: string, equal?: string, greaterThan?: string, greaterThanOrEqual?: string, isBlank?: string, isNotBlank?: string, lessThan?: string, lessThanOrEqual?: string, notContains?: string, notEqual?: string, startsWith?: string };
+        filterOperationDescriptions?: {
+            between?: string;
+            contains?: string;
+            endsWith?: string;
+            equal?: string;
+            greaterThan?: string;
+            greaterThanOrEqual?: string;
+            isBlank?: string;
+            isNotBlank?: string;
+            lessThan?: string;
+            lessThanOrEqual?: string;
+            notContains?: string;
+            notEqual?: string;
+            startsWith?: string;
+        };
         /** @name dxFilterBuilder.Options.groupOperationDescriptions */
-        groupOperationDescriptions?: { and?: string, notAnd?: string, notOr?: string, or?: string };
+        groupOperationDescriptions?: {
+            and?: string;
+            notAnd?: string;
+            notOr?: string;
+            or?: string;
+        };
         /** @name dxFilterBuilder.Options.groupOperations */
-        groupOperations?: Array<'and' | 'or' | 'notAnd' | 'notOr'>;
+        groupOperations?: Array<"and" | "or" | "notAnd" | "notOr">;
         /** @name dxFilterBuilder.Options.maxGroupLevel */
         maxGroupLevel?: number;
         /** @name dxFilterBuilder.Options.onEditorPrepared */
-        onEditorPrepared?: ((e: { component?: dxFilterBuilder, element?: DevExpress.core.dxElement, model?: any, value?: any, setValue?: any, editorElement?: DevExpress.core.dxElement, editorName?: string, dataField?: string, filterOperation?: string, updateValueTimeout?: number, width?: number, readOnly?: boolean, disabled?: boolean, rtlEnabled?: boolean }) => any);
+        onEditorPrepared?: (e: {
+            component?: dxFilterBuilder;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: any;
+            setValue?: any;
+            editorElement?: DevExpress.core.dxElement;
+            editorName?: string;
+            dataField?: string;
+            filterOperation?: string;
+            updateValueTimeout?: number;
+            width?: number;
+            readOnly?: boolean;
+            disabled?: boolean;
+            rtlEnabled?: boolean;
+        }) => any;
         /** @name dxFilterBuilder.Options.onEditorPreparing */
-        onEditorPreparing?: ((e: { component?: dxFilterBuilder, element?: DevExpress.core.dxElement, model?: any, value?: any, setValue?: any, cancel?: boolean, editorElement?: DevExpress.core.dxElement, editorName?: string, editorOptions?: any, dataField?: string, filterOperation?: string, updateValueTimeout?: number, width?: number, readOnly?: boolean, disabled?: boolean, rtlEnabled?: boolean }) => any);
+        onEditorPreparing?: (e: {
+            component?: dxFilterBuilder;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: any;
+            setValue?: any;
+            cancel?: boolean;
+            editorElement?: DevExpress.core.dxElement;
+            editorName?: string;
+            editorOptions?: any;
+            dataField?: string;
+            filterOperation?: string;
+            updateValueTimeout?: number;
+            width?: number;
+            readOnly?: boolean;
+            disabled?: boolean;
+            rtlEnabled?: boolean;
+        }) => any;
         /** @name dxFilterBuilder.Options.onValueChanged */
-        onValueChanged?: ((e: { component?: dxFilterBuilder, element?: DevExpress.core.dxElement, model?: any, value?: any, previousValue?: any }) => any);
+        onValueChanged?: (e: {
+            component?: dxFilterBuilder;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: any;
+            previousValue?: any;
+        }) => any;
         /** @name dxFilterBuilder.Options.value */
         value?: string | Array<any> | Function;
     }
     /** @name dxFilterBuilder */
     export class dxFilterBuilder extends Widget {
-        constructor(element: Element, options?: dxFilterBuilderOptions)
-        constructor(element: JQuery, options?: dxFilterBuilderOptions)
+        constructor(element: Element, options?: dxFilterBuilderOptions);
+        constructor(element: JQuery, options?: dxFilterBuilderOptions);
         /** @name dxFilterBuilder.getFilterExpression() */
         getFilterExpression(): string | Array<any> | Function;
     }
     /** @name dxFilterBuilderCustomOperation */
     export interface dxFilterBuilderCustomOperation {
         /** @name dxFilterBuilderCustomOperation.calculateFilterExpression */
-        calculateFilterExpression?: ((filterValue: any, field: dxFilterBuilderField) => string | Array<any> | Function);
+        calculateFilterExpression?: (
+            filterValue: any,
+            field: dxFilterBuilderField
+        ) => string | Array<any> | Function;
         /** @name dxFilterBuilderCustomOperation.caption */
         caption?: string;
         /** @name dxFilterBuilderCustomOperation.customizeText */
-        customizeText?: ((fieldInfo: { value?: string | number | Date, valueText?: string, field?: dxFilterBuilderField }) => string);
+        customizeText?: (fieldInfo: {
+            value?: string | number | Date;
+            valueText?: string;
+            field?: dxFilterBuilderField;
+        }) => string;
         /** @name dxFilterBuilderCustomOperation.dataTypes */
-        dataTypes?: Array<'string' | 'number' | 'date' | 'boolean' | 'object' | 'datetime'>;
+        dataTypes?: Array<
+            "string" | "number" | "date" | "boolean" | "object" | "datetime"
+        >;
         /** @name dxFilterBuilderCustomOperation.editorTemplate */
-        editorTemplate?: DevExpress.core.template | ((conditionInfo: { value?: string | number | Date, field?: dxFilterBuilderField, setValue?: Function }, container: DevExpress.core.dxElement) => string | Element | JQuery);
+        editorTemplate?:
+            | DevExpress.core.template
+            | ((
+                  conditionInfo: {
+                      value?: string | number | Date;
+                      field?: dxFilterBuilderField;
+                      setValue?: Function;
+                  },
+                  container: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxFilterBuilderCustomOperation.hasValue */
         hasValue?: boolean;
         /** @name dxFilterBuilderCustomOperation.icon */
@@ -3832,27 +6664,72 @@ declare module DevExpress.ui {
     /** @name dxFilterBuilderField */
     export interface dxFilterBuilderField {
         /** @name dxFilterBuilderField.calculateFilterExpression */
-        calculateFilterExpression?: ((filterValue: any, selectedFilterOperation: string) => string | Array<any> | Function);
+        calculateFilterExpression?: (
+            filterValue: any,
+            selectedFilterOperation: string
+        ) => string | Array<any> | Function;
         /** @name dxFilterBuilderField.caption */
         caption?: string;
         /** @name dxFilterBuilderField.customizeText */
-        customizeText?: ((fieldInfo: { value?: string | number | Date, valueText?: string }) => string);
+        customizeText?: (fieldInfo: {
+            value?: string | number | Date;
+            valueText?: string;
+        }) => string;
         /** @name dxFilterBuilderField.dataField */
         dataField?: string;
         /** @name dxFilterBuilderField.dataType */
-        dataType?: 'string' | 'number' | 'date' | 'boolean' | 'object' | 'datetime';
+        dataType?:
+            | "string"
+            | "number"
+            | "date"
+            | "boolean"
+            | "object"
+            | "datetime";
         /** @name dxFilterBuilderField.editorOptions */
         editorOptions?: any;
         /** @name dxFilterBuilderField.editorTemplate */
-        editorTemplate?: DevExpress.core.template | ((conditionInfo: { value?: string | number | Date, filterOperation?: string, field?: dxFilterBuilderField, setValue?: Function }, container: DevExpress.core.dxElement) => string | Element | JQuery);
+        editorTemplate?:
+            | DevExpress.core.template
+            | ((
+                  conditionInfo: {
+                      value?: string | number | Date;
+                      filterOperation?: string;
+                      field?: dxFilterBuilderField;
+                      setValue?: Function;
+                  },
+                  container: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxFilterBuilderField.falseText */
         falseText?: string;
         /** @name dxFilterBuilderField.filterOperations */
-        filterOperations?: Array<'=' | '<>' | '<' | '<=' | '>' | '>=' | 'contains' | 'endswith' | 'isblank' | 'isnotblank' | 'notcontains' | 'startswith' | 'between' | string>;
+        filterOperations?: Array<
+            | "="
+            | "<>"
+            | "<"
+            | "<="
+            | ">"
+            | ">="
+            | "contains"
+            | "endswith"
+            | "isblank"
+            | "isnotblank"
+            | "notcontains"
+            | "startswith"
+            | "between"
+            | string
+        >;
         /** @name dxFilterBuilderField.format */
         format?: format;
         /** @name dxFilterBuilderField.lookup */
-        lookup?: { allowClearing?: boolean, dataSource?: Array<any> | DevExpress.data.DataSourceOptions | DevExpress.data.Store, displayExpr?: string | ((data: any) => string), valueExpr?: string | ((data: any) => string | number | boolean) };
+        lookup?: {
+            allowClearing?: boolean;
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSourceOptions
+                | DevExpress.data.Store;
+            displayExpr?: string | ((data: any) => string);
+            valueExpr?: string | ((data: any) => string | number | boolean);
+        };
         /** @name dxFilterBuilderField.name */
         name?: string;
         /** @name dxFilterBuilderField.trueText */
@@ -3865,23 +6742,47 @@ declare module DevExpress.ui {
         /** @name dxForm.Options.alignItemLabelsInAllGroups */
         alignItemLabelsInAllGroups?: boolean;
         /** @name dxForm.Options.colCount */
-        colCount?: number | 'auto';
+        colCount?: number | "auto";
         /** @name dxForm.Options.colCountByScreen */
         colCountByScreen?: any;
         /** @name dxForm.Options.customizeItem */
-        customizeItem?: ((item: dxFormSimpleItem | dxFormGroupItem | dxFormTabbedItem | dxFormEmptyItem | dxFormButtonItem) => any);
+        customizeItem?: (
+            item:
+                | dxFormSimpleItem
+                | dxFormGroupItem
+                | dxFormTabbedItem
+                | dxFormEmptyItem
+                | dxFormButtonItem
+        ) => any;
         /** @name dxForm.Options.formData */
         formData?: any;
         /** @name dxForm.Options.items */
-        items?: Array<dxFormSimpleItem | dxFormGroupItem | dxFormTabbedItem | dxFormEmptyItem | dxFormButtonItem>;
+        items?: Array<
+            | dxFormSimpleItem
+            | dxFormGroupItem
+            | dxFormTabbedItem
+            | dxFormEmptyItem
+            | dxFormButtonItem
+        >;
         /** @name dxForm.Options.labelLocation */
-        labelLocation?: 'left' | 'right' | 'top';
+        labelLocation?: "left" | "right" | "top";
         /** @name dxForm.Options.minColWidth */
         minColWidth?: number;
         /** @name dxForm.Options.onEditorEnterKey */
-        onEditorEnterKey?: ((e: { component?: dxForm, element?: DevExpress.core.dxElement, model?: any, dataField?: string }) => any);
+        onEditorEnterKey?: (e: {
+            component?: dxForm;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            dataField?: string;
+        }) => any;
         /** @name dxForm.Options.onFieldDataChanged */
-        onFieldDataChanged?: ((e: { component?: dxForm, element?: DevExpress.core.dxElement, model?: any, dataField?: string, value?: any }) => any);
+        onFieldDataChanged?: (e: {
+            component?: dxForm;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            dataField?: string;
+            value?: any;
+        }) => any;
         /** @name dxForm.Options.optionalMark */
         optionalMark?: string;
         /** @name dxForm.Options.readOnly */
@@ -3907,8 +6808,8 @@ declare module DevExpress.ui {
     }
     /** @name dxForm */
     export class dxForm extends Widget {
-        constructor(element: Element, options?: dxFormOptions)
-        constructor(element: JQuery, options?: dxFormOptions)
+        constructor(element: Element, options?: dxFormOptions);
+        constructor(element: JQuery, options?: dxFormOptions);
         /** @name dxForm.getButton(name) */
         getButton(name: string): dxButton | undefined;
         /** @name dxForm.getEditor(dataField) */
@@ -3934,7 +6835,7 @@ declare module DevExpress.ui {
     export interface dxFormButtonItem {
         /** @deprecated */
         /** @name dxFormButtonItem.alignment */
-        alignment?: 'center' | 'left' | 'right';
+        alignment?: "center" | "left" | "right";
         /** @name dxFormButtonItem.buttonOptions */
         buttonOptions?: dxButtonOptions;
         /** @name dxFormButtonItem.colSpan */
@@ -3942,13 +6843,13 @@ declare module DevExpress.ui {
         /** @name dxFormButtonItem.cssClass */
         cssClass?: string;
         /** @name dxFormButtonItem.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name dxFormButtonItem.itemType */
-        itemType?: 'empty' | 'group' | 'simple' | 'tabbed' | 'button';
+        itemType?: "empty" | "group" | "simple" | "tabbed" | "button";
         /** @name dxFormButtonItem.name */
         name?: string;
         /** @name dxFormButtonItem.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'center' | 'top';
+        verticalAlignment?: "bottom" | "center" | "top";
         /** @name dxFormButtonItem.visible */
         visible?: boolean;
         /** @name dxFormButtonItem.visibleIndex */
@@ -3961,7 +6862,7 @@ declare module DevExpress.ui {
         /** @name dxFormEmptyItem.cssClass */
         cssClass?: string;
         /** @name dxFormEmptyItem.itemType */
-        itemType?: 'empty' | 'group' | 'simple' | 'tabbed' | 'button';
+        itemType?: "empty" | "group" | "simple" | "tabbed" | "button";
         /** @name dxFormEmptyItem.name */
         name?: string;
         /** @name dxFormEmptyItem.visible */
@@ -3984,13 +6885,24 @@ declare module DevExpress.ui {
         /** @name dxFormGroupItem.cssClass */
         cssClass?: string;
         /** @name dxFormGroupItem.itemType */
-        itemType?: 'empty' | 'group' | 'simple' | 'tabbed' | 'button';
+        itemType?: "empty" | "group" | "simple" | "tabbed" | "button";
         /** @name dxFormGroupItem.items */
-        items?: Array<dxFormSimpleItem | dxFormGroupItem | dxFormTabbedItem | dxFormEmptyItem | dxFormButtonItem>;
+        items?: Array<
+            | dxFormSimpleItem
+            | dxFormGroupItem
+            | dxFormTabbedItem
+            | dxFormEmptyItem
+            | dxFormButtonItem
+        >;
         /** @name dxFormGroupItem.name */
         name?: string;
         /** @name dxFormGroupItem.template */
-        template?: DevExpress.core.template | ((data: { component?: dxForm, formData?: any }, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        template?:
+            | DevExpress.core.template
+            | ((
+                  data: { component?: dxForm; formData?: any },
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxFormGroupItem.visible */
         visible?: boolean;
         /** @name dxFormGroupItem.visibleIndex */
@@ -4007,21 +6919,65 @@ declare module DevExpress.ui {
         /** @name dxFormSimpleItem.editorOptions */
         editorOptions?: any;
         /** @name dxFormSimpleItem.editorType */
-        editorType?: 'dxAutocomplete' | 'dxCalendar' | 'dxCheckBox' | 'dxColorBox' | 'dxDateBox' | 'dxDropDownBox' | 'dxHtmlEditor' | 'dxLookup' | 'dxNumberBox' | 'dxRadioGroup' | 'dxRangeSlider' | 'dxSelectBox' | 'dxSlider' | 'dxSwitch' | 'dxTagBox' | 'dxTextArea' | 'dxTextBox';
+        editorType?:
+            | "dxAutocomplete"
+            | "dxCalendar"
+            | "dxCheckBox"
+            | "dxColorBox"
+            | "dxDateBox"
+            | "dxDropDownBox"
+            | "dxHtmlEditor"
+            | "dxLookup"
+            | "dxNumberBox"
+            | "dxRadioGroup"
+            | "dxRangeSlider"
+            | "dxSelectBox"
+            | "dxSlider"
+            | "dxSwitch"
+            | "dxTagBox"
+            | "dxTextArea"
+            | "dxTextBox";
         /** @name dxFormSimpleItem.helpText */
         helpText?: string;
         /** @name dxFormSimpleItem.isRequired */
         isRequired?: boolean;
         /** @name dxFormSimpleItem.itemType */
-        itemType?: 'empty' | 'group' | 'simple' | 'tabbed' | 'button';
+        itemType?: "empty" | "group" | "simple" | "tabbed" | "button";
         /** @name dxFormSimpleItem.label */
-        label?: { alignment?: 'center' | 'left' | 'right', location?: 'left' | 'right' | 'top', showColon?: boolean, text?: string, visible?: boolean };
+        label?: {
+            alignment?: "center" | "left" | "right";
+            location?: "left" | "right" | "top";
+            showColon?: boolean;
+            text?: string;
+            visible?: boolean;
+        };
         /** @name dxFormSimpleItem.name */
         name?: string;
         /** @name dxFormSimpleItem.template */
-        template?: DevExpress.core.template | ((data: { component?: dxForm, dataField?: string, editorOptions?: any, editorType?: string, name?: string }, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        template?:
+            | DevExpress.core.template
+            | ((
+                  data: {
+                      component?: dxForm;
+                      dataField?: string;
+                      editorOptions?: any;
+                      editorType?: string;
+                      name?: string;
+                  },
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxFormSimpleItem.validationRules */
-        validationRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>;
+        validationRules?: Array<
+            | RequiredRule
+            | NumericRule
+            | RangeRule
+            | StringLengthRule
+            | CustomRule
+            | CompareRule
+            | PatternRule
+            | EmailRule
+            | AsyncRule
+        >;
         /** @name dxFormSimpleItem.visible */
         visible?: boolean;
         /** @name dxFormSimpleItem.visibleIndex */
@@ -4034,26 +6990,60 @@ declare module DevExpress.ui {
         /** @name dxFormTabbedItem.cssClass */
         cssClass?: string;
         /** @name dxFormTabbedItem.itemType */
-        itemType?: 'empty' | 'group' | 'simple' | 'tabbed' | 'button';
+        itemType?: "empty" | "group" | "simple" | "tabbed" | "button";
         /** @name dxFormTabbedItem.name */
         name?: string;
         /** @name dxFormTabbedItem.tabPanelOptions */
         tabPanelOptions?: dxTabPanelOptions;
         /** @name dxFormTabbedItem.tabs */
-        tabs?: Array<{ alignItemLabels?: boolean, badge?: string, colCount?: number, colCountByScreen?: any, disabled?: boolean, icon?: string, items?: Array<dxFormSimpleItem | dxFormGroupItem | dxFormTabbedItem | dxFormEmptyItem | dxFormButtonItem>, tabTemplate?: DevExpress.core.template | ((tabData: any, tabIndex: number, tabElement: DevExpress.core.dxElement) => any), template?: DevExpress.core.template | ((tabData: any, tabIndex: number, tabElement: DevExpress.core.dxElement) => any), title?: string }>;
+        tabs?: Array<{
+            alignItemLabels?: boolean;
+            badge?: string;
+            colCount?: number;
+            colCountByScreen?: any;
+            disabled?: boolean;
+            icon?: string;
+            items?: Array<
+                | dxFormSimpleItem
+                | dxFormGroupItem
+                | dxFormTabbedItem
+                | dxFormEmptyItem
+                | dxFormButtonItem
+            >;
+            tabTemplate?:
+                | DevExpress.core.template
+                | ((
+                      tabData: any,
+                      tabIndex: number,
+                      tabElement: DevExpress.core.dxElement
+                  ) => any);
+            template?:
+                | DevExpress.core.template
+                | ((
+                      tabData: any,
+                      tabIndex: number,
+                      tabElement: DevExpress.core.dxElement
+                  ) => any);
+            title?: string;
+        }>;
         /** @name dxFormTabbedItem.visible */
         visible?: boolean;
         /** @name dxFormTabbedItem.visibleIndex */
         visibleIndex?: number;
     }
     /** @name dxGallery.Options */
-    export interface dxGalleryOptions extends CollectionWidgetOptions<dxGallery> {
+    export interface dxGalleryOptions
+        extends CollectionWidgetOptions<dxGallery> {
         /** @name dxGallery.Options.animationDuration */
         animationDuration?: number;
         /** @name dxGallery.Options.animationEnabled */
         animationEnabled?: boolean;
         /** @name dxGallery.Options.dataSource */
-        dataSource?: string | Array<string | dxGalleryItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxGalleryItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxGallery.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxGallery.Options.indicatorEnabled */
@@ -4083,10 +7073,13 @@ declare module DevExpress.ui {
     }
     /** @name dxGallery */
     export class dxGallery extends CollectionWidget {
-        constructor(element: Element, options?: dxGalleryOptions)
-        constructor(element: JQuery, options?: dxGalleryOptions)
+        constructor(element: Element, options?: dxGalleryOptions);
+        constructor(element: JQuery, options?: dxGalleryOptions);
         /** @name dxGallery.goToItem(itemIndex, animation) */
-        goToItem(itemIndex: number, animation: boolean): Promise<void> & JQueryPromise<void>;
+        goToItem(
+            itemIndex: number,
+            animation: boolean
+        ): Promise<void> & JQueryPromise<void>;
         /** @name dxGallery.nextItem(animation) */
         nextItem(animation: boolean): Promise<void> & JQueryPromise<void>;
         /** @name dxGallery.prevItem(animation) */
@@ -4106,17 +7099,66 @@ declare module DevExpress.ui {
         /** @name dxGantt.Options.columns */
         columns?: Array<dxTreeListColumn | string>;
         /** @name dxGantt.Options.dependencies */
-        dependencies?: { dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions, keyExpr?: string | Function, predecessorIdExpr?: string | Function, successorIdExpr?: string | Function, typeExpr?: string | Function };
+        dependencies?: {
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSource
+                | DevExpress.data.DataSourceOptions;
+            keyExpr?: string | Function;
+            predecessorIdExpr?: string | Function;
+            successorIdExpr?: string | Function;
+            typeExpr?: string | Function;
+        };
         /** @name dxGantt.Options.editing */
-        editing?: { allowDependencyAdding?: boolean, allowDependencyDeleting?: boolean, allowDependencyUpdating?: boolean, allowResourceAdding?: boolean, allowResourceDeleting?: boolean, allowResourceUpdating?: boolean, allowTaskAdding?: boolean, allowTaskDeleting?: boolean, allowTaskUpdating?: boolean, enabled?: boolean };
+        editing?: {
+            allowDependencyAdding?: boolean;
+            allowDependencyDeleting?: boolean;
+            allowDependencyUpdating?: boolean;
+            allowResourceAdding?: boolean;
+            allowResourceDeleting?: boolean;
+            allowResourceUpdating?: boolean;
+            allowTaskAdding?: boolean;
+            allowTaskDeleting?: boolean;
+            allowTaskUpdating?: boolean;
+            enabled?: boolean;
+        };
         /** @name dxGantt.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxGantt, element?: DevExpress.core.dxElement, model?: any, selectedRowKey?: any }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxGantt;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            selectedRowKey?: any;
+        }) => any;
         /** @name dxGantt.Options.resourceAssignments */
-        resourceAssignments?: { dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions, keyExpr?: string | Function, resourceIdExpr?: string | Function, taskIdExpr?: string | Function };
+        resourceAssignments?: {
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSource
+                | DevExpress.data.DataSourceOptions;
+            keyExpr?: string | Function;
+            resourceIdExpr?: string | Function;
+            taskIdExpr?: string | Function;
+        };
         /** @name dxGantt.Options.resources */
-        resources?: { colorExpr?: string | Function, dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions, keyExpr?: string | Function, textExpr?: string | Function };
+        resources?: {
+            colorExpr?: string | Function;
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSource
+                | DevExpress.data.DataSourceOptions;
+            keyExpr?: string | Function;
+            textExpr?: string | Function;
+        };
         /** @name dxGantt.Options.scaleType */
-        scaleType?: 'auto' | 'minutes' | 'hours' | 'days' | 'weeks' | 'months' | 'quarters' | 'years';
+        scaleType?:
+            | "auto"
+            | "minutes"
+            | "hours"
+            | "days"
+            | "weeks"
+            | "months"
+            | "quarters"
+            | "years";
         /** @name dxGantt.Options.selectedRowKey */
         selectedRowKey?: any;
         /** @name dxGantt.Options.showResources */
@@ -4128,18 +7170,33 @@ declare module DevExpress.ui {
         /** @name dxGantt.Options.taskListWidth */
         taskListWidth?: number;
         /** @name dxGantt.Options.taskTitlePosition */
-        taskTitlePosition?: 'inside' | 'outside' | 'none';
+        taskTitlePosition?: "inside" | "outside" | "none";
         /** @name dxGantt.Options.tasks */
-        tasks?: { colorExpr?: string | Function, dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions, endExpr?: string | Function, keyExpr?: string | Function, parentIdExpr?: string | Function, progressExpr?: string | Function, startExpr?: string | Function, titleExpr?: string | Function };
+        tasks?: {
+            colorExpr?: string | Function;
+            dataSource?:
+                | Array<any>
+                | DevExpress.data.DataSource
+                | DevExpress.data.DataSourceOptions;
+            endExpr?: string | Function;
+            keyExpr?: string | Function;
+            parentIdExpr?: string | Function;
+            progressExpr?: string | Function;
+            startExpr?: string | Function;
+            titleExpr?: string | Function;
+        };
         /** @name dxGantt.Options.toolbar */
         toolbar?: dxGanttToolbar;
         /** @name dxGantt.Options.validation */
-        validation?: { autoUpdateParentTasks?: boolean, enableDependencyValidation?: boolean };
+        validation?: {
+            autoUpdateParentTasks?: boolean;
+            enableDependencyValidation?: boolean;
+        };
     }
     /** @name dxGantt */
     export class dxGantt extends Widget {
-        constructor(element: Element, options?: dxGanttOptions)
-        constructor(element: JQuery, options?: dxGanttOptions)
+        constructor(element: Element, options?: dxGanttOptions);
+        constructor(element: JQuery, options?: dxGanttOptions);
     }
     /** @name dxGanttStripLine */
     export interface dxGanttStripLine {
@@ -4155,19 +7212,32 @@ declare module DevExpress.ui {
     /** @name dxGanttToolbar */
     export interface dxGanttToolbar {
         /** @name dxGanttToolbar.items */
-        items?: Array<dxGanttToolbarItem | 'separator' | 'undo' | 'redo' | 'zoomIn' | 'zoomOut'>;
+        items?: Array<
+            | dxGanttToolbarItem
+            | "separator"
+            | "undo"
+            | "redo"
+            | "zoomIn"
+            | "zoomOut"
+        >;
     }
     /** @name dxGanttToolbarItem */
     export interface dxGanttToolbarItem extends dxToolbarItem {
         /** @name dxGanttToolbarItem.formatName */
-        formatName?: 'separator' | 'undo' | 'redo' | 'zoomIn' | 'zoomOut' | string;
+        formatName?:
+            | "separator"
+            | "undo"
+            | "redo"
+            | "zoomIn"
+            | "zoomOut"
+            | string;
         /** @name dxGanttToolbarItem.location */
-        location?: 'after' | 'before' | 'center';
+        location?: "after" | "before" | "center";
     }
     /** @name dxHtmlEditor.Options */
     export interface dxHtmlEditorOptions extends EditorOptions<dxHtmlEditor> {
         /** @name dxHtmlEditor.Options.customizeModules */
-        customizeModules?: ((config: any) => any);
+        customizeModules?: (config: any) => any;
         /** @name dxHtmlEditor.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxHtmlEditor.Options.mediaResizing */
@@ -4177,34 +7247,108 @@ declare module DevExpress.ui {
         /** @name dxHtmlEditor.Options.name */
         name?: string;
         /** @name dxHtmlEditor.Options.onFocusIn */
-        onFocusIn?: ((e: { component?: dxHtmlEditor, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event }) => any);
+        onFocusIn?: (e: {
+            component?: dxHtmlEditor;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxHtmlEditor.Options.onFocusOut */
-        onFocusOut?: ((e: { component?: dxHtmlEditor, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event }) => any);
+        onFocusOut?: (e: {
+            component?: dxHtmlEditor;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxHtmlEditor.Options.placeholder */
         placeholder?: string;
         /** @name dxHtmlEditor.Options.toolbar */
         toolbar?: dxHtmlEditorToolbar;
         /** @name dxHtmlEditor.Options.valueType */
-        valueType?: 'html' | 'markdown';
+        valueType?: "html" | "markdown";
         /** @name dxHtmlEditor.Options.variables */
         variables?: dxHtmlEditorVariables;
     }
     /** @name dxHtmlEditor */
     export class dxHtmlEditor extends Editor {
-        constructor(element: Element, options?: dxHtmlEditorOptions)
-        constructor(element: JQuery, options?: dxHtmlEditorOptions)
+        constructor(element: Element, options?: dxHtmlEditorOptions);
+        constructor(element: JQuery, options?: dxHtmlEditorOptions);
         /** @name dxHtmlEditor.clearHistory() */
         clearHistory(): void;
         /** @name dxHtmlEditor.delete(index, length) */
         delete(index: number, length: number): void;
         /** @name dxHtmlEditor.format(formatName, formatValue) */
-        format(formatName: 'background' | 'bold' | 'color' | 'font' | 'italic' | 'link' | 'size' | 'strike' | 'script' | 'underline' | 'blockquote' | 'header' | 'indent' | 'list' | 'align' | 'code-block' | string, formatValue: any): void;
+        format(
+            formatName:
+                | "background"
+                | "bold"
+                | "color"
+                | "font"
+                | "italic"
+                | "link"
+                | "size"
+                | "strike"
+                | "script"
+                | "underline"
+                | "blockquote"
+                | "header"
+                | "indent"
+                | "list"
+                | "align"
+                | "code-block"
+                | string,
+            formatValue: any
+        ): void;
         /** @name dxHtmlEditor.formatLine(index, length, formatName, formatValue) */
-        formatLine(index: number, length: number, formatName: 'background' | 'bold' | 'color' | 'font' | 'italic' | 'link' | 'size' | 'strike' | 'script' | 'underline' | 'blockquote' | 'header' | 'indent' | 'list' | 'align' | 'code-block' | string, formatValue: any): void;
+        formatLine(
+            index: number,
+            length: number,
+            formatName:
+                | "background"
+                | "bold"
+                | "color"
+                | "font"
+                | "italic"
+                | "link"
+                | "size"
+                | "strike"
+                | "script"
+                | "underline"
+                | "blockquote"
+                | "header"
+                | "indent"
+                | "list"
+                | "align"
+                | "code-block"
+                | string,
+            formatValue: any
+        ): void;
         /** @name dxHtmlEditor.formatLine(index, length, formats) */
         formatLine(index: number, length: number, formats: any): void;
         /** @name dxHtmlEditor.formatText(index, length, formatName, formatValue) */
-        formatText(index: number, length: number, formatName: 'background' | 'bold' | 'color' | 'font' | 'italic' | 'link' | 'size' | 'strike' | 'script' | 'underline' | 'blockquote' | 'header' | 'indent' | 'list' | 'align' | 'code-block' | string, formatValue: any): void;
+        formatText(
+            index: number,
+            length: number,
+            formatName:
+                | "background"
+                | "bold"
+                | "color"
+                | "font"
+                | "italic"
+                | "link"
+                | "size"
+                | "strike"
+                | "script"
+                | "underline"
+                | "blockquote"
+                | "header"
+                | "indent"
+                | "list"
+                | "align"
+                | "code-block"
+                | string,
+            formatValue: any
+        ): void;
         /** @name dxHtmlEditor.formatText(index, length, formats) */
         formatText(index: number, length: number, formats: any): void;
         /** @name dxHtmlEditor.get(componentPath) */
@@ -4242,11 +7386,20 @@ declare module DevExpress.ui {
     /** @name dxHtmlEditorMention */
     export interface dxHtmlEditorMention {
         /** @name dxHtmlEditorMention.dataSource */
-        dataSource?: Array<string> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | Array<string>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxHtmlEditorMention.displayExpr */
         displayExpr?: string | ((item: any) => string);
         /** @name dxHtmlEditorMention.itemTemplate */
-        itemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxHtmlEditorMention.marker */
         marker?: string;
         /** @name dxHtmlEditorMention.minSearchLength */
@@ -4256,7 +7409,16 @@ declare module DevExpress.ui {
         /** @name dxHtmlEditorMention.searchTimeout */
         searchTimeout?: number;
         /** @name dxHtmlEditorMention.template */
-        template?: DevExpress.core.template | ((mentionData: { marker?: string, id?: string | number, value?: any }, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        template?:
+            | DevExpress.core.template
+            | ((
+                  mentionData: {
+                      marker?: string;
+                      id?: string | number;
+                      value?: any;
+                  },
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxHtmlEditorMention.valueExpr */
         valueExpr?: string | Function;
     }
@@ -4265,30 +7427,91 @@ declare module DevExpress.ui {
         /** @name dxHtmlEditorToolbar.container */
         container?: string | Element | JQuery;
         /** @name dxHtmlEditorToolbar.items */
-        items?: Array<dxHtmlEditorToolbarItem | 'background' | 'bold' | 'color' | 'italic' | 'link' | 'image' | 'strike' | 'subscript' | 'superscript' | 'underline' | 'blockquote' | 'header' | 'increaseIndent' | 'decreaseIndent' | 'orderedList' | 'bulletList' | 'alignLeft' | 'alignCenter' | 'alignRight' | 'alignJustify' | 'codeBlock' | 'variable' | 'separator' | 'undo' | 'redo' | 'clear'>;
+        items?: Array<
+            | dxHtmlEditorToolbarItem
+            | "background"
+            | "bold"
+            | "color"
+            | "italic"
+            | "link"
+            | "image"
+            | "strike"
+            | "subscript"
+            | "superscript"
+            | "underline"
+            | "blockquote"
+            | "header"
+            | "increaseIndent"
+            | "decreaseIndent"
+            | "orderedList"
+            | "bulletList"
+            | "alignLeft"
+            | "alignCenter"
+            | "alignRight"
+            | "alignJustify"
+            | "codeBlock"
+            | "variable"
+            | "separator"
+            | "undo"
+            | "redo"
+            | "clear"
+        >;
         /** @name dxHtmlEditorToolbar.multiline */
         multiline?: boolean;
     }
     /** @name dxHtmlEditorToolbarItem */
     export interface dxHtmlEditorToolbarItem extends dxToolbarItem {
         /** @name dxHtmlEditorToolbarItem.formatName */
-        formatName?: 'background' | 'bold' | 'color' | 'italic' | 'link' | 'image' | 'strike' | 'subscript' | 'superscript' | 'underline' | 'blockquote' | 'header' | 'increaseIndent' | 'decreaseIndent' | 'orderedList' | 'bulletList' | 'alignLeft' | 'alignCenter' | 'alignRight' | 'alignJustify' | 'codeBlock' | 'variable' | 'separator' | 'undo' | 'redo' | 'clear' | string;
+        formatName?:
+            | "background"
+            | "bold"
+            | "color"
+            | "italic"
+            | "link"
+            | "image"
+            | "strike"
+            | "subscript"
+            | "superscript"
+            | "underline"
+            | "blockquote"
+            | "header"
+            | "increaseIndent"
+            | "decreaseIndent"
+            | "orderedList"
+            | "bulletList"
+            | "alignLeft"
+            | "alignCenter"
+            | "alignRight"
+            | "alignJustify"
+            | "codeBlock"
+            | "variable"
+            | "separator"
+            | "undo"
+            | "redo"
+            | "clear"
+            | string;
         /** @name dxHtmlEditorToolbarItem.formatValues */
         formatValues?: Array<string | number | boolean>;
         /** @name dxHtmlEditorToolbarItem.location */
-        location?: 'after' | 'before' | 'center';
+        location?: "after" | "before" | "center";
     }
     /** @name dxHtmlEditorVariables */
     export interface dxHtmlEditorVariables {
         /** @name dxHtmlEditorVariables.dataSource */
-        dataSource?: string | Array<string> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxHtmlEditorVariables.escapeChar */
         escapeChar?: string | Array<string>;
     }
     /** @name dxItem */
     export var dxItem: any;
     /** @name dxList.Options */
-    export interface dxListOptions extends CollectionWidgetOptions<dxList>, SearchBoxMixinOptions<dxList> {
+    export interface dxListOptions
+        extends CollectionWidgetOptions<dxList>,
+            SearchBoxMixinOptions<dxList> {
         /** @name dxList.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxList.Options.allowItemDeleting */
@@ -4301,13 +7524,23 @@ declare module DevExpress.ui {
         /** @name dxList.Options.collapsibleGroups */
         collapsibleGroups?: boolean;
         /** @name dxList.Options.dataSource */
-        dataSource?: string | Array<string | dxListItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxListItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxList.Options.displayExpr */
         displayExpr?: string | ((item: any) => string);
         /** @name dxList.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxList.Options.groupTemplate */
-        groupTemplate?: DevExpress.core.template | ((groupData: any, groupIndex: number, groupElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        groupTemplate?:
+            | DevExpress.core.template
+            | ((
+                  groupData: any,
+                  groupIndex: number,
+                  groupElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxList.Options.grouped */
         grouped?: boolean;
         /** @name dxList.Options.hoverStateEnabled */
@@ -4315,43 +7548,149 @@ declare module DevExpress.ui {
         /** @name dxList.Options.indicateLoading */
         indicateLoading?: boolean;
         /** @name dxList.Options.itemDeleteMode */
-        itemDeleteMode?: 'context' | 'slideButton' | 'slideItem' | 'static' | 'swipe' | 'toggle';
+        itemDeleteMode?:
+            | "context"
+            | "slideButton"
+            | "slideItem"
+            | "static"
+            | "swipe"
+            | "toggle";
         /** @name dxList.Options.itemDragging */
         itemDragging?: dxSortableOptions;
         /** @name dxList.Options.items */
         items?: Array<string | dxListItem | any>;
         /** @name dxList.Options.menuItems */
-        menuItems?: Array<{ action?: ((itemElement: DevExpress.core.dxElement, itemData: any) => any), text?: string }>;
+        menuItems?: Array<{
+            action?: (
+                itemElement: DevExpress.core.dxElement,
+                itemData: any
+            ) => any;
+            text?: string;
+        }>;
         /** @name dxList.Options.menuMode */
-        menuMode?: 'context' | 'slide';
+        menuMode?: "context" | "slide";
         /** @name dxList.Options.nextButtonText */
         nextButtonText?: string;
         /** @name dxList.Options.onGroupRendered */
-        onGroupRendered?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, groupData?: any, groupElement?: DevExpress.core.dxElement, groupIndex?: number }) => any);
+        onGroupRendered?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            groupData?: any;
+            groupElement?: DevExpress.core.dxElement;
+            groupIndex?: number;
+        }) => any;
         /** @name dxList.Options.onItemClick */
-        onItemClick?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any) | string;
+        onItemClick?:
+            | ((e: {
+                  component?: dxList;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  itemData?: any;
+                  itemElement?: DevExpress.core.dxElement;
+                  itemIndex?: number | any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxList.Options.onItemContextMenu */
-        onItemContextMenu?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onItemContextMenu?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxList.Options.onItemDeleted */
-        onItemDeleted?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any }) => any);
+        onItemDeleted?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+        }) => any;
         /** @name dxList.Options.onItemDeleting */
-        onItemDeleting?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, cancel?: boolean | Promise<void> | JQueryPromise<void> }) => any);
+        onItemDeleting?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+            cancel?: boolean | Promise<void> | JQueryPromise<void>;
+        }) => any;
         /** @name dxList.Options.onItemHold */
-        onItemHold?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onItemHold?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxList.Options.onItemReordered */
-        onItemReordered?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, fromIndex?: number, toIndex?: number }) => any);
+        onItemReordered?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+            fromIndex?: number;
+            toIndex?: number;
+        }) => any;
         /** @name dxList.Options.onItemSwipe */
-        onItemSwipe?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, direction?: string }) => any);
+        onItemSwipe?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+            direction?: string;
+        }) => any;
         /** @name dxList.Options.onPageLoading */
-        onPageLoading?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onPageLoading?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxList.Options.onPullRefresh */
-        onPullRefresh?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onPullRefresh?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxList.Options.onScroll */
-        onScroll?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, scrollOffset?: any, reachedLeft?: boolean, reachedRight?: boolean, reachedTop?: boolean, reachedBottom?: boolean }) => any);
+        onScroll?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            scrollOffset?: any;
+            reachedLeft?: boolean;
+            reachedRight?: boolean;
+            reachedTop?: boolean;
+            reachedBottom?: boolean;
+        }) => any;
         /** @name dxList.Options.onSelectAllValueChanged */
-        onSelectAllValueChanged?: ((e: { component?: dxList, element?: DevExpress.core.dxElement, model?: any, value?: boolean }) => any);
+        onSelectAllValueChanged?: (e: {
+            component?: dxList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: boolean;
+        }) => any;
         /** @name dxList.Options.pageLoadMode */
-        pageLoadMode?: 'nextButton' | 'scrollBottom';
+        pageLoadMode?: "nextButton" | "scrollBottom";
         /** @name dxList.Options.pageLoadingText */
         pageLoadingText?: string;
         /** @name dxList.Options.pullRefreshEnabled */
@@ -4371,11 +7710,11 @@ declare module DevExpress.ui {
         /** @name dxList.Options.scrollingEnabled */
         scrollingEnabled?: boolean;
         /** @name dxList.Options.selectAllMode */
-        selectAllMode?: 'allPages' | 'page';
+        selectAllMode?: "allPages" | "page";
         /** @name dxList.Options.selectionMode */
-        selectionMode?: 'all' | 'multiple' | 'none' | 'single';
+        selectionMode?: "all" | "multiple" | "none" | "single";
         /** @name dxList.Options.showScrollbar */
-        showScrollbar?: 'always' | 'never' | 'onHover' | 'onScroll';
+        showScrollbar?: "always" | "never" | "onHover" | "onScroll";
         /** @name dxList.Options.showSelectionControls */
         showSelectionControls?: boolean;
         /** @name dxList.Options.useNativeScrolling */
@@ -4383,8 +7722,8 @@ declare module DevExpress.ui {
     }
     /** @name dxList */
     export class dxList extends CollectionWidget {
-        constructor(element: Element, options?: dxListOptions)
-        constructor(element: JQuery, options?: dxListOptions)
+        constructor(element: Element, options?: dxListOptions);
+        constructor(element: JQuery, options?: dxListOptions);
         /** @name dxList.clientHeight() */
         clientHeight(): number;
         /** @name dxList.collapseGroup(groupIndex) */
@@ -4392,7 +7731,9 @@ declare module DevExpress.ui {
         /** @name dxList.deleteItem(itemElement) */
         deleteItem(itemElement: Element): Promise<void> & JQueryPromise<void>;
         /** @name dxList.deleteItem(itemIndex) */
-        deleteItem(itemIndex: number | any): Promise<void> & JQueryPromise<void>;
+        deleteItem(
+            itemIndex: number | any
+        ): Promise<void> & JQueryPromise<void>;
         /** @name dxList.expandGroup(groupIndex) */
         expandGroup(groupIndex: number): Promise<void> & JQueryPromise<void>;
         /** @name dxList.isItemSelected(itemElement) */
@@ -4402,9 +7743,15 @@ declare module DevExpress.ui {
         /** @name dxList.reload() */
         reload(): void;
         /** @name dxList.reorderItem(itemElement, toItemElement) */
-        reorderItem(itemElement: Element, toItemElement: Element): Promise<void> & JQueryPromise<void>;
+        reorderItem(
+            itemElement: Element,
+            toItemElement: Element
+        ): Promise<void> & JQueryPromise<void>;
         /** @name dxList.reorderItem(itemIndex, toItemIndex) */
-        reorderItem(itemIndex: number | any, toItemIndex: number | any): Promise<void> & JQueryPromise<void>;
+        reorderItem(
+            itemIndex: number | any,
+            toItemIndex: number | any
+        ): Promise<void> & JQueryPromise<void>;
         /** @name dxList.scrollBy(distance) */
         scrollBy(distance: number): void;
         /** @name dxList.scrollHeight() */
@@ -4444,14 +7791,15 @@ declare module DevExpress.ui {
         showChevron?: boolean;
     }
     /** @name dxLoadIndicator.Options */
-    export interface dxLoadIndicatorOptions extends WidgetOptions<dxLoadIndicator> {
+    export interface dxLoadIndicatorOptions
+        extends WidgetOptions<dxLoadIndicator> {
         /** @name dxLoadIndicator.Options.indicatorSrc */
         indicatorSrc?: string;
     }
     /** @name dxLoadIndicator */
     export class dxLoadIndicator extends Widget {
-        constructor(element: Element, options?: dxLoadIndicatorOptions)
-        constructor(element: JQuery, options?: dxLoadIndicatorOptions)
+        constructor(element: Element, options?: dxLoadIndicatorOptions);
+        constructor(element: JQuery, options?: dxLoadIndicatorOptions);
     }
     /** @name dxLoadPanel.Options */
     export interface dxLoadPanelOptions extends dxOverlayOptions<dxLoadPanel> {
@@ -4474,7 +7822,18 @@ declare module DevExpress.ui {
         /** @name dxLoadPanel.Options.message */
         message?: string;
         /** @name dxLoadPanel.Options.position */
-        position?: 'bottom' | 'center' | 'left' | 'left bottom' | 'left top' | 'right' | 'right bottom' | 'right top' | 'top' | positionConfig | Function;
+        position?:
+            | "bottom"
+            | "center"
+            | "left"
+            | "left bottom"
+            | "left top"
+            | "right"
+            | "right bottom"
+            | "right top"
+            | "top"
+            | positionConfig
+            | Function;
         /** @name dxLoadPanel.Options.shadingColor */
         shadingColor?: string;
         /** @name dxLoadPanel.Options.showIndicator */
@@ -4493,17 +7852,17 @@ declare module DevExpress.ui {
     }
     /** @name dxLoadPanel */
     export class dxLoadPanel extends dxOverlay {
-        constructor(element: Element, options?: dxLoadPanelOptions)
-        constructor(element: JQuery, options?: dxLoadPanelOptions)
+        constructor(element: Element, options?: dxLoadPanelOptions);
+        constructor(element: JQuery, options?: dxLoadPanelOptions);
     }
     /** @name dxLookup.Options */
     export interface dxLookupOptions extends dxDropDownListOptions<dxLookup> {
         /** @name dxLookup.Options.animation */
-        animation?: { hide?: animationConfig, show?: animationConfig };
+        animation?: { hide?: animationConfig; show?: animationConfig };
         /** @name dxLookup.Options.applyButtonText */
         applyButtonText?: string;
         /** @name dxLookup.Options.applyValueMode */
-        applyValueMode?: 'instantly' | 'useButtons';
+        applyValueMode?: "instantly" | "useButtons";
         /** @name dxLookup.Options.cancelButtonText */
         cancelButtonText?: string;
         /** @name dxLookup.Options.cleanSearchOnOpening */
@@ -4515,13 +7874,24 @@ declare module DevExpress.ui {
         /** @name dxLookup.Options.dropDownOptions */
         dropDownOptions?: dxPopupOptions | dxPopoverOptions;
         /** @name dxLookup.Options.fieldTemplate */
-        fieldTemplate?: DevExpress.core.template | ((selectedItem: any, fieldElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        fieldTemplate?:
+            | DevExpress.core.template
+            | ((
+                  selectedItem: any,
+                  fieldElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxLookup.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxLookup.Options.fullScreen */
         fullScreen?: boolean;
         /** @name dxLookup.Options.groupTemplate */
-        groupTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        groupTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxLookup.Options.grouped */
         grouped?: boolean;
         /** @name dxLookup.Options.itemCenteringEnabled */
@@ -4529,17 +7899,49 @@ declare module DevExpress.ui {
         /** @name dxLookup.Options.nextButtonText */
         nextButtonText?: string;
         /** @name dxLookup.Options.onPageLoading */
-        onPageLoading?: ((e: { component?: dxLookup, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onPageLoading?: (e: {
+            component?: dxLookup;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxLookup.Options.onPullRefresh */
-        onPullRefresh?: ((e: { component?: dxLookup, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onPullRefresh?: (e: {
+            component?: dxLookup;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxLookup.Options.onScroll */
-        onScroll?: ((e: { component?: dxLookup, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, scrollOffset?: any, reachedLeft?: boolean, reachedRight?: boolean, reachedTop?: boolean, reachedBottom?: boolean }) => any);
+        onScroll?: (e: {
+            component?: dxLookup;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            scrollOffset?: any;
+            reachedLeft?: boolean;
+            reachedRight?: boolean;
+            reachedTop?: boolean;
+            reachedBottom?: boolean;
+        }) => any;
         /** @name dxLookup.Options.onTitleRendered */
-        onTitleRendered?: ((e: { component?: dxLookup, element?: DevExpress.core.dxElement, model?: any, titleElement?: DevExpress.core.dxElement }) => any);
+        onTitleRendered?: (e: {
+            component?: dxLookup;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            titleElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxLookup.Options.onValueChanged */
-        onValueChanged?: ((e: { component?: dxLookup, element?: DevExpress.core.dxElement, model?: any, value?: any, previousValue?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onValueChanged?: (e: {
+            component?: dxLookup;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: any;
+            previousValue?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxLookup.Options.pageLoadMode */
-        pageLoadMode?: 'nextButton' | 'scrollBottom';
+        pageLoadMode?: "nextButton" | "scrollBottom";
         /** @name dxLookup.Options.pageLoadingText */
         pageLoadingText?: string;
         /** @name dxLookup.Options.placeholder */
@@ -4573,7 +7975,11 @@ declare module DevExpress.ui {
         /** @name dxLookup.Options.title */
         title?: string;
         /** @name dxLookup.Options.titleTemplate */
-        titleTemplate?: DevExpress.core.template | ((titleElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        titleTemplate?:
+            | DevExpress.core.template
+            | ((
+                  titleElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxLookup.Options.useNativeScrolling */
         useNativeScrolling?: boolean;
         /** @name dxLookup.Options.usePopover */
@@ -4581,8 +7987,8 @@ declare module DevExpress.ui {
     }
     /** @name dxLookup */
     export class dxLookup extends dxDropDownList {
-        constructor(element: Element, options?: dxLookupOptions)
-        constructor(element: JQuery, options?: dxLookupOptions)
+        constructor(element: Element, options?: dxLookupOptions);
+        constructor(element: JQuery, options?: dxLookupOptions);
     }
     /** @name dxMap.Options */
     export interface dxMapOptions extends WidgetOptions<dxMap> {
@@ -4597,29 +8003,78 @@ declare module DevExpress.ui {
         /** @name dxMap.Options.height */
         height?: number | string | (() => number | string);
         /** @name dxMap.Options.key */
-        key?: string | { bing?: string, google?: string, googleStatic?: string };
+        key?:
+            | string
+            | { bing?: string; google?: string; googleStatic?: string };
         /** @name dxMap.Options.markerIconSrc */
         markerIconSrc?: string;
         /** @name dxMap.Options.markers */
-        markers?: Array<{ iconSrc?: string, location?: any | string | Array<number>, onClick?: Function, tooltip?: string | { isShown?: boolean, text?: string } }>;
+        markers?: Array<{
+            iconSrc?: string;
+            location?: any | string | Array<number>;
+            onClick?: Function;
+            tooltip?: string | { isShown?: boolean; text?: string };
+        }>;
         /** @name dxMap.Options.onClick */
-        onClick?: ((e: { component?: dxMap, element?: DevExpress.core.dxElement, model?: any, location?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any) | string;
+        onClick?:
+            | ((e: {
+                  component?: dxMap;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  location?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxMap.Options.onMarkerAdded */
-        onMarkerAdded?: ((e: { component?: dxMap, element?: DevExpress.core.dxElement, model?: any, options?: any, originalMarker?: any }) => any);
+        onMarkerAdded?: (e: {
+            component?: dxMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            options?: any;
+            originalMarker?: any;
+        }) => any;
         /** @name dxMap.Options.onMarkerRemoved */
-        onMarkerRemoved?: ((e: { component?: dxMap, element?: DevExpress.core.dxElement, model?: any, options?: any }) => any);
+        onMarkerRemoved?: (e: {
+            component?: dxMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            options?: any;
+        }) => any;
         /** @name dxMap.Options.onReady */
-        onReady?: ((e: { component?: dxMap, element?: DevExpress.core.dxElement, model?: any, originalMap?: any }) => any);
+        onReady?: (e: {
+            component?: dxMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            originalMap?: any;
+        }) => any;
         /** @name dxMap.Options.onRouteAdded */
-        onRouteAdded?: ((e: { component?: dxMap, element?: DevExpress.core.dxElement, model?: any, options?: any, originalRoute?: any }) => any);
+        onRouteAdded?: (e: {
+            component?: dxMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            options?: any;
+            originalRoute?: any;
+        }) => any;
         /** @name dxMap.Options.onRouteRemoved */
-        onRouteRemoved?: ((e: { component?: dxMap, element?: DevExpress.core.dxElement, model?: any, options?: any }) => any);
+        onRouteRemoved?: (e: {
+            component?: dxMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            options?: any;
+        }) => any;
         /** @name dxMap.Options.provider */
-        provider?: 'bing' | 'google' | 'googleStatic';
+        provider?: "bing" | "google" | "googleStatic";
         /** @name dxMap.Options.routes */
-        routes?: Array<{ color?: string, locations?: Array<any>, mode?: 'driving' | 'walking', opacity?: number, weight?: number }>;
+        routes?: Array<{
+            color?: string;
+            locations?: Array<any>;
+            mode?: "driving" | "walking";
+            opacity?: number;
+            weight?: number;
+        }>;
         /** @name dxMap.Options.type */
-        type?: 'hybrid' | 'roadmap' | 'satellite';
+        type?: "hybrid" | "roadmap" | "satellite";
         /** @name dxMap.Options.width */
         width?: number | string | (() => number | string);
         /** @name dxMap.Options.zoom */
@@ -4627,70 +8082,118 @@ declare module DevExpress.ui {
     }
     /** @name dxMap */
     export class dxMap extends Widget {
-        constructor(element: Element, options?: dxMapOptions)
-        constructor(element: JQuery, options?: dxMapOptions)
+        constructor(element: Element, options?: dxMapOptions);
+        constructor(element: JQuery, options?: dxMapOptions);
         /** @name dxMap.addMarker(markerOptions) */
-        addMarker(markerOptions: any | Array<any>): Promise<any> & JQueryPromise<any>;
+        addMarker(
+            markerOptions: any | Array<any>
+        ): Promise<any> & JQueryPromise<any>;
         /** @name dxMap.addRoute(routeOptions) */
         addRoute(options: any | Array<any>): Promise<any> & JQueryPromise<any>;
         /** @name dxMap.removeMarker(marker) */
-        removeMarker(marker: any | number | Array<any>): Promise<void> & JQueryPromise<void>;
+        removeMarker(
+            marker: any | number | Array<any>
+        ): Promise<void> & JQueryPromise<void>;
         /** @name dxMap.removeRoute(route) */
-        removeRoute(route: any | number | Array<any>): Promise<void> & JQueryPromise<void>;
+        removeRoute(
+            route: any | number | Array<any>
+        ): Promise<void> & JQueryPromise<void>;
     }
     /** @name dxMenu.Options */
     export interface dxMenuOptions extends dxMenuBaseOptions<dxMenu> {
         /** @name dxMenu.Options.adaptivityEnabled */
         adaptivityEnabled?: boolean;
         /** @name dxMenu.Options.dataSource */
-        dataSource?: string | Array<dxMenuItem> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<dxMenuItem>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxMenu.Options.hideSubmenuOnMouseLeave */
         hideSubmenuOnMouseLeave?: boolean;
         /** @name dxMenu.Options.items */
         items?: Array<dxMenuItem>;
         /** @name dxMenu.Options.onSubmenuHidden */
-        onSubmenuHidden?: ((e: { component?: dxMenu, element?: DevExpress.core.dxElement, model?: any, rootItem?: DevExpress.core.dxElement }) => any);
+        onSubmenuHidden?: (e: {
+            component?: dxMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rootItem?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxMenu.Options.onSubmenuHiding */
-        onSubmenuHiding?: ((e: { component?: dxMenu, element?: DevExpress.core.dxElement, model?: any, rootItem?: DevExpress.core.dxElement, cancel?: boolean }) => any);
+        onSubmenuHiding?: (e: {
+            component?: dxMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rootItem?: DevExpress.core.dxElement;
+            cancel?: boolean;
+        }) => any;
         /** @name dxMenu.Options.onSubmenuShowing */
-        onSubmenuShowing?: ((e: { component?: dxMenu, element?: DevExpress.core.dxElement, model?: any, rootItem?: DevExpress.core.dxElement }) => any);
+        onSubmenuShowing?: (e: {
+            component?: dxMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rootItem?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxMenu.Options.onSubmenuShown */
-        onSubmenuShown?: ((e: { component?: dxMenu, element?: DevExpress.core.dxElement, model?: any, rootItem?: DevExpress.core.dxElement }) => any);
+        onSubmenuShown?: (e: {
+            component?: dxMenu;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rootItem?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxMenu.Options.orientation */
-        orientation?: 'horizontal' | 'vertical';
+        orientation?: "horizontal" | "vertical";
         /** @name dxMenu.Options.showFirstSubmenuMode */
-        showFirstSubmenuMode?: { delay?: { hide?: number, show?: number } | number, name?: 'onClick' | 'onHover' } | 'onClick' | 'onHover';
+        showFirstSubmenuMode?:
+            | {
+                  delay?: { hide?: number; show?: number } | number;
+                  name?: "onClick" | "onHover";
+              }
+            | "onClick"
+            | "onHover";
         /** @name dxMenu.Options.submenuDirection */
-        submenuDirection?: 'auto' | 'leftOrTop' | 'rightOrBottom';
+        submenuDirection?: "auto" | "leftOrTop" | "rightOrBottom";
     }
     /** @name dxMenu */
     export class dxMenu extends dxMenuBase {
-        constructor(element: Element, options?: dxMenuOptions)
-        constructor(element: JQuery, options?: dxMenuOptions)
+        constructor(element: Element, options?: dxMenuOptions);
+        constructor(element: JQuery, options?: dxMenuOptions);
     }
     /** @name dxMenuBase.Options */
-    export interface dxMenuBaseOptions<T = dxMenuBase> extends HierarchicalCollectionWidgetOptions<T> {
+    export interface dxMenuBaseOptions<T = dxMenuBase>
+        extends HierarchicalCollectionWidgetOptions<T> {
         /** @name dxMenuBase.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxMenuBase.Options.animation */
-        animation?: { hide?: animationConfig, show?: animationConfig };
+        animation?: { hide?: animationConfig; show?: animationConfig };
         /** @name dxMenuBase.Options.cssClass */
         cssClass?: string;
         /** @name dxMenuBase.Options.dataSource */
-        dataSource?: string | Array<dxMenuBaseItem> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<dxMenuBaseItem>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxMenuBase.Options.items */
         items?: Array<dxMenuBaseItem>;
         /** @name dxMenuBase.Options.selectByClick */
         selectByClick?: boolean;
         /** @name dxMenuBase.Options.selectionMode */
-        selectionMode?: 'none' | 'single';
+        selectionMode?: "none" | "single";
         /** @name dxMenuBase.Options.showSubmenuMode */
-        showSubmenuMode?: { delay?: { hide?: number, show?: number } | number, name?: 'onClick' | 'onHover' } | 'onClick' | 'onHover';
+        showSubmenuMode?:
+            | {
+                  delay?: { hide?: number; show?: number } | number;
+                  name?: "onClick" | "onHover";
+              }
+            | "onClick"
+            | "onHover";
     }
     /** @name dxMenuBase */
     export class dxMenuBase extends HierarchicalCollectionWidget {
-        constructor(element: Element, options?: dxMenuBaseOptions)
-        constructor(element: JQuery, options?: dxMenuBaseOptions)
+        constructor(element: Element, options?: dxMenuBaseOptions);
+        constructor(element: JQuery, options?: dxMenuBaseOptions);
         /** @name dxMenuBase.selectItem(itemElement) */
         selectItem(itemElement: Element): void;
         /** @name dxMenuBase.unselectItem(itemElement) */
@@ -4723,11 +8226,16 @@ declare module DevExpress.ui {
         items?: Array<dxMenuItem>;
     }
     /** @name dxMultiView.Options */
-    export interface dxMultiViewOptions<T = dxMultiView> extends CollectionWidgetOptions<T> {
+    export interface dxMultiViewOptions<T = dxMultiView>
+        extends CollectionWidgetOptions<T> {
         /** @name dxMultiView.Options.animationEnabled */
         animationEnabled?: boolean;
         /** @name dxMultiView.Options.dataSource */
-        dataSource?: string | Array<string | dxMultiViewItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxMultiViewItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxMultiView.Options.deferRendering */
         deferRendering?: boolean;
         /** @name dxMultiView.Options.focusStateEnabled */
@@ -4743,12 +8251,11 @@ declare module DevExpress.ui {
     }
     /** @name dxMultiView */
     export class dxMultiView extends CollectionWidget {
-        constructor(element: Element, options?: dxMultiViewOptions)
-        constructor(element: JQuery, options?: dxMultiViewOptions)
+        constructor(element: Element, options?: dxMultiViewOptions);
+        constructor(element: JQuery, options?: dxMultiViewOptions);
     }
     /** @name dxMultiViewItem */
-    export interface dxMultiViewItem extends CollectionWidgetItem {
-    }
+    export interface dxMultiViewItem extends CollectionWidgetItem {}
     /** @name dxNavBar.Options */
     export interface dxNavBarOptions extends dxTabsOptions<dxNavBar> {
         /** @name dxNavBar.Options.scrollByContent */
@@ -4756,8 +8263,8 @@ declare module DevExpress.ui {
     }
     /** @name dxNavBar */
     export class dxNavBar extends dxTabs {
-        constructor(element: Element, options?: dxNavBarOptions)
-        constructor(element: JQuery, options?: dxNavBarOptions)
+        constructor(element: Element, options?: dxNavBarOptions);
+        constructor(element: JQuery, options?: dxNavBarOptions);
     }
     /** @name dxNavBarItem */
     export interface dxNavBarItem extends dxTabsItem {
@@ -4765,9 +8272,10 @@ declare module DevExpress.ui {
         badge?: string;
     }
     /** @name dxNumberBox.Options */
-    export interface dxNumberBoxOptions extends dxTextEditorOptions<dxNumberBox> {
+    export interface dxNumberBoxOptions
+        extends dxTextEditorOptions<dxNumberBox> {
         /** @name dxNumberBox.Options.buttons */
-        buttons?: Array<'clear' | 'spins' | dxTextEditorButton>;
+        buttons?: Array<"clear" | "spins" | dxTextEditorButton>;
         /** @name dxNumberBox.Options.format */
         format?: format;
         /** @name dxNumberBox.Options.invalidValueMessage */
@@ -4777,7 +8285,7 @@ declare module DevExpress.ui {
         /** @name dxNumberBox.Options.min */
         min?: number;
         /** @name dxNumberBox.Options.mode */
-        mode?: 'number' | 'text' | 'tel';
+        mode?: "number" | "text" | "tel";
         /** @name dxNumberBox.Options.showSpinButtons */
         showSpinButtons?: boolean;
         /** @name dxNumberBox.Options.step */
@@ -4789,17 +8297,23 @@ declare module DevExpress.ui {
     }
     /** @name dxNumberBox */
     export class dxNumberBox extends dxTextEditor {
-        constructor(element: Element, options?: dxNumberBoxOptions)
-        constructor(element: JQuery, options?: dxNumberBoxOptions)
+        constructor(element: Element, options?: dxNumberBoxOptions);
+        constructor(element: JQuery, options?: dxNumberBoxOptions);
     }
     /** @name dxOverlay.Options */
     export interface dxOverlayOptions<T = dxOverlay> extends WidgetOptions<T> {
         /** @name dxOverlay.Options.animation */
         animation?: dxOverlayAnimation;
         /** @name dxOverlay.Options.closeOnOutsideClick */
-        closeOnOutsideClick?: boolean | ((event: DevExpress.events.event) => boolean);
+        closeOnOutsideClick?:
+            | boolean
+            | ((event: DevExpress.events.event) => boolean);
         /** @name dxOverlay.Options.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxOverlay.Options.deferRendering */
         deferRendering?: boolean;
         /** @name dxOverlay.Options.dragEnabled */
@@ -4815,13 +8329,30 @@ declare module DevExpress.ui {
         /** @name dxOverlay.Options.minWidth */
         minWidth?: number | string | (() => number | string);
         /** @name dxOverlay.Options.onHidden */
-        onHidden?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onHidden?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxOverlay.Options.onHiding */
-        onHiding?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, cancel?: boolean }) => any);
+        onHiding?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            cancel?: boolean;
+        }) => any;
         /** @name dxOverlay.Options.onShowing */
-        onShowing?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onShowing?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxOverlay.Options.onShown */
-        onShown?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onShown?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxOverlay.Options.position */
         position?: any;
         /** @name dxOverlay.Options.shading */
@@ -4842,8 +8373,8 @@ declare module DevExpress.ui {
     }
     /** @name dxOverlay */
     export class dxOverlay extends Widget {
-        constructor(element: Element, options?: dxOverlayOptions)
-        constructor(element: JQuery, options?: dxOverlayOptions)
+        constructor(element: Element, options?: dxOverlayOptions);
+        constructor(element: JQuery, options?: dxOverlayOptions);
         /** @name dxOverlay.content() */
         content(): DevExpress.core.dxElement;
         /** @name dxOverlay.hide() */
@@ -4866,37 +8397,147 @@ declare module DevExpress.ui {
         /** @name dxPivotGrid.Options.allowSortingBySummary */
         allowSortingBySummary?: boolean;
         /** @name dxPivotGrid.Options.dataFieldArea */
-        dataFieldArea?: 'column' | 'row';
+        dataFieldArea?: "column" | "row";
         /** @name dxPivotGrid.Options.dataSource */
-        dataSource?: Array<any> | DevExpress.data.PivotGridDataSource | DevExpress.data.PivotGridDataSourceOptions;
+        dataSource?:
+            | Array<any>
+            | DevExpress.data.PivotGridDataSource
+            | DevExpress.data.PivotGridDataSourceOptions;
         /** @name dxPivotGrid.Options.export */
-        export?: { enabled?: boolean, fileName?: string, ignoreExcelErrors?: boolean, proxyUrl?: string };
+        export?: {
+            enabled?: boolean;
+            fileName?: string;
+            ignoreExcelErrors?: boolean;
+            proxyUrl?: string;
+        };
         /** @name dxPivotGrid.Options.fieldChooser */
-        fieldChooser?: { allowSearch?: boolean, applyChangesMode?: 'instantly' | 'onDemand', enabled?: boolean, height?: number, layout?: 0 | 1 | 2, searchTimeout?: number, texts?: { allFields?: string, columnFields?: string, dataFields?: string, filterFields?: string, rowFields?: string }, title?: string, width?: number };
+        fieldChooser?: {
+            allowSearch?: boolean;
+            applyChangesMode?: "instantly" | "onDemand";
+            enabled?: boolean;
+            height?: number;
+            layout?: 0 | 1 | 2;
+            searchTimeout?: number;
+            texts?: {
+                allFields?: string;
+                columnFields?: string;
+                dataFields?: string;
+                filterFields?: string;
+                rowFields?: string;
+            };
+            title?: string;
+            width?: number;
+        };
         /** @name dxPivotGrid.Options.fieldPanel */
-        fieldPanel?: { allowFieldDragging?: boolean, showColumnFields?: boolean, showDataFields?: boolean, showFilterFields?: boolean, showRowFields?: boolean, texts?: { columnFieldArea?: string, dataFieldArea?: string, filterFieldArea?: string, rowFieldArea?: string }, visible?: boolean };
+        fieldPanel?: {
+            allowFieldDragging?: boolean;
+            showColumnFields?: boolean;
+            showDataFields?: boolean;
+            showFilterFields?: boolean;
+            showRowFields?: boolean;
+            texts?: {
+                columnFieldArea?: string;
+                dataFieldArea?: string;
+                filterFieldArea?: string;
+                rowFieldArea?: string;
+            };
+            visible?: boolean;
+        };
         /** @name dxPivotGrid.Options.headerFilter */
-        headerFilter?: { allowSearch?: boolean, height?: number, searchTimeout?: number, showRelevantValues?: boolean, texts?: { cancel?: string, emptyValue?: string, ok?: string }, width?: number };
+        headerFilter?: {
+            allowSearch?: boolean;
+            height?: number;
+            searchTimeout?: number;
+            showRelevantValues?: boolean;
+            texts?: { cancel?: string; emptyValue?: string; ok?: string };
+            width?: number;
+        };
         /** @name dxPivotGrid.Options.hideEmptySummaryCells */
         hideEmptySummaryCells?: boolean;
         /** @name dxPivotGrid.Options.loadPanel */
-        loadPanel?: { enabled?: boolean, height?: number, indicatorSrc?: string, showIndicator?: boolean, showPane?: boolean, text?: string, width?: number };
+        loadPanel?: {
+            enabled?: boolean;
+            height?: number;
+            indicatorSrc?: string;
+            showIndicator?: boolean;
+            showPane?: boolean;
+            text?: string;
+            width?: number;
+        };
         /** @name dxPivotGrid.Options.onCellClick */
-        onCellClick?: ((e: { component?: dxPivotGrid, element?: DevExpress.core.dxElement, model?: any, area?: string, cellElement?: DevExpress.core.dxElement, cell?: dxPivotGridPivotGridCell, rowIndex?: number, columnIndex?: number, columnFields?: Array<DevExpress.data.PivotGridDataSourceField>, rowFields?: Array<DevExpress.data.PivotGridDataSourceField>, dataFields?: Array<DevExpress.data.PivotGridDataSourceField>, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, cancel?: boolean }) => any);
+        onCellClick?: (e: {
+            component?: dxPivotGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            area?: string;
+            cellElement?: DevExpress.core.dxElement;
+            cell?: dxPivotGridPivotGridCell;
+            rowIndex?: number;
+            columnIndex?: number;
+            columnFields?: Array<DevExpress.data.PivotGridDataSourceField>;
+            rowFields?: Array<DevExpress.data.PivotGridDataSourceField>;
+            dataFields?: Array<DevExpress.data.PivotGridDataSourceField>;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+        }) => any;
         /** @name dxPivotGrid.Options.onCellPrepared */
-        onCellPrepared?: ((e: { component?: dxPivotGrid, element?: DevExpress.core.dxElement, model?: any, area?: string, cellElement?: DevExpress.core.dxElement, cell?: dxPivotGridPivotGridCell, rowIndex?: number, columnIndex?: number }) => any);
+        onCellPrepared?: (e: {
+            component?: dxPivotGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            area?: string;
+            cellElement?: DevExpress.core.dxElement;
+            cell?: dxPivotGridPivotGridCell;
+            rowIndex?: number;
+            columnIndex?: number;
+        }) => any;
         /** @name dxPivotGrid.Options.onContextMenuPreparing */
-        onContextMenuPreparing?: ((e: { component?: dxPivotGrid, element?: DevExpress.core.dxElement, model?: any, items?: Array<any>, area?: string, cell?: dxPivotGridPivotGridCell, cellElement?: DevExpress.core.dxElement, columnIndex?: number, rowIndex?: number, dataFields?: Array<DevExpress.data.PivotGridDataSourceField>, rowFields?: Array<DevExpress.data.PivotGridDataSourceField>, columnFields?: Array<DevExpress.data.PivotGridDataSourceField>, field?: DevExpress.data.PivotGridDataSourceField }) => any);
+        onContextMenuPreparing?: (e: {
+            component?: dxPivotGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            items?: Array<any>;
+            area?: string;
+            cell?: dxPivotGridPivotGridCell;
+            cellElement?: DevExpress.core.dxElement;
+            columnIndex?: number;
+            rowIndex?: number;
+            dataFields?: Array<DevExpress.data.PivotGridDataSourceField>;
+            rowFields?: Array<DevExpress.data.PivotGridDataSourceField>;
+            columnFields?: Array<DevExpress.data.PivotGridDataSourceField>;
+            field?: DevExpress.data.PivotGridDataSourceField;
+        }) => any;
         /** @name dxPivotGrid.Options.onExported */
-        onExported?: ((e: { component?: dxPivotGrid, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onExported?: (e: {
+            component?: dxPivotGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxPivotGrid.Options.onExporting */
-        onExporting?: ((e: { component?: dxPivotGrid, element?: DevExpress.core.dxElement, model?: any, fileName?: string, cancel?: boolean }) => any);
+        onExporting?: (e: {
+            component?: dxPivotGrid;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            fileName?: string;
+            cancel?: boolean;
+        }) => any;
         /** @name dxPivotGrid.Options.onFileSaving */
-        onFileSaving?: ((e: { component?: dxPivotGrid, element?: DevExpress.core.dxElement, fileName?: string, format?: string, data?: Blob, cancel?: boolean }) => any);
+        onFileSaving?: (e: {
+            component?: dxPivotGrid;
+            element?: DevExpress.core.dxElement;
+            fileName?: string;
+            format?: string;
+            data?: Blob;
+            cancel?: boolean;
+        }) => any;
         /** @name dxPivotGrid.Options.rowHeaderLayout */
-        rowHeaderLayout?: 'standard' | 'tree';
+        rowHeaderLayout?: "standard" | "tree";
         /** @name dxPivotGrid.Options.scrolling */
-        scrolling?: { mode?: 'standard' | 'virtual', useNative?: boolean | 'auto' };
+        scrolling?: {
+            mode?: "standard" | "virtual";
+            useNative?: boolean | "auto";
+        };
         /** @name dxPivotGrid.Options.showBorders */
         showBorders?: boolean;
         /** @name dxPivotGrid.Options.showColumnGrandTotals */
@@ -4908,20 +8549,50 @@ declare module DevExpress.ui {
         /** @name dxPivotGrid.Options.showRowTotals */
         showRowTotals?: boolean;
         /** @name dxPivotGrid.Options.showTotalsPrior */
-        showTotalsPrior?: 'both' | 'columns' | 'none' | 'rows';
+        showTotalsPrior?: "both" | "columns" | "none" | "rows";
         /** @name dxPivotGrid.Options.stateStoring */
-        stateStoring?: { customLoad?: (() => Promise<any> | JQueryPromise<any>), customSave?: ((state: any) => any), enabled?: boolean, savingTimeout?: number, storageKey?: string, type?: 'custom' | 'localStorage' | 'sessionStorage' };
+        stateStoring?: {
+            customLoad?: () => Promise<any> | JQueryPromise<any>;
+            customSave?: (state: any) => any;
+            enabled?: boolean;
+            savingTimeout?: number;
+            storageKey?: string;
+            type?: "custom" | "localStorage" | "sessionStorage";
+        };
         /** @name dxPivotGrid.Options.texts */
-        texts?: { collapseAll?: string, dataNotAvailable?: string, expandAll?: string, exportToExcel?: string, grandTotal?: string, noData?: string, removeAllSorting?: string, showFieldChooser?: string, sortColumnBySummary?: string, sortRowBySummary?: string, total?: string };
+        texts?: {
+            collapseAll?: string;
+            dataNotAvailable?: string;
+            expandAll?: string;
+            exportToExcel?: string;
+            grandTotal?: string;
+            noData?: string;
+            removeAllSorting?: string;
+            showFieldChooser?: string;
+            sortColumnBySummary?: string;
+            sortRowBySummary?: string;
+            total?: string;
+        };
         /** @name dxPivotGrid.Options.wordWrapEnabled */
         wordWrapEnabled?: boolean;
     }
     /** @name dxPivotGrid */
     export class dxPivotGrid extends Widget {
-        constructor(element: Element, options?: dxPivotGridOptions)
-        constructor(element: JQuery, options?: dxPivotGridOptions)
+        constructor(element: Element, options?: dxPivotGridOptions);
+        constructor(element: JQuery, options?: dxPivotGridOptions);
         /** @name dxPivotGrid.bindChart(chart, integrationOptions) */
-        bindChart(chart: string | JQuery | any, integrationOptions: { inverted?: boolean, dataFieldsDisplayMode?: string, putDataFieldsInto?: string, alternateDataFields?: boolean, processCell?: Function, customizeChart?: Function, customizeSeries?: Function }): Function & null;
+        bindChart(
+            chart: string | JQuery | any,
+            integrationOptions: {
+                inverted?: boolean;
+                dataFieldsDisplayMode?: string;
+                putDataFieldsInto?: string;
+                alternateDataFields?: boolean;
+                processCell?: Function;
+                customizeChart?: Function;
+                customizeSeries?: Function;
+            }
+        ): Function & null;
         /** @name dxPivotGrid.exportToExcel() */
         exportToExcel(): void;
         /** @name dxPivotGrid.getDataSource() */
@@ -4932,32 +8603,55 @@ declare module DevExpress.ui {
         updateDimensions(): void;
     }
     /** @name dxPivotGridFieldChooser.Options */
-    export interface dxPivotGridFieldChooserOptions extends WidgetOptions<dxPivotGridFieldChooser> {
+    export interface dxPivotGridFieldChooserOptions
+        extends WidgetOptions<dxPivotGridFieldChooser> {
         /** @name dxPivotGridFieldChooser.Options.allowSearch */
         allowSearch?: boolean;
         /** @name dxPivotGridFieldChooser.Options.applyChangesMode */
-        applyChangesMode?: 'instantly' | 'onDemand';
+        applyChangesMode?: "instantly" | "onDemand";
         /** @name dxPivotGridFieldChooser.Options.dataSource */
         dataSource?: DevExpress.data.PivotGridDataSource;
         /** @name dxPivotGridFieldChooser.Options.headerFilter */
-        headerFilter?: { allowSearch?: boolean, height?: number, searchTimeout?: number, showRelevantValues?: boolean, texts?: { cancel?: string, emptyValue?: string, ok?: string }, width?: number };
+        headerFilter?: {
+            allowSearch?: boolean;
+            height?: number;
+            searchTimeout?: number;
+            showRelevantValues?: boolean;
+            texts?: { cancel?: string; emptyValue?: string; ok?: string };
+            width?: number;
+        };
         /** @name dxPivotGridFieldChooser.Options.height */
         height?: number | string | (() => number | string);
         /** @name dxPivotGridFieldChooser.Options.layout */
         layout?: 0 | 1 | 2;
         /** @name dxPivotGridFieldChooser.Options.onContextMenuPreparing */
-        onContextMenuPreparing?: ((e: { component?: dxPivotGridFieldChooser, element?: DevExpress.core.dxElement, model?: any, items?: Array<any>, area?: string, field?: DevExpress.data.PivotGridDataSourceField, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onContextMenuPreparing?: (e: {
+            component?: dxPivotGridFieldChooser;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            items?: Array<any>;
+            area?: string;
+            field?: DevExpress.data.PivotGridDataSourceField;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxPivotGridFieldChooser.Options.searchTimeout */
         searchTimeout?: number;
         /** @name dxPivotGridFieldChooser.Options.state */
         state?: any;
         /** @name dxPivotGridFieldChooser.Options.texts */
-        texts?: { allFields?: string, columnFields?: string, dataFields?: string, filterFields?: string, rowFields?: string };
+        texts?: {
+            allFields?: string;
+            columnFields?: string;
+            dataFields?: string;
+            filterFields?: string;
+            rowFields?: string;
+        };
     }
     /** @name dxPivotGridFieldChooser */
     export class dxPivotGridFieldChooser extends Widget {
-        constructor(element: Element, options?: dxPivotGridFieldChooserOptions)
-        constructor(element: JQuery, options?: dxPivotGridFieldChooserOptions)
+        constructor(element: Element, options?: dxPivotGridFieldChooserOptions);
+        constructor(element: JQuery, options?: dxPivotGridFieldChooserOptions);
         /** @name dxPivotGridFieldChooser.applyChanges() */
         applyChanges(): void;
         /** @name dxPivotGridFieldChooser.cancelChanges() */
@@ -4972,7 +8666,7 @@ declare module DevExpress.ui {
         /** @name dxPivotGridPivotGridCell.columnPath */
         columnPath?: Array<string | number | Date>;
         /** @name dxPivotGridPivotGridCell.columnType */
-        columnType?: 'D' | 'T' | 'GT';
+        columnType?: "D" | "T" | "GT";
         /** @name dxPivotGridPivotGridCell.dataIndex */
         dataIndex?: number;
         /** @name dxPivotGridPivotGridCell.expanded */
@@ -4982,18 +8676,21 @@ declare module DevExpress.ui {
         /** @name dxPivotGridPivotGridCell.rowPath */
         rowPath?: Array<string | number | Date>;
         /** @name dxPivotGridPivotGridCell.rowType */
-        rowType?: 'D' | 'T' | 'GT';
+        rowType?: "D" | "T" | "GT";
         /** @name dxPivotGridPivotGridCell.text */
         text?: string;
         /** @name dxPivotGridPivotGridCell.type */
-        type?: 'D' | 'T' | 'GT';
+        type?: "D" | "T" | "GT";
         /** @name dxPivotGridPivotGridCell.value */
         value?: any;
     }
     /** @name dxPivotGridSummaryCell */
     export class dxPivotGridSummaryCell {
         /** @name dxPivotGridSummaryCell.child(direction, fieldValue) */
-        child(direction: string, fieldValue: number | string): dxPivotGridSummaryCell;
+        child(
+            direction: string,
+            fieldValue: number | string
+        ): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.children(direction) */
         children(direction: string): Array<dxPivotGridSummaryCell>;
         /** @name dxPivotGridSummaryCell.field(area) */
@@ -5003,25 +8700,39 @@ declare module DevExpress.ui {
         /** @name dxPivotGridSummaryCell.grandTotal(direction) */
         grandTotal(direction: string): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.isPostProcessed(field) */
-        isPostProcessed(field: DevExpress.data.PivotGridDataSourceField | string): boolean;
+        isPostProcessed(
+            field: DevExpress.data.PivotGridDataSourceField | string
+        ): boolean;
         /** @name dxPivotGridSummaryCell.next(direction) */
         next(direction: string): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.next(direction, allowCrossGroup) */
-        next(direction: string, allowCrossGroup: boolean): dxPivotGridSummaryCell;
+        next(
+            direction: string,
+            allowCrossGroup: boolean
+        ): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.parent(direction) */
         parent(direction: string): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.prev(direction) */
         prev(direction: string): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.prev(direction, allowCrossGroup) */
-        prev(direction: string, allowCrossGroup: boolean): dxPivotGridSummaryCell;
+        prev(
+            direction: string,
+            allowCrossGroup: boolean
+        ): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.slice(field, value) */
-        slice(field: DevExpress.data.PivotGridDataSourceField, value: number | string): dxPivotGridSummaryCell;
+        slice(
+            field: DevExpress.data.PivotGridDataSourceField,
+            value: number | string
+        ): dxPivotGridSummaryCell;
         /** @name dxPivotGridSummaryCell.value() */
         value(): any;
         /** @name dxPivotGridSummaryCell.value(field) */
         value(field: DevExpress.data.PivotGridDataSourceField | string): any;
         /** @name dxPivotGridSummaryCell.value(field, postProcessed) */
-        value(field: DevExpress.data.PivotGridDataSourceField | string, postProcessed: boolean): any;
+        value(
+            field: DevExpress.data.PivotGridDataSourceField | string,
+            postProcessed: boolean
+        ): any;
         /** @name dxPivotGridSummaryCell.value(postProcessed) */
         value(postProcessed: boolean): any;
     }
@@ -5030,17 +8741,19 @@ declare module DevExpress.ui {
         /** @name dxPopover.Options.animation */
         animation?: dxPopoverAnimation;
         /** @name dxPopover.Options.closeOnOutsideClick */
-        closeOnOutsideClick?: boolean | ((event: DevExpress.events.event) => boolean);
+        closeOnOutsideClick?:
+            | boolean
+            | ((event: DevExpress.events.event) => boolean);
         /** @name dxPopover.Options.height */
         height?: number | string | (() => number | string);
         /** @name dxPopover.Options.hideEvent */
-        hideEvent?: { delay?: number, name?: string } | string;
+        hideEvent?: { delay?: number; name?: string } | string;
         /** @name dxPopover.Options.position */
-        position?: 'bottom' | 'left' | 'right' | 'top' | positionConfig;
+        position?: "bottom" | "left" | "right" | "top" | positionConfig;
         /** @name dxPopover.Options.shading */
         shading?: boolean;
         /** @name dxPopover.Options.showEvent */
-        showEvent?: { delay?: number, name?: string } | string;
+        showEvent?: { delay?: number; name?: string } | string;
         /** @name dxPopover.Options.showTitle */
         showTitle?: boolean;
         /** @name dxPopover.Options.target */
@@ -5057,12 +8770,14 @@ declare module DevExpress.ui {
     }
     /** @name dxPopover */
     export class dxPopover extends dxPopup {
-        constructor(element: Element, options?: dxPopoverOptions)
-        constructor(element: JQuery, options?: dxPopoverOptions)
+        constructor(element: Element, options?: dxPopoverOptions);
+        constructor(element: JQuery, options?: dxPopoverOptions);
         /** @name dxOverlay.show() */
         show(): Promise<boolean> & JQueryPromise<boolean>;
         /** @name dxPopover.show(target) */
-        show(target: string | Element | JQuery): Promise<boolean> & JQueryPromise<boolean>;
+        show(
+            target: string | Element | JQuery
+        ): Promise<boolean> & JQueryPromise<boolean>;
     }
     /** @name dxPopup.Options */
     export interface dxPopupOptions<T = dxPopup> extends dxOverlayOptions<T> {
@@ -5079,15 +8794,43 @@ declare module DevExpress.ui {
         /** @name dxPopup.Options.height */
         height?: number | string | (() => number | string);
         /** @name dxPopup.Options.onResize */
-        onResize?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onResize?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxPopup.Options.onResizeEnd */
-        onResizeEnd?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onResizeEnd?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxPopup.Options.onResizeStart */
-        onResizeStart?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onResizeStart?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxPopup.Options.onTitleRendered */
-        onTitleRendered?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, titleElement?: DevExpress.core.dxElement }) => any);
+        onTitleRendered?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            titleElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxPopup.Options.position */
-        position?: 'bottom' | 'center' | 'left' | 'left bottom' | 'left top' | 'right' | 'right bottom' | 'right top' | 'top' | positionConfig | Function;
+        position?:
+            | "bottom"
+            | "center"
+            | "left"
+            | "left bottom"
+            | "left top"
+            | "right"
+            | "right bottom"
+            | "right top"
+            | "top"
+            | positionConfig
+            | Function;
         /** @name dxPopup.Options.resizeEnabled */
         resizeEnabled?: boolean;
         /** @name dxPopup.Options.showCloseButton */
@@ -5097,7 +8840,11 @@ declare module DevExpress.ui {
         /** @name dxPopup.Options.title */
         title?: string;
         /** @name dxPopup.Options.titleTemplate */
-        titleTemplate?: DevExpress.core.template | ((titleElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        titleTemplate?:
+            | DevExpress.core.template
+            | ((
+                  titleElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxPopup.Options.toolbarItems */
         toolbarItems?: Array<dxPopupToolbarItem>;
         /** @name dxPopup.Options.width */
@@ -5117,7 +8864,7 @@ declare module DevExpress.ui {
         /** @name dxPopup.Options.toolbarItems.html */
         html?: string;
         /** @name dxPopup.Options.toolbarItems.location */
-        location?: 'after' | 'before' | 'center';
+        location?: "after" | "before" | "center";
         /** @name dxPopup.Options.toolbarItems.options */
         options?: any;
         /** @name dxPopup.Options.toolbarItems.template */
@@ -5125,21 +8872,38 @@ declare module DevExpress.ui {
         /** @name dxPopup.Options.toolbarItems.text */
         text?: string;
         /** @name dxPopup.Options.toolbarItems.toolbar */
-        toolbar?: 'bottom' | 'top';
+        toolbar?: "bottom" | "top";
         /** @name dxPopup.Options.toolbarItems.visible */
         visible?: boolean;
         /** @name dxPopup.Options.toolbarItems.widget */
-        widget?: 'dxAutocomplete' | 'dxButton' | 'dxCheckBox' | 'dxDateBox' | 'dxMenu' | 'dxSelectBox' | 'dxTabs' | 'dxTextBox' | 'dxButtonGroup' | 'dxDropDownButton';
+        widget?:
+            | "dxAutocomplete"
+            | "dxButton"
+            | "dxCheckBox"
+            | "dxDateBox"
+            | "dxMenu"
+            | "dxSelectBox"
+            | "dxTabs"
+            | "dxTextBox"
+            | "dxButtonGroup"
+            | "dxDropDownButton";
     }
     /** @name dxPopup */
     export class dxPopup extends dxOverlay {
-        constructor(element: Element, options?: dxPopupOptions)
-        constructor(element: JQuery, options?: dxPopupOptions)
+        constructor(element: Element, options?: dxPopupOptions);
+        constructor(element: JQuery, options?: dxPopupOptions);
     }
     /** @name dxProgressBar.Options */
-    export interface dxProgressBarOptions extends dxTrackBarOptions<dxProgressBar> {
+    export interface dxProgressBarOptions
+        extends dxTrackBarOptions<dxProgressBar> {
         /** @name dxProgressBar.Options.onComplete */
-        onComplete?: ((e: { component?: dxProgressBar, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onComplete?: (e: {
+            component?: dxProgressBar;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxProgressBar.Options.showStatus */
         showStatus?: boolean;
         /** @name dxProgressBar.Options.statusFormat */
@@ -5149,11 +8913,13 @@ declare module DevExpress.ui {
     }
     /** @name dxProgressBar */
     export class dxProgressBar extends dxTrackBar {
-        constructor(element: Element, options?: dxProgressBarOptions)
-        constructor(element: JQuery, options?: dxProgressBarOptions)
+        constructor(element: Element, options?: dxProgressBarOptions);
+        constructor(element: JQuery, options?: dxProgressBarOptions);
     }
     /** @name dxRadioGroup.Options */
-    export interface dxRadioGroupOptions extends EditorOptions<dxRadioGroup>, DataExpressionMixinOptions<dxRadioGroup> {
+    export interface dxRadioGroupOptions
+        extends EditorOptions<dxRadioGroup>,
+            DataExpressionMixinOptions<dxRadioGroup> {
         /** @name dxRadioGroup.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxRadioGroup.Options.focusStateEnabled */
@@ -5161,7 +8927,7 @@ declare module DevExpress.ui {
         /** @name dxRadioGroup.Options.hoverStateEnabled */
         hoverStateEnabled?: boolean;
         /** @name dxRadioGroup.Options.layout */
-        layout?: 'horizontal' | 'vertical';
+        layout?: "horizontal" | "vertical";
         /** @name dxRadioGroup.Options.name */
         name?: string;
         /** @name dxRadioGroup.Options.value */
@@ -5169,19 +8935,27 @@ declare module DevExpress.ui {
     }
     /** @name dxRadioGroup */
     export class dxRadioGroup extends Editor {
-        constructor(element: Element, options?: dxRadioGroupOptions)
-        constructor(element: JQuery, options?: dxRadioGroupOptions)
+        constructor(element: Element, options?: dxRadioGroupOptions);
+        constructor(element: JQuery, options?: dxRadioGroupOptions);
         /** @name DataHelperMixin.getDataSource() */
         getDataSource(): DevExpress.data.DataSource;
     }
     /** @name dxRangeSlider.Options */
-    export interface dxRangeSliderOptions extends dxSliderBaseOptions<dxRangeSlider> {
+    export interface dxRangeSliderOptions
+        extends dxSliderBaseOptions<dxRangeSlider> {
         /** @name dxRangeSlider.Options.end */
         end?: number;
         /** @name dxRangeSlider.Options.endName */
         endName?: string;
         /** @name dxRangeSlider.Options.onValueChanged */
-        onValueChanged?: ((e: { component?: dxRangeSlider, element?: DevExpress.core.dxElement, model?: any, start?: number, end?: number, value?: Array<number> }) => any);
+        onValueChanged?: (e: {
+            component?: dxRangeSlider;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            start?: number;
+            end?: number;
+            value?: Array<number>;
+        }) => any;
         /** @name dxRangeSlider.Options.start */
         start?: number;
         /** @name dxRangeSlider.Options.startName */
@@ -5191,23 +8965,25 @@ declare module DevExpress.ui {
     }
     /** @name dxRangeSlider */
     export class dxRangeSlider extends dxSliderBase {
-        constructor(element: Element, options?: dxRangeSliderOptions)
-        constructor(element: JQuery, options?: dxRangeSliderOptions)
+        constructor(element: Element, options?: dxRangeSliderOptions);
+        constructor(element: JQuery, options?: dxRangeSliderOptions);
     }
     /** @name dxRecurrenceEditor.Options */
-    export interface dxRecurrenceEditorOptions extends EditorOptions<dxRecurrenceEditor> {
+    export interface dxRecurrenceEditorOptions
+        extends EditorOptions<dxRecurrenceEditor> {
         /** @name dxRecurrenceEditor.Options.value */
         value?: string;
     }
     /** @name dxRecurrenceEditor */
     export class dxRecurrenceEditor extends Editor {
-        constructor(element: Element, options?: dxRecurrenceEditorOptions)
-        constructor(element: JQuery, options?: dxRecurrenceEditorOptions)
+        constructor(element: Element, options?: dxRecurrenceEditorOptions);
+        constructor(element: JQuery, options?: dxRecurrenceEditorOptions);
     }
     /** @name dxResizable.Options */
-    export interface dxResizableOptions extends DOMComponentOptions<dxResizable> {
+    export interface dxResizableOptions
+        extends DOMComponentOptions<dxResizable> {
         /** @name dxResizable.Options.handles */
-        handles?: 'bottom' | 'left' | 'right' | 'top' | 'all' | string;
+        handles?: "bottom" | "left" | "right" | "top" | "all" | string;
         /** @name dxResizable.Options.height */
         height?: number | string | (() => number | string);
         /** @name dxResizable.Options.maxHeight */
@@ -5219,31 +8995,70 @@ declare module DevExpress.ui {
         /** @name dxResizable.Options.minWidth */
         minWidth?: number;
         /** @name dxResizable.Options.onResize */
-        onResize?: ((e: { component?: dxResizable, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, width?: number, height?: number }) => any);
+        onResize?: (e: {
+            component?: dxResizable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            width?: number;
+            height?: number;
+        }) => any;
         /** @name dxResizable.Options.onResizeEnd */
-        onResizeEnd?: ((e: { component?: dxResizable, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, width?: number, height?: number }) => any);
+        onResizeEnd?: (e: {
+            component?: dxResizable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            width?: number;
+            height?: number;
+        }) => any;
         /** @name dxResizable.Options.onResizeStart */
-        onResizeStart?: ((e: { component?: dxResizable, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, width?: number, height?: number }) => any);
+        onResizeStart?: (e: {
+            component?: dxResizable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            width?: number;
+            height?: number;
+        }) => any;
         /** @name dxResizable.Options.width */
         width?: number | string | (() => number | string);
     }
     /** @name dxResizable */
     export class dxResizable extends DOMComponent {
-        constructor(element: Element, options?: dxResizableOptions)
-        constructor(element: JQuery, options?: dxResizableOptions)
+        constructor(element: Element, options?: dxResizableOptions);
+        constructor(element: JQuery, options?: dxResizableOptions);
     }
     /** @name dxResponsiveBox.Options */
-    export interface dxResponsiveBoxOptions extends CollectionWidgetOptions<dxResponsiveBox> {
+    export interface dxResponsiveBoxOptions
+        extends CollectionWidgetOptions<dxResponsiveBox> {
         /** @name dxResponsiveBox.Options.cols */
-        cols?: Array<{ baseSize?: number | 'auto', ratio?: number, screen?: string, shrink?: number }>;
+        cols?: Array<{
+            baseSize?: number | "auto";
+            ratio?: number;
+            screen?: string;
+            shrink?: number;
+        }>;
         /** @name dxResponsiveBox.Options.dataSource */
-        dataSource?: string | Array<string | dxResponsiveBoxItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxResponsiveBoxItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxResponsiveBox.Options.height */
         height?: number | string | (() => number | string);
         /** @name dxResponsiveBox.Options.items */
         items?: Array<string | dxResponsiveBoxItem | any>;
         /** @name dxResponsiveBox.Options.rows */
-        rows?: Array<{ baseSize?: number | 'auto', ratio?: number, screen?: string, shrink?: number }>;
+        rows?: Array<{
+            baseSize?: number | "auto";
+            ratio?: number;
+            screen?: string;
+            shrink?: number;
+        }>;
         /** @name dxResponsiveBox.Options.screenByWidth */
         screenByWidth?: Function;
         /** @name dxResponsiveBox.Options.singleColumnScreen */
@@ -5253,13 +9068,27 @@ declare module DevExpress.ui {
     }
     /** @name dxResponsiveBox */
     export class dxResponsiveBox extends CollectionWidget {
-        constructor(element: Element, options?: dxResponsiveBoxOptions)
-        constructor(element: JQuery, options?: dxResponsiveBoxOptions)
+        constructor(element: Element, options?: dxResponsiveBoxOptions);
+        constructor(element: JQuery, options?: dxResponsiveBoxOptions);
     }
     /** @name dxResponsiveBoxItem */
     export interface dxResponsiveBoxItem extends CollectionWidgetItem {
         /** @name dxResponsiveBoxItem.location */
-        location?: { col?: number, colspan?: number, row?: number, rowspan?: number, screen?: string } | Array<{ col?: number, colspan?: number, row?: number, rowspan?: number, screen?: string }>;
+        location?:
+            | {
+                  col?: number;
+                  colspan?: number;
+                  row?: number;
+                  rowspan?: number;
+                  screen?: string;
+              }
+            | Array<{
+                  col?: number;
+                  colspan?: number;
+                  row?: number;
+                  rowspan?: number;
+                  screen?: string;
+              }>;
     }
     /** @name dxScheduler.Options */
     export interface dxSchedulerOptions extends WidgetOptions<dxScheduler> {
@@ -5268,13 +9097,86 @@ declare module DevExpress.ui {
         /** @name dxScheduler.Options.allDayExpr */
         allDayExpr?: string;
         /** @name dxScheduler.Options.appointmentCollectorTemplate */
-        appointmentCollectorTemplate?: DevExpress.core.template | ((data: { appointmentCount?: number, isCompact?: boolean }, collectorElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        appointmentCollectorTemplate?:
+            | DevExpress.core.template
+            | ((
+                  data: { appointmentCount?: number; isCompact?: boolean },
+                  collectorElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.appointmentDragging */
-        appointmentDragging?: { autoScroll?: boolean, data?: any, group?: string, onAdd?: ((e: { event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any }) => any), onDragEnd?: ((e: { event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any }) => any), onDragMove?: ((e: { event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any }) => any), onDragStart?: ((e: { event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromData?: any }) => any), onRemove?: ((e: { event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any }) => any), scrollSensitivity?: number, scrollSpeed?: number };
+        appointmentDragging?: {
+            autoScroll?: boolean;
+            data?: any;
+            group?: string;
+            onAdd?: (e: {
+                event?: DevExpress.events.event;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+            }) => any;
+            onDragEnd?: (e: {
+                event?: DevExpress.events.event;
+                cancel?: boolean;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+            }) => any;
+            onDragMove?: (e: {
+                event?: DevExpress.events.event;
+                cancel?: boolean;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+                toData?: any;
+            }) => any;
+            onDragStart?: (e: {
+                event?: DevExpress.events.event;
+                cancel?: boolean;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromData?: any;
+            }) => any;
+            onRemove?: (e: {
+                event?: DevExpress.events.event;
+                itemData?: any;
+                itemElement?: DevExpress.core.dxElement;
+                fromComponent?: dxSortable | dxDraggable;
+                toComponent?: dxSortable | dxDraggable;
+                fromData?: any;
+            }) => any;
+            scrollSensitivity?: number;
+            scrollSpeed?: number;
+        };
         /** @name dxScheduler.Options.appointmentTemplate */
-        appointmentTemplate?: DevExpress.core.template | ((model: { appointmentData?: any, targetedAppointmentData?: any }, itemIndex: number, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        appointmentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  model: {
+                      appointmentData?: any;
+                      targetedAppointmentData?: any;
+                  },
+                  itemIndex: number,
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.appointmentTooltipTemplate */
-        appointmentTooltipTemplate?: DevExpress.core.template | ((model: { appointmentData?: any, targetedAppointmentData?: any }, itemIndex: number, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        appointmentTooltipTemplate?:
+            | DevExpress.core.template
+            | ((
+                  model: {
+                      appointmentData?: any;
+                      targetedAppointmentData?: any;
+                  },
+                  itemIndex: number,
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.cellDuration */
         cellDuration?: number;
         /** @name dxScheduler.Options.crossScrollingEnabled */
@@ -5282,24 +9184,68 @@ declare module DevExpress.ui {
         /** @name dxScheduler.Options.currentDate */
         currentDate?: Date | number | string;
         /** @name dxScheduler.Options.currentView */
-        currentView?: 'agenda' | 'day' | 'month' | 'timelineDay' | 'timelineMonth' | 'timelineWeek' | 'timelineWorkWeek' | 'week' | 'workWeek';
+        currentView?:
+            | "agenda"
+            | "day"
+            | "month"
+            | "timelineDay"
+            | "timelineMonth"
+            | "timelineWeek"
+            | "timelineWorkWeek"
+            | "week"
+            | "workWeek";
         /** @name dxScheduler.Options.customizeDateNavigatorText */
-        customizeDateNavigatorText?: ((info: { startDate?: Date, endDate?: Date, text?: string }) => string);
+        customizeDateNavigatorText?: (info: {
+            startDate?: Date;
+            endDate?: Date;
+            text?: string;
+        }) => string;
         /** @name dxScheduler.Options.dataCellTemplate */
-        dataCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        dataCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.dataSource */
-        dataSource?: string | Array<dxSchedulerAppointment> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<dxSchedulerAppointment>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxScheduler.Options.dateCellTemplate */
-        dateCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        dateCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.dateSerializationFormat */
         dateSerializationFormat?: string;
         /** @name dxScheduler.Options.descriptionExpr */
         descriptionExpr?: string;
         /** @deprecated */
         /** @name dxScheduler.Options.dropDownAppointmentTemplate */
-        dropDownAppointmentTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, contentElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        dropDownAppointmentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  contentElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.editing */
-        editing?: boolean | { allowAdding?: boolean, allowDeleting?: boolean, allowDragging?: boolean, allowEditingTimeZones?: boolean, allowResizing?: boolean, allowUpdating?: boolean };
+        editing?:
+            | boolean
+            | {
+                  allowAdding?: boolean;
+                  allowDeleting?: boolean;
+                  allowDragging?: boolean;
+                  allowEditingTimeZones?: boolean;
+                  allowResizing?: boolean;
+                  allowUpdating?: boolean;
+              };
         /** @name dxScheduler.Options.endDateExpr */
         endDateExpr?: string;
         /** @name dxScheduler.Options.endDateTimeZoneExpr */
@@ -5319,42 +9265,155 @@ declare module DevExpress.ui {
         /** @name dxScheduler.Options.max */
         max?: Date | number | string;
         /** @name dxScheduler.Options.maxAppointmentsPerCell */
-        maxAppointmentsPerCell?: number | 'auto' | 'unlimited';
+        maxAppointmentsPerCell?: number | "auto" | "unlimited";
         /** @name dxScheduler.Options.min */
         min?: Date | number | string;
         /** @name dxScheduler.Options.noDataText */
         noDataText?: string;
         /** @name dxScheduler.Options.onAppointmentAdded */
-        onAppointmentAdded?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, error?: Error }) => any);
+        onAppointmentAdded?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            error?: Error;
+        }) => any;
         /** @name dxScheduler.Options.onAppointmentAdding */
-        onAppointmentAdding?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, cancel?: boolean | Promise<boolean> | JQueryPromise<boolean> }) => any);
+        onAppointmentAdding?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            cancel?: boolean | Promise<boolean> | JQueryPromise<boolean>;
+        }) => any;
         /** @name dxScheduler.Options.onAppointmentClick */
-        onAppointmentClick?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, targetedAppointmentData?: any, appointmentElement?: DevExpress.core.dxElement, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, cancel?: boolean }) => any) | string;
+        onAppointmentClick?:
+            | ((e: {
+                  component?: dxScheduler;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  appointmentData?: any;
+                  targetedAppointmentData?: any;
+                  appointmentElement?: DevExpress.core.dxElement;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  cancel?: boolean;
+              }) => any)
+            | string;
         /** @name dxScheduler.Options.onAppointmentContextMenu */
-        onAppointmentContextMenu?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, targetedAppointmentData?: any, appointmentElement?: DevExpress.core.dxElement, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any) | string;
+        onAppointmentContextMenu?:
+            | ((e: {
+                  component?: dxScheduler;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  appointmentData?: any;
+                  targetedAppointmentData?: any;
+                  appointmentElement?: DevExpress.core.dxElement;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxScheduler.Options.onAppointmentDblClick */
-        onAppointmentDblClick?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, targetedAppointmentData?: any, appointmentElement?: DevExpress.core.dxElement, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, cancel?: boolean }) => any) | string;
+        onAppointmentDblClick?:
+            | ((e: {
+                  component?: dxScheduler;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  appointmentData?: any;
+                  targetedAppointmentData?: any;
+                  appointmentElement?: DevExpress.core.dxElement;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  cancel?: boolean;
+              }) => any)
+            | string;
         /** @name dxScheduler.Options.onAppointmentDeleted */
-        onAppointmentDeleted?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, error?: Error }) => any);
+        onAppointmentDeleted?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            error?: Error;
+        }) => any;
         /** @name dxScheduler.Options.onAppointmentDeleting */
-        onAppointmentDeleting?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, cancel?: boolean | Promise<boolean> | JQueryPromise<boolean> }) => any);
+        onAppointmentDeleting?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            cancel?: boolean | Promise<boolean> | JQueryPromise<boolean>;
+        }) => any;
         /** @deprecated */
         /** @name dxScheduler.Options.onAppointmentFormCreated */
-        onAppointmentFormCreated?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, form?: dxForm }) => any);
+        onAppointmentFormCreated?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            form?: dxForm;
+        }) => any;
         /** @name dxScheduler.Options.onAppointmentFormOpening */
-        onAppointmentFormOpening?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, form?: dxForm, cancel?: boolean }) => any);
+        onAppointmentFormOpening?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            form?: dxForm;
+            cancel?: boolean;
+        }) => any;
         /** @name dxScheduler.Options.onAppointmentRendered */
-        onAppointmentRendered?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, targetedAppointmentData?: any, appointmentElement?: DevExpress.core.dxElement }) => any);
+        onAppointmentRendered?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            targetedAppointmentData?: any;
+            appointmentElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxScheduler.Options.onAppointmentUpdated */
-        onAppointmentUpdated?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, appointmentData?: any, error?: Error }) => any);
+        onAppointmentUpdated?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            appointmentData?: any;
+            error?: Error;
+        }) => any;
         /** @name dxScheduler.Options.onAppointmentUpdating */
-        onAppointmentUpdating?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, oldData?: any, newData?: any, cancel?: boolean | Promise<boolean> | JQueryPromise<boolean> }) => any);
+        onAppointmentUpdating?: (e: {
+            component?: dxScheduler;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            oldData?: any;
+            newData?: any;
+            cancel?: boolean | Promise<boolean> | JQueryPromise<boolean>;
+        }) => any;
         /** @name dxScheduler.Options.onCellClick */
-        onCellClick?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, cellData?: any, cellElement?: DevExpress.core.dxElement, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, cancel?: boolean }) => any) | string;
+        onCellClick?:
+            | ((e: {
+                  component?: dxScheduler;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  cellData?: any;
+                  cellElement?: DevExpress.core.dxElement;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  cancel?: boolean;
+              }) => any)
+            | string;
         /** @name dxScheduler.Options.onCellContextMenu */
-        onCellContextMenu?: ((e: { component?: dxScheduler, element?: DevExpress.core.dxElement, model?: any, cellData?: any, cellElement?: DevExpress.core.dxElement, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any) | string;
+        onCellContextMenu?:
+            | ((e: {
+                  component?: dxScheduler;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  cellData?: any;
+                  cellElement?: DevExpress.core.dxElement;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxScheduler.Options.recurrenceEditMode */
-        recurrenceEditMode?: 'dialog' | 'occurrence' | 'series';
+        recurrenceEditMode?: "dialog" | "occurrence" | "series";
         /** @name dxScheduler.Options.recurrenceExceptionExpr */
         recurrenceExceptionExpr?: string;
         /** @name dxScheduler.Options.recurrenceRuleExpr */
@@ -5362,9 +9421,28 @@ declare module DevExpress.ui {
         /** @name dxScheduler.Options.remoteFiltering */
         remoteFiltering?: boolean;
         /** @name dxScheduler.Options.resourceCellTemplate */
-        resourceCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        resourceCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.resources */
-        resources?: Array<{ allowMultiple?: boolean, colorExpr?: string, dataSource?: string | Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions, displayExpr?: string | ((resource: any) => string), fieldExpr?: string, label?: string, useColorAsDefault?: boolean, valueExpr?: string | Function }>;
+        resources?: Array<{
+            allowMultiple?: boolean;
+            colorExpr?: string;
+            dataSource?:
+                | string
+                | Array<any>
+                | DevExpress.data.DataSource
+                | DevExpress.data.DataSourceOptions;
+            displayExpr?: string | ((resource: any) => string);
+            fieldExpr?: string;
+            label?: string;
+            useColorAsDefault?: boolean;
+            valueExpr?: string | Function;
+        }>;
         /** @name dxScheduler.Options.selectedCellData */
         selectedCellData?: Array<any>;
         /** @name dxScheduler.Options.shadeUntilCurrentTime */
@@ -5382,18 +9460,122 @@ declare module DevExpress.ui {
         /** @name dxScheduler.Options.textExpr */
         textExpr?: string;
         /** @name dxScheduler.Options.timeCellTemplate */
-        timeCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        timeCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxScheduler.Options.timeZone */
         timeZone?: string;
         /** @name dxScheduler.Options.useDropDownViewSwitcher */
         useDropDownViewSwitcher?: boolean;
         /** @name dxScheduler.Options.views */
-        views?: Array<'day' | 'week' | 'workWeek' | 'month' | 'timelineDay' | 'timelineWeek' | 'timelineWorkWeek' | 'timelineMonth' | 'agenda' | { agendaDuration?: number, appointmentCollectorTemplate?: DevExpress.core.template | ((data: { appointmentCount?: number, isCompact?: boolean }, collectorElement: DevExpress.core.dxElement) => string | Element | JQuery), appointmentTemplate?: DevExpress.core.template | ((model: { appointmentData?: any, targetedAppointmentData?: any }, itemIndex: number, contentElement: DevExpress.core.dxElement) => string | Element | JQuery), appointmentTooltipTemplate?: DevExpress.core.template | ((model: { appointmentData?: any, targetedAppointmentData?: any }, itemIndex: number, contentElement: DevExpress.core.dxElement) => string | Element | JQuery), cellDuration?: number, dataCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery), dateCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery), dropDownAppointmentTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, contentElement: DevExpress.core.dxElement) => string | Element | JQuery), endDayHour?: number, firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6, groupByDate?: boolean, groupOrientation?: 'horizontal' | 'vertical', groups?: Array<string>, intervalCount?: number, maxAppointmentsPerCell?: number | 'auto' | 'unlimited', name?: string, resourceCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery), startDate?: Date | number | string, startDayHour?: number, timeCellTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery), type?: 'agenda' | 'day' | 'month' | 'timelineDay' | 'timelineMonth' | 'timelineWeek' | 'timelineWorkWeek' | 'week' | 'workWeek' }>;
+        views?: Array<
+            | "day"
+            | "week"
+            | "workWeek"
+            | "month"
+            | "timelineDay"
+            | "timelineWeek"
+            | "timelineWorkWeek"
+            | "timelineMonth"
+            | "agenda"
+            | {
+                  agendaDuration?: number;
+                  appointmentCollectorTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            data: {
+                                appointmentCount?: number;
+                                isCompact?: boolean;
+                            },
+                            collectorElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  appointmentTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            model: {
+                                appointmentData?: any;
+                                targetedAppointmentData?: any;
+                            },
+                            itemIndex: number,
+                            contentElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  appointmentTooltipTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            model: {
+                                appointmentData?: any;
+                                targetedAppointmentData?: any;
+                            },
+                            itemIndex: number,
+                            contentElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  cellDuration?: number;
+                  dataCellTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            itemData: any,
+                            itemIndex: number,
+                            itemElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  dateCellTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            itemData: any,
+                            itemIndex: number,
+                            itemElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  dropDownAppointmentTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            itemData: any,
+                            itemIndex: number,
+                            contentElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  endDayHour?: number;
+                  firstDayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+                  groupByDate?: boolean;
+                  groupOrientation?: "horizontal" | "vertical";
+                  groups?: Array<string>;
+                  intervalCount?: number;
+                  maxAppointmentsPerCell?: number | "auto" | "unlimited";
+                  name?: string;
+                  resourceCellTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            itemData: any,
+                            itemIndex: number,
+                            itemElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  startDate?: Date | number | string;
+                  startDayHour?: number;
+                  timeCellTemplate?:
+                      | DevExpress.core.template
+                      | ((
+                            itemData: any,
+                            itemIndex: number,
+                            itemElement: DevExpress.core.dxElement
+                        ) => string | Element | JQuery);
+                  type?:
+                      | "agenda"
+                      | "day"
+                      | "month"
+                      | "timelineDay"
+                      | "timelineMonth"
+                      | "timelineWeek"
+                      | "timelineWorkWeek"
+                      | "week"
+                      | "workWeek";
+              }
+        >;
     }
     /** @name dxScheduler */
     export class dxScheduler extends Widget {
-        constructor(element: Element, options?: dxSchedulerOptions)
-        constructor(element: JQuery, options?: dxSchedulerOptions)
+        constructor(element: Element, options?: dxSchedulerOptions);
+        constructor(element: JQuery, options?: dxSchedulerOptions);
         /** @name dxScheduler.addAppointment(appointment) */
         addAppointment(appointment: any): void;
         /** @name dxScheduler.deleteAppointment(appointment) */
@@ -5411,9 +9593,17 @@ declare module DevExpress.ui {
         /** @name dxScheduler.scrollToTime(hours, minutes, date) */
         scrollToTime(hours: number, minutes: number, date?: Date): void;
         /** @name dxScheduler.showAppointmentPopup(appointmentData, createNewAppointment, currentAppointmentData) */
-        showAppointmentPopup(appointmentData?: any, createNewAppointment?: boolean, currentAppointmentData?: any): void;
+        showAppointmentPopup(
+            appointmentData?: any,
+            createNewAppointment?: boolean,
+            currentAppointmentData?: any
+        ): void;
         /** @name dxScheduler.showAppointmentTooltip(appointmentData, target, currentAppointmentData) */
-        showAppointmentTooltip(appointmentData: any, target: string | Element | JQuery, currentAppointmentData?: any): void;
+        showAppointmentTooltip(
+            appointmentData: any,
+            target: string | Element | JQuery,
+            currentAppointmentData?: any
+        ): void;
         /** @name dxScheduler.updateAppointment(target, appointment) */
         updateAppointment(target: any, appointment: any): void;
     }
@@ -5447,11 +9637,20 @@ declare module DevExpress.ui {
         visible?: boolean;
     }
     /** @name dxScrollView.Options */
-    export interface dxScrollViewOptions extends dxScrollableOptions<dxScrollView> {
+    export interface dxScrollViewOptions
+        extends dxScrollableOptions<dxScrollView> {
         /** @name dxScrollView.Options.onPullDown */
-        onPullDown?: ((e: { component?: dxScrollView, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onPullDown?: (e: {
+            component?: dxScrollView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxScrollView.Options.onReachBottom */
-        onReachBottom?: ((e: { component?: dxScrollView, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onReachBottom?: (e: {
+            component?: dxScrollView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxScrollView.Options.pulledDownText */
         pulledDownText?: string;
         /** @name dxScrollView.Options.pullingDownText */
@@ -5463,38 +9662,63 @@ declare module DevExpress.ui {
     }
     /** @name dxScrollView */
     export class dxScrollView extends dxScrollable {
-        constructor(element: Element, options?: dxScrollViewOptions)
-        constructor(element: JQuery, options?: dxScrollViewOptions)
+        constructor(element: Element, options?: dxScrollViewOptions);
+        constructor(element: JQuery, options?: dxScrollViewOptions);
         /** @name dxScrollView.refresh() */
         refresh(): void;
         /** @name dxScrollView.release(preventScrollBottom) */
-        release(preventScrollBottom: boolean): Promise<void> & JQueryPromise<void>;
+        release(
+            preventScrollBottom: boolean
+        ): Promise<void> & JQueryPromise<void>;
     }
     /** @name dxScrollable.Options */
-    export interface dxScrollableOptions<T = dxScrollable> extends DOMComponentOptions<T> {
+    export interface dxScrollableOptions<T = dxScrollable>
+        extends DOMComponentOptions<T> {
         /** @name dxScrollable.Options.bounceEnabled */
         bounceEnabled?: boolean;
         /** @name dxScrollable.Options.direction */
-        direction?: 'both' | 'horizontal' | 'vertical';
+        direction?: "both" | "horizontal" | "vertical";
         /** @name dxScrollable.Options.disabled */
         disabled?: boolean;
         /** @name dxScrollable.Options.onScroll */
-        onScroll?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, scrollOffset?: any, reachedLeft?: boolean, reachedRight?: boolean, reachedTop?: boolean, reachedBottom?: boolean }) => any);
+        onScroll?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            scrollOffset?: any;
+            reachedLeft?: boolean;
+            reachedRight?: boolean;
+            reachedTop?: boolean;
+            reachedBottom?: boolean;
+        }) => any;
         /** @name dxScrollable.Options.onUpdated */
-        onUpdated?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, scrollOffset?: any, reachedLeft?: boolean, reachedRight?: boolean, reachedTop?: boolean, reachedBottom?: boolean }) => any);
+        onUpdated?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            scrollOffset?: any;
+            reachedLeft?: boolean;
+            reachedRight?: boolean;
+            reachedTop?: boolean;
+            reachedBottom?: boolean;
+        }) => any;
         /** @name dxScrollable.Options.scrollByContent */
         scrollByContent?: boolean;
         /** @name dxScrollable.Options.scrollByThumb */
         scrollByThumb?: boolean;
         /** @name dxScrollable.Options.showScrollbar */
-        showScrollbar?: 'onScroll' | 'onHover' | 'always' | 'never';
+        showScrollbar?: "onScroll" | "onHover" | "always" | "never";
         /** @name dxScrollable.Options.useNative */
         useNative?: boolean;
     }
     /** @name dxScrollable */
     export class dxScrollable extends DOMComponent {
-        constructor(element: Element, options?: dxScrollableOptions)
-        constructor(element: JQuery, options?: dxScrollableOptions)
+        constructor(element: Element, options?: dxScrollableOptions);
+        constructor(element: JQuery, options?: dxScrollableOptions);
         /** @name dxScrollable.clientHeight() */
         clientHeight(): number;
         /** @name dxScrollable.clientWidth() */
@@ -5525,13 +9749,25 @@ declare module DevExpress.ui {
         update(): Promise<void> & JQueryPromise<void>;
     }
     /** @name dxSelectBox.Options */
-    export interface dxSelectBoxOptions<T = dxSelectBox> extends dxDropDownListOptions<T> {
+    export interface dxSelectBoxOptions<T = dxSelectBox>
+        extends dxDropDownListOptions<T> {
         /** @name dxSelectBox.Options.acceptCustomValue */
         acceptCustomValue?: boolean;
         /** @name dxSelectBox.Options.fieldTemplate */
-        fieldTemplate?: DevExpress.core.template | ((selectedItem: any, fieldElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        fieldTemplate?:
+            | DevExpress.core.template
+            | ((
+                  selectedItem: any,
+                  fieldElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxSelectBox.Options.onCustomItemCreating */
-        onCustomItemCreating?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, text?: string, customItem?: string | any | Promise<any> | JQueryPromise<any> }) => any);
+        onCustomItemCreating?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            text?: string;
+            customItem?: string | any | Promise<any> | JQueryPromise<any>;
+        }) => any;
         /** @name dxSelectBox.Options.openOnFieldClick */
         openOnFieldClick?: boolean;
         /** @name dxSelectBox.Options.placeholder */
@@ -5545,33 +9781,62 @@ declare module DevExpress.ui {
     }
     /** @name dxSelectBox */
     export class dxSelectBox extends dxDropDownList {
-        constructor(element: Element, options?: dxSelectBoxOptions)
-        constructor(element: JQuery, options?: dxSelectBoxOptions)
+        constructor(element: Element, options?: dxSelectBoxOptions);
+        constructor(element: JQuery, options?: dxSelectBoxOptions);
     }
     /** @name dxSlideOut.Options */
-    export interface dxSlideOutOptions extends CollectionWidgetOptions<dxSlideOut> {
+    export interface dxSlideOutOptions
+        extends CollectionWidgetOptions<dxSlideOut> {
         /** @name dxSlideOut.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxSlideOut.Options.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((container: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  container: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxSlideOut.Options.dataSource */
-        dataSource?: string | Array<string | dxSlideOutItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxSlideOutItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxSlideOut.Options.items */
         items?: Array<string | dxSlideOutItem | any>;
         /** @name dxSlideOut.Options.menuGroupTemplate */
-        menuGroupTemplate?: DevExpress.core.template | ((groupData: any, groupIndex: number, groupElement: any) => string | Element | JQuery);
+        menuGroupTemplate?:
+            | DevExpress.core.template
+            | ((
+                  groupData: any,
+                  groupIndex: number,
+                  groupElement: any
+              ) => string | Element | JQuery);
         /** @name dxSlideOut.Options.menuGrouped */
         menuGrouped?: boolean;
         /** @name dxSlideOut.Options.menuItemTemplate */
-        menuItemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        menuItemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxSlideOut.Options.menuPosition */
-        menuPosition?: 'inverted' | 'normal';
+        menuPosition?: "inverted" | "normal";
         /** @name dxSlideOut.Options.menuVisible */
         menuVisible?: boolean;
         /** @name dxSlideOut.Options.onMenuGroupRendered */
-        onMenuGroupRendered?: ((e: { component?: dxSlideOut, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onMenuGroupRendered?: (e: {
+            component?: dxSlideOut;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxSlideOut.Options.onMenuItemRendered */
-        onMenuItemRendered?: ((e: { component?: dxSlideOut, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onMenuItemRendered?: (e: {
+            component?: dxSlideOut;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxSlideOut.Options.selectedIndex */
         selectedIndex?: number;
         /** @name dxSlideOut.Options.swipeEnabled */
@@ -5579,28 +9844,37 @@ declare module DevExpress.ui {
     }
     /** @name dxSlideOut */
     export class dxSlideOut extends CollectionWidget {
-        constructor(element: Element, options?: dxSlideOutOptions)
-        constructor(element: JQuery, options?: dxSlideOutOptions)
+        constructor(element: Element, options?: dxSlideOutOptions);
+        constructor(element: JQuery, options?: dxSlideOutOptions);
         /** @name dxSlideOut.hideMenu() */
         hideMenu(): Promise<void> & JQueryPromise<void>;
         /** @name dxSlideOut.showMenu() */
         showMenu(): Promise<void> & JQueryPromise<void>;
         /** @name dxSlideOut.toggleMenuVisibility(showing) */
-        toggleMenuVisibility(showing: boolean): Promise<void> & JQueryPromise<void>;
+        toggleMenuVisibility(
+            showing: boolean
+        ): Promise<void> & JQueryPromise<void>;
     }
     /** @name dxSlideOutItem */
     export interface dxSlideOutItem extends CollectionWidgetItem {
         /** @name dxSlideOutItem.menuTemplate */
-        menuTemplate?: DevExpress.core.template | (() => string | Element | JQuery);
+        menuTemplate?:
+            | DevExpress.core.template
+            | (() => string | Element | JQuery);
     }
     /** @name dxSlideOutView.Options */
-    export interface dxSlideOutViewOptions extends WidgetOptions<dxSlideOutView> {
+    export interface dxSlideOutViewOptions
+        extends WidgetOptions<dxSlideOutView> {
         /** @name dxSlideOutView.Options.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((contentElement: DevExpress.core.dxElement) => any);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((contentElement: DevExpress.core.dxElement) => any);
         /** @name dxSlideOutView.Options.menuPosition */
-        menuPosition?: 'inverted' | 'normal';
+        menuPosition?: "inverted" | "normal";
         /** @name dxSlideOutView.Options.menuTemplate */
-        menuTemplate?: DevExpress.core.template | ((menuElement: DevExpress.core.dxElement) => any);
+        menuTemplate?:
+            | DevExpress.core.template
+            | ((menuElement: DevExpress.core.dxElement) => any);
         /** @name dxSlideOutView.Options.menuVisible */
         menuVisible?: boolean;
         /** @name dxSlideOutView.Options.swipeEnabled */
@@ -5608,8 +9882,8 @@ declare module DevExpress.ui {
     }
     /** @name dxSlideOutView */
     export class dxSlideOutView extends Widget {
-        constructor(element: Element, options?: dxSlideOutViewOptions)
-        constructor(element: JQuery, options?: dxSlideOutViewOptions)
+        constructor(element: Element, options?: dxSlideOutViewOptions);
+        constructor(element: JQuery, options?: dxSlideOutViewOptions);
         /** @name dxSlideOutView.content() */
         content(): DevExpress.core.dxElement;
         /** @name dxSlideOutView.hideMenu() */
@@ -5628,11 +9902,12 @@ declare module DevExpress.ui {
     }
     /** @name dxSlider */
     export class dxSlider extends dxSliderBase {
-        constructor(element: Element, options?: dxSliderOptions)
-        constructor(element: JQuery, options?: dxSliderOptions)
+        constructor(element: Element, options?: dxSliderOptions);
+        constructor(element: JQuery, options?: dxSliderOptions);
     }
     /** @name dxSliderBase.Options */
-    export interface dxSliderBaseOptions<T = dxSliderBase> extends dxTrackBarOptions<T> {
+    export interface dxSliderBaseOptions<T = dxSliderBase>
+        extends dxTrackBarOptions<T> {
         /** @name dxSliderBase.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxSliderBase.Options.focusStateEnabled */
@@ -5642,7 +9917,11 @@ declare module DevExpress.ui {
         /** @name dxSliderBase.Options.keyStep */
         keyStep?: number;
         /** @name dxSliderBase.Options.label */
-        label?: { format?: format, position?: 'bottom' | 'top', visible?: boolean };
+        label?: {
+            format?: format;
+            position?: "bottom" | "top";
+            visible?: boolean;
+        };
         /** @name dxSliderBase.Options.name */
         name?: string;
         /** @name dxSliderBase.Options.showRange */
@@ -5650,51 +9929,163 @@ declare module DevExpress.ui {
         /** @name dxSliderBase.Options.step */
         step?: number;
         /** @name dxSliderBase.Options.tooltip */
-        tooltip?: { enabled?: boolean, format?: format, position?: 'bottom' | 'top', showMode?: 'always' | 'onHover' };
+        tooltip?: {
+            enabled?: boolean;
+            format?: format;
+            position?: "bottom" | "top";
+            showMode?: "always" | "onHover";
+        };
     }
     /** @name dxSliderBase */
     export class dxSliderBase extends dxTrackBar {
-        constructor(element: Element, options?: dxSliderBaseOptions)
-        constructor(element: JQuery, options?: dxSliderBaseOptions)
+        constructor(element: Element, options?: dxSliderBaseOptions);
+        constructor(element: JQuery, options?: dxSliderBaseOptions);
     }
     /** @name dxSortable.Options */
-    export interface dxSortableOptions extends DraggableBaseOptions<dxSortable> {
+    export interface dxSortableOptions
+        extends DraggableBaseOptions<dxSortable> {
         /** @name dxSortable.Options.allowDropInsideItem */
         allowDropInsideItem?: boolean;
         /** @name dxSortable.Options.allowReordering */
         allowReordering?: boolean;
         /** @name dxSortable.Options.dragTemplate */
-        dragTemplate?: DevExpress.core.template | ((dragInfo: { itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number }, containerElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        dragTemplate?:
+            | DevExpress.core.template
+            | ((
+                  dragInfo: {
+                      itemData?: any;
+                      itemElement?: DevExpress.core.dxElement;
+                      fromIndex?: number;
+                  },
+                  containerElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxSortable.Options.dropFeedbackMode */
-        dropFeedbackMode?: 'push' | 'indicate';
+        dropFeedbackMode?: "push" | "indicate";
         /** @name dxSortable.Options.filter */
         filter?: string;
         /** @name dxSortable.Options.itemOrientation */
-        itemOrientation?: 'horizontal' | 'vertical';
+        itemOrientation?: "horizontal" | "vertical";
         /** @name dxSortable.Options.moveItemOnDrop */
         moveItemOnDrop?: boolean;
         /** @name dxSortable.Options.onAdd */
-        onAdd?: ((e: { component?: dxSortable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any);
+        onAdd?: (e: {
+            component?: dxSortable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromIndex?: number;
+            toIndex?: number;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+            dropInsideItem?: boolean;
+        }) => any;
         /** @name dxSortable.Options.onDragChange */
-        onDragChange?: ((e: { component?: dxSortable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any);
+        onDragChange?: (e: {
+            component?: dxSortable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromIndex?: number;
+            toIndex?: number;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+            dropInsideItem?: boolean;
+        }) => any;
         /** @name dxSortable.Options.onDragEnd */
-        onDragEnd?: ((e: { component?: dxSortable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any);
+        onDragEnd?: (e: {
+            component?: dxSortable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromIndex?: number;
+            toIndex?: number;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+            dropInsideItem?: boolean;
+        }) => any;
         /** @name dxSortable.Options.onDragMove */
-        onDragMove?: ((e: { component?: dxSortable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any);
+        onDragMove?: (e: {
+            component?: dxSortable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromIndex?: number;
+            toIndex?: number;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+            dropInsideItem?: boolean;
+        }) => any;
         /** @name dxSortable.Options.onDragStart */
-        onDragStart?: ((e: { component?: dxSortable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, cancel?: boolean, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, fromData?: any }) => any);
+        onDragStart?: (e: {
+            component?: dxSortable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            cancel?: boolean;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromIndex?: number;
+            fromData?: any;
+        }) => any;
         /** @name dxSortable.Options.onRemove */
-        onRemove?: ((e: { component?: dxSortable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any }) => any);
+        onRemove?: (e: {
+            component?: dxSortable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromIndex?: number;
+            toIndex?: number;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+        }) => any;
         /** @name dxSortable.Options.onReorder */
-        onReorder?: ((e: { component?: dxSortable, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, itemData?: any, itemElement?: DevExpress.core.dxElement, fromIndex?: number, toIndex?: number, fromComponent?: dxSortable | dxDraggable, toComponent?: dxSortable | dxDraggable, fromData?: any, toData?: any, dropInsideItem?: boolean }) => any);
+        onReorder?: (e: {
+            component?: dxSortable;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            fromIndex?: number;
+            toIndex?: number;
+            fromComponent?: dxSortable | dxDraggable;
+            toComponent?: dxSortable | dxDraggable;
+            fromData?: any;
+            toData?: any;
+            dropInsideItem?: boolean;
+        }) => any;
     }
     /** @name dxSortable */
     export class dxSortable extends DraggableBase {
-        constructor(element: Element, options?: dxSortableOptions)
-        constructor(element: JQuery, options?: dxSortableOptions)
+        constructor(element: Element, options?: dxSortableOptions);
+        constructor(element: JQuery, options?: dxSortableOptions);
     }
     /** @name dxSpeedDialAction.Options */
-    export interface dxSpeedDialActionOptions extends WidgetOptions<dxSpeedDialAction> {
+    export interface dxSpeedDialActionOptions
+        extends WidgetOptions<dxSpeedDialAction> {
         /** @name dxSpeedDialAction.Options.icon */
         icon?: string;
         /** @name dxSpeedDialAction.Options.index */
@@ -5702,16 +10093,26 @@ declare module DevExpress.ui {
         /** @name dxSpeedDialAction.Options.label */
         label?: string;
         /** @name dxSpeedDialAction.Options.onClick */
-        onClick?: ((e: { event?: DevExpress.events.event, component?: dxSpeedDialAction, element?: DevExpress.core.dxElement, actionElement?: DevExpress.core.dxElement }) => any);
+        onClick?: (e: {
+            event?: DevExpress.events.event;
+            component?: dxSpeedDialAction;
+            element?: DevExpress.core.dxElement;
+            actionElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxSpeedDialAction.Options.onContentReady */
-        onContentReady?: ((e: { component?: dxSpeedDialAction, element?: DevExpress.core.dxElement, model?: any, actionElement?: DevExpress.core.dxElement }) => any);
+        onContentReady?: (e: {
+            component?: dxSpeedDialAction;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            actionElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxSpeedDialAction.Options.visible */
         visible?: boolean;
     }
     /** @name dxSpeedDialAction */
     export class dxSpeedDialAction extends Widget {
-        constructor(element: Element, options?: dxSpeedDialActionOptions)
-        constructor(element: JQuery, options?: dxSpeedDialActionOptions)
+        constructor(element: Element, options?: dxSpeedDialActionOptions);
+        constructor(element: JQuery, options?: dxSpeedDialActionOptions);
     }
     /** @name dxSwitch.Options */
     export interface dxSwitchOptions extends EditorOptions<dxSwitch> {
@@ -5738,29 +10139,61 @@ declare module DevExpress.ui {
     }
     /** @name dxSwitch */
     export class dxSwitch extends Editor {
-        constructor(element: Element, options?: dxSwitchOptions)
-        constructor(element: JQuery, options?: dxSwitchOptions)
+        constructor(element: Element, options?: dxSwitchOptions);
+        constructor(element: JQuery, options?: dxSwitchOptions);
     }
     /** @name dxTabPanel.Options */
     export interface dxTabPanelOptions extends dxMultiViewOptions<dxTabPanel> {
         /** @name dxTabPanel.Options.animationEnabled */
         animationEnabled?: boolean;
         /** @name dxTabPanel.Options.dataSource */
-        dataSource?: string | Array<string | dxTabPanelItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxTabPanelItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxTabPanel.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxTabPanel.Options.hoverStateEnabled */
         hoverStateEnabled?: boolean;
         /** @name dxTabPanel.Options.itemTitleTemplate */
-        itemTitleTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        itemTitleTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxTabPanel.Options.items */
         items?: Array<string | dxTabPanelItem | any>;
         /** @name dxTabPanel.Options.onTitleClick */
-        onTitleClick?: ((e: { component?: dxTabPanel, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, event?: DevExpress.events.event }) => any) | string;
+        onTitleClick?:
+            | ((e: {
+                  component?: dxTabPanel;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  itemData?: any;
+                  itemElement?: DevExpress.core.dxElement;
+                  event?: DevExpress.events.event;
+              }) => any)
+            | string;
         /** @name dxTabPanel.Options.onTitleHold */
-        onTitleHold?: ((e: { component?: dxTabPanel, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, event?: DevExpress.events.event }) => any);
+        onTitleHold?: (e: {
+            component?: dxTabPanel;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTabPanel.Options.onTitleRendered */
-        onTitleRendered?: ((e: { component?: dxTabPanel, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement }) => any);
+        onTitleRendered?: (e: {
+            component?: dxTabPanel;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxTabPanel.Options.repaintChangesOnly */
         repaintChangesOnly?: boolean;
         /** @name dxTabPanel.Options.scrollByContent */
@@ -5774,8 +10207,8 @@ declare module DevExpress.ui {
     }
     /** @name dxTabPanel */
     export class dxTabPanel extends dxMultiView {
-        constructor(element: Element, options?: dxTabPanelOptions)
-        constructor(element: JQuery, options?: dxTabPanelOptions)
+        constructor(element: Element, options?: dxTabPanelOptions);
+        constructor(element: JQuery, options?: dxTabPanelOptions);
     }
     /** @name dxTabPanelItem */
     export interface dxTabPanelItem extends dxMultiViewItem {
@@ -5784,14 +10217,21 @@ declare module DevExpress.ui {
         /** @name dxTabPanelItem.icon */
         icon?: string;
         /** @name dxTabPanelItem.tabTemplate */
-        tabTemplate?: DevExpress.core.template | (() => string | Element | JQuery);
+        tabTemplate?:
+            | DevExpress.core.template
+            | (() => string | Element | JQuery);
         /** @name dxTabPanelItem.title */
         title?: string;
     }
     /** @name dxTabs.Options */
-    export interface dxTabsOptions<T = dxTabs> extends CollectionWidgetOptions<T> {
+    export interface dxTabsOptions<T = dxTabs>
+        extends CollectionWidgetOptions<T> {
         /** @name dxTabs.Options.dataSource */
-        dataSource?: string | Array<string | dxTabsItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxTabsItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxTabs.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxTabs.Options.hoverStateEnabled */
@@ -5807,14 +10247,14 @@ declare module DevExpress.ui {
         /** @name dxTabs.Options.selectedItems */
         selectedItems?: Array<string | number | any>;
         /** @name dxTabs.Options.selectionMode */
-        selectionMode?: 'multiple' | 'single';
+        selectionMode?: "multiple" | "single";
         /** @name dxTabs.Options.showNavButtons */
         showNavButtons?: boolean;
     }
     /** @name dxTabs */
     export class dxTabs extends CollectionWidget {
-        constructor(element: Element, options?: dxTabsOptions)
-        constructor(element: JQuery, options?: dxTabsOptions)
+        constructor(element: Element, options?: dxTabsOptions);
+        constructor(element: JQuery, options?: dxTabsOptions);
     }
     /** @name dxTabsItem */
     export interface dxTabsItem extends CollectionWidgetItem {
@@ -5826,7 +10266,7 @@ declare module DevExpress.ui {
     /** @name dxTagBox.Options */
     export interface dxTagBoxOptions extends dxSelectBoxOptions<dxTagBox> {
         /** @name dxTagBox.Options.applyValueMode */
-        applyValueMode?: 'instantly' | 'useButtons';
+        applyValueMode?: "instantly" | "useButtons";
         /** @name dxTagBox.Options.hideSelectedItems */
         hideSelectedItems?: boolean;
         /** @name dxTagBox.Options.maxDisplayedTags */
@@ -5834,13 +10274,32 @@ declare module DevExpress.ui {
         /** @name dxTagBox.Options.multiline */
         multiline?: boolean;
         /** @name dxTagBox.Options.onMultiTagPreparing */
-        onMultiTagPreparing?: ((e: { component?: dxTagBox, element?: DevExpress.core.dxElement, model?: any, multiTagElement?: DevExpress.core.dxElement, selectedItems?: Array<string | number | any>, text?: string, cancel?: boolean }) => any);
+        onMultiTagPreparing?: (e: {
+            component?: dxTagBox;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            multiTagElement?: DevExpress.core.dxElement;
+            selectedItems?: Array<string | number | any>;
+            text?: string;
+            cancel?: boolean;
+        }) => any;
         /** @name dxTagBox.Options.onSelectAllValueChanged */
-        onSelectAllValueChanged?: ((e: { component?: dxTagBox, element?: DevExpress.core.dxElement, model?: any, value?: boolean }) => any);
+        onSelectAllValueChanged?: (e: {
+            component?: dxTagBox;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: boolean;
+        }) => any;
         /** @name dxTagBox.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxTagBox, element?: DevExpress.core.dxElement, model?: any, addedItems?: Array<string | number | any>, removedItems?: Array<string | number | any> }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxTagBox;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            addedItems?: Array<string | number | any>;
+            removedItems?: Array<string | number | any>;
+        }) => any;
         /** @name dxTagBox.Options.selectAllMode */
-        selectAllMode?: 'allPages' | 'page';
+        selectAllMode?: "allPages" | "page";
         /** @name dxTagBox.Options.selectedItems */
         selectedItems?: Array<string | number | any>;
         /** @name dxTagBox.Options.showDropDownButton */
@@ -5848,14 +10307,19 @@ declare module DevExpress.ui {
         /** @name dxTagBox.Options.showMultiTagOnly */
         showMultiTagOnly?: boolean;
         /** @name dxTagBox.Options.tagTemplate */
-        tagTemplate?: DevExpress.core.template | ((itemData: any, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        tagTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxTagBox.Options.value */
         value?: Array<string | number | any>;
     }
     /** @name dxTagBox */
     export class dxTagBox extends dxSelectBox {
-        constructor(element: Element, options?: dxTagBoxOptions)
-        constructor(element: JQuery, options?: dxTagBoxOptions)
+        constructor(element: Element, options?: dxTagBoxOptions);
+        constructor(element: JQuery, options?: dxTagBoxOptions);
     }
     /** @name dxTextArea.Options */
     export interface dxTextAreaOptions extends dxTextBoxOptions<dxTextArea> {
@@ -5870,27 +10334,29 @@ declare module DevExpress.ui {
     }
     /** @name dxTextArea */
     export class dxTextArea extends dxTextBox {
-        constructor(element: Element, options?: dxTextAreaOptions)
-        constructor(element: JQuery, options?: dxTextAreaOptions)
+        constructor(element: Element, options?: dxTextAreaOptions);
+        constructor(element: JQuery, options?: dxTextAreaOptions);
     }
     /** @name dxTextBox.Options */
-    export interface dxTextBoxOptions<T = dxTextBox> extends dxTextEditorOptions<T> {
+    export interface dxTextBoxOptions<T = dxTextBox>
+        extends dxTextEditorOptions<T> {
         /** @name dxTextBox.Options.maxLength */
         maxLength?: string | number;
         /** @name dxTextBox.Options.mode */
-        mode?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url';
+        mode?: "email" | "password" | "search" | "tel" | "text" | "url";
         /** @name dxTextBox.Options.value */
         value?: string;
     }
     /** @name dxTextBox */
     export class dxTextBox extends dxTextEditor {
-        constructor(element: Element, options?: dxTextBoxOptions)
-        constructor(element: JQuery, options?: dxTextBoxOptions)
+        constructor(element: Element, options?: dxTextBoxOptions);
+        constructor(element: JQuery, options?: dxTextBoxOptions);
     }
     /** @name dxTextEditor.Options */
-    export interface dxTextEditorOptions<T = dxTextEditor> extends EditorOptions<T> {
+    export interface dxTextEditorOptions<T = dxTextEditor>
+        extends EditorOptions<T> {
         /** @name dxTextEditor.Options.buttons */
-        buttons?: Array<string | 'clear' | dxTextEditorButton>;
+        buttons?: Array<string | "clear" | dxTextEditorButton>;
         /** @name dxTextEditor.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxTextEditor.Options.hoverStateEnabled */
@@ -5908,38 +10374,104 @@ declare module DevExpress.ui {
         /** @name dxTextEditor.Options.name */
         name?: string;
         /** @name dxTextEditor.Options.onChange */
-        onChange?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onChange?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onCopy */
-        onCopy?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onCopy?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onCut */
-        onCut?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onCut?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onEnterKey */
-        onEnterKey?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onEnterKey?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onFocusIn */
-        onFocusIn?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onFocusIn?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onFocusOut */
-        onFocusOut?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onFocusOut?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onInput */
-        onInput?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onInput?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onKeyDown */
-        onKeyDown?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onKeyDown?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @deprecated */
         /** @name dxTextEditor.Options.onKeyPress */
-        onKeyPress?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onKeyPress?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onKeyUp */
-        onKeyUp?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onKeyUp?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.onPaste */
-        onPaste?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event }) => any);
+        onPaste?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxTextEditor.Options.placeholder */
         placeholder?: string;
         /** @name dxTextEditor.Options.showClearButton */
         showClearButton?: boolean;
         /** @name dxTextEditor.Options.showMaskMode */
-        showMaskMode?: 'always' | 'onFocus';
+        showMaskMode?: "always" | "onFocus";
         /** @name dxTextEditor.Options.spellcheck */
         spellcheck?: boolean;
         /** @name dxTextEditor.Options.stylingMode */
-        stylingMode?: 'outlined' | 'underlined' | 'filled';
+        stylingMode?: "outlined" | "underlined" | "filled";
         /** @name dxTextEditor.Options.text */
         text?: string;
         /** @name dxTextEditor.Options.useMaskedValue */
@@ -5951,8 +10483,8 @@ declare module DevExpress.ui {
     }
     /** @name dxTextEditor */
     export class dxTextEditor extends Editor {
-        constructor(element: Element, options?: dxTextEditorOptions)
-        constructor(element: JQuery, options?: dxTextEditorOptions)
+        constructor(element: Element, options?: dxTextEditorOptions);
+        constructor(element: JQuery, options?: dxTextEditorOptions);
         /** @name dxTextEditor.blur() */
         blur(): void;
         /** @name dxTextEditor.focus() */
@@ -5963,14 +10495,15 @@ declare module DevExpress.ui {
     /** @name dxTextEditorButton */
     export interface dxTextEditorButton {
         /** @name dxTextEditorButton.location */
-        location?: 'after' | 'before';
+        location?: "after" | "before";
         /** @name dxTextEditorButton.name */
         name?: string;
         /** @name dxTextEditorButton.options */
         options?: dxButtonOptions;
     }
     /** @name dxTileView.Options */
-    export interface dxTileViewOptions extends CollectionWidgetOptions<dxTileView> {
+    export interface dxTileViewOptions
+        extends CollectionWidgetOptions<dxTileView> {
         /** @name dxTileView.Options.activeStateEnabled */
         activeStateEnabled?: boolean;
         /** @name dxTileView.Options.baseItemHeight */
@@ -5978,9 +10511,13 @@ declare module DevExpress.ui {
         /** @name dxTileView.Options.baseItemWidth */
         baseItemWidth?: number;
         /** @name dxTileView.Options.dataSource */
-        dataSource?: string | Array<string | dxTileViewItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxTileViewItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxTileView.Options.direction */
-        direction?: 'horizontal' | 'vertical';
+        direction?: "horizontal" | "vertical";
         /** @name dxTileView.Options.focusStateEnabled */
         focusStateEnabled?: boolean;
         /** @name dxTileView.Options.height */
@@ -5996,8 +10533,8 @@ declare module DevExpress.ui {
     }
     /** @name dxTileView */
     export class dxTileView extends CollectionWidget {
-        constructor(element: Element, options?: dxTileViewOptions)
-        constructor(element: JQuery, options?: dxTileViewOptions)
+        constructor(element: Element, options?: dxTileViewOptions);
+        constructor(element: JQuery, options?: dxTileViewOptions);
         /** @name dxTileView.scrollPosition() */
         scrollPosition(): number;
     }
@@ -6015,7 +10552,9 @@ declare module DevExpress.ui {
         /** @name dxToast.Options.closeOnClick */
         closeOnClick?: boolean;
         /** @name dxToast.Options.closeOnOutsideClick */
-        closeOnOutsideClick?: boolean | ((event: DevExpress.events.event) => boolean);
+        closeOnOutsideClick?:
+            | boolean
+            | ((event: DevExpress.events.event) => boolean);
         /** @name dxToast.Options.closeOnSwipe */
         closeOnSwipe?: boolean;
         /** @name dxToast.Options.displayTime */
@@ -6033,7 +10572,7 @@ declare module DevExpress.ui {
         /** @name dxToast.Options.shading */
         shading?: boolean;
         /** @name dxToast.Options.type */
-        type?: 'custom' | 'error' | 'info' | 'success' | 'warning';
+        type?: "custom" | "error" | "info" | "success" | "warning";
         /** @name dxToast.Options.width */
         width?: number | string | (() => number | string);
     }
@@ -6046,52 +10585,75 @@ declare module DevExpress.ui {
     }
     /** @name dxToast */
     export class dxToast extends dxOverlay {
-        constructor(element: Element, options?: dxToastOptions)
-        constructor(element: JQuery, options?: dxToastOptions)
+        constructor(element: Element, options?: dxToastOptions);
+        constructor(element: JQuery, options?: dxToastOptions);
     }
     /** @name dxToolbar.Options */
-    export interface dxToolbarOptions extends CollectionWidgetOptions<dxToolbar> {
+    export interface dxToolbarOptions
+        extends CollectionWidgetOptions<dxToolbar> {
         /** @name dxToolbar.Options.dataSource */
-        dataSource?: string | Array<string | dxToolbarItem | any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<string | dxToolbarItem | any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxToolbar.Options.items */
         items?: Array<string | dxToolbarItem | any>;
         /** @name dxToolbar.Options.menuItemTemplate */
-        menuItemTemplate?: DevExpress.core.template | ((itemData: any, itemIndex: number, itemElement: DevExpress.core.dxElement) => string | Element | JQuery);
+        menuItemTemplate?:
+            | DevExpress.core.template
+            | ((
+                  itemData: any,
+                  itemIndex: number,
+                  itemElement: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxToolbar.Options.renderAs */
-        renderAs?: 'bottomToolbar' | 'topToolbar';
+        renderAs?: "bottomToolbar" | "topToolbar";
     }
     /** @name dxToolbar */
     export class dxToolbar extends CollectionWidget {
-        constructor(element: Element, options?: dxToolbarOptions)
-        constructor(element: JQuery, options?: dxToolbarOptions)
+        constructor(element: Element, options?: dxToolbarOptions);
+        constructor(element: JQuery, options?: dxToolbarOptions);
     }
     /** @name dxToolbarItem */
     export interface dxToolbarItem extends CollectionWidgetItem {
         /** @name dxToolbarItem.cssClass */
         cssClass?: string;
         /** @name dxToolbarItem.locateInMenu */
-        locateInMenu?: 'always' | 'auto' | 'never';
+        locateInMenu?: "always" | "auto" | "never";
         /** @name dxToolbarItem.location */
-        location?: 'after' | 'before' | 'center';
+        location?: "after" | "before" | "center";
         /** @name dxToolbarItem.menuItemTemplate */
-        menuItemTemplate?: DevExpress.core.template | (() => string | Element | JQuery);
+        menuItemTemplate?:
+            | DevExpress.core.template
+            | (() => string | Element | JQuery);
         /** @name dxToolbarItem.options */
         options?: any;
         /** @name dxToolbarItem.showText */
-        showText?: 'always' | 'inMenu';
+        showText?: "always" | "inMenu";
         /** @name dxToolbarItem.widget */
-        widget?: 'dxAutocomplete' | 'dxButton' | 'dxCheckBox' | 'dxDateBox' | 'dxMenu' | 'dxSelectBox' | 'dxTabs' | 'dxTextBox' | 'dxButtonGroup' | 'dxDropDownButton';
+        widget?:
+            | "dxAutocomplete"
+            | "dxButton"
+            | "dxCheckBox"
+            | "dxDateBox"
+            | "dxMenu"
+            | "dxSelectBox"
+            | "dxTabs"
+            | "dxTextBox"
+            | "dxButtonGroup"
+            | "dxDropDownButton";
     }
     /** @name dxTooltip.Options */
-    export interface dxTooltipOptions extends dxPopoverOptions<dxTooltip> {
-    }
+    export interface dxTooltipOptions extends dxPopoverOptions<dxTooltip> {}
     /** @name dxTooltip */
     export class dxTooltip extends dxPopover {
-        constructor(element: Element, options?: dxTooltipOptions)
-        constructor(element: JQuery, options?: dxTooltipOptions)
+        constructor(element: Element, options?: dxTooltipOptions);
+        constructor(element: JQuery, options?: dxTooltipOptions);
     }
     /** @name dxTrackBar.Options */
-    export interface dxTrackBarOptions<T = dxTrackBar> extends EditorOptions<T> {
+    export interface dxTrackBarOptions<T = dxTrackBar>
+        extends EditorOptions<T> {
         /** @name dxTrackBar.Options.max */
         max?: number;
         /** @name dxTrackBar.Options.min */
@@ -6099,8 +10661,8 @@ declare module DevExpress.ui {
     }
     /** @name dxTrackBar */
     export class dxTrackBar extends Editor {
-        constructor(element: Element, options?: dxTrackBarOptions)
-        constructor(element: JQuery, options?: dxTrackBarOptions)
+        constructor(element: Element, options?: dxTrackBarOptions);
+        constructor(element: JQuery, options?: dxTrackBarOptions);
     }
     /** @name dxTreeList.Options */
     export interface dxTreeListOptions extends GridBaseOptions<dxTreeList> {
@@ -6109,9 +10671,9 @@ declare module DevExpress.ui {
         /** @name dxTreeList.Options.columns */
         columns?: Array<dxTreeListColumn | string>;
         /** @name dxTreeList.Options.customizeColumns */
-        customizeColumns?: ((columns: Array<dxTreeListColumn>) => any);
+        customizeColumns?: (columns: Array<dxTreeListColumn>) => any;
         /** @name dxTreeList.Options.dataStructure */
-        dataStructure?: 'plain' | 'tree';
+        dataStructure?: "plain" | "tree";
         /** @name dxTreeList.Options.editing */
         editing?: dxTreeListEditing;
         /** @name dxTreeList.Options.expandNodesOnFiltering */
@@ -6119,7 +10681,7 @@ declare module DevExpress.ui {
         /** @name dxTreeList.Options.expandedRowKeys */
         expandedRowKeys?: Array<any>;
         /** @name dxTreeList.Options.filterMode */
-        filterMode?: 'fullBranch' | 'withAncestors' | 'matchOnly';
+        filterMode?: "fullBranch" | "withAncestors" | "matchOnly";
         /** @name dxTreeList.Options.hasItemsExpr */
         hasItemsExpr?: string | Function;
         /** @name dxTreeList.Options.itemsExpr */
@@ -6127,43 +10689,265 @@ declare module DevExpress.ui {
         /** @name dxTreeList.Options.keyExpr */
         keyExpr?: string | Function;
         /** @name dxTreeList.Options.onCellClick */
-        onCellClick?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, data?: any, key?: any, value?: any, displayValue?: any, text?: string, columnIndex?: number, column?: any, rowIndex?: number, rowType?: string, cellElement?: DevExpress.core.dxElement, row?: dxTreeListRowObject }) => any) | string;
+        onCellClick?:
+            | ((e: {
+                  component?: dxTreeList;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  data?: any;
+                  key?: any;
+                  value?: any;
+                  displayValue?: any;
+                  text?: string;
+                  columnIndex?: number;
+                  column?: any;
+                  rowIndex?: number;
+                  rowType?: string;
+                  cellElement?: DevExpress.core.dxElement;
+                  row?: dxTreeListRowObject;
+              }) => any)
+            | string;
         /** @name dxTreeList.Options.onCellDblClick */
-        onCellDblClick?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, data?: any, key?: any, value?: any, displayValue?: any, text?: string, columnIndex?: number, column?: dxTreeListColumn, rowIndex?: number, rowType?: string, cellElement?: DevExpress.core.dxElement, row?: dxTreeListRowObject }) => any);
+        onCellDblClick?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            data?: any;
+            key?: any;
+            value?: any;
+            displayValue?: any;
+            text?: string;
+            columnIndex?: number;
+            column?: dxTreeListColumn;
+            rowIndex?: number;
+            rowType?: string;
+            cellElement?: DevExpress.core.dxElement;
+            row?: dxTreeListRowObject;
+        }) => any;
         /** @name dxTreeList.Options.onCellHoverChanged */
-        onCellHoverChanged?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, eventType?: string, data?: any, key?: any, value?: any, text?: string, displayValue?: any, columnIndex?: number, rowIndex?: number, column?: dxTreeListColumn, rowType?: string, cellElement?: DevExpress.core.dxElement, row?: dxTreeListRowObject }) => any);
+        onCellHoverChanged?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            eventType?: string;
+            data?: any;
+            key?: any;
+            value?: any;
+            text?: string;
+            displayValue?: any;
+            columnIndex?: number;
+            rowIndex?: number;
+            column?: dxTreeListColumn;
+            rowType?: string;
+            cellElement?: DevExpress.core.dxElement;
+            row?: dxTreeListRowObject;
+        }) => any;
         /** @name dxTreeList.Options.onCellPrepared */
-        onCellPrepared?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, value?: any, displayValue?: any, text?: string, columnIndex?: number, column?: dxTreeListColumn, rowIndex?: number, rowType?: string, row?: dxTreeListRowObject, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, cellElement?: DevExpress.core.dxElement, watch?: Function, oldValue?: any }) => any);
+        onCellPrepared?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            value?: any;
+            displayValue?: any;
+            text?: string;
+            columnIndex?: number;
+            column?: dxTreeListColumn;
+            rowIndex?: number;
+            rowType?: string;
+            row?: dxTreeListRowObject;
+            isSelected?: boolean;
+            isExpanded?: boolean;
+            isNewRow?: boolean;
+            cellElement?: DevExpress.core.dxElement;
+            watch?: Function;
+            oldValue?: any;
+        }) => any;
         /** @name dxTreeList.Options.onContextMenuPreparing */
-        onContextMenuPreparing?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, items?: Array<any>, target?: string, targetElement?: DevExpress.core.dxElement, columnIndex?: number, column?: dxTreeListColumn, rowIndex?: number, row?: dxTreeListRowObject }) => any);
+        onContextMenuPreparing?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            items?: Array<any>;
+            target?: string;
+            targetElement?: DevExpress.core.dxElement;
+            columnIndex?: number;
+            column?: dxTreeListColumn;
+            rowIndex?: number;
+            row?: dxTreeListRowObject;
+        }) => any;
         /** @name dxTreeList.Options.onEditingStart */
-        onEditingStart?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, cancel?: boolean, column?: any }) => any);
+        onEditingStart?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            cancel?: boolean;
+            column?: any;
+        }) => any;
         /** @name dxTreeList.Options.onEditorPrepared */
-        onEditorPrepared?: ((options: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, parentType?: string, value?: any, setValue?: any, updateValueTimeout?: number, width?: number, disabled?: boolean, rtlEnabled?: boolean, editorElement?: DevExpress.core.dxElement, readOnly?: boolean, dataField?: string, row?: dxTreeListRowObject }) => any);
+        onEditorPrepared?: (options: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            parentType?: string;
+            value?: any;
+            setValue?: any;
+            updateValueTimeout?: number;
+            width?: number;
+            disabled?: boolean;
+            rtlEnabled?: boolean;
+            editorElement?: DevExpress.core.dxElement;
+            readOnly?: boolean;
+            dataField?: string;
+            row?: dxTreeListRowObject;
+        }) => any;
         /** @name dxTreeList.Options.onEditorPreparing */
-        onEditorPreparing?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, parentType?: string, value?: any, setValue?: any, updateValueTimeout?: number, width?: number, disabled?: boolean, rtlEnabled?: boolean, cancel?: boolean, editorElement?: DevExpress.core.dxElement, readOnly?: boolean, editorName?: string, editorOptions?: any, dataField?: string, row?: dxTreeListRowObject }) => any);
+        onEditorPreparing?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            parentType?: string;
+            value?: any;
+            setValue?: any;
+            updateValueTimeout?: number;
+            width?: number;
+            disabled?: boolean;
+            rtlEnabled?: boolean;
+            cancel?: boolean;
+            editorElement?: DevExpress.core.dxElement;
+            readOnly?: boolean;
+            editorName?: string;
+            editorOptions?: any;
+            dataField?: string;
+            row?: dxTreeListRowObject;
+        }) => any;
         /** @name dxTreeList.Options.onFocusedCellChanged */
-        onFocusedCellChanged?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, cellElement?: DevExpress.core.dxElement, columnIndex?: number, rowIndex?: number, row?: dxTreeListRowObject, column?: dxTreeListColumn }) => any);
+        onFocusedCellChanged?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            cellElement?: DevExpress.core.dxElement;
+            columnIndex?: number;
+            rowIndex?: number;
+            row?: dxTreeListRowObject;
+            column?: dxTreeListColumn;
+        }) => any;
         /** @name dxTreeList.Options.onFocusedCellChanging */
-        onFocusedCellChanging?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, cellElement?: DevExpress.core.dxElement, prevColumnIndex?: number, prevRowIndex?: number, newColumnIndex?: number, newRowIndex?: number, event?: DevExpress.events.event, rows?: Array<dxTreeListRowObject>, columns?: Array<dxTreeListColumn>, cancel?: boolean, isHighlighted?: boolean }) => any);
+        onFocusedCellChanging?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            cellElement?: DevExpress.core.dxElement;
+            prevColumnIndex?: number;
+            prevRowIndex?: number;
+            newColumnIndex?: number;
+            newRowIndex?: number;
+            event?: DevExpress.events.event;
+            rows?: Array<dxTreeListRowObject>;
+            columns?: Array<dxTreeListColumn>;
+            cancel?: boolean;
+            isHighlighted?: boolean;
+        }) => any;
         /** @name dxTreeList.Options.onFocusedRowChanged */
-        onFocusedRowChanged?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, rowElement?: DevExpress.core.dxElement, rowIndex?: number, row?: dxTreeListRowObject }) => any);
+        onFocusedRowChanged?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rowElement?: DevExpress.core.dxElement;
+            rowIndex?: number;
+            row?: dxTreeListRowObject;
+        }) => any;
         /** @name dxTreeList.Options.onFocusedRowChanging */
-        onFocusedRowChanging?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, rowElement?: DevExpress.core.dxElement, prevRowIndex?: number, newRowIndex?: number, event?: DevExpress.events.event, rows?: Array<dxTreeListRowObject>, cancel?: boolean }) => any);
+        onFocusedRowChanging?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            rowElement?: DevExpress.core.dxElement;
+            prevRowIndex?: number;
+            newRowIndex?: number;
+            event?: DevExpress.events.event;
+            rows?: Array<dxTreeListRowObject>;
+            cancel?: boolean;
+        }) => any;
         /** @name dxTreeList.Options.onNodesInitialized */
-        onNodesInitialized?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, root?: dxTreeListNode }) => any);
+        onNodesInitialized?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            root?: dxTreeListNode;
+        }) => any;
         /** @name dxTreeList.Options.onRowClick */
-        onRowClick?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, data?: any, key?: any, values?: Array<any>, columns?: Array<any>, rowIndex?: number, rowType?: string, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, rowElement?: DevExpress.core.dxElement, handled?: boolean, node?: dxTreeListNode, level?: number }) => any) | string;
+        onRowClick?:
+            | ((e: {
+                  component?: dxTreeList;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  data?: any;
+                  key?: any;
+                  values?: Array<any>;
+                  columns?: Array<any>;
+                  rowIndex?: number;
+                  rowType?: string;
+                  isSelected?: boolean;
+                  isExpanded?: boolean;
+                  isNewRow?: boolean;
+                  rowElement?: DevExpress.core.dxElement;
+                  handled?: boolean;
+                  node?: dxTreeListNode;
+                  level?: number;
+              }) => any)
+            | string;
         /** @name dxTreeList.Options.onRowDblClick */
-        onRowDblClick?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, data?: any, key?: any, values?: Array<any>, columns?: Array<dxTreeListColumn>, rowIndex?: number, rowType?: string, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, rowElement?: DevExpress.core.dxElement }) => any);
+        onRowDblClick?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            data?: any;
+            key?: any;
+            values?: Array<any>;
+            columns?: Array<dxTreeListColumn>;
+            rowIndex?: number;
+            rowType?: string;
+            isSelected?: boolean;
+            isExpanded?: boolean;
+            isNewRow?: boolean;
+            rowElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxTreeList.Options.onRowPrepared */
-        onRowPrepared?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, data?: any, key?: any, values?: Array<any>, columns?: Array<dxTreeListColumn>, rowIndex?: number, rowType?: string, isSelected?: boolean, isExpanded?: boolean, isNewRow?: boolean, rowElement?: DevExpress.core.dxElement, node?: dxTreeListNode, level?: number }) => any);
+        onRowPrepared?: (e: {
+            component?: dxTreeList;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            data?: any;
+            key?: any;
+            values?: Array<any>;
+            columns?: Array<dxTreeListColumn>;
+            rowIndex?: number;
+            rowType?: string;
+            isSelected?: boolean;
+            isExpanded?: boolean;
+            isNewRow?: boolean;
+            rowElement?: DevExpress.core.dxElement;
+            node?: dxTreeListNode;
+            level?: number;
+        }) => any;
         /** @name dxTreeList.Options.paging */
         paging?: dxTreeListPaging;
         /** @name dxTreeList.Options.parentIdExpr */
         parentIdExpr?: string | Function;
         /** @name dxTreeList.Options.remoteOperations */
-        remoteOperations?: { filtering?: boolean, grouping?: boolean, sorting?: boolean } | 'auto';
+        remoteOperations?:
+            | { filtering?: boolean; grouping?: boolean; sorting?: boolean }
+            | "auto";
         /** @name dxTreeList.Options.rootValue */
         rootValue?: any;
         /** @name dxTreeList.Options.scrolling */
@@ -6174,11 +10958,26 @@ declare module DevExpress.ui {
     /** @name dxTreeList.Options.editing */
     export interface dxTreeListEditing extends GridBaseEditing {
         /** @name dxTreeList.Options.editing.allowAdding */
-        allowAdding?: boolean | ((options: { component?: dxTreeList, row?: dxTreeListRowObject }) => boolean);
+        allowAdding?:
+            | boolean
+            | ((options: {
+                  component?: dxTreeList;
+                  row?: dxTreeListRowObject;
+              }) => boolean);
         /** @name dxTreeList.Options.editing.allowDeleting */
-        allowDeleting?: boolean | ((options: { component?: dxTreeList, row?: dxTreeListRowObject }) => boolean);
+        allowDeleting?:
+            | boolean
+            | ((options: {
+                  component?: dxTreeList;
+                  row?: dxTreeListRowObject;
+              }) => boolean);
         /** @name dxTreeList.Options.editing.allowUpdating */
-        allowUpdating?: boolean | ((options: { component?: dxTreeList, row?: dxTreeListRowObject }) => boolean);
+        allowUpdating?:
+            | boolean
+            | ((options: {
+                  component?: dxTreeList;
+                  row?: dxTreeListRowObject;
+              }) => boolean);
         /** @name dxTreeList.Options.editing.texts */
         texts?: dxTreeListEditingTexts;
     }
@@ -6195,7 +10994,7 @@ declare module DevExpress.ui {
     /** @name dxTreeList.Options.scrolling */
     export interface dxTreeListScrolling extends GridBaseScrolling {
         /** @name dxTreeList.Options.scrolling.mode */
-        mode?: 'standard' | 'virtual';
+        mode?: "standard" | "virtual";
     }
     /** @name dxTreeList.Options.selection */
     export interface dxTreeListSelection extends GridBaseSelection {
@@ -6204,8 +11003,8 @@ declare module DevExpress.ui {
     }
     /** @name dxTreeList */
     export class dxTreeList extends GridBase {
-        constructor(element: Element, options?: dxTreeListOptions)
-        constructor(element: JQuery, options?: dxTreeListOptions)
+        constructor(element: Element, options?: dxTreeListOptions);
+        constructor(element: JQuery, options?: dxTreeListOptions);
         /** @name dxTreeList.addColumn(columnOptions) */
         addColumn(columnOptions: any | string): void;
         /** @name dxTreeList.addRow() */
@@ -6248,33 +11047,125 @@ declare module DevExpress.ui {
         /** @name dxTreeList.loadDescendants(keys) */
         loadDescendants(keys: Array<any>): Promise<void> & JQueryPromise<void>;
         /** @name dxTreeList.loadDescendants(keys, childrenOnly) */
-        loadDescendants(keys: Array<any>, childrenOnly: boolean): Promise<void> & JQueryPromise<void>;
+        loadDescendants(
+            keys: Array<any>,
+            childrenOnly: boolean
+        ): Promise<void> & JQueryPromise<void>;
     }
     /** @name dxTreeListColumn */
     export interface dxTreeListColumn extends GridBaseColumn {
         /** @name dxTreeListColumn.buttons */
-        buttons?: Array<'add' | 'cancel' | 'delete' | 'edit' | 'save' | 'undelete' | dxTreeListColumnButton>;
+        buttons?: Array<
+            | "add"
+            | "cancel"
+            | "delete"
+            | "edit"
+            | "save"
+            | "undelete"
+            | dxTreeListColumnButton
+        >;
         /** @name dxTreeListColumn.cellTemplate */
-        cellTemplate?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { data?: any, component?: dxTreeList, value?: any, oldValue?: any, displayValue?: any, text?: string, columnIndex?: number, rowIndex?: number, column?: dxTreeListColumn, row?: dxTreeListRowObject, rowType?: string, watch?: Function }) => any);
+        cellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  cellElement: DevExpress.core.dxElement,
+                  cellInfo: {
+                      data?: any;
+                      component?: dxTreeList;
+                      value?: any;
+                      oldValue?: any;
+                      displayValue?: any;
+                      text?: string;
+                      columnIndex?: number;
+                      rowIndex?: number;
+                      column?: dxTreeListColumn;
+                      row?: dxTreeListRowObject;
+                      rowType?: string;
+                      watch?: Function;
+                  }
+              ) => any);
         /** @name dxTreeListColumn.columns */
         columns?: Array<dxTreeListColumn | string>;
         /** @name dxTreeListColumn.editCellTemplate */
-        editCellTemplate?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { setValue?: any, data?: any, component?: dxTreeList, value?: any, displayValue?: any, text?: string, columnIndex?: number, rowIndex?: number, column?: dxTreeListColumn, row?: dxTreeListRowObject, rowType?: string, watch?: Function }) => any);
+        editCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  cellElement: DevExpress.core.dxElement,
+                  cellInfo: {
+                      setValue?: any;
+                      data?: any;
+                      component?: dxTreeList;
+                      value?: any;
+                      displayValue?: any;
+                      text?: string;
+                      columnIndex?: number;
+                      rowIndex?: number;
+                      column?: dxTreeListColumn;
+                      row?: dxTreeListRowObject;
+                      rowType?: string;
+                      watch?: Function;
+                  }
+              ) => any);
         /** @name dxTreeListColumn.headerCellTemplate */
-        headerCellTemplate?: DevExpress.core.template | ((columnHeader: DevExpress.core.dxElement, headerInfo: { component?: dxTreeList, columnIndex?: number, column?: dxTreeListColumn }) => any);
+        headerCellTemplate?:
+            | DevExpress.core.template
+            | ((
+                  columnHeader: DevExpress.core.dxElement,
+                  headerInfo: {
+                      component?: dxTreeList;
+                      columnIndex?: number;
+                      column?: dxTreeListColumn;
+                  }
+              ) => any);
         /** @name dxTreeListColumn.type */
-        type?: 'adaptive' | 'buttons';
+        type?: "adaptive" | "buttons";
     }
     /** @name dxTreeListColumnButton */
     export interface dxTreeListColumnButton extends GridBaseColumnButton {
         /** @name dxTreeListColumnButton.name */
-        name?: 'add' | 'cancel' | 'delete' | 'edit' | 'save' | 'undelete' | string;
+        name?:
+            | "add"
+            | "cancel"
+            | "delete"
+            | "edit"
+            | "save"
+            | "undelete"
+            | string;
         /** @name dxTreeListColumnButton.onClick */
-        onClick?: ((e: { component?: dxTreeList, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, row?: dxTreeListRowObject, column?: dxTreeListColumn }) => any) | string;
+        onClick?:
+            | ((e: {
+                  component?: dxTreeList;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  event?: DevExpress.events.event;
+                  row?: dxTreeListRowObject;
+                  column?: dxTreeListColumn;
+              }) => any)
+            | string;
         /** @name dxTreeListColumnButton.template */
-        template?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { component?: dxTreeList, data?: any, key?: any, columnIndex?: number, column?: dxTreeListColumn, rowIndex?: number, rowType?: string, row?: dxTreeListRowObject }) => string | Element | JQuery);
+        template?:
+            | DevExpress.core.template
+            | ((
+                  cellElement: DevExpress.core.dxElement,
+                  cellInfo: {
+                      component?: dxTreeList;
+                      data?: any;
+                      key?: any;
+                      columnIndex?: number;
+                      column?: dxTreeListColumn;
+                      rowIndex?: number;
+                      rowType?: string;
+                      row?: dxTreeListRowObject;
+                  }
+              ) => string | Element | JQuery);
         /** @name dxTreeListColumnButton.visible */
-        visible?: boolean | ((options: { component?: dxTreeList, row?: dxTreeListRowObject, column?: dxTreeListColumn }) => boolean);
+        visible?:
+            | boolean
+            | ((options: {
+                  component?: dxTreeList;
+                  row?: dxTreeListRowObject;
+                  column?: dxTreeListColumn;
+              }) => boolean);
     }
     /** @name dxTreeListNode */
     export interface dxTreeListNode {
@@ -6317,19 +11208,27 @@ declare module DevExpress.ui {
         values?: Array<any>;
     }
     /** @name dxTreeView.Options */
-    export interface dxTreeViewOptions extends HierarchicalCollectionWidgetOptions<dxTreeView>, SearchBoxMixinOptions<dxTreeView> {
+    export interface dxTreeViewOptions
+        extends HierarchicalCollectionWidgetOptions<dxTreeView>,
+            SearchBoxMixinOptions<dxTreeView> {
         /** @name dxTreeView.Options.animationEnabled */
         animationEnabled?: boolean;
         /** @name dxTreeView.Options.createChildren */
-        createChildren?: ((parentNode: dxTreeViewNode) => Promise<any> | JQueryPromise<any> | Array<any>);
+        createChildren?: (
+            parentNode: dxTreeViewNode
+        ) => Promise<any> | JQueryPromise<any> | Array<any>;
         /** @name dxTreeView.Options.dataSource */
-        dataSource?: string | Array<dxTreeViewItem> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions;
+        dataSource?:
+            | string
+            | Array<dxTreeViewItem>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions;
         /** @name dxTreeView.Options.dataStructure */
-        dataStructure?: 'plain' | 'tree';
+        dataStructure?: "plain" | "tree";
         /** @name dxTreeView.Options.expandAllEnabled */
         expandAllEnabled?: boolean;
         /** @name dxTreeView.Options.expandEvent */
-        expandEvent?: 'dblclick' | 'click';
+        expandEvent?: "dblclick" | "click";
         /** @name dxTreeView.Options.expandNodesRecursive */
         expandNodesRecursive?: boolean;
         /** @name dxTreeView.Options.expandedExpr */
@@ -6339,29 +11238,101 @@ declare module DevExpress.ui {
         /** @name dxTreeView.Options.items */
         items?: Array<dxTreeViewItem>;
         /** @name dxTreeView.Options.onItemClick */
-        onItemClick?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, node?: dxTreeViewNode }) => any);
+        onItemClick?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            node?: dxTreeViewNode;
+        }) => any;
         /** @name dxTreeView.Options.onItemCollapsed */
-        onItemCollapsed?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, node?: dxTreeViewNode }) => any);
+        onItemCollapsed?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            node?: dxTreeViewNode;
+        }) => any;
         /** @name dxTreeView.Options.onItemContextMenu */
-        onItemContextMenu?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number | any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, node?: dxTreeViewNode }) => any);
+        onItemContextMenu?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number | any;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            node?: dxTreeViewNode;
+        }) => any;
         /** @name dxTreeView.Options.onItemExpanded */
-        onItemExpanded?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, node?: dxTreeViewNode }) => any);
+        onItemExpanded?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            jQueryEvent?: JQueryEventObject;
+            event?: DevExpress.events.event;
+            node?: dxTreeViewNode;
+        }) => any;
         /** @name dxTreeView.Options.onItemHold */
-        onItemHold?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, event?: DevExpress.events.event, node?: dxTreeViewNode }) => any);
+        onItemHold?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            event?: DevExpress.events.event;
+            node?: dxTreeViewNode;
+        }) => any;
         /** @name dxTreeView.Options.onItemRendered */
-        onItemRendered?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, itemData?: any, itemElement?: DevExpress.core.dxElement, itemIndex?: number, node?: dxTreeViewNode }) => any);
+        onItemRendered?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            itemData?: any;
+            itemElement?: DevExpress.core.dxElement;
+            itemIndex?: number;
+            node?: dxTreeViewNode;
+        }) => any;
         /** @name dxTreeView.Options.onItemSelectionChanged */
-        onItemSelectionChanged?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, node?: dxTreeViewNode, itemElement?: DevExpress.core.dxElement }) => any);
+        onItemSelectionChanged?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            node?: dxTreeViewNode;
+            itemElement?: DevExpress.core.dxElement;
+        }) => any;
         /** @name dxTreeView.Options.onSelectAllValueChanged */
-        onSelectAllValueChanged?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any, value?: boolean }) => any);
+        onSelectAllValueChanged?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: boolean;
+        }) => any;
         /** @name dxTreeView.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxTreeView, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxTreeView;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name dxTreeView.Options.parentIdExpr */
         parentIdExpr?: string | Function;
         /** @name dxTreeView.Options.rootValue */
         rootValue?: any;
         /** @name dxTreeView.Options.scrollDirection */
-        scrollDirection?: 'both' | 'horizontal' | 'vertical';
+        scrollDirection?: "both" | "horizontal" | "vertical";
         /** @name dxTreeView.Options.selectAllText */
         selectAllText?: string;
         /** @name dxTreeView.Options.selectByClick */
@@ -6369,16 +11340,16 @@ declare module DevExpress.ui {
         /** @name dxTreeView.Options.selectNodesRecursive */
         selectNodesRecursive?: boolean;
         /** @name dxTreeView.Options.selectionMode */
-        selectionMode?: 'multiple' | 'single';
+        selectionMode?: "multiple" | "single";
         /** @name dxTreeView.Options.showCheckBoxesMode */
-        showCheckBoxesMode?: 'none' | 'normal' | 'selectAll';
+        showCheckBoxesMode?: "none" | "normal" | "selectAll";
         /** @name dxTreeView.Options.virtualModeEnabled */
         virtualModeEnabled?: boolean;
     }
     /** @name dxTreeView */
     export class dxTreeView extends HierarchicalCollectionWidget {
-        constructor(element: Element, options?: dxTreeViewOptions)
-        constructor(element: JQuery, options?: dxTreeViewOptions)
+        constructor(element: Element, options?: dxTreeViewOptions);
+        constructor(element: JQuery, options?: dxTreeViewOptions);
         /** @name dxTreeView.collapseAll() */
         collapseAll(): void;
         /** @name dxTreeView.collapseItem(itemData) */
@@ -6461,12 +11432,12 @@ declare module DevExpress.ui {
         text?: string;
     }
     /** @name dxValidationGroup.Options */
-    export interface dxValidationGroupOptions extends DOMComponentOptions<dxValidationGroup> {
-    }
+    export interface dxValidationGroupOptions
+        extends DOMComponentOptions<dxValidationGroup> {}
     /** @name dxValidationGroup */
     export class dxValidationGroup extends DOMComponent {
-        constructor(element: Element, options?: dxValidationGroupOptions)
-        constructor(element: JQuery, options?: dxValidationGroupOptions)
+        constructor(element: Element, options?: dxValidationGroupOptions);
+        constructor(element: JQuery, options?: dxValidationGroupOptions);
         /** @name dxValidationGroup.reset() */
         reset(): void;
         /** @name dxValidationGroup.validate() */
@@ -6475,43 +11446,111 @@ declare module DevExpress.ui {
     /** @name dxValidationGroupResult */
     export interface dxValidationGroupResult {
         /** @name dxValidationGroupResult.brokenRules */
-        brokenRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>;
+        brokenRules?: Array<
+            | RequiredRule
+            | NumericRule
+            | RangeRule
+            | StringLengthRule
+            | CustomRule
+            | CompareRule
+            | PatternRule
+            | EmailRule
+            | AsyncRule
+        >;
         /** @name dxValidationGroupResult.complete */
-        complete?: Promise<dxValidationGroupResult> | JQueryPromise<dxValidationGroupResult>;
+        complete?:
+            | Promise<dxValidationGroupResult>
+            | JQueryPromise<dxValidationGroupResult>;
         /** @name dxValidationGroupResult.isValid */
         isValid?: boolean;
         /** @name dxValidationGroupResult.status */
-        status?: 'valid' | 'invalid' | 'pending';
+        status?: "valid" | "invalid" | "pending";
         /** @name dxValidationGroupResult.validators */
         validators?: Array<any>;
     }
     /** @name dxValidationSummary.Options */
-    export interface dxValidationSummaryOptions extends CollectionWidgetOptions<dxValidationSummary> {
+    export interface dxValidationSummaryOptions
+        extends CollectionWidgetOptions<dxValidationSummary> {
         /** @name dxValidationSummary.Options.validationGroup */
         validationGroup?: string;
     }
     /** @name dxValidationSummary */
     export class dxValidationSummary extends CollectionWidget {
-        constructor(element: Element, options?: dxValidationSummaryOptions)
-        constructor(element: JQuery, options?: dxValidationSummaryOptions)
+        constructor(element: Element, options?: dxValidationSummaryOptions);
+        constructor(element: JQuery, options?: dxValidationSummaryOptions);
     }
     /** @name dxValidator.Options */
-    export interface dxValidatorOptions extends DOMComponentOptions<dxValidator> {
+    export interface dxValidatorOptions
+        extends DOMComponentOptions<dxValidator> {
         /** @name dxValidator.Options.adapter */
-        adapter?: { applyValidationResults?: Function, bypass?: Function, focus?: Function, getValue?: Function, reset?: Function, validationRequestsCallbacks?: Array<Function> | JQueryCallback };
+        adapter?: {
+            applyValidationResults?: Function;
+            bypass?: Function;
+            focus?: Function;
+            getValue?: Function;
+            reset?: Function;
+            validationRequestsCallbacks?: Array<Function> | JQueryCallback;
+        };
         /** @name dxValidator.Options.name */
         name?: string;
         /** @name dxValidator.Options.onValidated */
-        onValidated?: ((validatedInfo: { name?: string, isValid?: boolean, value?: any, validationRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>, brokenRule?: RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule, brokenRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>, status?: 'valid' | 'invalid' | 'pending' }) => any);
+        onValidated?: (validatedInfo: {
+            name?: string;
+            isValid?: boolean;
+            value?: any;
+            validationRules?: Array<
+                | RequiredRule
+                | NumericRule
+                | RangeRule
+                | StringLengthRule
+                | CustomRule
+                | CompareRule
+                | PatternRule
+                | EmailRule
+                | AsyncRule
+            >;
+            brokenRule?:
+                | RequiredRule
+                | NumericRule
+                | RangeRule
+                | StringLengthRule
+                | CustomRule
+                | CompareRule
+                | PatternRule
+                | EmailRule
+                | AsyncRule;
+            brokenRules?: Array<
+                | RequiredRule
+                | NumericRule
+                | RangeRule
+                | StringLengthRule
+                | CustomRule
+                | CompareRule
+                | PatternRule
+                | EmailRule
+                | AsyncRule
+            >;
+            status?: "valid" | "invalid" | "pending";
+        }) => any;
         /** @name dxValidator.Options.validationGroup */
         validationGroup?: string;
         /** @name dxValidator.Options.validationRules */
-        validationRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>;
+        validationRules?: Array<
+            | RequiredRule
+            | NumericRule
+            | RangeRule
+            | StringLengthRule
+            | CustomRule
+            | CompareRule
+            | PatternRule
+            | EmailRule
+            | AsyncRule
+        >;
     }
     /** @name dxValidator */
     export class dxValidator extends DOMComponent {
-        constructor(element: Element, options?: dxValidatorOptions)
-        constructor(element: JQuery, options?: dxValidatorOptions)
+        constructor(element: Element, options?: dxValidatorOptions);
+        constructor(element: JQuery, options?: dxValidatorOptions);
         /** @name dxValidator.focus() */
         focus(): void;
         /** @name dxValidator.reset() */
@@ -6522,24 +11561,120 @@ declare module DevExpress.ui {
     /** @name dxValidatorResult */
     export interface dxValidatorResult {
         /** @name dxValidatorResult.brokenRule */
-        brokenRule?: RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule;
+        brokenRule?:
+            | RequiredRule
+            | NumericRule
+            | RangeRule
+            | StringLengthRule
+            | CustomRule
+            | CompareRule
+            | PatternRule
+            | EmailRule
+            | AsyncRule;
         /** @name dxValidatorResult.brokenRules */
-        brokenRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>;
+        brokenRules?: Array<
+            | RequiredRule
+            | NumericRule
+            | RangeRule
+            | StringLengthRule
+            | CustomRule
+            | CompareRule
+            | PatternRule
+            | EmailRule
+            | AsyncRule
+        >;
         /** @name dxValidatorResult.complete */
-        complete?: Promise<dxValidatorResult> | JQueryPromise<dxValidatorResult>;
+        complete?:
+            | Promise<dxValidatorResult>
+            | JQueryPromise<dxValidatorResult>;
         /** @name dxValidatorResult.isValid */
         isValid?: boolean;
         /** @name dxValidatorResult.pendingRules */
         pendingRules?: Array<AsyncRule>;
         /** @name dxValidatorResult.status */
-        status?: 'valid' | 'invalid' | 'pending';
+        status?: "valid" | "invalid" | "pending";
         /** @name dxValidatorResult.validationRules */
-        validationRules?: Array<RequiredRule | NumericRule | RangeRule | StringLengthRule | CustomRule | CompareRule | PatternRule | EmailRule | AsyncRule>;
+        validationRules?: Array<
+            | RequiredRule
+            | NumericRule
+            | RangeRule
+            | StringLengthRule
+            | CustomRule
+            | CompareRule
+            | PatternRule
+            | EmailRule
+            | AsyncRule
+        >;
         /** @name dxValidatorResult.value */
         value?: any;
     }
     /** @name format */
-    export type format = 'billions' | 'currency' | 'day' | 'decimal' | 'exponential' | 'fixedPoint' | 'largeNumber' | 'longDate' | 'longTime' | 'millions' | 'millisecond' | 'month' | 'monthAndDay' | 'monthAndYear' | 'percent' | 'quarter' | 'quarterAndYear' | 'shortDate' | 'shortTime' | 'thousands' | 'trillions' | 'year' | 'dayOfWeek' | 'hour' | 'longDateLongTime' | 'minute' | 'second' | 'shortDateShortTime' | string | ((value: number | Date) => string) | { currency?: string, formatter?: ((value: number | Date) => string), parser?: ((value: string) => number | Date), precision?: number, type?: 'billions' | 'currency' | 'day' | 'decimal' | 'exponential' | 'fixedPoint' | 'largeNumber' | 'longDate' | 'longTime' | 'millions' | 'millisecond' | 'month' | 'monthAndDay' | 'monthAndYear' | 'percent' | 'quarter' | 'quarterAndYear' | 'shortDate' | 'shortTime' | 'thousands' | 'trillions' | 'year' | 'dayOfWeek' | 'hour' | 'longDateLongTime' | 'minute' | 'second' | 'shortDateShortTime' };
+    export type format =
+        | "billions"
+        | "currency"
+        | "day"
+        | "decimal"
+        | "exponential"
+        | "fixedPoint"
+        | "largeNumber"
+        | "longDate"
+        | "longTime"
+        | "millions"
+        | "millisecond"
+        | "month"
+        | "monthAndDay"
+        | "monthAndYear"
+        | "percent"
+        | "quarter"
+        | "quarterAndYear"
+        | "shortDate"
+        | "shortTime"
+        | "thousands"
+        | "trillions"
+        | "year"
+        | "dayOfWeek"
+        | "hour"
+        | "longDateLongTime"
+        | "minute"
+        | "second"
+        | "shortDateShortTime"
+        | string
+        | ((value: number | Date) => string)
+        | {
+              currency?: string;
+              formatter?: (value: number | Date) => string;
+              parser?: (value: string) => number | Date;
+              precision?: number;
+              type?:
+                  | "billions"
+                  | "currency"
+                  | "day"
+                  | "decimal"
+                  | "exponential"
+                  | "fixedPoint"
+                  | "largeNumber"
+                  | "longDate"
+                  | "longTime"
+                  | "millions"
+                  | "millisecond"
+                  | "month"
+                  | "monthAndDay"
+                  | "monthAndYear"
+                  | "percent"
+                  | "quarter"
+                  | "quarterAndYear"
+                  | "shortDate"
+                  | "shortTime"
+                  | "thousands"
+                  | "trillions"
+                  | "year"
+                  | "dayOfWeek"
+                  | "hour"
+                  | "longDateLongTime"
+                  | "minute"
+                  | "second"
+                  | "shortDateShortTime";
+          };
     /** @deprecated */
     /** @name ui.template */
     export type template = DevExpress.core.template;
@@ -6555,11 +11690,24 @@ declare module DevExpress.ui {
 }
 declare module DevExpress.ui.dialog {
     /** @name ui.dialog.alert(messageHtml,title) */
-    export function alert(messageHtml: string, title: string): Promise<void> & JQueryPromise<void>;
+    export function alert(
+        messageHtml: string,
+        title: string
+    ): Promise<void> & JQueryPromise<void>;
     /** @name ui.dialog.confirm(messageHtml,title) */
-    export function confirm(messageHtml: string, title: string): Promise<boolean> & JQueryPromise<boolean>;
+    export function confirm(
+        messageHtml: string,
+        title: string
+    ): Promise<boolean> & JQueryPromise<boolean>;
     /** @name ui.dialog.custom(options) */
-    export function custom(options: { title?: string, messageHtml?: string, buttons?: Array<dxButtonOptions>, showTitle?: boolean, message?: string, dragEnabled?: boolean }): any;
+    export function custom(options: {
+        title?: string;
+        messageHtml?: string;
+        buttons?: Array<dxButtonOptions>;
+        showTitle?: boolean;
+        message?: string;
+        dragEnabled?: boolean;
+    }): any;
 }
 declare module DevExpress.ui.dxOverlay {
     /** @name ui.dxOverlay.baseZIndex(zIndex) */
@@ -6569,7 +11717,11 @@ declare module DevExpress.utils {
     /** @name utils.cancelAnimationFrame(requestID) */
     export function cancelAnimationFrame(requestID: number): void;
     /** @name utils.initMobileViewport(options) */
-    export function initMobileViewport(options: { allowZoom?: boolean, allowPan?: boolean, allowSelection?: boolean }): void;
+    export function initMobileViewport(options: {
+        allowZoom?: boolean;
+        allowPan?: boolean;
+        allowSelection?: boolean;
+    }): void;
     /** @name utils.requestAnimationFrame(callback) */
     export function requestAnimationFrame(callback: Function): number;
 }
@@ -6589,37 +11741,101 @@ declare module DevExpress.viz {
         item?: BarGaugeBarInfo;
     }
     /** @name BaseChart.Options */
-    export interface BaseChartOptions<T = BaseChart> extends BaseWidgetOptions<T> {
+    export interface BaseChartOptions<T = BaseChart>
+        extends BaseWidgetOptions<T> {
         /** @name BaseChart.Options.adaptiveLayout */
         adaptiveLayout?: BaseChartAdaptiveLayout;
         /** @name BaseChart.Options.animation */
-        animation?: { duration?: number, easing?: 'easeOutCubic' | 'linear', enabled?: boolean, maxPointCountSupported?: number } | boolean;
+        animation?:
+            | {
+                  duration?: number;
+                  easing?: "easeOutCubic" | "linear";
+                  enabled?: boolean;
+                  maxPointCountSupported?: number;
+              }
+            | boolean;
         /** @name BaseChart.Options.customizeLabel */
-        customizeLabel?: ((pointInfo: any) => dxChartSeriesTypesCommonSeriesLabel);
+        customizeLabel?: (
+            pointInfo: any
+        ) => dxChartSeriesTypesCommonSeriesLabel;
         /** @name BaseChart.Options.customizePoint */
-        customizePoint?: ((pointInfo: any) => dxChartSeriesTypesCommonSeriesPoint);
+        customizePoint?: (
+            pointInfo: any
+        ) => dxChartSeriesTypesCommonSeriesPoint;
         /** @name BaseChart.Options.dataSource */
-        dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string;
+        dataSource?:
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions
+            | string;
         /** @name BaseChart.Options.legend */
         legend?: BaseChartLegend;
         /** @name BaseChart.Options.onDone */
-        onDone?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onDone?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name BaseChart.Options.onPointClick */
-        onPointClick?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, target?: basePointObject }) => any) | string;
+        onPointClick?:
+            | ((e: {
+                  component?: T;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  target?: basePointObject;
+              }) => any)
+            | string;
         /** @name BaseChart.Options.onPointHoverChanged */
-        onPointHoverChanged?: ((e: { component?: any, element?: any, target?: basePointObject }) => any);
+        onPointHoverChanged?: (e: {
+            component?: any;
+            element?: any;
+            target?: basePointObject;
+        }) => any;
         /** @name BaseChart.Options.onPointSelectionChanged */
-        onPointSelectionChanged?: ((e: { component?: any, element?: any, target?: basePointObject }) => any);
+        onPointSelectionChanged?: (e: {
+            component?: any;
+            element?: any;
+            target?: basePointObject;
+        }) => any;
         /** @name BaseChart.Options.onTooltipHidden */
-        onTooltipHidden?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, target?: basePointObject | dxChartAnnotationConfig | any }) => any);
+        onTooltipHidden?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: basePointObject | dxChartAnnotationConfig | any;
+        }) => any;
         /** @name BaseChart.Options.onTooltipShown */
-        onTooltipShown?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, target?: basePointObject | dxChartAnnotationConfig | any }) => any);
+        onTooltipShown?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: basePointObject | dxChartAnnotationConfig | any;
+        }) => any;
         /** @name BaseChart.Options.palette */
-        palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office';
+        palette?:
+            | Array<string>
+            | "Bright"
+            | "Default"
+            | "Harmony Light"
+            | "Ocean"
+            | "Pastel"
+            | "Soft"
+            | "Soft Pastel"
+            | "Vintage"
+            | "Violet"
+            | "Carmine"
+            | "Dark Moon"
+            | "Dark Violet"
+            | "Green Mist"
+            | "Soft Blue"
+            | "Material"
+            | "Office";
         /** @name BaseChart.Options.paletteExtensionMode */
-        paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate';
+        paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
         /** @name BaseChart.Options.pointSelectionMode */
-        pointSelectionMode?: 'multiple' | 'single';
+        pointSelectionMode?: "multiple" | "single";
         /** @name BaseChart.Options.series */
         series?: any | Array<any>;
         /** @name BaseChart.Options.tooltip */
@@ -6637,25 +11853,37 @@ declare module DevExpress.viz {
     /** @name BaseChart.Options.legend */
     interface BaseChartLegend extends BaseLegend {
         /** @name BaseChart.Options.legend.customizeItems */
-        customizeItems?: ((items: Array<BaseChartLegendItem>) => Array<BaseChartLegendItem>);
+        customizeItems?: (
+            items: Array<BaseChartLegendItem>
+        ) => Array<BaseChartLegendItem>;
         /** @name BaseChart.Options.legend.markerTemplate */
-        markerTemplate?: DevExpress.core.template | ((legendItem: BaseChartLegendItem, element: SVGGElement) => string | SVGElement | JQuery);
+        markerTemplate?:
+            | DevExpress.core.template
+            | ((
+                  legendItem: BaseChartLegendItem,
+                  element: SVGGElement
+              ) => string | SVGElement | JQuery);
     }
     /** @name BaseChart.Options.tooltip */
     interface BaseChartTooltip extends BaseWidgetTooltip {
         /** @name BaseChart.Options.tooltip.argumentFormat */
         argumentFormat?: DevExpress.ui.format;
         /** @name BaseChart.Options.tooltip.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((pointInfo: any, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  pointInfo: any,
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name BaseChart.Options.tooltip.customizeTooltip */
-        customizeTooltip?: ((pointInfo: any) => any);
+        customizeTooltip?: (pointInfo: any) => any;
         /** @name BaseChart.Options.tooltip.shared */
         shared?: boolean;
     }
     /** @name BaseChart */
     export class BaseChart extends BaseWidget {
-        constructor(element: Element, options?: BaseChartOptions)
-        constructor(element: JQuery, options?: BaseChartOptions)
+        constructor(element: Element, options?: BaseChartOptions);
+        constructor(element: JQuery, options?: BaseChartOptions);
         /** @name BaseChart.clearSelection() */
         clearSelection(): void;
         /** @name BaseChart.getAllSeries() */
@@ -6686,11 +11914,18 @@ declare module DevExpress.viz {
         /** @name BaseChartAnnotationConfig.arrowWidth */
         arrowWidth?: number;
         /** @name BaseChartAnnotationConfig.border */
-        border?: { color?: string, cornerRadius?: number, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', opacity?: number, visible?: boolean, width?: number };
+        border?: {
+            color?: string;
+            cornerRadius?: number;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name BaseChartAnnotationConfig.color */
         color?: string;
         /** @name BaseChartAnnotationConfig.customizeTooltip */
-        customizeTooltip?: ((annotation: BaseChartAnnotationConfig | any) => any);
+        customizeTooltip?: (annotation: BaseChartAnnotationConfig | any) => any;
         /** @name BaseChartAnnotationConfig.data */
         data?: any;
         /** @name BaseChartAnnotationConfig.description */
@@ -6700,7 +11935,7 @@ declare module DevExpress.viz {
         /** @name BaseChartAnnotationConfig.height */
         height?: number;
         /** @name BaseChartAnnotationConfig.image */
-        image?: string | { height?: number, url?: string, width?: number };
+        image?: string | { height?: number; url?: string; width?: number };
         /** @name BaseChartAnnotationConfig.offsetX */
         offsetX?: number;
         /** @name BaseChartAnnotationConfig.offsetY */
@@ -6714,25 +11949,41 @@ declare module DevExpress.viz {
         /** @name BaseChartAnnotationConfig.series */
         series?: string;
         /** @name BaseChartAnnotationConfig.shadow */
-        shadow?: { blur?: number, color?: string, offsetX?: number, offsetY?: number, opacity?: number };
+        shadow?: {
+            blur?: number;
+            color?: string;
+            offsetX?: number;
+            offsetY?: number;
+            opacity?: number;
+        };
         /** @name BaseChartAnnotationConfig.template */
-        template?: DevExpress.core.template | ((annotation: BaseChartAnnotationConfig | any, element: SVGGElement) => string | SVGElement | JQuery);
+        template?:
+            | DevExpress.core.template
+            | ((
+                  annotation: BaseChartAnnotationConfig | any,
+                  element: SVGGElement
+              ) => string | SVGElement | JQuery);
         /** @name BaseChartAnnotationConfig.text */
         text?: string;
         /** @name BaseChartAnnotationConfig.textOverflow */
-        textOverflow?: 'ellipsis' | 'hide' | 'none';
+        textOverflow?: "ellipsis" | "hide" | "none";
         /** @name BaseChartAnnotationConfig.tooltipEnabled */
         tooltipEnabled?: boolean;
         /** @name BaseChartAnnotationConfig.tooltipTemplate */
-        tooltipTemplate?: DevExpress.core.template | ((annotation: BaseChartAnnotationConfig | any, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        tooltipTemplate?:
+            | DevExpress.core.template
+            | ((
+                  annotation: BaseChartAnnotationConfig | any,
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name BaseChartAnnotationConfig.type */
-        type?: 'text' | 'image' | 'custom';
+        type?: "text" | "image" | "custom";
         /** @name BaseChartAnnotationConfig.value */
         value?: number | Date | string;
         /** @name BaseChartAnnotationConfig.width */
         width?: number;
         /** @name BaseChartAnnotationConfig.wordWrap */
-        wordWrap?: 'normal' | 'breakWord' | 'none';
+        wordWrap?: "normal" | "breakWord" | "none";
         /** @name BaseChartAnnotationConfig.x */
         x?: number;
         /** @name BaseChartAnnotationConfig.y */
@@ -6744,7 +11995,8 @@ declare module DevExpress.viz {
         series?: baseSeriesObject;
     }
     /** @name BaseGauge.Options */
-    export interface BaseGaugeOptions<T = BaseGauge> extends BaseWidgetOptions<T> {
+    export interface BaseGaugeOptions<T = BaseGauge>
+        extends BaseWidgetOptions<T> {
         /** @name BaseGauge.Options.animation */
         animation?: BaseGaugeAnimation;
         /** @name BaseGauge.Options.containerBackgroundColor */
@@ -6752,9 +12004,19 @@ declare module DevExpress.viz {
         /** @name BaseGauge.Options.loadingIndicator */
         loadingIndicator?: BaseGaugeLoadingIndicator;
         /** @name BaseGauge.Options.onTooltipHidden */
-        onTooltipHidden?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, target?: any }) => any);
+        onTooltipHidden?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: any;
+        }) => any;
         /** @name BaseGauge.Options.onTooltipShown */
-        onTooltipShown?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, target?: any }) => any);
+        onTooltipShown?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: any;
+        }) => any;
         /** @name BaseGauge.Options.rangeContainer */
         rangeContainer?: BaseGaugeRangeContainer;
         /** @name BaseGauge.Options.scale */
@@ -6771,13 +12033,12 @@ declare module DevExpress.viz {
         /** @name BaseGauge.Options.animation.duration */
         duration?: number;
         /** @name BaseGauge.Options.animation.easing */
-        easing?: 'easeOutCubic' | 'linear';
+        easing?: "easeOutCubic" | "linear";
         /** @name BaseGauge.Options.animation.enabled */
         enabled?: boolean;
     }
     /** @name BaseGauge.Options.loadingIndicator */
-    interface BaseGaugeLoadingIndicator extends BaseWidgetLoadingIndicator {
-    }
+    interface BaseGaugeLoadingIndicator extends BaseWidgetLoadingIndicator {}
     /** @name BaseGauge.Options.rangeContainer */
     interface BaseGaugeRangeContainer {
         /** @name BaseGauge.Options.rangeContainer.backgroundColor */
@@ -6785,11 +12046,32 @@ declare module DevExpress.viz {
         /** @name BaseGauge.Options.rangeContainer.offset */
         offset?: number;
         /** @name BaseGauge.Options.rangeContainer.palette */
-        palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office';
+        palette?:
+            | Array<string>
+            | "Bright"
+            | "Default"
+            | "Harmony Light"
+            | "Ocean"
+            | "Pastel"
+            | "Soft"
+            | "Soft Pastel"
+            | "Vintage"
+            | "Violet"
+            | "Carmine"
+            | "Dark Moon"
+            | "Dark Violet"
+            | "Green Mist"
+            | "Soft Blue"
+            | "Material"
+            | "Office";
         /** @name BaseGauge.Options.rangeContainer.paletteExtensionMode */
-        paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate';
+        paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
         /** @name BaseGauge.Options.rangeContainer.ranges */
-        ranges?: Array<{ color?: string, endValue?: number, startValue?: number }>;
+        ranges?: Array<{
+            color?: string;
+            endValue?: number;
+            startValue?: number;
+        }>;
     }
     /** @name BaseGauge.Options.scale */
     interface BaseGaugeScale {
@@ -6804,7 +12086,13 @@ declare module DevExpress.viz {
         /** @name BaseGauge.Options.scale.label */
         label?: BaseGaugeScaleLabel;
         /** @name BaseGauge.Options.scale.minorTick */
-        minorTick?: { color?: string, length?: number, opacity?: number, visible?: boolean, width?: number };
+        minorTick?: {
+            color?: string;
+            length?: number;
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name BaseGauge.Options.scale.minorTickInterval */
         minorTickInterval?: number;
         /** @name BaseGauge.Options.scale.scaleDivisionFactor */
@@ -6812,20 +12100,29 @@ declare module DevExpress.viz {
         /** @name BaseGauge.Options.scale.startValue */
         startValue?: number;
         /** @name BaseGauge.Options.scale.tick */
-        tick?: { color?: string, length?: number, opacity?: number, visible?: boolean, width?: number };
+        tick?: {
+            color?: string;
+            length?: number;
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name BaseGauge.Options.scale.tickInterval */
         tickInterval?: number;
     }
     /** @name BaseGauge.Options.scale.label */
     interface BaseGaugeScaleLabel {
         /** @name BaseGauge.Options.scale.label.customizeText */
-        customizeText?: ((scaleValue: { value?: number, valueText?: string }) => string);
+        customizeText?: (scaleValue: {
+            value?: number;
+            valueText?: string;
+        }) => string;
         /** @name BaseGauge.Options.scale.label.font */
         font?: Font;
         /** @name BaseGauge.Options.scale.label.format */
         format?: DevExpress.ui.format;
         /** @name BaseGauge.Options.scale.label.overlappingBehavior */
-        overlappingBehavior?: 'hide' | 'none';
+        overlappingBehavior?: "hide" | "none";
         /** @name BaseGauge.Options.scale.label.useRangeColors */
         useRangeColors?: boolean;
         /** @name BaseGauge.Options.scale.label.visible */
@@ -6834,14 +12131,22 @@ declare module DevExpress.viz {
     /** @name BaseGauge.Options.tooltip */
     interface BaseGaugeTooltip extends BaseWidgetTooltip {
         /** @name BaseGauge.Options.tooltip.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((scaleValue: { value?: number, valueText?: string }, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  scaleValue: { value?: number; valueText?: string },
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name BaseGauge.Options.tooltip.customizeTooltip */
-        customizeTooltip?: ((scaleValue: { value?: number, valueText?: string }) => any);
+        customizeTooltip?: (scaleValue: {
+            value?: number;
+            valueText?: string;
+        }) => any;
     }
     /** @name BaseGauge */
     export class BaseGauge extends BaseWidget {
-        constructor(element: Element, options?: BaseGaugeOptions)
-        constructor(element: JQuery, options?: BaseGaugeOptions)
+        constructor(element: Element, options?: BaseGaugeOptions);
+        constructor(element: JQuery, options?: BaseGaugeOptions);
         /** @name BaseGauge.subvalues() */
         subvalues(): Array<number>;
         /** @name BaseGauge.subvalues(subvalues) */
@@ -6856,7 +12161,14 @@ declare module DevExpress.viz {
         /** @name BaseLegend.backgroundColor */
         backgroundColor?: string;
         /** @name BaseLegend.border */
-        border?: { color?: string, cornerRadius?: number, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', opacity?: number, visible?: boolean, width?: number };
+        border?: {
+            color?: string;
+            cornerRadius?: number;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name BaseLegend.columnCount */
         columnCount?: number;
         /** @name BaseLegend.columnItemSpacing */
@@ -6864,17 +12176,19 @@ declare module DevExpress.viz {
         /** @name BaseLegend.font */
         font?: Font;
         /** @name BaseLegend.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name BaseLegend.itemTextPosition */
-        itemTextPosition?: 'bottom' | 'left' | 'right' | 'top';
+        itemTextPosition?: "bottom" | "left" | "right" | "top";
         /** @name BaseLegend.itemsAlignment */
-        itemsAlignment?: 'center' | 'left' | 'right';
+        itemsAlignment?: "center" | "left" | "right";
         /** @name BaseLegend.margin */
-        margin?: number | { bottom?: number, left?: number, right?: number, top?: number };
+        margin?:
+            | number
+            | { bottom?: number; left?: number; right?: number; top?: number };
         /** @name BaseLegend.markerSize */
         markerSize?: number;
         /** @name BaseLegend.orientation */
-        orientation?: 'horizontal' | 'vertical';
+        orientation?: "horizontal" | "vertical";
         /** @name BaseLegend.paddingLeftRight */
         paddingLeftRight?: number;
         /** @name BaseLegend.paddingTopBottom */
@@ -6884,46 +12198,83 @@ declare module DevExpress.viz {
         /** @name BaseLegend.rowItemSpacing */
         rowItemSpacing?: number;
         /** @name BaseLegend.title */
-        title?: { font?: Font, horizontalAlignment?: 'center' | 'left' | 'right', margin?: { bottom?: number, left?: number, right?: number, top?: number }, placeholderSize?: number, subtitle?: { font?: Font, offset?: number, text?: string } | string, text?: string, verticalAlignment?: 'bottom' | 'top' } | string;
+        title?:
+            | {
+                  font?: Font;
+                  horizontalAlignment?: "center" | "left" | "right";
+                  margin?: {
+                      bottom?: number;
+                      left?: number;
+                      right?: number;
+                      top?: number;
+                  };
+                  placeholderSize?: number;
+                  subtitle?:
+                      | { font?: Font; offset?: number; text?: string }
+                      | string;
+                  text?: string;
+                  verticalAlignment?: "bottom" | "top";
+              }
+            | string;
         /** @name BaseLegend.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'top';
+        verticalAlignment?: "bottom" | "top";
         /** @name BaseLegend.visible */
         visible?: boolean;
     }
     /** @name BaseLegendItem */
     export interface BaseLegendItem {
         /** @name BaseLegendItem.marker */
-        marker?: { fill?: string, opacity?: number, size?: number, state?: 'normal' | 'hovered' | 'selected' };
+        marker?: {
+            fill?: string;
+            opacity?: number;
+            size?: number;
+            state?: "normal" | "hovered" | "selected";
+        };
         /** @name BaseLegendItem.text */
         text?: string;
         /** @name BaseLegendItem.visible */
         visible?: boolean;
     }
     /** @name BaseSparkline.Options */
-    export interface BaseSparklineOptions<T = BaseSparkline> extends BaseWidgetOptions<T> {
+    export interface BaseSparklineOptions<T = BaseSparkline>
+        extends BaseWidgetOptions<T> {
         /** @name BaseSparkline.Options.onTooltipHidden */
-        onTooltipHidden?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onTooltipHidden?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name BaseSparkline.Options.onTooltipShown */
-        onTooltipShown?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onTooltipShown?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name BaseSparkline.Options.tooltip */
         tooltip?: BaseSparklineTooltip;
     }
     /** @name BaseSparkline.Options.tooltip */
     interface BaseSparklineTooltip extends BaseWidgetTooltip {
         /** @name BaseSparkline.Options.tooltip.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((pointsInfo: any, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  pointsInfo: any,
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name BaseSparkline.Options.tooltip.customizeTooltip */
-        customizeTooltip?: ((pointsInfo: any) => any);
+        customizeTooltip?: (pointsInfo: any) => any;
         /** @name BaseSparkline.Options.tooltip.enabled */
         enabled?: boolean;
     }
     /** @name BaseSparkline */
     export class BaseSparkline extends BaseWidget {
-        constructor(element: Element, options?: BaseSparklineOptions)
-        constructor(element: JQuery, options?: BaseSparklineOptions)
+        constructor(element: Element, options?: BaseSparklineOptions);
+        constructor(element: JQuery, options?: BaseSparklineOptions);
     }
     /** @name BaseWidget.Options */
-    export interface BaseWidgetOptions<T = BaseWidget> extends DOMComponentOptions<T> {
+    export interface BaseWidgetOptions<T = BaseWidget>
+        extends DOMComponentOptions<T> {
         /** @name BaseWidget.Options.disabled */
         disabled?: boolean;
         /** @name BaseWidget.Options.export */
@@ -6933,15 +12284,42 @@ declare module DevExpress.viz {
         /** @name BaseWidget.Options.margin */
         margin?: BaseWidgetMargin;
         /** @name BaseWidget.Options.onDrawn */
-        onDrawn?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onDrawn?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name BaseWidget.Options.onExported */
-        onExported?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any }) => any);
+        onExported?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+        }) => any;
         /** @name BaseWidget.Options.onExporting */
-        onExporting?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, fileName?: string, cancel?: boolean, format?: string }) => any);
+        onExporting?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            fileName?: string;
+            cancel?: boolean;
+            format?: string;
+        }) => any;
         /** @name BaseWidget.Options.onFileSaving */
-        onFileSaving?: ((e: { component?: T, element?: DevExpress.core.dxElement, fileName?: string, format?: string, data?: Blob, cancel?: boolean }) => any);
+        onFileSaving?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            fileName?: string;
+            format?: string;
+            data?: Blob;
+            cancel?: boolean;
+        }) => any;
         /** @name BaseWidget.Options.onIncidentOccurred */
-        onIncidentOccurred?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, target?: any }) => any);
+        onIncidentOccurred?: (e: {
+            component?: T;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: any;
+        }) => any;
         /** @name BaseWidget.Options.pathModified */
         pathModified?: boolean;
         /** @name BaseWidget.Options.redrawOnResize */
@@ -6951,7 +12329,21 @@ declare module DevExpress.viz {
         /** @name BaseWidget.Options.size */
         size?: BaseWidgetSize;
         /** @name BaseWidget.Options.theme */
-        theme?: 'generic.dark' | 'generic.light' | 'generic.contrast' | 'ios7.default' | 'generic.carmine' | 'generic.darkmoon' | 'generic.darkviolet' | 'generic.greenmist' | 'generic.softblue' | 'material.blue.light' | 'material.lime.light' | 'material.orange.light' | 'material.purple.light' | 'material.teal.light';
+        theme?:
+            | "generic.dark"
+            | "generic.light"
+            | "generic.contrast"
+            | "ios7.default"
+            | "generic.carmine"
+            | "generic.darkmoon"
+            | "generic.darkviolet"
+            | "generic.greenmist"
+            | "generic.softblue"
+            | "material.blue.light"
+            | "material.lime.light"
+            | "material.orange.light"
+            | "material.purple.light"
+            | "material.teal.light";
         /** @name BaseWidget.Options.title */
         title?: BaseWidgetTitle | string;
         /** @name BaseWidget.Options.tooltip */
@@ -6966,7 +12358,7 @@ declare module DevExpress.viz {
         /** @name BaseWidget.Options.export.fileName */
         fileName?: string;
         /** @name BaseWidget.Options.export.formats */
-        formats?: Array<'GIF' | 'JPEG' | 'PDF' | 'PNG' | 'SVG'>;
+        formats?: Array<"GIF" | "JPEG" | "PDF" | "PNG" | "SVG">;
         /** @name BaseWidget.Options.export.margin */
         margin?: number;
         /** @name BaseWidget.Options.export.printingEnabled */
@@ -6975,7 +12367,10 @@ declare module DevExpress.viz {
         /** @name BaseWidget.Options.export.proxyUrl */
         proxyUrl?: string;
         /** @name BaseWidget.Options.export.svgToCanvas */
-        svgToCanvas?: ((svg: SVGElement, canvas: HTMLCanvasElement) => Promise<void> | JQueryPromise<void>);
+        svgToCanvas?: (
+            svg: SVGElement,
+            canvas: HTMLCanvasElement
+        ) => Promise<void> | JQueryPromise<void>;
     }
     /** @name BaseWidget.Options.loadingIndicator */
     interface BaseWidgetLoadingIndicator {
@@ -7013,28 +12408,44 @@ declare module DevExpress.viz {
         /** @name BaseWidget.Options.title.font */
         font?: Font;
         /** @name BaseWidget.Options.title.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name BaseWidget.Options.title.margin */
-        margin?: number | { bottom?: number, left?: number, right?: number, top?: number };
+        margin?:
+            | number
+            | { bottom?: number; left?: number; right?: number; top?: number };
         /** @name BaseWidget.Options.title.placeholderSize */
         placeholderSize?: number;
         /** @name BaseWidget.Options.title.subtitle */
-        subtitle?: { font?: Font, offset?: number, text?: string, textOverflow?: 'ellipsis' | 'hide' | 'none', wordWrap?: 'normal' | 'breakWord' | 'none' } | string;
+        subtitle?:
+            | {
+                  font?: Font;
+                  offset?: number;
+                  text?: string;
+                  textOverflow?: "ellipsis" | "hide" | "none";
+                  wordWrap?: "normal" | "breakWord" | "none";
+              }
+            | string;
         /** @name BaseWidget.Options.title.text */
         text?: string;
         /** @name BaseWidget.Options.title.textOverflow */
-        textOverflow?: 'ellipsis' | 'hide' | 'none';
+        textOverflow?: "ellipsis" | "hide" | "none";
         /** @name BaseWidget.Options.title.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'top';
+        verticalAlignment?: "bottom" | "top";
         /** @name BaseWidget.Options.title.wordWrap */
-        wordWrap?: 'normal' | 'breakWord' | 'none';
+        wordWrap?: "normal" | "breakWord" | "none";
     }
     /** @name BaseWidget.Options.tooltip */
     interface BaseWidgetTooltip {
         /** @name BaseWidget.Options.tooltip.arrowLength */
         arrowLength?: number;
         /** @name BaseWidget.Options.tooltip.border */
-        border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', opacity?: number, visible?: boolean, width?: number };
+        border?: {
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name BaseWidget.Options.tooltip.color */
         color?: string;
         /** @name BaseWidget.Options.tooltip.container */
@@ -7054,14 +12465,20 @@ declare module DevExpress.viz {
         /** @name BaseWidget.Options.tooltip.paddingTopBottom */
         paddingTopBottom?: number;
         /** @name BaseWidget.Options.tooltip.shadow */
-        shadow?: { blur?: number, color?: string, offsetX?: number, offsetY?: number, opacity?: number };
+        shadow?: {
+            blur?: number;
+            color?: string;
+            offsetX?: number;
+            offsetY?: number;
+            opacity?: number;
+        };
         /** @name BaseWidget.Options.tooltip.zIndex */
         zIndex?: number;
     }
     /** @name BaseWidget */
     export class BaseWidget extends DOMComponent {
-        constructor(element: Element, options?: BaseWidgetOptions)
-        constructor(element: JQuery, options?: BaseWidgetOptions)
+        constructor(element: Element, options?: BaseWidgetOptions);
+        constructor(element: JQuery, options?: BaseWidgetOptions);
         /** @name BaseWidget.exportTo(fileName, format) */
         exportTo(fileName: string, format: string): void;
         /** @name BaseWidget.getSize() */
@@ -7084,7 +12501,30 @@ declare module DevExpress.viz {
         /** @name ChartSeries.tag */
         tag?: any;
         /** @name ChartSeries.type */
-        type?: 'area' | 'bar' | 'bubble' | 'candlestick' | 'fullstackedarea' | 'fullstackedbar' | 'fullstackedline' | 'fullstackedspline' | 'fullstackedsplinearea' | 'line' | 'rangearea' | 'rangebar' | 'scatter' | 'spline' | 'splinearea' | 'stackedarea' | 'stackedbar' | 'stackedline' | 'stackedspline' | 'stackedsplinearea' | 'steparea' | 'stepline' | 'stock';
+        type?:
+            | "area"
+            | "bar"
+            | "bubble"
+            | "candlestick"
+            | "fullstackedarea"
+            | "fullstackedbar"
+            | "fullstackedline"
+            | "fullstackedspline"
+            | "fullstackedsplinearea"
+            | "line"
+            | "rangearea"
+            | "rangebar"
+            | "scatter"
+            | "spline"
+            | "splinearea"
+            | "stackedarea"
+            | "stackedbar"
+            | "stackedline"
+            | "stackedspline"
+            | "stackedsplinearea"
+            | "steparea"
+            | "stepline"
+            | "stock";
     }
     /** @name CommonIndicator */
     export interface CommonIndicator {
@@ -7099,7 +12539,7 @@ declare module DevExpress.viz {
         /** @name CommonIndicator.color */
         color?: string;
         /** @name CommonIndicator.horizontalOrientation */
-        horizontalOrientation?: 'left' | 'right';
+        horizontalOrientation?: "left" | "right";
         /** @name CommonIndicator.indentFromCenter */
         indentFromCenter?: number;
         /** @name CommonIndicator.length */
@@ -7107,7 +12547,24 @@ declare module DevExpress.viz {
         /** @name CommonIndicator.offset */
         offset?: number;
         /** @name CommonIndicator.palette */
-        palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office';
+        palette?:
+            | Array<string>
+            | "Bright"
+            | "Default"
+            | "Harmony Light"
+            | "Ocean"
+            | "Pastel"
+            | "Soft"
+            | "Soft Pastel"
+            | "Vintage"
+            | "Violet"
+            | "Carmine"
+            | "Dark Moon"
+            | "Dark Violet"
+            | "Green Mist"
+            | "Soft Blue"
+            | "Material"
+            | "Office";
         /** @name CommonIndicator.secondColor */
         secondColor?: string;
         /** @name CommonIndicator.secondFraction */
@@ -7119,9 +12576,17 @@ declare module DevExpress.viz {
         /** @name CommonIndicator.spindleSize */
         spindleSize?: number;
         /** @name CommonIndicator.text */
-        text?: { customizeText?: ((indicatedValue: { value?: number, valueText?: string }) => string), font?: Font, format?: DevExpress.ui.format, indent?: number };
+        text?: {
+            customizeText?: (indicatedValue: {
+                value?: number;
+                valueText?: string;
+            }) => string;
+            font?: Font;
+            format?: DevExpress.ui.format;
+            indent?: number;
+        };
         /** @name CommonIndicator.verticalOrientation */
-        verticalOrientation?: 'bottom' | 'top';
+        verticalOrientation?: "bottom" | "top";
         /** @name CommonIndicator.width */
         width?: number;
     }
@@ -7146,7 +12611,16 @@ declare module DevExpress.viz {
     /** @name GaugeIndicator */
     export interface GaugeIndicator extends CommonIndicator {
         /** @name GaugeIndicator.type */
-        type?: 'circle' | 'rangeBar' | 'rectangle' | 'rectangleNeedle' | 'rhombus' | 'textCloud' | 'triangleMarker' | 'triangleNeedle' | 'twoColorNeedle';
+        type?:
+            | "circle"
+            | "rangeBar"
+            | "rectangle"
+            | "rectangleNeedle"
+            | "rhombus"
+            | "textCloud"
+            | "triangleMarker"
+            | "triangleNeedle"
+            | "twoColorNeedle";
     }
     /** @name MapLayer */
     export class MapLayer {
@@ -7194,20 +12668,22 @@ declare module DevExpress.viz {
         text?: any;
     }
     /** @name PieChartSeries */
-    export interface PieChartSeries extends dxPieChartSeriesTypesCommonPieChartSeries {
+    export interface PieChartSeries
+        extends dxPieChartSeriesTypesCommonPieChartSeries {
         /** @name PieChartSeries.name */
         name?: string;
         /** @name PieChartSeries.tag */
         tag?: any;
     }
     /** @name PolarChartSeries */
-    export interface PolarChartSeries extends dxPolarChartSeriesTypesCommonPolarChartSeries {
+    export interface PolarChartSeries
+        extends dxPolarChartSeriesTypesCommonPolarChartSeries {
         /** @name PolarChartSeries.name */
         name?: string;
         /** @name PolarChartSeries.tag */
         tag?: any;
         /** @name PolarChartSeries.type */
-        type?: 'area' | 'bar' | 'line' | 'scatter' | 'stackedbar';
+        type?: "area" | "bar" | "line" | "scatter" | "stackedbar";
     }
     /** @name ScaleBreak */
     export interface ScaleBreak {
@@ -7232,21 +12708,53 @@ declare module DevExpress.viz {
         /** @name VectorMapProjectionConfig.aspectRatio */
         aspectRatio?: number;
         /** @name VectorMapProjectionConfig.from */
-        from?: ((coordinates: Array<number>) => Array<number>);
+        from?: (coordinates: Array<number>) => Array<number>;
         /** @name VectorMapProjectionConfig.to */
-        to?: ((coordinates: Array<number>) => Array<number>);
+        to?: (coordinates: Array<number>) => Array<number>;
     }
     /** @name VizRange */
     export interface VizRange {
         /** @name VizRange.endValue */
         endValue?: number | Date | string;
         /** @name VizRange.length */
-        length?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        length?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name VizRange.startValue */
         startValue?: number | Date | string;
     }
     /** @name VizTimeInterval */
-    export type VizTimeInterval = number | { days?: number, hours?: number, milliseconds?: number, minutes?: number, months?: number, quarters?: number, seconds?: number, weeks?: number, years?: number } | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+    export type VizTimeInterval =
+        | number
+        | {
+              days?: number;
+              hours?: number;
+              milliseconds?: number;
+              minutes?: number;
+              months?: number;
+              quarters?: number;
+              seconds?: number;
+              weeks?: number;
+              years?: number;
+          }
+        | "day"
+        | "hour"
+        | "millisecond"
+        | "minute"
+        | "month"
+        | "quarter"
+        | "second"
+        | "week"
+        | "year";
     /** @name baseLabelObject */
     export class baseLabelObject {
         /** @name baseLabelObject.getBoundingRect() */
@@ -7320,7 +12828,9 @@ declare module DevExpress.viz {
         /** @name baseSeriesObject.getPointByPos(positionIndex) */
         getPointByPos(positionIndex: number): basePointObject;
         /** @name baseSeriesObject.getPointsByArg(pointArg) */
-        getPointsByArg(pointArg: number | string | Date): Array<basePointObject>;
+        getPointsByArg(
+            pointArg: number | string | Date
+        ): Array<basePointObject>;
         /** @name baseSeriesObject.getVisiblePoints() */
         getVisiblePoints(): Array<basePointObject>;
         /** @name baseSeriesObject.hide() */
@@ -7345,7 +12855,9 @@ declare module DevExpress.viz {
         /** @name chartAxisObject.visualRange() */
         visualRange(): VizRange;
         /** @name chartAxisObject.visualRange(visualRange) */
-        visualRange(visualRange: Array<number | string | Date> | VizRange): void;
+        visualRange(
+            visualRange: Array<number | string | Date> | VizRange
+        ): void;
     }
     /** @name chartPointAggregationInfoObject */
     export interface chartPointAggregationInfoObject {
@@ -7417,25 +12929,63 @@ declare module DevExpress.viz {
         /** @name dxBarGauge.Options.endValue */
         endValue?: number;
         /** @name dxBarGauge.Options.geometry */
-        geometry?: { endAngle?: number, startAngle?: number };
+        geometry?: { endAngle?: number; startAngle?: number };
         /** @name dxBarGauge.Options.label */
-        label?: { connectorColor?: string, connectorWidth?: number, customizeText?: ((barValue: { value?: number, valueText?: string }) => string), font?: Font, format?: DevExpress.ui.format, indent?: number, visible?: boolean };
+        label?: {
+            connectorColor?: string;
+            connectorWidth?: number;
+            customizeText?: (barValue: {
+                value?: number;
+                valueText?: string;
+            }) => string;
+            font?: Font;
+            format?: DevExpress.ui.format;
+            indent?: number;
+            visible?: boolean;
+        };
         /** @name dxBarGauge.Options.legend */
         legend?: dxBarGaugeLegend;
         /** @name dxBarGauge.Options.loadingIndicator */
         loadingIndicator?: dxBarGaugeLoadingIndicator;
         /** @name dxBarGauge.Options.onTooltipHidden */
-        onTooltipHidden?: ((e: { component?: dxBarGauge, element?: DevExpress.core.dxElement, model?: any, target?: any }) => any);
+        onTooltipHidden?: (e: {
+            component?: dxBarGauge;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: any;
+        }) => any;
         /** @name dxBarGauge.Options.onTooltipShown */
-        onTooltipShown?: ((e: { component?: dxBarGauge, element?: DevExpress.core.dxElement, model?: any, target?: any }) => any);
+        onTooltipShown?: (e: {
+            component?: dxBarGauge;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: any;
+        }) => any;
         /** @name dxBarGauge.Options.palette */
-        palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office';
+        palette?:
+            | Array<string>
+            | "Bright"
+            | "Default"
+            | "Harmony Light"
+            | "Ocean"
+            | "Pastel"
+            | "Soft"
+            | "Soft Pastel"
+            | "Vintage"
+            | "Violet"
+            | "Carmine"
+            | "Dark Moon"
+            | "Dark Violet"
+            | "Green Mist"
+            | "Soft Blue"
+            | "Material"
+            | "Office";
         /** @name dxBarGauge.Options.paletteExtensionMode */
-        paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate';
+        paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
         /** @name dxBarGauge.Options.relativeInnerRadius */
         relativeInnerRadius?: number;
         /** @name dxBarGauge.Options.resolveLabelOverlapping */
-        resolveLabelOverlapping?: 'hide' | 'none';
+        resolveLabelOverlapping?: "hide" | "none";
         /** @name dxBarGauge.Options.startValue */
         startValue?: number;
         /** @name dxBarGauge.Options.tooltip */
@@ -7446,32 +12996,58 @@ declare module DevExpress.viz {
     /** @name dxBarGauge.Options.legend */
     export interface dxBarGaugeLegend extends BaseLegend {
         /** @name dxBarGauge.Options.legend.customizeHint */
-        customizeHint?: ((arg: { item?: BarGaugeBarInfo, text?: string }) => string);
+        customizeHint?: (arg: {
+            item?: BarGaugeBarInfo;
+            text?: string;
+        }) => string;
         /** @name dxBarGauge.Options.legend.customizeItems */
-        customizeItems?: ((items: Array<BarGaugeLegendItem>) => Array<BarGaugeLegendItem>);
+        customizeItems?: (
+            items: Array<BarGaugeLegendItem>
+        ) => Array<BarGaugeLegendItem>;
         /** @name dxBarGauge.Options.legend.customizeText */
-        customizeText?: ((arg: { item?: BarGaugeBarInfo, text?: string }) => string);
+        customizeText?: (arg: {
+            item?: BarGaugeBarInfo;
+            text?: string;
+        }) => string;
         /** @name dxBarGauge.Options.legend.itemTextFormat */
         itemTextFormat?: DevExpress.ui.format;
         /** @name dxBarGauge.Options.legend.markerTemplate */
-        markerTemplate?: DevExpress.core.template | ((legendItem: BarGaugeLegendItem, element: SVGGElement) => string | SVGElement | JQuery);
+        markerTemplate?:
+            | DevExpress.core.template
+            | ((
+                  legendItem: BarGaugeLegendItem,
+                  element: SVGGElement
+              ) => string | SVGElement | JQuery);
         /** @name dxBarGauge.Options.legend.visible */
         visible?: boolean;
     }
     /** @name dxBarGauge.Options.loadingIndicator */
-    export interface dxBarGaugeLoadingIndicator extends BaseWidgetLoadingIndicator {
-    }
+    export interface dxBarGaugeLoadingIndicator
+        extends BaseWidgetLoadingIndicator {}
     /** @name dxBarGauge.Options.tooltip */
     export interface dxBarGaugeTooltip extends BaseWidgetTooltip {
         /** @name dxBarGauge.Options.tooltip.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((scaleValue: { value?: number, valueText?: string, index?: number }, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  scaleValue: {
+                      value?: number;
+                      valueText?: string;
+                      index?: number;
+                  },
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxBarGauge.Options.tooltip.customizeTooltip */
-        customizeTooltip?: ((scaleValue: { value?: number, valueText?: string, index?: number }) => any);
+        customizeTooltip?: (scaleValue: {
+            value?: number;
+            valueText?: string;
+            index?: number;
+        }) => any;
     }
     /** @name dxBarGauge */
     export class dxBarGauge extends BaseWidget {
-        constructor(element: Element, options?: dxBarGaugeOptions)
-        constructor(element: JQuery, options?: dxBarGaugeOptions)
+        constructor(element: Element, options?: dxBarGaugeOptions);
+        constructor(element: JQuery, options?: dxBarGaugeOptions);
         /** @name dxBarGauge.values() */
         values(): Array<number>;
         /** @name dxBarGauge.values(newValues) */
@@ -7500,8 +13076,8 @@ declare module DevExpress.viz {
     }
     /** @name dxBullet */
     export class dxBullet extends BaseSparkline {
-        constructor(element: Element, options?: dxBulletOptions)
-        constructor(element: JQuery, options?: dxBulletOptions)
+        constructor(element: Element, options?: dxBulletOptions);
+        constructor(element: JQuery, options?: dxBulletOptions);
     }
     /** @name dxChart.Options */
     export interface dxChartOptions extends BaseChartOptions<dxChart> {
@@ -7531,11 +13107,74 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.containerBackgroundColor */
         containerBackgroundColor?: string;
         /** @name dxChart.Options.crosshair */
-        crosshair?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', enabled?: boolean, horizontalLine?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', label?: { backgroundColor?: string, customizeText?: ((info: { value?: Date | number | string, valueText?: string, point?: chartPointObject }) => string), font?: Font, format?: DevExpress.ui.format, visible?: boolean }, opacity?: number, visible?: boolean, width?: number } | boolean, label?: { backgroundColor?: string, customizeText?: ((info: { value?: Date | number | string, valueText?: string, point?: chartPointObject }) => string), font?: Font, format?: DevExpress.ui.format, visible?: boolean }, opacity?: number, verticalLine?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', label?: { backgroundColor?: string, customizeText?: ((info: { value?: Date | number | string, valueText?: string, point?: chartPointObject }) => string), font?: Font, format?: DevExpress.ui.format, visible?: boolean }, opacity?: number, visible?: boolean, width?: number } | boolean, width?: number };
+        crosshair?: {
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            enabled?: boolean;
+            horizontalLine?:
+                | {
+                      color?: string;
+                      dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                      label?: {
+                          backgroundColor?: string;
+                          customizeText?: (info: {
+                              value?: Date | number | string;
+                              valueText?: string;
+                              point?: chartPointObject;
+                          }) => string;
+                          font?: Font;
+                          format?: DevExpress.ui.format;
+                          visible?: boolean;
+                      };
+                      opacity?: number;
+                      visible?: boolean;
+                      width?: number;
+                  }
+                | boolean;
+            label?: {
+                backgroundColor?: string;
+                customizeText?: (info: {
+                    value?: Date | number | string;
+                    valueText?: string;
+                    point?: chartPointObject;
+                }) => string;
+                font?: Font;
+                format?: DevExpress.ui.format;
+                visible?: boolean;
+            };
+            opacity?: number;
+            verticalLine?:
+                | {
+                      color?: string;
+                      dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                      label?: {
+                          backgroundColor?: string;
+                          customizeText?: (info: {
+                              value?: Date | number | string;
+                              valueText?: string;
+                              point?: chartPointObject;
+                          }) => string;
+                          font?: Font;
+                          format?: DevExpress.ui.format;
+                          visible?: boolean;
+                      };
+                      opacity?: number;
+                      visible?: boolean;
+                      width?: number;
+                  }
+                | boolean;
+            width?: number;
+        };
         /** @name dxChart.Options.customizeAnnotation */
-        customizeAnnotation?: ((annotation: dxChartAnnotationConfig | any) => dxChartAnnotationConfig);
+        customizeAnnotation?: (
+            annotation: dxChartAnnotationConfig | any
+        ) => dxChartAnnotationConfig;
         /** @name dxChart.Options.dataPrepareSettings */
-        dataPrepareSettings?: { checkTypeForAllData?: boolean, convertToAxisDataType?: boolean, sortingMethod?: boolean | ((a: any, b: any) => number) };
+        dataPrepareSettings?: {
+            checkTypeForAllData?: boolean;
+            convertToAxisDataType?: boolean;
+            sortingMethod?: boolean | ((a: any, b: any) => number);
+        };
         /** @name dxChart.Options.defaultPane */
         defaultPane?: string;
         /** @deprecated */
@@ -7550,38 +13189,108 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.negativesAsZeroes */
         negativesAsZeroes?: boolean;
         /** @name dxChart.Options.onArgumentAxisClick */
-        onArgumentAxisClick?: ((e: { component?: dxChart, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, argument?: Date | number | string }) => any) | string;
+        onArgumentAxisClick?:
+            | ((e: {
+                  component?: dxChart;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  argument?: Date | number | string;
+              }) => any)
+            | string;
         /** @name dxChart.Options.onLegendClick */
-        onLegendClick?: ((e: { component?: dxChart, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, target?: chartSeriesObject }) => any) | string;
+        onLegendClick?:
+            | ((e: {
+                  component?: dxChart;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  target?: chartSeriesObject;
+              }) => any)
+            | string;
         /** @name dxChart.Options.onSeriesClick */
-        onSeriesClick?: ((e: { component?: dxChart, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, target?: chartSeriesObject }) => any) | string;
+        onSeriesClick?:
+            | ((e: {
+                  component?: dxChart;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  target?: chartSeriesObject;
+              }) => any)
+            | string;
         /** @name dxChart.Options.onSeriesHoverChanged */
-        onSeriesHoverChanged?: ((e: { component?: dxChart, element?: DevExpress.core.dxElement, model?: any, target?: chartSeriesObject }) => any);
+        onSeriesHoverChanged?: (e: {
+            component?: dxChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: chartSeriesObject;
+        }) => any;
         /** @name dxChart.Options.onSeriesSelectionChanged */
-        onSeriesSelectionChanged?: ((e: { component?: dxChart, element?: DevExpress.core.dxElement, model?: any, target?: chartSeriesObject }) => any);
+        onSeriesSelectionChanged?: (e: {
+            component?: dxChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: chartSeriesObject;
+        }) => any;
         /** @name dxChart.Options.onZoomEnd */
-        onZoomEnd?: ((e: { component?: dxChart, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, rangeStart?: Date | number, rangeEnd?: Date | number, axis?: chartAxisObject, range?: VizRange, previousRange?: VizRange, cancel?: boolean, actionType?: 'zoom' | 'pan', zoomFactor?: number, shift?: number }) => any);
+        onZoomEnd?: (e: {
+            component?: dxChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            rangeStart?: Date | number;
+            rangeEnd?: Date | number;
+            axis?: chartAxisObject;
+            range?: VizRange;
+            previousRange?: VizRange;
+            cancel?: boolean;
+            actionType?: "zoom" | "pan";
+            zoomFactor?: number;
+            shift?: number;
+        }) => any;
         /** @name dxChart.Options.onZoomStart */
-        onZoomStart?: ((e: { component?: dxChart, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, axis?: chartAxisObject, range?: VizRange, cancel?: boolean, actionType?: 'zoom' | 'pan' }) => any);
+        onZoomStart?: (e: {
+            component?: dxChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            axis?: chartAxisObject;
+            range?: VizRange;
+            cancel?: boolean;
+            actionType?: "zoom" | "pan";
+        }) => any;
         /** @name dxChart.Options.panes */
         panes?: dxChartPanes | Array<dxChartPanes>;
         /** @name dxChart.Options.resizePanesOnZoom */
         resizePanesOnZoom?: boolean;
         /** @name dxChart.Options.resolveLabelOverlapping */
-        resolveLabelOverlapping?: 'hide' | 'none' | 'stack';
+        resolveLabelOverlapping?: "hide" | "none" | "stack";
         /** @name dxChart.Options.rotated */
         rotated?: boolean;
         /** @name dxChart.Options.scrollBar */
-        scrollBar?: { color?: string, offset?: number, opacity?: number, position?: 'bottom' | 'left' | 'right' | 'top', visible?: boolean, width?: number };
+        scrollBar?: {
+            color?: string;
+            offset?: number;
+            opacity?: number;
+            position?: "bottom" | "left" | "right" | "top";
+            visible?: boolean;
+            width?: number;
+        };
         /** @deprecated */
         /** @name dxChart.Options.scrollingMode */
-        scrollingMode?: 'all' | 'mouse' | 'none' | 'touch';
+        scrollingMode?: "all" | "mouse" | "none" | "touch";
         /** @name dxChart.Options.series */
         series?: ChartSeries | Array<ChartSeries>;
         /** @name dxChart.Options.seriesSelectionMode */
-        seriesSelectionMode?: 'multiple' | 'single';
+        seriesSelectionMode?: "multiple" | "single";
         /** @name dxChart.Options.seriesTemplate */
-        seriesTemplate?: { customizeSeries?: ((seriesName: any) => ChartSeries), nameField?: string };
+        seriesTemplate?: {
+            customizeSeries?: (seriesName: any) => ChartSeries;
+            nameField?: string;
+        };
         /** @name dxChart.Options.stickyHovering */
         stickyHovering?: boolean;
         /** @name dxChart.Options.synchronizeMultiAxes */
@@ -7594,10 +13303,18 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.valueAxis */
         valueAxis?: dxChartValueAxis | Array<dxChartValueAxis>;
         /** @name dxChart.Options.zoomAndPan */
-        zoomAndPan?: { allowMouseWheel?: boolean, allowTouchGestures?: boolean, argumentAxis?: 'both' | 'none' | 'pan' | 'zoom', dragBoxStyle?: { color?: string, opacity?: number }, dragToZoom?: boolean, panKey?: 'alt' | 'ctrl' | 'meta' | 'shift', valueAxis?: 'both' | 'none' | 'pan' | 'zoom' };
+        zoomAndPan?: {
+            allowMouseWheel?: boolean;
+            allowTouchGestures?: boolean;
+            argumentAxis?: "both" | "none" | "pan" | "zoom";
+            dragBoxStyle?: { color?: string; opacity?: number };
+            dragToZoom?: boolean;
+            panKey?: "alt" | "ctrl" | "meta" | "shift";
+            valueAxis?: "both" | "none" | "pan" | "zoom";
+        };
         /** @deprecated */
         /** @name dxChart.Options.zoomingMode */
-        zoomingMode?: 'all' | 'mouse' | 'none' | 'touch';
+        zoomingMode?: "all" | "mouse" | "none" | "touch";
     }
     /** @name dxChart.Options.argumentAxis */
     export interface dxChartArgumentAxis extends dxChartCommonAxisSettings {
@@ -7606,9 +13323,20 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.argumentAxis.aggregationGroupWidth */
         aggregationGroupWidth?: number;
         /** @name dxChart.Options.argumentAxis.aggregationInterval */
-        aggregationInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        aggregationInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxChart.Options.argumentAxis.argumentType */
-        argumentType?: 'datetime' | 'numeric' | 'string';
+        argumentType?: "datetime" | "numeric" | "string";
         /** @name dxChart.Options.argumentAxis.axisDivisionFactor */
         axisDivisionFactor?: number;
         /** @name dxChart.Options.argumentAxis.breaks */
@@ -7628,7 +13356,7 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.argumentAxis.holidays */
         holidays?: Array<Date | string> | Array<number>;
         /** @name dxChart.Options.argumentAxis.hoverMode */
-        hoverMode?: 'allArgumentPoints' | 'none';
+        hoverMode?: "allArgumentPoints" | "none";
         /** @name dxChart.Options.argumentAxis.label */
         label?: dxChartArgumentAxisLabel;
         /** @name dxChart.Options.argumentAxis.linearThreshold */
@@ -7642,29 +13370,62 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.argumentAxis.min */
         min?: number | Date | string;
         /** @name dxChart.Options.argumentAxis.minVisualRangeLength */
-        minVisualRangeLength?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        minVisualRangeLength?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxChart.Options.argumentAxis.minorTickCount */
         minorTickCount?: number;
         /** @name dxChart.Options.argumentAxis.minorTickInterval */
-        minorTickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        minorTickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxChart.Options.argumentAxis.offset */
         offset?: number;
         /** @name dxChart.Options.argumentAxis.position */
-        position?: 'bottom' | 'left' | 'right' | 'top';
+        position?: "bottom" | "left" | "right" | "top";
         /** @name dxChart.Options.argumentAxis.singleWorkdays */
         singleWorkdays?: Array<Date | string> | Array<number>;
         /** @name dxChart.Options.argumentAxis.strips */
         strips?: Array<dxChartArgumentAxisStrips>;
         /** @name dxChart.Options.argumentAxis.tickInterval */
-        tickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        tickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxChart.Options.argumentAxis.title */
         title?: dxChartArgumentAxisTitle;
         /** @name dxChart.Options.argumentAxis.type */
-        type?: 'continuous' | 'discrete' | 'logarithmic';
+        type?: "continuous" | "discrete" | "logarithmic";
         /** @name dxChart.Options.argumentAxis.visualRange */
         visualRange?: VizRange | Array<number | string | Date>;
         /** @name dxChart.Options.argumentAxis.visualRangeUpdateMode */
-        visualRangeUpdateMode?: 'auto' | 'keep' | 'reset' | 'shift';
+        visualRangeUpdateMode?: "auto" | "keep" | "reset" | "shift";
         /** @name dxChart.Options.argumentAxis.wholeRange */
         wholeRange?: VizRange | Array<number | string | Date>;
         /** @name dxChart.Options.argumentAxis.workWeek */
@@ -7673,19 +13434,22 @@ declare module DevExpress.viz {
         workdaysOnly?: boolean;
     }
     /** @name dxChart.Options.argumentAxis.constantLineStyle */
-    export interface dxChartArgumentAxisConstantLineStyle extends dxChartCommonAxisSettingsConstantLineStyle {
+    export interface dxChartArgumentAxisConstantLineStyle
+        extends dxChartCommonAxisSettingsConstantLineStyle {
         /** @name dxChart.Options.argumentAxis.constantLineStyle.label */
         label?: dxChartArgumentAxisConstantLineStyleLabel;
     }
     /** @name dxChart.Options.argumentAxis.constantLineStyle.label */
-    export interface dxChartArgumentAxisConstantLineStyleLabel extends dxChartCommonAxisSettingsConstantLineStyleLabel {
+    export interface dxChartArgumentAxisConstantLineStyleLabel
+        extends dxChartCommonAxisSettingsConstantLineStyleLabel {
         /** @name dxChart.Options.argumentAxis.constantLineStyle.label.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name dxChart.Options.argumentAxis.constantLineStyle.label.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'center' | 'top';
+        verticalAlignment?: "bottom" | "center" | "top";
     }
     /** @name dxChart.Options.argumentAxis.constantLines */
-    export interface dxChartArgumentAxisConstantLines extends dxChartCommonAxisSettingsConstantLineStyle {
+    export interface dxChartArgumentAxisConstantLines
+        extends dxChartCommonAxisSettingsConstantLineStyle {
         /** @name dxChart.Options.argumentAxis.constantLines.displayBehindSeries */
         displayBehindSeries?: boolean;
         /** @name dxChart.Options.argumentAxis.constantLines.extendAxis */
@@ -7696,25 +13460,34 @@ declare module DevExpress.viz {
         value?: number | Date | string;
     }
     /** @name dxChart.Options.argumentAxis.constantLines.label */
-    export interface dxChartArgumentAxisConstantLinesLabel extends dxChartCommonAxisSettingsConstantLineStyleLabel {
+    export interface dxChartArgumentAxisConstantLinesLabel
+        extends dxChartCommonAxisSettingsConstantLineStyleLabel {
         /** @name dxChart.Options.argumentAxis.constantLines.label.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name dxChart.Options.argumentAxis.constantLines.label.text */
         text?: string;
         /** @name dxChart.Options.argumentAxis.constantLines.label.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'center' | 'top';
+        verticalAlignment?: "bottom" | "center" | "top";
     }
     /** @name dxChart.Options.argumentAxis.label */
-    export interface dxChartArgumentAxisLabel extends dxChartCommonAxisSettingsLabel {
+    export interface dxChartArgumentAxisLabel
+        extends dxChartCommonAxisSettingsLabel {
         /** @name dxChart.Options.argumentAxis.label.customizeHint */
-        customizeHint?: ((argument: { value?: Date | number | string, valueText?: string }) => string);
+        customizeHint?: (argument: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxChart.Options.argumentAxis.label.customizeText */
-        customizeText?: ((argument: { value?: Date | number | string, valueText?: string }) => string);
+        customizeText?: (argument: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxChart.Options.argumentAxis.label.format */
         format?: DevExpress.ui.format;
     }
     /** @name dxChart.Options.argumentAxis.strips */
-    export interface dxChartArgumentAxisStrips extends dxChartCommonAxisSettingsStripStyle {
+    export interface dxChartArgumentAxisStrips
+        extends dxChartCommonAxisSettingsStripStyle {
         /** @name dxChart.Options.argumentAxis.strips.color */
         color?: string;
         /** @name dxChart.Options.argumentAxis.strips.endValue */
@@ -7725,12 +13498,14 @@ declare module DevExpress.viz {
         startValue?: number | Date | string;
     }
     /** @name dxChart.Options.argumentAxis.strips.label */
-    export interface dxChartArgumentAxisStripsLabel extends dxChartCommonAxisSettingsStripStyleLabel {
+    export interface dxChartArgumentAxisStripsLabel
+        extends dxChartCommonAxisSettingsStripStyleLabel {
         /** @name dxChart.Options.argumentAxis.strips.label.text */
         text?: string;
     }
     /** @name dxChart.Options.argumentAxis.title */
-    export interface dxChartArgumentAxisTitle extends dxChartCommonAxisSettingsTitle {
+    export interface dxChartArgumentAxisTitle
+        extends dxChartCommonAxisSettingsTitle {
         /** @name dxChart.Options.argumentAxis.title.text */
         text?: string;
     }
@@ -7739,17 +13514,26 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.commonAxisSettings.allowDecimals */
         allowDecimals?: boolean;
         /** @name dxChart.Options.commonAxisSettings.breakStyle */
-        breakStyle?: { color?: string, line?: 'straight' | 'waved', width?: number };
+        breakStyle?: {
+            color?: string;
+            line?: "straight" | "waved";
+            width?: number;
+        };
         /** @name dxChart.Options.commonAxisSettings.color */
         color?: string;
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle */
         constantLineStyle?: dxChartCommonAxisSettingsConstantLineStyle;
         /** @name dxChart.Options.commonAxisSettings.discreteAxisDivisionMode */
-        discreteAxisDivisionMode?: 'betweenLabels' | 'crossLabels';
+        discreteAxisDivisionMode?: "betweenLabels" | "crossLabels";
         /** @name dxChart.Options.commonAxisSettings.endOnTick */
         endOnTick?: boolean;
         /** @name dxChart.Options.commonAxisSettings.grid */
-        grid?: { color?: string, opacity?: number, visible?: boolean, width?: number };
+        grid?: {
+            color?: string;
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxChart.Options.commonAxisSettings.inverted */
         inverted?: boolean;
         /** @name dxChart.Options.commonAxisSettings.label */
@@ -7759,9 +13543,21 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.commonAxisSettings.minValueMargin */
         minValueMargin?: number;
         /** @name dxChart.Options.commonAxisSettings.minorGrid */
-        minorGrid?: { color?: string, opacity?: number, visible?: boolean, width?: number };
+        minorGrid?: {
+            color?: string;
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxChart.Options.commonAxisSettings.minorTick */
-        minorTick?: { color?: string, length?: number, opacity?: number, shift?: number, visible?: boolean, width?: number };
+        minorTick?: {
+            color?: string;
+            length?: number;
+            opacity?: number;
+            shift?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxChart.Options.commonAxisSettings.opacity */
         opacity?: number;
         /** @name dxChart.Options.commonAxisSettings.placeholderSize */
@@ -7769,7 +13565,14 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.commonAxisSettings.stripStyle */
         stripStyle?: dxChartCommonAxisSettingsStripStyle;
         /** @name dxChart.Options.commonAxisSettings.tick */
-        tick?: { color?: string, length?: number, opacity?: number, shift?: number, visible?: boolean, width?: number };
+        tick?: {
+            color?: string;
+            length?: number;
+            opacity?: number;
+            shift?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxChart.Options.commonAxisSettings.title */
         title?: dxChartCommonAxisSettingsTitle;
         /** @name dxChart.Options.commonAxisSettings.valueMarginsEnabled */
@@ -7784,7 +13587,7 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle.color */
         color?: string;
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle.label */
         label?: dxChartCommonAxisSettingsConstantLineStyleLabel;
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle.paddingLeftRight */
@@ -7799,32 +13602,32 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle.label.font */
         font?: Font;
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle.label.position */
-        position?: 'inside' | 'outside';
+        position?: "inside" | "outside";
         /** @name dxChart.Options.commonAxisSettings.constantLineStyle.label.visible */
         visible?: boolean;
     }
     /** @name dxChart.Options.commonAxisSettings.label */
     export interface dxChartCommonAxisSettingsLabel {
         /** @name dxChart.Options.commonAxisSettings.label.alignment */
-        alignment?: 'center' | 'left' | 'right';
+        alignment?: "center" | "left" | "right";
         /** @name dxChart.Options.commonAxisSettings.label.displayMode */
-        displayMode?: 'rotate' | 'stagger' | 'standard';
+        displayMode?: "rotate" | "stagger" | "standard";
         /** @name dxChart.Options.commonAxisSettings.label.font */
         font?: Font;
         /** @name dxChart.Options.commonAxisSettings.label.indentFromAxis */
         indentFromAxis?: number;
         /** @name dxChart.Options.commonAxisSettings.label.overlappingBehavior */
-        overlappingBehavior?: 'rotate' | 'stagger' | 'none' | 'hide';
+        overlappingBehavior?: "rotate" | "stagger" | "none" | "hide";
         /** @name dxChart.Options.commonAxisSettings.label.rotationAngle */
         rotationAngle?: number;
         /** @name dxChart.Options.commonAxisSettings.label.staggeringSpacing */
         staggeringSpacing?: number;
         /** @name dxChart.Options.commonAxisSettings.label.textOverflow */
-        textOverflow?: 'ellipsis' | 'hide' | 'none';
+        textOverflow?: "ellipsis" | "hide" | "none";
         /** @name dxChart.Options.commonAxisSettings.label.visible */
         visible?: boolean;
         /** @name dxChart.Options.commonAxisSettings.label.wordWrap */
-        wordWrap?: 'normal' | 'breakWord' | 'none';
+        wordWrap?: "normal" | "breakWord" | "none";
     }
     /** @name dxChart.Options.commonAxisSettings.stripStyle */
     export interface dxChartCommonAxisSettingsStripStyle {
@@ -7840,32 +13643,43 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.commonAxisSettings.stripStyle.label.font */
         font?: Font;
         /** @name dxChart.Options.commonAxisSettings.stripStyle.label.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name dxChart.Options.commonAxisSettings.stripStyle.label.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'center' | 'top';
+        verticalAlignment?: "bottom" | "center" | "top";
     }
     /** @name dxChart.Options.commonAxisSettings.title */
     export interface dxChartCommonAxisSettingsTitle {
         /** @name dxChart.Options.commonAxisSettings.title.alignment */
-        alignment?: 'center' | 'left' | 'right';
+        alignment?: "center" | "left" | "right";
         /** @name dxChart.Options.commonAxisSettings.title.font */
         font?: Font;
         /** @name dxChart.Options.commonAxisSettings.title.margin */
         margin?: number;
         /** @name dxChart.Options.commonAxisSettings.title.textOverflow */
-        textOverflow?: 'ellipsis' | 'hide' | 'none';
+        textOverflow?: "ellipsis" | "hide" | "none";
         /** @name dxChart.Options.commonAxisSettings.title.wordWrap */
-        wordWrap?: 'normal' | 'breakWord' | 'none';
+        wordWrap?: "normal" | "breakWord" | "none";
     }
     /** @name dxChart.Options.commonPaneSettings */
     export interface dxChartCommonPaneSettings {
         /** @name dxChart.Options.commonPaneSettings.backgroundColor */
         backgroundColor?: string;
         /** @name dxChart.Options.commonPaneSettings.border */
-        border?: { bottom?: boolean, color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', left?: boolean, opacity?: number, right?: boolean, top?: boolean, visible?: boolean, width?: number };
+        border?: {
+            bottom?: boolean;
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            left?: boolean;
+            opacity?: number;
+            right?: boolean;
+            top?: boolean;
+            visible?: boolean;
+            width?: number;
+        };
     }
     /** @name dxChart.Options.commonSeriesSettings */
-    export interface dxChartCommonSeriesSettings extends dxChartSeriesTypesCommonSeries {
+    export interface dxChartCommonSeriesSettings
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChart.Options.commonSeriesSettings.area */
         area?: any;
         /** @name dxChart.Options.commonSeriesSettings.bar */
@@ -7913,18 +13727,49 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.commonSeriesSettings.stock */
         stock?: any;
         /** @name dxChart.Options.commonSeriesSettings.type */
-        type?: 'area' | 'bar' | 'bubble' | 'candlestick' | 'fullstackedarea' | 'fullstackedbar' | 'fullstackedline' | 'fullstackedspline' | 'fullstackedsplinearea' | 'line' | 'rangearea' | 'rangebar' | 'scatter' | 'spline' | 'splinearea' | 'stackedarea' | 'stackedbar' | 'stackedline' | 'stackedspline' | 'stackedsplinearea' | 'steparea' | 'stepline' | 'stock';
+        type?:
+            | "area"
+            | "bar"
+            | "bubble"
+            | "candlestick"
+            | "fullstackedarea"
+            | "fullstackedbar"
+            | "fullstackedline"
+            | "fullstackedspline"
+            | "fullstackedsplinearea"
+            | "line"
+            | "rangearea"
+            | "rangebar"
+            | "scatter"
+            | "spline"
+            | "splinearea"
+            | "stackedarea"
+            | "stackedbar"
+            | "stackedline"
+            | "stackedspline"
+            | "stackedsplinearea"
+            | "steparea"
+            | "stepline"
+            | "stock";
     }
     /** @name dxChart.Options.legend */
     export interface dxChartLegend extends BaseChartLegend {
         /** @name dxChart.Options.legend.customizeHint */
-        customizeHint?: ((seriesInfo: { seriesName?: any, seriesIndex?: number, seriesColor?: string }) => string);
+        customizeHint?: (seriesInfo: {
+            seriesName?: any;
+            seriesIndex?: number;
+            seriesColor?: string;
+        }) => string;
         /** @name dxChart.Options.legend.customizeText */
-        customizeText?: ((seriesInfo: { seriesName?: any, seriesIndex?: number, seriesColor?: string }) => string);
+        customizeText?: (seriesInfo: {
+            seriesName?: any;
+            seriesIndex?: number;
+            seriesColor?: string;
+        }) => string;
         /** @name dxChart.Options.legend.hoverMode */
-        hoverMode?: 'excludePoints' | 'includePoints' | 'none';
+        hoverMode?: "excludePoints" | "includePoints" | "none";
         /** @name dxChart.Options.legend.position */
-        position?: 'inside' | 'outside';
+        position?: "inside" | "outside";
     }
     /** @name dxChart.Options.panes */
     export interface dxChartPanes extends dxChartCommonPaneSettings {
@@ -7936,7 +13781,7 @@ declare module DevExpress.viz {
     /** @name dxChart.Options.tooltip */
     export interface dxChartTooltip extends BaseChartTooltip {
         /** @name dxChart.Options.tooltip.location */
-        location?: 'center' | 'edge';
+        location?: "center" | "edge";
     }
     /** @name dxChart.Options.valueAxis */
     export interface dxChartValueAxis extends dxChartCommonAxisSettings {
@@ -7971,11 +13816,33 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.valueAxis.min */
         min?: number | Date | string;
         /** @name dxChart.Options.valueAxis.minVisualRangeLength */
-        minVisualRangeLength?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        minVisualRangeLength?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxChart.Options.valueAxis.minorTickCount */
         minorTickCount?: number;
         /** @name dxChart.Options.valueAxis.minorTickInterval */
-        minorTickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        minorTickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxChart.Options.valueAxis.multipleAxesSpacing */
         multipleAxesSpacing?: number;
         /** @name dxChart.Options.valueAxis.name */
@@ -7985,7 +13852,7 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.valueAxis.pane */
         pane?: string;
         /** @name dxChart.Options.valueAxis.position */
-        position?: 'bottom' | 'left' | 'right' | 'top';
+        position?: "bottom" | "left" | "right" | "top";
         /** @name dxChart.Options.valueAxis.showZero */
         showZero?: boolean;
         /** @name dxChart.Options.valueAxis.strips */
@@ -7993,34 +13860,48 @@ declare module DevExpress.viz {
         /** @name dxChart.Options.valueAxis.synchronizedValue */
         synchronizedValue?: number;
         /** @name dxChart.Options.valueAxis.tickInterval */
-        tickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        tickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxChart.Options.valueAxis.title */
         title?: dxChartValueAxisTitle;
         /** @name dxChart.Options.valueAxis.type */
-        type?: 'continuous' | 'discrete' | 'logarithmic';
+        type?: "continuous" | "discrete" | "logarithmic";
         /** @name dxChart.Options.valueAxis.valueType */
-        valueType?: 'datetime' | 'numeric' | 'string';
+        valueType?: "datetime" | "numeric" | "string";
         /** @name dxChart.Options.valueAxis.visualRange */
         visualRange?: VizRange | Array<number | string | Date>;
         /** @name dxChart.Options.valueAxis.visualRangeUpdateMode */
-        visualRangeUpdateMode?: 'auto' | 'keep' | 'reset' | 'shift';
+        visualRangeUpdateMode?: "auto" | "keep" | "reset" | "shift";
         /** @name dxChart.Options.valueAxis.wholeRange */
         wholeRange?: VizRange | Array<number | string | Date>;
     }
     /** @name dxChart.Options.valueAxis.constantLineStyle */
-    export interface dxChartValueAxisConstantLineStyle extends dxChartCommonAxisSettingsConstantLineStyle {
+    export interface dxChartValueAxisConstantLineStyle
+        extends dxChartCommonAxisSettingsConstantLineStyle {
         /** @name dxChart.Options.valueAxis.constantLineStyle.label */
         label?: dxChartValueAxisConstantLineStyleLabel;
     }
     /** @name dxChart.Options.valueAxis.constantLineStyle.label */
-    export interface dxChartValueAxisConstantLineStyleLabel extends dxChartCommonAxisSettingsConstantLineStyleLabel {
+    export interface dxChartValueAxisConstantLineStyleLabel
+        extends dxChartCommonAxisSettingsConstantLineStyleLabel {
         /** @name dxChart.Options.valueAxis.constantLineStyle.label.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name dxChart.Options.valueAxis.constantLineStyle.label.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'center' | 'top';
+        verticalAlignment?: "bottom" | "center" | "top";
     }
     /** @name dxChart.Options.valueAxis.constantLines */
-    export interface dxChartValueAxisConstantLines extends dxChartCommonAxisSettingsConstantLineStyle {
+    export interface dxChartValueAxisConstantLines
+        extends dxChartCommonAxisSettingsConstantLineStyle {
         /** @name dxChart.Options.valueAxis.constantLines.displayBehindSeries */
         displayBehindSeries?: boolean;
         /** @name dxChart.Options.valueAxis.constantLines.extendAxis */
@@ -8031,25 +13912,34 @@ declare module DevExpress.viz {
         value?: number | Date | string;
     }
     /** @name dxChart.Options.valueAxis.constantLines.label */
-    export interface dxChartValueAxisConstantLinesLabel extends dxChartCommonAxisSettingsConstantLineStyleLabel {
+    export interface dxChartValueAxisConstantLinesLabel
+        extends dxChartCommonAxisSettingsConstantLineStyleLabel {
         /** @name dxChart.Options.valueAxis.constantLines.label.horizontalAlignment */
-        horizontalAlignment?: 'center' | 'left' | 'right';
+        horizontalAlignment?: "center" | "left" | "right";
         /** @name dxChart.Options.valueAxis.constantLines.label.text */
         text?: string;
         /** @name dxChart.Options.valueAxis.constantLines.label.verticalAlignment */
-        verticalAlignment?: 'bottom' | 'center' | 'top';
+        verticalAlignment?: "bottom" | "center" | "top";
     }
     /** @name dxChart.Options.valueAxis.label */
-    export interface dxChartValueAxisLabel extends dxChartCommonAxisSettingsLabel {
+    export interface dxChartValueAxisLabel
+        extends dxChartCommonAxisSettingsLabel {
         /** @name dxChart.Options.valueAxis.label.customizeHint */
-        customizeHint?: ((axisValue: { value?: Date | number | string, valueText?: string }) => string);
+        customizeHint?: (axisValue: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxChart.Options.valueAxis.label.customizeText */
-        customizeText?: ((axisValue: { value?: Date | number | string, valueText?: string }) => string);
+        customizeText?: (axisValue: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxChart.Options.valueAxis.label.format */
         format?: DevExpress.ui.format;
     }
     /** @name dxChart.Options.valueAxis.strips */
-    export interface dxChartValueAxisStrips extends dxChartCommonAxisSettingsStripStyle {
+    export interface dxChartValueAxisStrips
+        extends dxChartCommonAxisSettingsStripStyle {
         /** @name dxChart.Options.valueAxis.strips.color */
         color?: string;
         /** @name dxChart.Options.valueAxis.strips.endValue */
@@ -8060,19 +13950,21 @@ declare module DevExpress.viz {
         startValue?: number | Date | string;
     }
     /** @name dxChart.Options.valueAxis.strips.label */
-    export interface dxChartValueAxisStripsLabel extends dxChartCommonAxisSettingsStripStyleLabel {
+    export interface dxChartValueAxisStripsLabel
+        extends dxChartCommonAxisSettingsStripStyleLabel {
         /** @name dxChart.Options.valueAxis.strips.label.text */
         text?: string;
     }
     /** @name dxChart.Options.valueAxis.title */
-    export interface dxChartValueAxisTitle extends dxChartCommonAxisSettingsTitle {
+    export interface dxChartValueAxisTitle
+        extends dxChartCommonAxisSettingsTitle {
         /** @name dxChart.Options.valueAxis.title.text */
         text?: string;
     }
     /** @name dxChart */
     export class dxChart extends BaseChart {
-        constructor(element: Element, options?: dxChartOptions)
-        constructor(element: JQuery, options?: dxChartOptions)
+        constructor(element: Element, options?: dxChartOptions);
+        constructor(element: JQuery, options?: dxChartOptions);
         /** @name dxChart.getArgumentAxis() */
         getArgumentAxis(): chartAxisObject;
         /** @name dxChart.getValueAxis() */
@@ -8082,15 +13974,20 @@ declare module DevExpress.viz {
         /** @name dxChart.resetVisualRange() */
         resetVisualRange(): void;
         /** @name dxChart.zoomArgument(startValue,endValue) */
-        zoomArgument(startValue: number | Date | string, endValue: number | Date | string): void;
+        zoomArgument(
+            startValue: number | Date | string,
+            endValue: number | Date | string
+        ): void;
     }
     /** @name dxChartAnnotationConfig */
-    export interface dxChartAnnotationConfig extends dxChartCommonAnnotationConfig {
+    export interface dxChartAnnotationConfig
+        extends dxChartCommonAnnotationConfig {
         /** @name dxChartAnnotationConfig.name */
         name?: string;
     }
     /** @name dxChartCommonAnnotationConfig */
-    export interface dxChartCommonAnnotationConfig extends BaseChartAnnotationConfig {
+    export interface dxChartCommonAnnotationConfig
+        extends BaseChartAnnotationConfig {
         /** @name dxChartCommonAnnotationConfig.axis */
         axis?: string;
     }
@@ -8146,121 +14043,162 @@ declare module DevExpress.viz {
         StockSeries?: dxChartSeriesTypesStockSeries;
     }
     /** @name dxChartSeriesTypes.AreaSeries */
-    interface dxChartSeriesTypesAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.AreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.AreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.AreaSeries.label */
         label?: dxChartSeriesTypesAreaSeriesLabel;
         /** @name dxChartSeriesTypes.AreaSeries.point */
         point?: dxChartSeriesTypesAreaSeriesPoint;
         /** @name dxChartSeriesTypes.AreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.AreaSeries.aggregation */
-    interface dxChartSeriesTypesAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.AreaSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.AreaSeries.label */
-    interface dxChartSeriesTypesAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.AreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.AreaSeries.point */
-    interface dxChartSeriesTypesAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.AreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.BarSeries */
-    interface dxChartSeriesTypesBarSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesBarSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.BarSeries.aggregation */
         aggregation?: dxChartSeriesTypesBarSeriesAggregation;
         /** @name dxChartSeriesTypes.BarSeries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.BarSeries.label */
         label?: dxChartSeriesTypesBarSeriesLabel;
         /** @name dxChartSeriesTypes.BarSeries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxChartSeriesTypes.BarSeries.aggregation */
-    interface dxChartSeriesTypesBarSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesBarSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.BarSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.BarSeries.label */
-    interface dxChartSeriesTypesBarSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesBarSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.BarSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.BubbleSeries */
-    interface dxChartSeriesTypesBubbleSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesBubbleSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.BubbleSeries.aggregation */
         aggregation?: dxChartSeriesTypesBubbleSeriesAggregation;
         /** @name dxChartSeriesTypes.BubbleSeries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.BubbleSeries.label */
         label?: dxChartSeriesTypesBubbleSeriesLabel;
         /** @name dxChartSeriesTypes.BubbleSeries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxChartSeriesTypes.BubbleSeries.aggregation */
-    interface dxChartSeriesTypesBubbleSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesBubbleSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.BubbleSeries.aggregation.method */
-        method?: 'avg' | 'custom';
+        method?: "avg" | "custom";
     }
     /** @name dxChartSeriesTypes.BubbleSeries.label */
-    interface dxChartSeriesTypesBubbleSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesBubbleSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.BubbleSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.CandleStickSeries */
-    interface dxChartSeriesTypesCandleStickSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesCandleStickSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.CandleStickSeries.aggregation */
         aggregation?: dxChartSeriesTypesCandleStickSeriesAggregation;
         /** @name dxChartSeriesTypes.CandleStickSeries.argumentField */
         argumentField?: string;
         /** @name dxChartSeriesTypes.CandleStickSeries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.CandleStickSeries.hoverStyle */
         hoverStyle?: dxChartSeriesTypesCandleStickSeriesHoverStyle;
         /** @name dxChartSeriesTypes.CandleStickSeries.label */
         label?: dxChartSeriesTypesCandleStickSeriesLabel;
         /** @name dxChartSeriesTypes.CandleStickSeries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.CandleStickSeries.selectionStyle */
         selectionStyle?: dxChartSeriesTypesCandleStickSeriesSelectionStyle;
     }
     /** @name dxChartSeriesTypes.CandleStickSeries.aggregation */
-    interface dxChartSeriesTypesCandleStickSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesCandleStickSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.CandleStickSeries.aggregation.method */
-        method?: 'ohlc' | 'custom';
+        method?: "ohlc" | "custom";
     }
     /** @name dxChartSeriesTypes.CandleStickSeries.hoverStyle */
-    interface dxChartSeriesTypesCandleStickSeriesHoverStyle extends dxChartSeriesTypesCommonSeriesHoverStyle {
+    interface dxChartSeriesTypesCandleStickSeriesHoverStyle
+        extends dxChartSeriesTypesCommonSeriesHoverStyle {
         /** @name dxChartSeriesTypes.CandleStickSeries.hoverStyle.hatching */
         hatching?: dxChartSeriesTypesCandleStickSeriesHoverStyleHatching;
     }
     /** @name dxChartSeriesTypes.CandleStickSeries.hoverStyle.hatching */
-    interface dxChartSeriesTypesCandleStickSeriesHoverStyleHatching extends dxChartSeriesTypesCommonSeriesHoverStyleHatching {
+    interface dxChartSeriesTypesCandleStickSeriesHoverStyleHatching
+        extends dxChartSeriesTypesCommonSeriesHoverStyleHatching {
         /** @name dxChartSeriesTypes.CandleStickSeries.hoverStyle.hatching.direction */
-        direction?: 'left' | 'none' | 'right';
+        direction?: "left" | "none" | "right";
     }
     /** @name dxChartSeriesTypes.CandleStickSeries.label */
-    interface dxChartSeriesTypesCandleStickSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesCandleStickSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.CandleStickSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.CandleStickSeries.selectionStyle */
-    interface dxChartSeriesTypesCandleStickSeriesSelectionStyle extends dxChartSeriesTypesCommonSeriesSelectionStyle {
+    interface dxChartSeriesTypesCandleStickSeriesSelectionStyle
+        extends dxChartSeriesTypesCommonSeriesSelectionStyle {
         /** @name dxChartSeriesTypes.CandleStickSeries.selectionStyle.hatching */
         hatching?: dxChartSeriesTypesCandleStickSeriesSelectionStyleHatching;
     }
     /** @name dxChartSeriesTypes.CandleStickSeries.selectionStyle.hatching */
-    interface dxChartSeriesTypesCandleStickSeriesSelectionStyleHatching extends dxChartSeriesTypesCommonSeriesSelectionStyleHatching {
+    interface dxChartSeriesTypesCandleStickSeriesSelectionStyleHatching
+        extends dxChartSeriesTypesCommonSeriesSelectionStyleHatching {
         /** @name dxChartSeriesTypes.CandleStickSeries.selectionStyle.hatching.direction */
-        direction?: 'left' | 'none' | 'right';
+        direction?: "left" | "none" | "right";
     }
     /** @name dxChartSeriesTypes.CommonSeries */
     interface dxChartSeriesTypesCommonSeries {
@@ -8285,11 +14223,18 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.cornerRadius */
         cornerRadius?: number;
         /** @name dxChartSeriesTypes.CommonSeries.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxChartSeriesTypes.CommonSeries.highValueField */
         highValueField?: string;
         /** @name dxChartSeriesTypes.CommonSeries.hoverMode */
-        hoverMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'excludePoints' | 'includePoints' | 'nearestPoint' | 'none' | 'onlyPoint';
+        hoverMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "excludePoints"
+            | "includePoints"
+            | "nearestPoint"
+            | "none"
+            | "onlyPoint";
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle */
         hoverStyle?: dxChartSeriesTypesCommonSeriesHoverStyle;
         /** @name dxChartSeriesTypes.CommonSeries.ignoreEmptyPoints */
@@ -8317,9 +14262,18 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.rangeValue2Field */
         rangeValue2Field?: string;
         /** @name dxChartSeriesTypes.CommonSeries.reduction */
-        reduction?: { color?: string, level?: 'close' | 'high' | 'low' | 'open' };
+        reduction?: {
+            color?: string;
+            level?: "close" | "high" | "low" | "open";
+        };
         /** @name dxChartSeriesTypes.CommonSeries.selectionMode */
-        selectionMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'excludePoints' | 'includePoints' | 'none' | 'onlyPoint';
+        selectionMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "excludePoints"
+            | "includePoints"
+            | "none"
+            | "onlyPoint";
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle */
         selectionStyle?: dxChartSeriesTypesCommonSeriesSelectionStyle;
         /** @name dxChartSeriesTypes.CommonSeries.showInLegend */
@@ -8331,7 +14285,22 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.tagField */
         tagField?: string;
         /** @name dxChartSeriesTypes.CommonSeries.valueErrorBar */
-        valueErrorBar?: { color?: string, displayMode?: 'auto' | 'high' | 'low' | 'none', edgeLength?: number, highValueField?: string, lineWidth?: number, lowValueField?: string, opacity?: number, type?: 'fixed' | 'percent' | 'stdDeviation' | 'stdError' | 'variance', value?: number };
+        valueErrorBar?: {
+            color?: string;
+            displayMode?: "auto" | "high" | "low" | "none";
+            edgeLength?: number;
+            highValueField?: string;
+            lineWidth?: number;
+            lowValueField?: string;
+            opacity?: number;
+            type?:
+                | "fixed"
+                | "percent"
+                | "stdDeviation"
+                | "stdError"
+                | "variance";
+            value?: number;
+        };
         /** @name dxChartSeriesTypes.CommonSeries.valueField */
         valueField?: string;
         /** @name dxChartSeriesTypes.CommonSeries.visible */
@@ -8342,18 +14311,29 @@ declare module DevExpress.viz {
     /** @name dxChartSeriesTypes.CommonSeries.aggregation */
     interface dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.CommonSeries.aggregation.calculate */
-        calculate?: ((aggregationInfo: chartPointAggregationInfoObject, series: chartSeriesObject) => any | Array<any>);
+        calculate?: (
+            aggregationInfo: chartPointAggregationInfoObject,
+            series: chartSeriesObject
+        ) => any | Array<any>;
         /** @name dxChartSeriesTypes.CommonSeries.aggregation.enabled */
         enabled?: boolean;
         /** @name dxChartSeriesTypes.CommonSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'ohlc' | 'range' | 'sum' | 'custom';
+        method?:
+            | "avg"
+            | "count"
+            | "max"
+            | "min"
+            | "ohlc"
+            | "range"
+            | "sum"
+            | "custom";
     }
     /** @name dxChartSeriesTypes.CommonSeries.border */
     interface dxChartSeriesTypesCommonSeriesBorder {
         /** @name dxChartSeriesTypes.CommonSeries.border.color */
         color?: string;
         /** @name dxChartSeriesTypes.CommonSeries.border.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxChartSeriesTypes.CommonSeries.border.visible */
         visible?: boolean;
         /** @name dxChartSeriesTypes.CommonSeries.border.width */
@@ -8366,7 +14346,7 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.color */
         color?: string;
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.hatching */
         hatching?: dxChartSeriesTypesCommonSeriesHoverStyleHatching;
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.width */
@@ -8377,7 +14357,7 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.border.color */
         color?: string;
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.border.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.border.visible */
         visible?: boolean;
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.border.width */
@@ -8386,7 +14366,7 @@ declare module DevExpress.viz {
     /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.hatching */
     interface dxChartSeriesTypesCommonSeriesHoverStyleHatching {
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.hatching.direction */
-        direction?: 'left' | 'none' | 'right';
+        direction?: "left" | "none" | "right";
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.hatching.opacity */
         opacity?: number;
         /** @name dxChartSeriesTypes.CommonSeries.hoverStyle.hatching.step */
@@ -8397,17 +14377,22 @@ declare module DevExpress.viz {
     /** @name dxChartSeriesTypes.CommonSeries.label */
     interface dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.CommonSeries.label.alignment */
-        alignment?: 'center' | 'left' | 'right';
+        alignment?: "center" | "left" | "right";
         /** @name dxChartSeriesTypes.CommonSeries.label.argumentFormat */
         argumentFormat?: DevExpress.ui.format;
         /** @name dxChartSeriesTypes.CommonSeries.label.backgroundColor */
         backgroundColor?: string;
         /** @name dxChartSeriesTypes.CommonSeries.label.border */
-        border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number };
+        border?: {
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxChartSeriesTypes.CommonSeries.label.connector */
-        connector?: { color?: string, visible?: boolean, width?: number };
+        connector?: { color?: string; visible?: boolean; width?: number };
         /** @name dxChartSeriesTypes.CommonSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
         /** @name dxChartSeriesTypes.CommonSeries.label.font */
         font?: Font;
         /** @name dxChartSeriesTypes.CommonSeries.label.format */
@@ -8415,7 +14400,7 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.label.horizontalOffset */
         horizontalOffset?: number;
         /** @name dxChartSeriesTypes.CommonSeries.label.position */
-        position?: 'inside' | 'outside';
+        position?: "inside" | "outside";
         /** @name dxChartSeriesTypes.CommonSeries.label.rotationAngle */
         rotationAngle?: number;
         /** @name dxChartSeriesTypes.CommonSeries.label.showForZeroValues */
@@ -8428,23 +14413,57 @@ declare module DevExpress.viz {
     /** @name dxChartSeriesTypes.CommonSeries.point */
     interface dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.CommonSeries.point.border */
-        border?: { color?: string, visible?: boolean, width?: number };
+        border?: { color?: string; visible?: boolean; width?: number };
         /** @name dxChartSeriesTypes.CommonSeries.point.color */
         color?: string;
         /** @name dxChartSeriesTypes.CommonSeries.point.hoverMode */
-        hoverMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'none' | 'onlyPoint';
+        hoverMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "none"
+            | "onlyPoint";
         /** @name dxChartSeriesTypes.CommonSeries.point.hoverStyle */
-        hoverStyle?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, size?: number };
+        hoverStyle?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            color?: string;
+            size?: number;
+        };
         /** @name dxChartSeriesTypes.CommonSeries.point.image */
-        image?: string | { height?: number | { rangeMaxPoint?: number, rangeMinPoint?: number }, url?: string | { rangeMaxPoint?: string, rangeMinPoint?: string }, width?: number | { rangeMaxPoint?: number, rangeMinPoint?: number } };
+        image?:
+            | string
+            | {
+                  height?:
+                      | number
+                      | { rangeMaxPoint?: number; rangeMinPoint?: number };
+                  url?:
+                      | string
+                      | { rangeMaxPoint?: string; rangeMinPoint?: string };
+                  width?:
+                      | number
+                      | { rangeMaxPoint?: number; rangeMinPoint?: number };
+              };
         /** @name dxChartSeriesTypes.CommonSeries.point.selectionMode */
-        selectionMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'none' | 'onlyPoint';
+        selectionMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "none"
+            | "onlyPoint";
         /** @name dxChartSeriesTypes.CommonSeries.point.selectionStyle */
-        selectionStyle?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, size?: number };
+        selectionStyle?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            color?: string;
+            size?: number;
+        };
         /** @name dxChartSeriesTypes.CommonSeries.point.size */
         size?: number;
         /** @name dxChartSeriesTypes.CommonSeries.point.symbol */
-        symbol?: 'circle' | 'cross' | 'polygon' | 'square' | 'triangleDown' | 'triangleUp';
+        symbol?:
+            | "circle"
+            | "cross"
+            | "polygon"
+            | "square"
+            | "triangleDown"
+            | "triangleUp";
         /** @name dxChartSeriesTypes.CommonSeries.point.visible */
         visible?: boolean;
     }
@@ -8455,7 +14474,7 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.color */
         color?: string;
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.hatching */
         hatching?: dxChartSeriesTypesCommonSeriesSelectionStyleHatching;
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.width */
@@ -8466,7 +14485,7 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.border.color */
         color?: string;
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.border.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.border.visible */
         visible?: boolean;
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.border.width */
@@ -8475,7 +14494,7 @@ declare module DevExpress.viz {
     /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.hatching */
     interface dxChartSeriesTypesCommonSeriesSelectionStyleHatching {
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.hatching.direction */
-        direction?: 'left' | 'none' | 'right';
+        direction?: "left" | "none" | "right";
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.hatching.opacity */
         opacity?: number;
         /** @name dxChartSeriesTypes.CommonSeries.selectionStyle.hatching.step */
@@ -8484,391 +14503,470 @@ declare module DevExpress.viz {
         width?: number;
     }
     /** @name dxChartSeriesTypes.FullStackedAreaSeries */
-    interface dxChartSeriesTypesFullStackedAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesFullStackedAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesFullStackedAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.label */
         label?: dxChartSeriesTypesFullStackedAreaSeriesLabel;
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.point */
         point?: dxChartSeriesTypesFullStackedAreaSeriesPoint;
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.FullStackedAreaSeries.aggregation */
-    interface dxChartSeriesTypesFullStackedAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesFullStackedAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.FullStackedAreaSeries.label */
-    interface dxChartSeriesTypesFullStackedAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesFullStackedAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.FullStackedAreaSeries.point */
-    interface dxChartSeriesTypesFullStackedAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesFullStackedAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.FullStackedAreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.FullStackedBarSeries */
-    interface dxChartSeriesTypesFullStackedBarSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesFullStackedBarSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.FullStackedBarSeries.aggregation */
         aggregation?: dxChartSeriesTypesFullStackedBarSeriesAggregation;
         /** @name dxChartSeriesTypes.FullStackedBarSeries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.FullStackedBarSeries.label */
         label?: dxChartSeriesTypesFullStackedBarSeriesLabel;
         /** @name dxChartSeriesTypes.FullStackedBarSeries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxChartSeriesTypes.FullStackedBarSeries.aggregation */
-    interface dxChartSeriesTypesFullStackedBarSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesFullStackedBarSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.FullStackedBarSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.FullStackedBarSeries.label */
-    interface dxChartSeriesTypesFullStackedBarSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesFullStackedBarSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.FullStackedBarSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
         /** @name dxChartSeriesTypes.FullStackedBarSeries.label.position */
-        position?: 'inside' | 'outside';
+        position?: "inside" | "outside";
     }
     /** @name dxChartSeriesTypes.FullStackedLineSeries */
-    interface dxChartSeriesTypesFullStackedLineSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesFullStackedLineSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.FullStackedLineSeries.aggregation */
         aggregation?: dxChartSeriesTypesFullStackedLineSeriesAggregation;
         /** @name dxChartSeriesTypes.FullStackedLineSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.FullStackedLineSeries.label */
         label?: dxChartSeriesTypesFullStackedLineSeriesLabel;
         /** @name dxChartSeriesTypes.FullStackedLineSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.FullStackedLineSeries.aggregation */
-    interface dxChartSeriesTypesFullStackedLineSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesFullStackedLineSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.FullStackedLineSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.FullStackedLineSeries.label */
-    interface dxChartSeriesTypesFullStackedLineSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesFullStackedLineSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.FullStackedLineSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries */
-    interface dxChartSeriesTypesFullStackedSplineAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesFullStackedSplineAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesFullStackedSplineAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.label */
         label?: dxChartSeriesTypesFullStackedSplineAreaSeriesLabel;
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.point */
         point?: dxChartSeriesTypesFullStackedSplineAreaSeriesPoint;
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.aggregation */
-    interface dxChartSeriesTypesFullStackedSplineAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesFullStackedSplineAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.label */
-    interface dxChartSeriesTypesFullStackedSplineAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesFullStackedSplineAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.point */
-    interface dxChartSeriesTypesFullStackedSplineAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesFullStackedSplineAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.FullStackedSplineAreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.FullStackedSplineSeries */
-    interface dxChartSeriesTypesFullStackedSplineSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesFullStackedSplineSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.FullStackedSplineSeries.aggregation */
         aggregation?: dxChartSeriesTypesFullStackedSplineSeriesAggregation;
         /** @name dxChartSeriesTypes.FullStackedSplineSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.FullStackedSplineSeries.label */
         label?: dxChartSeriesTypesFullStackedSplineSeriesLabel;
         /** @name dxChartSeriesTypes.FullStackedSplineSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.FullStackedSplineSeries.aggregation */
-    interface dxChartSeriesTypesFullStackedSplineSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesFullStackedSplineSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.FullStackedSplineSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.FullStackedSplineSeries.label */
-    interface dxChartSeriesTypesFullStackedSplineSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesFullStackedSplineSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.FullStackedSplineSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.LineSeries */
-    interface dxChartSeriesTypesLineSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesLineSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.LineSeries.aggregation */
         aggregation?: dxChartSeriesTypesLineSeriesAggregation;
         /** @name dxChartSeriesTypes.LineSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.LineSeries.label */
         label?: dxChartSeriesTypesLineSeriesLabel;
         /** @name dxChartSeriesTypes.LineSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.LineSeries.aggregation */
-    interface dxChartSeriesTypesLineSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesLineSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.LineSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.LineSeries.label */
-    interface dxChartSeriesTypesLineSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesLineSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.LineSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.RangeAreaSeries */
-    interface dxChartSeriesTypesRangeAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesRangeAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.RangeAreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesRangeAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.RangeAreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.RangeAreaSeries.label */
         label?: dxChartSeriesTypesRangeAreaSeriesLabel;
         /** @name dxChartSeriesTypes.RangeAreaSeries.point */
         point?: dxChartSeriesTypesRangeAreaSeriesPoint;
         /** @name dxChartSeriesTypes.RangeAreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.RangeAreaSeries.aggregation */
-    interface dxChartSeriesTypesRangeAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesRangeAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.RangeAreaSeries.aggregation.method */
-        method?: 'range' | 'custom';
+        method?: "range" | "custom";
     }
     /** @name dxChartSeriesTypes.RangeAreaSeries.label */
-    interface dxChartSeriesTypesRangeAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesRangeAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.RangeAreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.RangeAreaSeries.point */
-    interface dxChartSeriesTypesRangeAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesRangeAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.RangeAreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.RangeBarSeries */
-    interface dxChartSeriesTypesRangeBarSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesRangeBarSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.RangeBarSeries.aggregation */
         aggregation?: dxChartSeriesTypesRangeBarSeriesAggregation;
         /** @name dxChartSeriesTypes.RangeBarSeries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.RangeBarSeries.label */
         label?: dxChartSeriesTypesRangeBarSeriesLabel;
         /** @name dxChartSeriesTypes.RangeBarSeries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxChartSeriesTypes.RangeBarSeries.aggregation */
-    interface dxChartSeriesTypesRangeBarSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesRangeBarSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.RangeBarSeries.aggregation.method */
-        method?: 'range' | 'custom';
+        method?: "range" | "custom";
     }
     /** @name dxChartSeriesTypes.RangeBarSeries.label */
-    interface dxChartSeriesTypesRangeBarSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesRangeBarSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.RangeBarSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.ScatterSeries */
-    interface dxChartSeriesTypesScatterSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesScatterSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.ScatterSeries.aggregation */
         aggregation?: dxChartSeriesTypesScatterSeriesAggregation;
         /** @name dxChartSeriesTypes.ScatterSeries.label */
         label?: dxChartSeriesTypesScatterSeriesLabel;
     }
     /** @name dxChartSeriesTypes.ScatterSeries.aggregation */
-    interface dxChartSeriesTypesScatterSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesScatterSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.ScatterSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.ScatterSeries.label */
-    interface dxChartSeriesTypesScatterSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesScatterSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.ScatterSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.SplineAreaSeries */
-    interface dxChartSeriesTypesSplineAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesSplineAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.SplineAreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesSplineAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.SplineAreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.SplineAreaSeries.label */
         label?: dxChartSeriesTypesSplineAreaSeriesLabel;
         /** @name dxChartSeriesTypes.SplineAreaSeries.point */
         point?: dxChartSeriesTypesSplineAreaSeriesPoint;
         /** @name dxChartSeriesTypes.SplineAreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.SplineAreaSeries.aggregation */
-    interface dxChartSeriesTypesSplineAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesSplineAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.SplineAreaSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.SplineAreaSeries.label */
-    interface dxChartSeriesTypesSplineAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesSplineAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.SplineAreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.SplineAreaSeries.point */
-    interface dxChartSeriesTypesSplineAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesSplineAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.SplineAreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.SplineSeries */
-    interface dxChartSeriesTypesSplineSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesSplineSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.SplineSeries.aggregation */
         aggregation?: dxChartSeriesTypesSplineSeriesAggregation;
         /** @name dxChartSeriesTypes.SplineSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.SplineSeries.label */
         label?: dxChartSeriesTypesSplineSeriesLabel;
         /** @name dxChartSeriesTypes.SplineSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.SplineSeries.aggregation */
-    interface dxChartSeriesTypesSplineSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesSplineSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.SplineSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.SplineSeries.label */
-    interface dxChartSeriesTypesSplineSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesSplineSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.SplineSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.StackedAreaSeries */
-    interface dxChartSeriesTypesStackedAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStackedAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StackedAreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesStackedAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.StackedAreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.StackedAreaSeries.label */
         label?: dxChartSeriesTypesStackedAreaSeriesLabel;
         /** @name dxChartSeriesTypes.StackedAreaSeries.point */
         point?: dxChartSeriesTypesStackedAreaSeriesPoint;
         /** @name dxChartSeriesTypes.StackedAreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.StackedAreaSeries.aggregation */
-    interface dxChartSeriesTypesStackedAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStackedAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StackedAreaSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.StackedAreaSeries.label */
-    interface dxChartSeriesTypesStackedAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStackedAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StackedAreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.StackedAreaSeries.point */
-    interface dxChartSeriesTypesStackedAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesStackedAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.StackedAreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.StackedBarSeries */
-    interface dxChartSeriesTypesStackedBarSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStackedBarSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StackedBarSeries.aggregation */
         aggregation?: dxChartSeriesTypesStackedBarSeriesAggregation;
         /** @name dxChartSeriesTypes.StackedBarSeries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.StackedBarSeries.label */
         label?: dxChartSeriesTypesStackedBarSeriesLabel;
         /** @name dxChartSeriesTypes.StackedBarSeries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxChartSeriesTypes.StackedBarSeries.aggregation */
-    interface dxChartSeriesTypesStackedBarSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStackedBarSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StackedBarSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.StackedBarSeries.label */
-    interface dxChartSeriesTypesStackedBarSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStackedBarSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StackedBarSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
         /** @name dxChartSeriesTypes.StackedBarSeries.label.position */
-        position?: 'inside' | 'outside';
+        position?: "inside" | "outside";
     }
     /** @name dxChartSeriesTypes.StackedLineSeries */
-    interface dxChartSeriesTypesStackedLineSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStackedLineSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StackedLineSeries.aggregation */
         aggregation?: dxChartSeriesTypesStackedLineSeriesAggregation;
         /** @name dxChartSeriesTypes.StackedLineSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.StackedLineSeries.label */
         label?: dxChartSeriesTypesStackedLineSeriesLabel;
         /** @name dxChartSeriesTypes.StackedLineSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.StackedLineSeries.aggregation */
-    interface dxChartSeriesTypesStackedLineSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStackedLineSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StackedLineSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.StackedLineSeries.label */
-    interface dxChartSeriesTypesStackedLineSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStackedLineSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StackedLineSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.StackedSplineAreaSeries */
-    interface dxChartSeriesTypesStackedSplineAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStackedSplineAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesStackedSplineAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.label */
         label?: dxChartSeriesTypesStackedSplineAreaSeriesLabel;
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.point */
         point?: dxChartSeriesTypesStackedSplineAreaSeriesPoint;
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.StackedSplineAreaSeries.aggregation */
-    interface dxChartSeriesTypesStackedSplineAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStackedSplineAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.StackedSplineAreaSeries.label */
-    interface dxChartSeriesTypesStackedSplineAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStackedSplineAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.StackedSplineAreaSeries.point */
-    interface dxChartSeriesTypesStackedSplineAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesStackedSplineAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.StackedSplineAreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.StackedSplineSeries */
-    interface dxChartSeriesTypesStackedSplineSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStackedSplineSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StackedSplineSeries.aggregation */
         aggregation?: dxChartSeriesTypesStackedSplineSeriesAggregation;
         /** @name dxChartSeriesTypes.StackedSplineSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.StackedSplineSeries.label */
         label?: dxChartSeriesTypesStackedSplineSeriesLabel;
         /** @name dxChartSeriesTypes.StackedSplineSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.StackedSplineSeries.aggregation */
-    interface dxChartSeriesTypesStackedSplineSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStackedSplineSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StackedSplineSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.StackedSplineSeries.label */
-    interface dxChartSeriesTypesStackedSplineSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStackedSplineSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StackedSplineSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries */
-    interface dxChartSeriesTypesStepAreaSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStepAreaSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StepAreaSeries.aggregation */
         aggregation?: dxChartSeriesTypesStepAreaSeriesAggregation;
         /** @name dxChartSeriesTypes.StepAreaSeries.border */
         border?: dxChartSeriesTypesStepAreaSeriesBorder;
         /** @name dxChartSeriesTypes.StepAreaSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.StepAreaSeries.hoverStyle */
         hoverStyle?: dxChartSeriesTypesStepAreaSeriesHoverStyle;
         /** @name dxChartSeriesTypes.StepAreaSeries.label */
@@ -8876,98 +14974,121 @@ declare module DevExpress.viz {
         /** @name dxChartSeriesTypes.StepAreaSeries.point */
         point?: dxChartSeriesTypesStepAreaSeriesPoint;
         /** @name dxChartSeriesTypes.StepAreaSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.StepAreaSeries.selectionStyle */
         selectionStyle?: dxChartSeriesTypesStepAreaSeriesSelectionStyle;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.aggregation */
-    interface dxChartSeriesTypesStepAreaSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStepAreaSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StepAreaSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.border */
-    interface dxChartSeriesTypesStepAreaSeriesBorder extends dxChartSeriesTypesCommonSeriesBorder {
+    interface dxChartSeriesTypesStepAreaSeriesBorder
+        extends dxChartSeriesTypesCommonSeriesBorder {
         /** @name dxChartSeriesTypes.StepAreaSeries.border.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.hoverStyle */
-    interface dxChartSeriesTypesStepAreaSeriesHoverStyle extends dxChartSeriesTypesCommonSeriesHoverStyle {
+    interface dxChartSeriesTypesStepAreaSeriesHoverStyle
+        extends dxChartSeriesTypesCommonSeriesHoverStyle {
         /** @name dxChartSeriesTypes.StepAreaSeries.hoverStyle.border */
         border?: dxChartSeriesTypesStepAreaSeriesHoverStyleBorder;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.hoverStyle.border */
-    interface dxChartSeriesTypesStepAreaSeriesHoverStyleBorder extends dxChartSeriesTypesCommonSeriesHoverStyleBorder {
+    interface dxChartSeriesTypesStepAreaSeriesHoverStyleBorder
+        extends dxChartSeriesTypesCommonSeriesHoverStyleBorder {
         /** @name dxChartSeriesTypes.StepAreaSeries.hoverStyle.border.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.label */
-    interface dxChartSeriesTypesStepAreaSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStepAreaSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StepAreaSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.point */
-    interface dxChartSeriesTypesStepAreaSeriesPoint extends dxChartSeriesTypesCommonSeriesPoint {
+    interface dxChartSeriesTypesStepAreaSeriesPoint
+        extends dxChartSeriesTypesCommonSeriesPoint {
         /** @name dxChartSeriesTypes.StepAreaSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.selectionStyle */
-    interface dxChartSeriesTypesStepAreaSeriesSelectionStyle extends dxChartSeriesTypesCommonSeriesSelectionStyle {
+    interface dxChartSeriesTypesStepAreaSeriesSelectionStyle
+        extends dxChartSeriesTypesCommonSeriesSelectionStyle {
         /** @name dxChartSeriesTypes.StepAreaSeries.selectionStyle.border */
         border?: dxChartSeriesTypesStepAreaSeriesSelectionStyleBorder;
     }
     /** @name dxChartSeriesTypes.StepAreaSeries.selectionStyle.border */
-    interface dxChartSeriesTypesStepAreaSeriesSelectionStyleBorder extends dxChartSeriesTypesCommonSeriesSelectionStyleBorder {
+    interface dxChartSeriesTypesStepAreaSeriesSelectionStyleBorder
+        extends dxChartSeriesTypesCommonSeriesSelectionStyleBorder {
         /** @name dxChartSeriesTypes.StepAreaSeries.selectionStyle.border.visible */
         visible?: boolean;
     }
     /** @name dxChartSeriesTypes.StepLineSeries */
-    interface dxChartSeriesTypesStepLineSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStepLineSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StepLineSeries.aggregation */
         aggregation?: dxChartSeriesTypesStepLineSeriesAggregation;
         /** @name dxChartSeriesTypes.StepLineSeries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxChartSeriesTypes.StepLineSeries.label */
         label?: dxChartSeriesTypesStepLineSeriesLabel;
         /** @name dxChartSeriesTypes.StepLineSeries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxChartSeriesTypes.StepLineSeries.aggregation */
-    interface dxChartSeriesTypesStepLineSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStepLineSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StepLineSeries.aggregation.method */
-        method?: 'avg' | 'count' | 'max' | 'min' | 'sum' | 'custom';
+        method?: "avg" | "count" | "max" | "min" | "sum" | "custom";
     }
     /** @name dxChartSeriesTypes.StepLineSeries.label */
-    interface dxChartSeriesTypesStepLineSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStepLineSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StepLineSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxChartSeriesTypes.StockSeries */
-    interface dxChartSeriesTypesStockSeries extends dxChartSeriesTypesCommonSeries {
+    interface dxChartSeriesTypesStockSeries
+        extends dxChartSeriesTypesCommonSeries {
         /** @name dxChartSeriesTypes.StockSeries.aggregation */
         aggregation?: dxChartSeriesTypesStockSeriesAggregation;
         /** @name dxChartSeriesTypes.StockSeries.argumentField */
         argumentField?: string;
         /** @name dxChartSeriesTypes.StockSeries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxChartSeriesTypes.StockSeries.label */
         label?: dxChartSeriesTypesStockSeriesLabel;
         /** @name dxChartSeriesTypes.StockSeries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxChartSeriesTypes.StockSeries.aggregation */
-    interface dxChartSeriesTypesStockSeriesAggregation extends dxChartSeriesTypesCommonSeriesAggregation {
+    interface dxChartSeriesTypesStockSeriesAggregation
+        extends dxChartSeriesTypesCommonSeriesAggregation {
         /** @name dxChartSeriesTypes.StockSeries.aggregation.method */
-        method?: 'ohlc' | 'custom';
+        method?: "ohlc" | "custom";
     }
     /** @name dxChartSeriesTypes.StockSeries.label */
-    interface dxChartSeriesTypesStockSeriesLabel extends dxChartSeriesTypesCommonSeriesLabel {
+    interface dxChartSeriesTypesStockSeriesLabel
+        extends dxChartSeriesTypesCommonSeriesLabel {
         /** @name dxChartSeriesTypes.StockSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
     }
     /** @name dxCircularGauge.Options */
-    export interface dxCircularGaugeOptions extends BaseGaugeOptions<dxCircularGauge> {
+    export interface dxCircularGaugeOptions
+        extends BaseGaugeOptions<dxCircularGauge> {
         /** @name dxCircularGauge.Options.geometry */
-        geometry?: { endAngle?: number, startAngle?: number };
+        geometry?: { endAngle?: number; startAngle?: number };
         /** @name dxCircularGauge.Options.rangeContainer */
         rangeContainer?: dxCircularGaugeRangeContainer;
         /** @name dxCircularGauge.Options.scale */
@@ -8978,9 +15099,10 @@ declare module DevExpress.viz {
         valueIndicator?: GaugeIndicator;
     }
     /** @name dxCircularGauge.Options.rangeContainer */
-    export interface dxCircularGaugeRangeContainer extends BaseGaugeRangeContainer {
+    export interface dxCircularGaugeRangeContainer
+        extends BaseGaugeRangeContainer {
         /** @name dxCircularGauge.Options.rangeContainer.orientation */
-        orientation?: 'center' | 'inside' | 'outside';
+        orientation?: "center" | "inside" | "outside";
         /** @name dxCircularGauge.Options.rangeContainer.width */
         width?: number;
     }
@@ -8989,40 +15111,98 @@ declare module DevExpress.viz {
         /** @name dxCircularGauge.Options.scale.label */
         label?: dxCircularGaugeScaleLabel;
         /** @name dxCircularGauge.Options.scale.orientation */
-        orientation?: 'center' | 'inside' | 'outside';
+        orientation?: "center" | "inside" | "outside";
     }
     /** @name dxCircularGauge.Options.scale.label */
     export interface dxCircularGaugeScaleLabel extends BaseGaugeScaleLabel {
         /** @name dxCircularGauge.Options.scale.label.hideFirstOrLast */
-        hideFirstOrLast?: 'first' | 'last';
+        hideFirstOrLast?: "first" | "last";
         /** @name dxCircularGauge.Options.scale.label.indentFromTick */
         indentFromTick?: number;
     }
     /** @name dxCircularGauge */
     export class dxCircularGauge extends BaseGauge {
-        constructor(element: Element, options?: dxCircularGaugeOptions)
-        constructor(element: JQuery, options?: dxCircularGaugeOptions)
+        constructor(element: Element, options?: dxCircularGaugeOptions);
+        constructor(element: JQuery, options?: dxCircularGaugeOptions);
     }
     /** @name dxFunnel.Options */
     export interface dxFunnelOptions extends BaseWidgetOptions<dxFunnel> {
         /** @name dxFunnel.Options.adaptiveLayout */
-        adaptiveLayout?: { height?: number, keepLabels?: boolean, width?: number };
+        adaptiveLayout?: {
+            height?: number;
+            keepLabels?: boolean;
+            width?: number;
+        };
         /** @name dxFunnel.Options.algorithm */
-        algorithm?: 'dynamicHeight' | 'dynamicSlope';
+        algorithm?: "dynamicHeight" | "dynamicSlope";
         /** @name dxFunnel.Options.argumentField */
         argumentField?: string;
         /** @name dxFunnel.Options.colorField */
         colorField?: string;
         /** @name dxFunnel.Options.dataSource */
-        dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string;
+        dataSource?:
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions
+            | string;
         /** @name dxFunnel.Options.hoverEnabled */
         hoverEnabled?: boolean;
         /** @name dxFunnel.Options.inverted */
         inverted?: boolean;
         /** @name dxFunnel.Options.item */
-        item?: { border?: { color?: string, visible?: boolean, width?: number }, hoverStyle?: { border?: { color?: string, visible?: boolean, width?: number }, hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number } }, selectionStyle?: { border?: { color?: string, visible?: boolean, width?: number }, hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number } } };
+        item?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            hoverStyle?: {
+                border?: { color?: string; visible?: boolean; width?: number };
+                hatching?: {
+                    direction?: "left" | "none" | "right";
+                    opacity?: number;
+                    step?: number;
+                    width?: number;
+                };
+            };
+            selectionStyle?: {
+                border?: { color?: string; visible?: boolean; width?: number };
+                hatching?: {
+                    direction?: "left" | "none" | "right";
+                    opacity?: number;
+                    step?: number;
+                    width?: number;
+                };
+            };
+        };
         /** @name dxFunnel.Options.label */
-        label?: { backgroundColor?: string, border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number }, connector?: { color?: string, opacity?: number, visible?: boolean, width?: number }, customizeText?: ((itemInfo: { item?: dxFunnelItem, value?: number, valueText?: string, percent?: number, percentText?: string }) => string), font?: Font, format?: DevExpress.ui.format, horizontalAlignment?: 'left' | 'right', horizontalOffset?: number, position?: 'columns' | 'inside' | 'outside', showForZeroValues?: boolean, textOverflow?: 'ellipsis' | 'hide' | 'none', visible?: boolean, wordWrap?: 'normal' | 'breakWord' | 'none' };
+        label?: {
+            backgroundColor?: string;
+            border?: {
+                color?: string;
+                dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                visible?: boolean;
+                width?: number;
+            };
+            connector?: {
+                color?: string;
+                opacity?: number;
+                visible?: boolean;
+                width?: number;
+            };
+            customizeText?: (itemInfo: {
+                item?: dxFunnelItem;
+                value?: number;
+                valueText?: string;
+                percent?: number;
+                percentText?: string;
+            }) => string;
+            font?: Font;
+            format?: DevExpress.ui.format;
+            horizontalAlignment?: "left" | "right";
+            horizontalOffset?: number;
+            position?: "columns" | "inside" | "outside";
+            showForZeroValues?: boolean;
+            textOverflow?: "ellipsis" | "hide" | "none";
+            visible?: boolean;
+            wordWrap?: "normal" | "breakWord" | "none";
+        };
         /** @name dxFunnel.Options.legend */
         legend?: dxFunnelLegend;
         /** @name dxFunnel.Options.neckHeight */
@@ -9030,21 +15210,66 @@ declare module DevExpress.viz {
         /** @name dxFunnel.Options.neckWidth */
         neckWidth?: number;
         /** @name dxFunnel.Options.onHoverChanged */
-        onHoverChanged?: ((e: { component?: dxFunnel, element?: DevExpress.core.dxElement, model?: any, item?: dxFunnelItem }) => any);
+        onHoverChanged?: (e: {
+            component?: dxFunnel;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            item?: dxFunnelItem;
+        }) => any;
         /** @name dxFunnel.Options.onItemClick */
-        onItemClick?: ((e: { component?: dxFunnel, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, item?: dxFunnelItem }) => any) | string;
+        onItemClick?:
+            | ((e: {
+                  component?: dxFunnel;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  item?: dxFunnelItem;
+              }) => any)
+            | string;
         /** @name dxFunnel.Options.onLegendClick */
-        onLegendClick?: ((e: { component?: dxFunnel, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, item?: dxFunnelItem }) => any) | string;
+        onLegendClick?:
+            | ((e: {
+                  component?: dxFunnel;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  item?: dxFunnelItem;
+              }) => any)
+            | string;
         /** @name dxFunnel.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxFunnel, element?: DevExpress.core.dxElement, model?: any, item?: dxFunnelItem }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxFunnel;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            item?: dxFunnelItem;
+        }) => any;
         /** @name dxFunnel.Options.palette */
-        palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office';
+        palette?:
+            | Array<string>
+            | "Bright"
+            | "Default"
+            | "Harmony Light"
+            | "Ocean"
+            | "Pastel"
+            | "Soft"
+            | "Soft Pastel"
+            | "Vintage"
+            | "Violet"
+            | "Carmine"
+            | "Dark Moon"
+            | "Dark Violet"
+            | "Green Mist"
+            | "Soft Blue"
+            | "Material"
+            | "Office";
         /** @name dxFunnel.Options.paletteExtensionMode */
-        paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate';
+        paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
         /** @name dxFunnel.Options.resolveLabelOverlapping */
-        resolveLabelOverlapping?: 'hide' | 'none' | 'shift';
+        resolveLabelOverlapping?: "hide" | "none" | "shift";
         /** @name dxFunnel.Options.selectionMode */
-        selectionMode?: 'multiple' | 'none' | 'single';
+        selectionMode?: "multiple" | "none" | "single";
         /** @name dxFunnel.Options.sortData */
         sortData?: boolean;
         /** @name dxFunnel.Options.tooltip */
@@ -9055,27 +15280,57 @@ declare module DevExpress.viz {
     /** @name dxFunnel.Options.legend */
     export interface dxFunnelLegend extends BaseLegend {
         /** @name dxFunnel.Options.legend.customizeHint */
-        customizeHint?: ((itemInfo: { item?: dxFunnelItem, text?: string }) => string);
+        customizeHint?: (itemInfo: {
+            item?: dxFunnelItem;
+            text?: string;
+        }) => string;
         /** @name dxFunnel.Options.legend.customizeItems */
-        customizeItems?: ((items: Array<FunnelLegendItem>) => Array<FunnelLegendItem>);
+        customizeItems?: (
+            items: Array<FunnelLegendItem>
+        ) => Array<FunnelLegendItem>;
         /** @name dxFunnel.Options.legend.customizeText */
-        customizeText?: ((itemInfo: { item?: dxFunnelItem, text?: string }) => string);
+        customizeText?: (itemInfo: {
+            item?: dxFunnelItem;
+            text?: string;
+        }) => string;
         /** @name dxFunnel.Options.legend.markerTemplate */
-        markerTemplate?: DevExpress.core.template | ((legendItem: FunnelLegendItem, element: SVGGElement) => string | SVGElement | JQuery);
+        markerTemplate?:
+            | DevExpress.core.template
+            | ((
+                  legendItem: FunnelLegendItem,
+                  element: SVGGElement
+              ) => string | SVGElement | JQuery);
         /** @name dxFunnel.Options.legend.visible */
         visible?: boolean;
     }
     /** @name dxFunnel.Options.tooltip */
     export interface dxFunnelTooltip extends BaseWidgetTooltip {
         /** @name dxFunnel.Options.tooltip.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((info: { item?: dxFunnelItem, value?: number, valueText?: string, percent?: number, percentText?: string }, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  info: {
+                      item?: dxFunnelItem;
+                      value?: number;
+                      valueText?: string;
+                      percent?: number;
+                      percentText?: string;
+                  },
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxFunnel.Options.tooltip.customizeTooltip */
-        customizeTooltip?: ((info: { item?: dxFunnelItem, value?: number, valueText?: string, percent?: number, percentText?: string }) => any);
+        customizeTooltip?: (info: {
+            item?: dxFunnelItem;
+            value?: number;
+            valueText?: string;
+            percent?: number;
+            percentText?: string;
+        }) => any;
     }
     /** @name dxFunnel */
     export class dxFunnel extends BaseWidget {
-        constructor(element: Element, options?: dxFunnelOptions)
-        constructor(element: JQuery, options?: dxFunnelOptions)
+        constructor(element: Element, options?: dxFunnelOptions);
+        constructor(element: JQuery, options?: dxFunnelOptions);
         /** @name dxFunnel.clearSelection() */
         clearSelection(): void;
         /** @name dxFunnel.getAllItems() */
@@ -9109,9 +15364,10 @@ declare module DevExpress.viz {
         showTooltip(): void;
     }
     /** @name dxLinearGauge.Options */
-    export interface dxLinearGaugeOptions extends BaseGaugeOptions<dxLinearGauge> {
+    export interface dxLinearGaugeOptions
+        extends BaseGaugeOptions<dxLinearGauge> {
         /** @name dxLinearGauge.Options.geometry */
-        geometry?: { orientation?: 'horizontal' | 'vertical' };
+        geometry?: { orientation?: "horizontal" | "vertical" };
         /** @name dxLinearGauge.Options.rangeContainer */
         rangeContainer?: dxLinearGaugeRangeContainer;
         /** @name dxLinearGauge.Options.scale */
@@ -9122,24 +15378,25 @@ declare module DevExpress.viz {
         valueIndicator?: GaugeIndicator;
     }
     /** @name dxLinearGauge.Options.rangeContainer */
-    export interface dxLinearGaugeRangeContainer extends BaseGaugeRangeContainer {
+    export interface dxLinearGaugeRangeContainer
+        extends BaseGaugeRangeContainer {
         /** @name dxLinearGauge.Options.rangeContainer.horizontalOrientation */
-        horizontalOrientation?: 'center' | 'left' | 'right';
+        horizontalOrientation?: "center" | "left" | "right";
         /** @name dxLinearGauge.Options.rangeContainer.verticalOrientation */
-        verticalOrientation?: 'bottom' | 'center' | 'top';
+        verticalOrientation?: "bottom" | "center" | "top";
         /** @name dxLinearGauge.Options.rangeContainer.width */
-        width?: { end?: number, start?: number } | number;
+        width?: { end?: number; start?: number } | number;
     }
     /** @name dxLinearGauge.Options.scale */
     export interface dxLinearGaugeScale extends BaseGaugeScale {
         /** @name dxLinearGauge.Options.scale.horizontalOrientation */
-        horizontalOrientation?: 'center' | 'left' | 'right';
+        horizontalOrientation?: "center" | "left" | "right";
         /** @name dxLinearGauge.Options.scale.label */
         label?: dxLinearGaugeScaleLabel;
         /** @name dxLinearGauge.Options.scale.scaleDivisionFactor */
         scaleDivisionFactor?: number;
         /** @name dxLinearGauge.Options.scale.verticalOrientation */
-        verticalOrientation?: 'bottom' | 'center' | 'top';
+        verticalOrientation?: "bottom" | "center" | "top";
     }
     /** @name dxLinearGauge.Options.scale.label */
     export interface dxLinearGaugeScaleLabel extends BaseGaugeScaleLabel {
@@ -9148,15 +15405,20 @@ declare module DevExpress.viz {
     }
     /** @name dxLinearGauge */
     export class dxLinearGauge extends BaseGauge {
-        constructor(element: Element, options?: dxLinearGaugeOptions)
-        constructor(element: JQuery, options?: dxLinearGaugeOptions)
+        constructor(element: Element, options?: dxLinearGaugeOptions);
+        constructor(element: JQuery, options?: dxLinearGaugeOptions);
     }
     /** @name dxPieChart.Options */
     export interface dxPieChartOptions extends BaseChartOptions<dxPieChart> {
         /** @name dxPieChart.Options.adaptiveLayout */
         adaptiveLayout?: dxPieChartAdaptiveLayout;
         /** @name dxPieChart.Options.centerTemplate */
-        centerTemplate?: DevExpress.core.template | ((component: dxPieChart, element: SVGGElement) => string | SVGElement | JQuery);
+        centerTemplate?:
+            | DevExpress.core.template
+            | ((
+                  component: dxPieChart,
+                  element: SVGGElement
+              ) => string | SVGElement | JQuery);
         /** @name dxPieChart.Options.commonSeriesSettings */
         commonSeriesSettings?: any;
         /** @name dxPieChart.Options.diameter */
@@ -9168,23 +15430,53 @@ declare module DevExpress.viz {
         /** @name dxPieChart.Options.minDiameter */
         minDiameter?: number;
         /** @name dxPieChart.Options.onLegendClick */
-        onLegendClick?: ((e: { component?: dxPieChart, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, target?: string | number, points?: Array<piePointObject> }) => any) | string;
+        onLegendClick?:
+            | ((e: {
+                  component?: dxPieChart;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  target?: string | number;
+                  points?: Array<piePointObject>;
+              }) => any)
+            | string;
         /** @name dxPieChart.Options.palette */
-        palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office';
+        palette?:
+            | Array<string>
+            | "Bright"
+            | "Default"
+            | "Harmony Light"
+            | "Ocean"
+            | "Pastel"
+            | "Soft"
+            | "Soft Pastel"
+            | "Vintage"
+            | "Violet"
+            | "Carmine"
+            | "Dark Moon"
+            | "Dark Violet"
+            | "Green Mist"
+            | "Soft Blue"
+            | "Material"
+            | "Office";
         /** @name dxPieChart.Options.resolveLabelOverlapping */
-        resolveLabelOverlapping?: 'hide' | 'none' | 'shift';
+        resolveLabelOverlapping?: "hide" | "none" | "shift";
         /** @name dxPieChart.Options.segmentsDirection */
-        segmentsDirection?: 'anticlockwise' | 'clockwise';
+        segmentsDirection?: "anticlockwise" | "clockwise";
         /** @name dxPieChart.Options.series */
         series?: PieChartSeries | Array<PieChartSeries>;
         /** @name dxPieChart.Options.seriesTemplate */
-        seriesTemplate?: { customizeSeries?: ((seriesName: any) => PieChartSeries), nameField?: string };
+        seriesTemplate?: {
+            customizeSeries?: (seriesName: any) => PieChartSeries;
+            nameField?: string;
+        };
         /** @name dxPieChart.Options.sizeGroup */
         sizeGroup?: string;
         /** @name dxPieChart.Options.startAngle */
         startAngle?: number;
         /** @name dxPieChart.Options.type */
-        type?: 'donut' | 'doughnut' | 'pie';
+        type?: "donut" | "doughnut" | "pie";
     }
     /** @name dxPieChart.Options.adaptiveLayout */
     export interface dxPieChartAdaptiveLayout extends BaseChartAdaptiveLayout {
@@ -9194,20 +15486,35 @@ declare module DevExpress.viz {
     /** @name dxPieChart.Options.legend */
     export interface dxPieChartLegend extends BaseChartLegend {
         /** @name dxPieChart.Options.legend.customizeHint */
-        customizeHint?: ((pointInfo: { pointName?: any, pointIndex?: number, pointColor?: string }) => string);
+        customizeHint?: (pointInfo: {
+            pointName?: any;
+            pointIndex?: number;
+            pointColor?: string;
+        }) => string;
         /** @name dxPieChart.Options.legend.customizeItems */
-        customizeItems?: ((items: Array<PieChartLegendItem>) => Array<PieChartLegendItem>);
+        customizeItems?: (
+            items: Array<PieChartLegendItem>
+        ) => Array<PieChartLegendItem>;
         /** @name dxPieChart.Options.legend.customizeText */
-        customizeText?: ((pointInfo: { pointName?: any, pointIndex?: number, pointColor?: string }) => string);
+        customizeText?: (pointInfo: {
+            pointName?: any;
+            pointIndex?: number;
+            pointColor?: string;
+        }) => string;
         /** @name dxPieChart.Options.legend.hoverMode */
-        hoverMode?: 'none' | 'allArgumentPoints';
+        hoverMode?: "none" | "allArgumentPoints";
         /** @name dxPieChart.Options.legend.markerTemplate */
-        markerTemplate?: DevExpress.core.template | ((legendItem: PieChartLegendItem, element: SVGGElement) => string | SVGElement | JQuery);
+        markerTemplate?:
+            | DevExpress.core.template
+            | ((
+                  legendItem: PieChartLegendItem,
+                  element: SVGGElement
+              ) => string | SVGElement | JQuery);
     }
     /** @name dxPieChart */
     export class dxPieChart extends BaseChart {
-        constructor(element: Element, options?: dxPieChartOptions)
-        constructor(element: JQuery, options?: dxPieChartOptions)
+        constructor(element: Element, options?: dxPieChartOptions);
+        constructor(element: JQuery, options?: dxPieChartOptions);
         /** @name dxPieChart.getInnerRadius() */
         getInnerRadius(): number;
     }
@@ -9225,34 +15532,92 @@ declare module DevExpress.viz {
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.argumentField */
         argumentField?: string;
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.argumentType */
-        argumentType?: 'datetime' | 'numeric' | 'string';
+        argumentType?: "datetime" | "numeric" | "string";
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.border */
-        border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number };
+        border?: {
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.color */
         color?: string;
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.hoverMode */
-        hoverMode?: 'none' | 'onlyPoint';
+        hoverMode?: "none" | "onlyPoint";
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.hoverStyle */
-        hoverStyle?: { border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number }, color?: string, hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number } };
+        hoverStyle?: {
+            border?: {
+                color?: string;
+                dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                visible?: boolean;
+                width?: number;
+            };
+            color?: string;
+            hatching?: {
+                direction?: "left" | "none" | "right";
+                opacity?: number;
+                step?: number;
+                width?: number;
+            };
+        };
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.label */
-        label?: { argumentFormat?: DevExpress.ui.format, backgroundColor?: string, border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number }, connector?: { color?: string, visible?: boolean, width?: number }, customizeText?: ((pointInfo: any) => string), font?: Font, format?: DevExpress.ui.format, position?: 'columns' | 'inside' | 'outside', radialOffset?: number, rotationAngle?: number, textOverflow?: 'ellipsis' | 'hide' | 'none', visible?: boolean, wordWrap?: 'normal' | 'breakWord' | 'none' };
+        label?: {
+            argumentFormat?: DevExpress.ui.format;
+            backgroundColor?: string;
+            border?: {
+                color?: string;
+                dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                visible?: boolean;
+                width?: number;
+            };
+            connector?: { color?: string; visible?: boolean; width?: number };
+            customizeText?: (pointInfo: any) => string;
+            font?: Font;
+            format?: DevExpress.ui.format;
+            position?: "columns" | "inside" | "outside";
+            radialOffset?: number;
+            rotationAngle?: number;
+            textOverflow?: "ellipsis" | "hide" | "none";
+            visible?: boolean;
+            wordWrap?: "normal" | "breakWord" | "none";
+        };
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.maxLabelCount */
         maxLabelCount?: number;
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.minSegmentSize */
         minSegmentSize?: number;
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.selectionMode */
-        selectionMode?: 'none' | 'onlyPoint';
+        selectionMode?: "none" | "onlyPoint";
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.selectionStyle */
-        selectionStyle?: { border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number }, color?: string, hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number } };
+        selectionStyle?: {
+            border?: {
+                color?: string;
+                dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                visible?: boolean;
+                width?: number;
+            };
+            color?: string;
+            hatching?: {
+                direction?: "left" | "none" | "right";
+                opacity?: number;
+                step?: number;
+                width?: number;
+            };
+        };
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.smallValuesGrouping */
-        smallValuesGrouping?: { groupName?: string, mode?: 'none' | 'smallValueThreshold' | 'topN', threshold?: number, topCount?: number };
+        smallValuesGrouping?: {
+            groupName?: string;
+            mode?: "none" | "smallValueThreshold" | "topN";
+            threshold?: number;
+            topCount?: number;
+        };
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.tagField */
         tagField?: string;
         /** @name dxPieChartSeriesTypes.CommonPieChartSeries.valueField */
         valueField?: string;
     }
     /** @name dxPolarChart.Options */
-    export interface dxPolarChartOptions extends BaseChartOptions<dxPolarChart> {
+    export interface dxPolarChartOptions
+        extends BaseChartOptions<dxPolarChart> {
         /** @name dxPolarChart.Options.adaptiveLayout */
         adaptiveLayout?: dxPolarChartAdaptiveLayout;
         /** @name dxPolarChart.Options.annotations */
@@ -9275,9 +15640,26 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.containerBackgroundColor */
         containerBackgroundColor?: string;
         /** @name dxPolarChart.Options.customizeAnnotation */
-        customizeAnnotation?: ((annotation: dxPolarChartAnnotationConfig | any) => dxPolarChartAnnotationConfig);
+        customizeAnnotation?: (
+            annotation: dxPolarChartAnnotationConfig | any
+        ) => dxPolarChartAnnotationConfig;
         /** @name dxPolarChart.Options.dataPrepareSettings */
-        dataPrepareSettings?: { checkTypeForAllData?: boolean, convertToAxisDataType?: boolean, sortingMethod?: boolean | ((a: { arg?: Date | number | string, val?: Date | number | string }, b: { arg?: Date | number | string, val?: Date | number | string }) => number) };
+        dataPrepareSettings?: {
+            checkTypeForAllData?: boolean;
+            convertToAxisDataType?: boolean;
+            sortingMethod?:
+                | boolean
+                | ((
+                      a: {
+                          arg?: Date | number | string;
+                          val?: Date | number | string;
+                      },
+                      b: {
+                          arg?: Date | number | string;
+                          val?: Date | number | string;
+                      }
+                  ) => number);
+        };
         /** @deprecated */
         /** @name dxPolarChart.Options.equalBarWidth */
         equalBarWidth?: boolean;
@@ -9286,27 +15668,88 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.negativesAsZeroes */
         negativesAsZeroes?: boolean;
         /** @name dxPolarChart.Options.onArgumentAxisClick */
-        onArgumentAxisClick?: ((e: { component?: dxPolarChart, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, argument?: Date | number | string }) => any) | string;
+        onArgumentAxisClick?:
+            | ((e: {
+                  component?: dxPolarChart;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  argument?: Date | number | string;
+              }) => any)
+            | string;
         /** @name dxPolarChart.Options.onLegendClick */
-        onLegendClick?: ((e: { component?: dxPolarChart, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, target?: polarChartSeriesObject }) => any) | string;
+        onLegendClick?:
+            | ((e: {
+                  component?: dxPolarChart;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  target?: polarChartSeriesObject;
+              }) => any)
+            | string;
         /** @name dxPolarChart.Options.onSeriesClick */
-        onSeriesClick?: ((e: { component?: dxPolarChart, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, target?: polarChartSeriesObject }) => any) | string;
+        onSeriesClick?:
+            | ((e: {
+                  component?: dxPolarChart;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  target?: polarChartSeriesObject;
+              }) => any)
+            | string;
         /** @name dxPolarChart.Options.onSeriesHoverChanged */
-        onSeriesHoverChanged?: ((e: { component?: dxPolarChart, element?: DevExpress.core.dxElement, model?: any, target?: polarChartSeriesObject }) => any);
+        onSeriesHoverChanged?: (e: {
+            component?: dxPolarChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: polarChartSeriesObject;
+        }) => any;
         /** @name dxPolarChart.Options.onSeriesSelectionChanged */
-        onSeriesSelectionChanged?: ((e: { component?: dxPolarChart, element?: DevExpress.core.dxElement, model?: any, target?: polarChartSeriesObject }) => any);
+        onSeriesSelectionChanged?: (e: {
+            component?: dxPolarChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: polarChartSeriesObject;
+        }) => any;
         /** @name dxPolarChart.Options.onZoomEnd */
-        onZoomEnd?: ((e: { component?: dxPolarChart, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, axis?: chartAxisObject, range?: VizRange, previousRange?: VizRange, cancel?: boolean, actionType?: 'zoom' | 'pan', zoomFactor?: number, shift?: number }) => any);
+        onZoomEnd?: (e: {
+            component?: dxPolarChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            axis?: chartAxisObject;
+            range?: VizRange;
+            previousRange?: VizRange;
+            cancel?: boolean;
+            actionType?: "zoom" | "pan";
+            zoomFactor?: number;
+            shift?: number;
+        }) => any;
         /** @name dxPolarChart.Options.onZoomStart */
-        onZoomStart?: ((e: { component?: dxPolarChart, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, axis?: chartAxisObject, range?: VizRange, cancel?: boolean, actionType?: 'zoom' | 'pan' }) => any);
+        onZoomStart?: (e: {
+            component?: dxPolarChart;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            event?: DevExpress.events.event;
+            axis?: chartAxisObject;
+            range?: VizRange;
+            cancel?: boolean;
+            actionType?: "zoom" | "pan";
+        }) => any;
         /** @name dxPolarChart.Options.resolveLabelOverlapping */
-        resolveLabelOverlapping?: 'hide' | 'none';
+        resolveLabelOverlapping?: "hide" | "none";
         /** @name dxPolarChart.Options.series */
         series?: PolarChartSeries | Array<PolarChartSeries>;
         /** @name dxPolarChart.Options.seriesSelectionMode */
-        seriesSelectionMode?: 'multiple' | 'single';
+        seriesSelectionMode?: "multiple" | "single";
         /** @name dxPolarChart.Options.seriesTemplate */
-        seriesTemplate?: { customizeSeries?: ((seriesName: any) => PolarChartSeries), nameField?: string };
+        seriesTemplate?: {
+            customizeSeries?: (seriesName: any) => PolarChartSeries;
+            nameField?: string;
+        };
         /** @name dxPolarChart.Options.tooltip */
         tooltip?: dxPolarChartTooltip;
         /** @name dxPolarChart.Options.useSpiderWeb */
@@ -9315,16 +15758,18 @@ declare module DevExpress.viz {
         valueAxis?: dxPolarChartValueAxis;
     }
     /** @name dxPolarChart.Options.adaptiveLayout */
-    export interface dxPolarChartAdaptiveLayout extends BaseChartAdaptiveLayout {
+    export interface dxPolarChartAdaptiveLayout
+        extends BaseChartAdaptiveLayout {
         /** @name dxPolarChart.Options.adaptiveLayout.height */
         height?: number;
         /** @name dxPolarChart.Options.adaptiveLayout.width */
         width?: number;
     }
     /** @name dxPolarChart.Options.argumentAxis */
-    export interface dxPolarChartArgumentAxis extends dxPolarChartCommonAxisSettings {
+    export interface dxPolarChartArgumentAxis
+        extends dxPolarChartCommonAxisSettings {
         /** @name dxPolarChart.Options.argumentAxis.argumentType */
-        argumentType?: 'datetime' | 'numeric' | 'string';
+        argumentType?: "datetime" | "numeric" | "string";
         /** @name dxPolarChart.Options.argumentAxis.axisDivisionFactor */
         axisDivisionFactor?: number;
         /** @name dxPolarChart.Options.argumentAxis.categories */
@@ -9334,7 +15779,7 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.argumentAxis.firstPointOnStartAngle */
         firstPointOnStartAngle?: boolean;
         /** @name dxPolarChart.Options.argumentAxis.hoverMode */
-        hoverMode?: 'allArgumentPoints' | 'none';
+        hoverMode?: "allArgumentPoints" | "none";
         /** @name dxPolarChart.Options.argumentAxis.label */
         label?: dxPolarChartArgumentAxisLabel;
         /** @name dxPolarChart.Options.argumentAxis.linearThreshold */
@@ -9346,7 +15791,18 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.argumentAxis.minorTickCount */
         minorTickCount?: number;
         /** @name dxPolarChart.Options.argumentAxis.minorTickInterval */
-        minorTickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        minorTickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxPolarChart.Options.argumentAxis.originValue */
         originValue?: number;
         /** @name dxPolarChart.Options.argumentAxis.period */
@@ -9358,12 +15814,24 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.argumentAxis.tick */
         tick?: dxPolarChartArgumentAxisTick;
         /** @name dxPolarChart.Options.argumentAxis.tickInterval */
-        tickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        tickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxPolarChart.Options.argumentAxis.type */
-        type?: 'continuous' | 'discrete' | 'logarithmic';
+        type?: "continuous" | "discrete" | "logarithmic";
     }
     /** @name dxPolarChart.Options.argumentAxis.constantLines */
-    export interface dxPolarChartArgumentAxisConstantLines extends dxPolarChartCommonAxisSettingsConstantLineStyle {
+    export interface dxPolarChartArgumentAxisConstantLines
+        extends dxPolarChartCommonAxisSettingsConstantLineStyle {
         /** @name dxPolarChart.Options.argumentAxis.constantLines.displayBehindSeries */
         displayBehindSeries?: boolean;
         /** @name dxPolarChart.Options.argumentAxis.constantLines.extendAxis */
@@ -9374,26 +15842,36 @@ declare module DevExpress.viz {
         value?: number | Date | string;
     }
     /** @name dxPolarChart.Options.argumentAxis.constantLines.label */
-    export interface dxPolarChartArgumentAxisConstantLinesLabel extends dxPolarChartCommonAxisSettingsConstantLineStyleLabel {
+    export interface dxPolarChartArgumentAxisConstantLinesLabel
+        extends dxPolarChartCommonAxisSettingsConstantLineStyleLabel {
         /** @name dxPolarChart.Options.argumentAxis.constantLines.label.text */
         text?: string;
     }
     /** @name dxPolarChart.Options.argumentAxis.label */
-    export interface dxPolarChartArgumentAxisLabel extends dxPolarChartCommonAxisSettingsLabel {
+    export interface dxPolarChartArgumentAxisLabel
+        extends dxPolarChartCommonAxisSettingsLabel {
         /** @name dxPolarChart.Options.argumentAxis.label.customizeHint */
-        customizeHint?: ((argument: { value?: Date | number | string, valueText?: string }) => string);
+        customizeHint?: (argument: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxPolarChart.Options.argumentAxis.label.customizeText */
-        customizeText?: ((argument: { value?: Date | number | string, valueText?: string }) => string);
+        customizeText?: (argument: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxPolarChart.Options.argumentAxis.label.format */
         format?: DevExpress.ui.format;
     }
     /** @name dxPolarChart.Options.argumentAxis.minorTick */
-    export interface dxPolarChartArgumentAxisMinorTick extends dxPolarChartCommonAxisSettingsMinorTick {
+    export interface dxPolarChartArgumentAxisMinorTick
+        extends dxPolarChartCommonAxisSettingsMinorTick {
         /** @name dxPolarChart.Options.argumentAxis.minorTick.shift */
         shift?: number;
     }
     /** @name dxPolarChart.Options.argumentAxis.strips */
-    export interface dxPolarChartArgumentAxisStrips extends dxPolarChartCommonAxisSettingsStripStyle {
+    export interface dxPolarChartArgumentAxisStrips
+        extends dxPolarChartCommonAxisSettingsStripStyle {
         /** @name dxPolarChart.Options.argumentAxis.strips.color */
         color?: string;
         /** @name dxPolarChart.Options.argumentAxis.strips.endValue */
@@ -9404,12 +15882,14 @@ declare module DevExpress.viz {
         startValue?: number | Date | string;
     }
     /** @name dxPolarChart.Options.argumentAxis.strips.label */
-    export interface dxPolarChartArgumentAxisStripsLabel extends dxPolarChartCommonAxisSettingsStripStyleLabel {
+    export interface dxPolarChartArgumentAxisStripsLabel
+        extends dxPolarChartCommonAxisSettingsStripStyleLabel {
         /** @name dxPolarChart.Options.argumentAxis.strips.label.text */
         text?: string;
     }
     /** @name dxPolarChart.Options.argumentAxis.tick */
-    export interface dxPolarChartArgumentAxisTick extends dxPolarChartCommonAxisSettingsTick {
+    export interface dxPolarChartArgumentAxisTick
+        extends dxPolarChartCommonAxisSettingsTick {
         /** @name dxPolarChart.Options.argumentAxis.tick.shift */
         shift?: number;
     }
@@ -9422,17 +15902,27 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.commonAxisSettings.constantLineStyle */
         constantLineStyle?: dxPolarChartCommonAxisSettingsConstantLineStyle;
         /** @name dxPolarChart.Options.commonAxisSettings.discreteAxisDivisionMode */
-        discreteAxisDivisionMode?: 'betweenLabels' | 'crossLabels';
+        discreteAxisDivisionMode?: "betweenLabels" | "crossLabels";
         /** @name dxPolarChart.Options.commonAxisSettings.endOnTick */
         endOnTick?: boolean;
         /** @name dxPolarChart.Options.commonAxisSettings.grid */
-        grid?: { color?: string, opacity?: number, visible?: boolean, width?: number };
+        grid?: {
+            color?: string;
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxPolarChart.Options.commonAxisSettings.inverted */
         inverted?: boolean;
         /** @name dxPolarChart.Options.commonAxisSettings.label */
         label?: dxPolarChartCommonAxisSettingsLabel;
         /** @name dxPolarChart.Options.commonAxisSettings.minorGrid */
-        minorGrid?: { color?: string, opacity?: number, visible?: boolean, width?: number };
+        minorGrid?: {
+            color?: string;
+            opacity?: number;
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxPolarChart.Options.commonAxisSettings.minorTick */
         minorTick?: dxPolarChartCommonAxisSettingsMinorTick;
         /** @name dxPolarChart.Options.commonAxisSettings.opacity */
@@ -9451,7 +15941,7 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.commonAxisSettings.constantLineStyle.color */
         color?: string;
         /** @name dxPolarChart.Options.commonAxisSettings.constantLineStyle.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxPolarChart.Options.commonAxisSettings.constantLineStyle.label */
         label?: dxPolarChartCommonAxisSettingsConstantLineStyleLabel;
         /** @name dxPolarChart.Options.commonAxisSettings.constantLineStyle.width */
@@ -9471,7 +15961,7 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.commonAxisSettings.label.indentFromAxis */
         indentFromAxis?: number;
         /** @name dxPolarChart.Options.commonAxisSettings.label.overlappingBehavior */
-        overlappingBehavior?: 'none' | 'hide';
+        overlappingBehavior?: "none" | "hide";
         /** @name dxPolarChart.Options.commonAxisSettings.label.visible */
         visible?: boolean;
     }
@@ -9512,7 +16002,8 @@ declare module DevExpress.viz {
         width?: number;
     }
     /** @name dxPolarChart.Options.commonSeriesSettings */
-    export interface dxPolarChartCommonSeriesSettings extends dxPolarChartSeriesTypesCommonPolarChartSeries {
+    export interface dxPolarChartCommonSeriesSettings
+        extends dxPolarChartSeriesTypesCommonPolarChartSeries {
         /** @name dxPolarChart.Options.commonSeriesSettings.area */
         area?: any;
         /** @name dxPolarChart.Options.commonSeriesSettings.bar */
@@ -9524,16 +16015,24 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.commonSeriesSettings.stackedbar */
         stackedbar?: any;
         /** @name dxPolarChart.Options.commonSeriesSettings.type */
-        type?: 'area' | 'bar' | 'line' | 'scatter' | 'stackedbar';
+        type?: "area" | "bar" | "line" | "scatter" | "stackedbar";
     }
     /** @name dxPolarChart.Options.legend */
     export interface dxPolarChartLegend extends BaseChartLegend {
         /** @name dxPolarChart.Options.legend.customizeHint */
-        customizeHint?: ((seriesInfo: { seriesName?: any, seriesIndex?: number, seriesColor?: string }) => string);
+        customizeHint?: (seriesInfo: {
+            seriesName?: any;
+            seriesIndex?: number;
+            seriesColor?: string;
+        }) => string;
         /** @name dxPolarChart.Options.legend.customizeText */
-        customizeText?: ((seriesInfo: { seriesName?: any, seriesIndex?: number, seriesColor?: string }) => string);
+        customizeText?: (seriesInfo: {
+            seriesName?: any;
+            seriesIndex?: number;
+            seriesColor?: string;
+        }) => string;
         /** @name dxPolarChart.Options.legend.hoverMode */
-        hoverMode?: 'excludePoints' | 'includePoints' | 'none';
+        hoverMode?: "excludePoints" | "includePoints" | "none";
     }
     /** @name dxPolarChart.Options.tooltip */
     export interface dxPolarChartTooltip extends BaseChartTooltip {
@@ -9541,7 +16040,8 @@ declare module DevExpress.viz {
         shared?: boolean;
     }
     /** @name dxPolarChart.Options.valueAxis */
-    export interface dxPolarChartValueAxis extends dxPolarChartCommonAxisSettings {
+    export interface dxPolarChartValueAxis
+        extends dxPolarChartCommonAxisSettings {
         /** @name dxPolarChart.Options.valueAxis.axisDivisionFactor */
         axisDivisionFactor?: number;
         /** @name dxPolarChart.Options.valueAxis.categories */
@@ -9561,11 +16061,33 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.valueAxis.minValueMargin */
         minValueMargin?: number;
         /** @name dxPolarChart.Options.valueAxis.minVisualRangeLength */
-        minVisualRangeLength?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        minVisualRangeLength?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxPolarChart.Options.valueAxis.minorTickCount */
         minorTickCount?: number;
         /** @name dxPolarChart.Options.valueAxis.minorTickInterval */
-        minorTickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        minorTickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxPolarChart.Options.valueAxis.showZero */
         showZero?: boolean;
         /** @name dxPolarChart.Options.valueAxis.strips */
@@ -9573,22 +16095,34 @@ declare module DevExpress.viz {
         /** @name dxPolarChart.Options.valueAxis.tick */
         tick?: dxPolarChartValueAxisTick;
         /** @name dxPolarChart.Options.valueAxis.tickInterval */
-        tickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year';
+        tickInterval?:
+            | number
+            | any
+            | "day"
+            | "hour"
+            | "millisecond"
+            | "minute"
+            | "month"
+            | "quarter"
+            | "second"
+            | "week"
+            | "year";
         /** @name dxPolarChart.Options.valueAxis.type */
-        type?: 'continuous' | 'discrete' | 'logarithmic';
+        type?: "continuous" | "discrete" | "logarithmic";
         /** @name dxPolarChart.Options.valueAxis.valueMarginsEnabled */
         valueMarginsEnabled?: boolean;
         /** @name dxPolarChart.Options.valueAxis.valueType */
-        valueType?: 'datetime' | 'numeric' | 'string';
+        valueType?: "datetime" | "numeric" | "string";
         /** @name dxPolarChart.Options.valueAxis.visualRange */
         visualRange?: VizRange | Array<number | string | Date>;
         /** @name dxPolarChart.Options.valueAxis.visualRangeUpdateMode */
-        visualRangeUpdateMode?: 'auto' | 'keep' | 'reset';
+        visualRangeUpdateMode?: "auto" | "keep" | "reset";
         /** @name dxPolarChart.Options.valueAxis.wholeRange */
         wholeRange?: VizRange | Array<number | string | Date>;
     }
     /** @name dxPolarChart.Options.valueAxis.constantLines */
-    export interface dxPolarChartValueAxisConstantLines extends dxPolarChartCommonAxisSettingsConstantLineStyle {
+    export interface dxPolarChartValueAxisConstantLines
+        extends dxPolarChartCommonAxisSettingsConstantLineStyle {
         /** @name dxPolarChart.Options.valueAxis.constantLines.displayBehindSeries */
         displayBehindSeries?: boolean;
         /** @name dxPolarChart.Options.valueAxis.constantLines.extendAxis */
@@ -9599,21 +16133,30 @@ declare module DevExpress.viz {
         value?: number | Date | string;
     }
     /** @name dxPolarChart.Options.valueAxis.constantLines.label */
-    export interface dxPolarChartValueAxisConstantLinesLabel extends dxPolarChartCommonAxisSettingsConstantLineStyleLabel {
+    export interface dxPolarChartValueAxisConstantLinesLabel
+        extends dxPolarChartCommonAxisSettingsConstantLineStyleLabel {
         /** @name dxPolarChart.Options.valueAxis.constantLines.label.text */
         text?: string;
     }
     /** @name dxPolarChart.Options.valueAxis.label */
-    export interface dxPolarChartValueAxisLabel extends dxPolarChartCommonAxisSettingsLabel {
+    export interface dxPolarChartValueAxisLabel
+        extends dxPolarChartCommonAxisSettingsLabel {
         /** @name dxPolarChart.Options.valueAxis.label.customizeHint */
-        customizeHint?: ((axisValue: { value?: Date | number | string, valueText?: string }) => string);
+        customizeHint?: (axisValue: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxPolarChart.Options.valueAxis.label.customizeText */
-        customizeText?: ((axisValue: { value?: Date | number | string, valueText?: string }) => string);
+        customizeText?: (axisValue: {
+            value?: Date | number | string;
+            valueText?: string;
+        }) => string;
         /** @name dxPolarChart.Options.valueAxis.label.format */
         format?: DevExpress.ui.format;
     }
     /** @name dxPolarChart.Options.valueAxis.strips */
-    export interface dxPolarChartValueAxisStrips extends dxPolarChartCommonAxisSettingsStripStyle {
+    export interface dxPolarChartValueAxisStrips
+        extends dxPolarChartCommonAxisSettingsStripStyle {
         /** @name dxPolarChart.Options.valueAxis.strips.color */
         color?: string;
         /** @name dxPolarChart.Options.valueAxis.strips.endValue */
@@ -9624,31 +16167,35 @@ declare module DevExpress.viz {
         startValue?: number | Date | string;
     }
     /** @name dxPolarChart.Options.valueAxis.strips.label */
-    export interface dxPolarChartValueAxisStripsLabel extends dxPolarChartCommonAxisSettingsStripStyleLabel {
+    export interface dxPolarChartValueAxisStripsLabel
+        extends dxPolarChartCommonAxisSettingsStripStyleLabel {
         /** @name dxPolarChart.Options.valueAxis.strips.label.text */
         text?: string;
     }
     /** @name dxPolarChart.Options.valueAxis.tick */
-    export interface dxPolarChartValueAxisTick extends dxPolarChartCommonAxisSettingsTick {
+    export interface dxPolarChartValueAxisTick
+        extends dxPolarChartCommonAxisSettingsTick {
         /** @name dxPolarChart.Options.valueAxis.tick.visible */
         visible?: boolean;
     }
     /** @name dxPolarChart */
     export class dxPolarChart extends BaseChart {
-        constructor(element: Element, options?: dxPolarChartOptions)
-        constructor(element: JQuery, options?: dxPolarChartOptions)
+        constructor(element: Element, options?: dxPolarChartOptions);
+        constructor(element: JQuery, options?: dxPolarChartOptions);
         /** @name dxPolarChart.getValueAxis() */
         getValueAxis(): chartAxisObject;
         /** @name dxPolarChart.resetVisualRange() */
         resetVisualRange(): void;
     }
     /** @name dxPolarChartAnnotationConfig */
-    export interface dxPolarChartAnnotationConfig extends dxPolarChartCommonAnnotationConfig {
+    export interface dxPolarChartAnnotationConfig
+        extends dxPolarChartCommonAnnotationConfig {
         /** @name dxPolarChartAnnotationConfig.name */
         name?: string;
     }
     /** @name dxPolarChartCommonAnnotationConfig */
-    export interface dxPolarChartCommonAnnotationConfig extends BaseChartAnnotationConfig {
+    export interface dxPolarChartCommonAnnotationConfig
+        extends BaseChartAnnotationConfig {
         /** @name dxPolarChartCommonAnnotationConfig.angle */
         angle?: number;
         /** @name dxPolarChartCommonAnnotationConfig.radius */
@@ -9678,17 +16225,45 @@ declare module DevExpress.viz {
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.barWidth */
         barWidth?: number;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.border */
-        border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number };
+        border?: {
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.closed */
         closed?: boolean;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.color */
         color?: string;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.dashStyle */
-        dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid';
+        dashStyle?: "dash" | "dot" | "longDash" | "solid";
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.hoverMode */
-        hoverMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'excludePoints' | 'includePoints' | 'nearestPoint' | 'none' | 'onlyPoint';
+        hoverMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "excludePoints"
+            | "includePoints"
+            | "nearestPoint"
+            | "none"
+            | "onlyPoint";
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.hoverStyle */
-        hoverStyle?: { border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number }, color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number }, width?: number };
+        hoverStyle?: {
+            border?: {
+                color?: string;
+                dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                visible?: boolean;
+                width?: number;
+            };
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            hatching?: {
+                direction?: "left" | "none" | "right";
+                opacity?: number;
+                step?: number;
+                width?: number;
+            };
+            width?: number;
+        };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.ignoreEmptyPoints */
         ignoreEmptyPoints?: boolean;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label */
@@ -9702,9 +16277,31 @@ declare module DevExpress.viz {
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point */
         point?: dxPolarChartSeriesTypesCommonPolarChartSeriesPoint;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.selectionMode */
-        selectionMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'excludePoints' | 'includePoints' | 'none' | 'onlyPoint';
+        selectionMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "excludePoints"
+            | "includePoints"
+            | "none"
+            | "onlyPoint";
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.selectionStyle */
-        selectionStyle?: { border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number }, color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number }, width?: number };
+        selectionStyle?: {
+            border?: {
+                color?: string;
+                dashStyle?: "dash" | "dot" | "longDash" | "solid";
+                visible?: boolean;
+                width?: number;
+            };
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            hatching?: {
+                direction?: "left" | "none" | "right";
+                opacity?: number;
+                step?: number;
+                width?: number;
+            };
+            width?: number;
+        };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.showInLegend */
         showInLegend?: boolean;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.stack */
@@ -9712,7 +16309,22 @@ declare module DevExpress.viz {
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.tagField */
         tagField?: string;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.valueErrorBar */
-        valueErrorBar?: { color?: string, displayMode?: 'auto' | 'high' | 'low' | 'none', edgeLength?: number, highValueField?: string, lineWidth?: number, lowValueField?: string, opacity?: number, type?: 'fixed' | 'percent' | 'stdDeviation' | 'stdError' | 'variance', value?: number };
+        valueErrorBar?: {
+            color?: string;
+            displayMode?: "auto" | "high" | "low" | "none";
+            edgeLength?: number;
+            highValueField?: string;
+            lineWidth?: number;
+            lowValueField?: string;
+            opacity?: number;
+            type?:
+                | "fixed"
+                | "percent"
+                | "stdDeviation"
+                | "stdError"
+                | "variance";
+            value?: number;
+        };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.valueField */
         valueField?: string;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.visible */
@@ -9727,17 +16339,22 @@ declare module DevExpress.viz {
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.backgroundColor */
         backgroundColor?: string;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.border */
-        border?: { color?: string, dashStyle?: 'dash' | 'dot' | 'longDash' | 'solid', visible?: boolean, width?: number };
+        border?: {
+            color?: string;
+            dashStyle?: "dash" | "dot" | "longDash" | "solid";
+            visible?: boolean;
+            width?: number;
+        };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.connector */
-        connector?: { color?: string, visible?: boolean, width?: number };
+        connector?: { color?: string; visible?: boolean; width?: number };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.customizeText */
-        customizeText?: ((pointInfo: any) => string);
+        customizeText?: (pointInfo: any) => string;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.font */
         font?: Font;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.format */
         format?: DevExpress.ui.format;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.position */
-        position?: 'inside' | 'outside';
+        position?: "inside" | "outside";
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.rotationAngle */
         rotationAngle?: number;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.label.showForZeroValues */
@@ -9748,105 +16365,369 @@ declare module DevExpress.viz {
     /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point */
     export interface dxPolarChartSeriesTypesCommonPolarChartSeriesPoint {
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.border */
-        border?: { color?: string, visible?: boolean, width?: number };
+        border?: { color?: string; visible?: boolean; width?: number };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.color */
         color?: string;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.hoverMode */
-        hoverMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'none' | 'onlyPoint';
+        hoverMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "none"
+            | "onlyPoint";
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.hoverStyle */
-        hoverStyle?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, size?: number };
+        hoverStyle?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            color?: string;
+            size?: number;
+        };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.image */
-        image?: string | { height?: number, url?: string, width?: number };
+        image?: string | { height?: number; url?: string; width?: number };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.selectionMode */
-        selectionMode?: 'allArgumentPoints' | 'allSeriesPoints' | 'none' | 'onlyPoint';
+        selectionMode?:
+            | "allArgumentPoints"
+            | "allSeriesPoints"
+            | "none"
+            | "onlyPoint";
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.selectionStyle */
-        selectionStyle?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, size?: number };
+        selectionStyle?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            color?: string;
+            size?: number;
+        };
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.size */
         size?: number;
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.symbol */
-        symbol?: 'circle' | 'cross' | 'polygon' | 'square' | 'triangle';
+        symbol?: "circle" | "cross" | "polygon" | "square" | "triangle";
         /** @name dxPolarChartSeriesTypes.CommonPolarChartSeries.point.visible */
         visible?: boolean;
     }
     /** @name dxPolarChartSeriesTypes.areapolarseries */
-    export interface dxPolarChartSeriesTypesAreapolarseries extends dxPolarChartSeriesTypesCommonPolarChartSeries {
+    export interface dxPolarChartSeriesTypesAreapolarseries
+        extends dxPolarChartSeriesTypesCommonPolarChartSeries {
         /** @name dxPolarChartSeriesTypes.areapolarseries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxPolarChartSeriesTypes.areapolarseries.point */
         point?: dxPolarChartSeriesTypesAreapolarseriesPoint;
         /** @name dxPolarChartSeriesTypes.areapolarseries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxPolarChartSeriesTypes.areapolarseries.point */
-    export interface dxPolarChartSeriesTypesAreapolarseriesPoint extends dxPolarChartSeriesTypesCommonPolarChartSeriesPoint {
+    export interface dxPolarChartSeriesTypesAreapolarseriesPoint
+        extends dxPolarChartSeriesTypesCommonPolarChartSeriesPoint {
         /** @name dxPolarChartSeriesTypes.areapolarseries.point.visible */
         visible?: boolean;
     }
     /** @name dxPolarChartSeriesTypes.barpolarseries */
-    export interface dxPolarChartSeriesTypesBarpolarseries extends dxPolarChartSeriesTypesCommonPolarChartSeries {
+    export interface dxPolarChartSeriesTypesBarpolarseries
+        extends dxPolarChartSeriesTypesCommonPolarChartSeries {
         /** @name dxPolarChartSeriesTypes.barpolarseries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxPolarChartSeriesTypes.barpolarseries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxPolarChartSeriesTypes.linepolarseries */
-    export interface dxPolarChartSeriesTypesLinepolarseries extends dxPolarChartSeriesTypesCommonPolarChartSeries {
+    export interface dxPolarChartSeriesTypesLinepolarseries
+        extends dxPolarChartSeriesTypesCommonPolarChartSeries {
         /** @name dxPolarChartSeriesTypes.linepolarseries.hoverMode */
-        hoverMode?: 'nearestPoint' | 'includePoints' | 'excludePoints' | 'none';
+        hoverMode?: "nearestPoint" | "includePoints" | "excludePoints" | "none";
         /** @name dxPolarChartSeriesTypes.linepolarseries.selectionMode */
-        selectionMode?: 'includePoints' | 'excludePoints' | 'none';
+        selectionMode?: "includePoints" | "excludePoints" | "none";
     }
     /** @name dxPolarChartSeriesTypes.stackedbarpolarseries */
-    export interface dxPolarChartSeriesTypesStackedbarpolarseries extends dxPolarChartSeriesTypesCommonPolarChartSeries {
+    export interface dxPolarChartSeriesTypesStackedbarpolarseries
+        extends dxPolarChartSeriesTypesCommonPolarChartSeries {
         /** @name dxPolarChartSeriesTypes.stackedbarpolarseries.hoverMode */
-        hoverMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        hoverMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
         /** @name dxPolarChartSeriesTypes.stackedbarpolarseries.label */
         label?: dxPolarChartSeriesTypesStackedbarpolarseriesLabel;
         /** @name dxPolarChartSeriesTypes.stackedbarpolarseries.selectionMode */
-        selectionMode?: 'onlyPoint' | 'allSeriesPoints' | 'allArgumentPoints' | 'none';
+        selectionMode?:
+            | "onlyPoint"
+            | "allSeriesPoints"
+            | "allArgumentPoints"
+            | "none";
     }
     /** @name dxPolarChartSeriesTypes.stackedbarpolarseries.label */
-    export interface dxPolarChartSeriesTypesStackedbarpolarseriesLabel extends dxPolarChartSeriesTypesCommonPolarChartSeriesLabel {
+    export interface dxPolarChartSeriesTypesStackedbarpolarseriesLabel
+        extends dxPolarChartSeriesTypesCommonPolarChartSeriesLabel {
         /** @name dxPolarChartSeriesTypes.stackedbarpolarseries.label.position */
-        position?: 'inside' | 'outside';
+        position?: "inside" | "outside";
     }
     /** @name dxRangeSelector.Options */
-    export interface dxRangeSelectorOptions extends BaseWidgetOptions<dxRangeSelector> {
+    export interface dxRangeSelectorOptions
+        extends BaseWidgetOptions<dxRangeSelector> {
         /** @name dxRangeSelector.Options.background */
-        background?: { color?: string, image?: { location?: 'center' | 'centerBottom' | 'centerTop' | 'full' | 'leftBottom' | 'leftCenter' | 'leftTop' | 'rightBottom' | 'rightCenter' | 'rightTop', url?: string }, visible?: boolean };
+        background?: {
+            color?: string;
+            image?: {
+                location?:
+                    | "center"
+                    | "centerBottom"
+                    | "centerTop"
+                    | "full"
+                    | "leftBottom"
+                    | "leftCenter"
+                    | "leftTop"
+                    | "rightBottom"
+                    | "rightCenter"
+                    | "rightTop";
+                url?: string;
+            };
+            visible?: boolean;
+        };
         /** @name dxRangeSelector.Options.behavior */
-        behavior?: { allowSlidersSwap?: boolean, animationEnabled?: boolean, callValueChanged?: 'onMoving' | 'onMovingComplete', manualRangeSelectionEnabled?: boolean, moveSelectedRangeByClick?: boolean, snapToTicks?: boolean };
+        behavior?: {
+            allowSlidersSwap?: boolean;
+            animationEnabled?: boolean;
+            callValueChanged?: "onMoving" | "onMovingComplete";
+            manualRangeSelectionEnabled?: boolean;
+            moveSelectedRangeByClick?: boolean;
+            snapToTicks?: boolean;
+        };
         /** @name dxRangeSelector.Options.chart */
-        chart?: { barGroupPadding?: number, barGroupWidth?: number, barWidth?: number, bottomIndent?: number, commonSeriesSettings?: dxChartCommonSeriesSettings, dataPrepareSettings?: { checkTypeForAllData?: boolean, convertToAxisDataType?: boolean, sortingMethod?: boolean | ((a: { arg?: Date | number | string, val?: Date | number | string }, b: { arg?: Date | number | string, val?: Date | number | string }) => number) }, equalBarWidth?: boolean, maxBubbleSize?: number, minBubbleSize?: number, negativesAsZeroes?: boolean, palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office', paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate', series?: ChartSeries | Array<ChartSeries>, seriesTemplate?: { customizeSeries?: ((seriesName: any) => ChartSeries), nameField?: string }, topIndent?: number, useAggregation?: boolean, valueAxis?: { inverted?: boolean, logarithmBase?: number, max?: number, min?: number, type?: 'continuous' | 'logarithmic', valueType?: 'datetime' | 'numeric' | 'string' } };
+        chart?: {
+            barGroupPadding?: number;
+            barGroupWidth?: number;
+            barWidth?: number;
+            bottomIndent?: number;
+            commonSeriesSettings?: dxChartCommonSeriesSettings;
+            dataPrepareSettings?: {
+                checkTypeForAllData?: boolean;
+                convertToAxisDataType?: boolean;
+                sortingMethod?:
+                    | boolean
+                    | ((
+                          a: {
+                              arg?: Date | number | string;
+                              val?: Date | number | string;
+                          },
+                          b: {
+                              arg?: Date | number | string;
+                              val?: Date | number | string;
+                          }
+                      ) => number);
+            };
+            equalBarWidth?: boolean;
+            maxBubbleSize?: number;
+            minBubbleSize?: number;
+            negativesAsZeroes?: boolean;
+            palette?:
+                | Array<string>
+                | "Bright"
+                | "Default"
+                | "Harmony Light"
+                | "Ocean"
+                | "Pastel"
+                | "Soft"
+                | "Soft Pastel"
+                | "Vintage"
+                | "Violet"
+                | "Carmine"
+                | "Dark Moon"
+                | "Dark Violet"
+                | "Green Mist"
+                | "Soft Blue"
+                | "Material"
+                | "Office";
+            paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
+            series?: ChartSeries | Array<ChartSeries>;
+            seriesTemplate?: {
+                customizeSeries?: (seriesName: any) => ChartSeries;
+                nameField?: string;
+            };
+            topIndent?: number;
+            useAggregation?: boolean;
+            valueAxis?: {
+                inverted?: boolean;
+                logarithmBase?: number;
+                max?: number;
+                min?: number;
+                type?: "continuous" | "logarithmic";
+                valueType?: "datetime" | "numeric" | "string";
+            };
+        };
         /** @name dxRangeSelector.Options.containerBackgroundColor */
         containerBackgroundColor?: string;
         /** @name dxRangeSelector.Options.dataSource */
-        dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string;
+        dataSource?:
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions
+            | string;
         /** @name dxRangeSelector.Options.dataSourceField */
         dataSourceField?: string;
         /** @name dxRangeSelector.Options.indent */
-        indent?: { left?: number, right?: number };
+        indent?: { left?: number; right?: number };
         /** @name dxRangeSelector.Options.onValueChanged */
-        onValueChanged?: ((e: { component?: dxRangeSelector, element?: DevExpress.core.dxElement, model?: any, value?: Array<number | string | Date>, previousValue?: Array<number | string | Date>, event?: DevExpress.events.event }) => any);
+        onValueChanged?: (e: {
+            component?: dxRangeSelector;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            value?: Array<number | string | Date>;
+            previousValue?: Array<number | string | Date>;
+            event?: DevExpress.events.event;
+        }) => any;
         /** @name dxRangeSelector.Options.scale */
-        scale?: { aggregateByCategory?: boolean, aggregationGroupWidth?: number, aggregationInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year', allowDecimals?: boolean, breakStyle?: { color?: string, line?: 'straight' | 'waved', width?: number }, breaks?: Array<ScaleBreak>, categories?: Array<number | string | Date>, endOnTick?: boolean, endValue?: number | Date | string, holidays?: Array<Date | string> | Array<number>, label?: { customizeText?: ((scaleValue: { value?: Date | number | string, valueText?: string }) => string), font?: Font, format?: DevExpress.ui.format, overlappingBehavior?: 'hide' | 'none', topIndent?: number, visible?: boolean }, linearThreshold?: number, logarithmBase?: number, marker?: { label?: { customizeText?: ((markerValue: { value?: Date | number, valueText?: string }) => string), format?: DevExpress.ui.format }, separatorHeight?: number, textLeftIndent?: number, textTopIndent?: number, topIndent?: number, visible?: boolean }, maxRange?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year', minRange?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year', minorTick?: { color?: string, opacity?: number, visible?: boolean, width?: number }, minorTickCount?: number, minorTickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year', placeholderHeight?: number, showCustomBoundaryTicks?: boolean, singleWorkdays?: Array<Date | string> | Array<number>, startValue?: number | Date | string, tick?: { color?: string, opacity?: number, width?: number }, tickInterval?: number | any | 'day' | 'hour' | 'millisecond' | 'minute' | 'month' | 'quarter' | 'second' | 'week' | 'year', type?: 'continuous' | 'discrete' | 'logarithmic' | 'semidiscrete', valueType?: 'datetime' | 'numeric' | 'string', workWeek?: Array<number>, workdaysOnly?: boolean };
+        scale?: {
+            aggregateByCategory?: boolean;
+            aggregationGroupWidth?: number;
+            aggregationInterval?:
+                | number
+                | any
+                | "day"
+                | "hour"
+                | "millisecond"
+                | "minute"
+                | "month"
+                | "quarter"
+                | "second"
+                | "week"
+                | "year";
+            allowDecimals?: boolean;
+            breakStyle?: {
+                color?: string;
+                line?: "straight" | "waved";
+                width?: number;
+            };
+            breaks?: Array<ScaleBreak>;
+            categories?: Array<number | string | Date>;
+            endOnTick?: boolean;
+            endValue?: number | Date | string;
+            holidays?: Array<Date | string> | Array<number>;
+            label?: {
+                customizeText?: (scaleValue: {
+                    value?: Date | number | string;
+                    valueText?: string;
+                }) => string;
+                font?: Font;
+                format?: DevExpress.ui.format;
+                overlappingBehavior?: "hide" | "none";
+                topIndent?: number;
+                visible?: boolean;
+            };
+            linearThreshold?: number;
+            logarithmBase?: number;
+            marker?: {
+                label?: {
+                    customizeText?: (markerValue: {
+                        value?: Date | number;
+                        valueText?: string;
+                    }) => string;
+                    format?: DevExpress.ui.format;
+                };
+                separatorHeight?: number;
+                textLeftIndent?: number;
+                textTopIndent?: number;
+                topIndent?: number;
+                visible?: boolean;
+            };
+            maxRange?:
+                | number
+                | any
+                | "day"
+                | "hour"
+                | "millisecond"
+                | "minute"
+                | "month"
+                | "quarter"
+                | "second"
+                | "week"
+                | "year";
+            minRange?:
+                | number
+                | any
+                | "day"
+                | "hour"
+                | "millisecond"
+                | "minute"
+                | "month"
+                | "quarter"
+                | "second"
+                | "week"
+                | "year";
+            minorTick?: {
+                color?: string;
+                opacity?: number;
+                visible?: boolean;
+                width?: number;
+            };
+            minorTickCount?: number;
+            minorTickInterval?:
+                | number
+                | any
+                | "day"
+                | "hour"
+                | "millisecond"
+                | "minute"
+                | "month"
+                | "quarter"
+                | "second"
+                | "week"
+                | "year";
+            placeholderHeight?: number;
+            showCustomBoundaryTicks?: boolean;
+            singleWorkdays?: Array<Date | string> | Array<number>;
+            startValue?: number | Date | string;
+            tick?: { color?: string; opacity?: number; width?: number };
+            tickInterval?:
+                | number
+                | any
+                | "day"
+                | "hour"
+                | "millisecond"
+                | "minute"
+                | "month"
+                | "quarter"
+                | "second"
+                | "week"
+                | "year";
+            type?: "continuous" | "discrete" | "logarithmic" | "semidiscrete";
+            valueType?: "datetime" | "numeric" | "string";
+            workWeek?: Array<number>;
+            workdaysOnly?: boolean;
+        };
         /** @name dxRangeSelector.Options.selectedRangeColor */
         selectedRangeColor?: string;
         /** @name dxRangeSelector.Options.selectedRangeUpdateMode */
-        selectedRangeUpdateMode?: 'auto' | 'keep' | 'reset' | 'shift';
+        selectedRangeUpdateMode?: "auto" | "keep" | "reset" | "shift";
         /** @name dxRangeSelector.Options.shutter */
-        shutter?: { color?: string, opacity?: number };
+        shutter?: { color?: string; opacity?: number };
         /** @name dxRangeSelector.Options.sliderHandle */
-        sliderHandle?: { color?: string, opacity?: number, width?: number };
+        sliderHandle?: { color?: string; opacity?: number; width?: number };
         /** @name dxRangeSelector.Options.sliderMarker */
-        sliderMarker?: { color?: string, customizeText?: ((scaleValue: { value?: Date | number | string, valueText?: string }) => string), font?: Font, format?: DevExpress.ui.format, invalidRangeColor?: string, paddingLeftRight?: number, paddingTopBottom?: number, placeholderHeight?: number, visible?: boolean };
+        sliderMarker?: {
+            color?: string;
+            customizeText?: (scaleValue: {
+                value?: Date | number | string;
+                valueText?: string;
+            }) => string;
+            font?: Font;
+            format?: DevExpress.ui.format;
+            invalidRangeColor?: string;
+            paddingLeftRight?: number;
+            paddingTopBottom?: number;
+            placeholderHeight?: number;
+            visible?: boolean;
+        };
         /** @name dxRangeSelector.Options.value */
         value?: Array<number | string | Date> | VizRange;
     }
     /** @name dxRangeSelector */
     export class dxRangeSelector extends BaseWidget {
-        constructor(element: Element, options?: dxRangeSelectorOptions)
-        constructor(element: JQuery, options?: dxRangeSelectorOptions)
+        constructor(element: Element, options?: dxRangeSelectorOptions);
+        constructor(element: JQuery, options?: dxRangeSelectorOptions);
         /** @name DataHelperMixin.getDataSource() */
         getDataSource(): DevExpress.data.DataSource;
         /** @name dxRangeSelector.getValue() */
@@ -9861,31 +16742,135 @@ declare module DevExpress.viz {
     /** @name dxSankey.Options */
     export interface dxSankeyOptions extends BaseWidgetOptions<dxSankey> {
         /** @name dxSankey.Options.adaptiveLayout */
-        adaptiveLayout?: { height?: number, keepLabels?: boolean, width?: number };
+        adaptiveLayout?: {
+            height?: number;
+            keepLabels?: boolean;
+            width?: number;
+        };
         /** @name dxSankey.Options.alignment */
-        alignment?: 'bottom' | 'center' | 'top' | Array<'bottom' | 'center' | 'top'>;
+        alignment?:
+            | "bottom"
+            | "center"
+            | "top"
+            | Array<"bottom" | "center" | "top">;
         /** @name dxSankey.Options.dataSource */
-        dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string;
+        dataSource?:
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions
+            | string;
         /** @name dxSankey.Options.hoverEnabled */
         hoverEnabled?: boolean;
         /** @name dxSankey.Options.label */
-        label?: { border?: { color?: string, visible?: boolean, width?: number }, customizeText?: ((itemInfo: dxSankeyNode) => string), font?: Font, horizontalOffset?: number, overlappingBehavior?: 'ellipsis' | 'hide' | 'none', shadow?: { blur?: number, color?: string, offsetX?: number, offsetY?: number, opacity?: number }, useNodeColors?: boolean, verticalOffset?: number, visible?: boolean };
+        label?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            customizeText?: (itemInfo: dxSankeyNode) => string;
+            font?: Font;
+            horizontalOffset?: number;
+            overlappingBehavior?: "ellipsis" | "hide" | "none";
+            shadow?: {
+                blur?: number;
+                color?: string;
+                offsetX?: number;
+                offsetY?: number;
+                opacity?: number;
+            };
+            useNodeColors?: boolean;
+            verticalOffset?: number;
+            visible?: boolean;
+        };
         /** @name dxSankey.Options.link */
-        link?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, colorMode?: 'none' | 'source' | 'target' | 'gradient', hoverStyle?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number }, opacity?: number }, opacity?: number };
+        link?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            color?: string;
+            colorMode?: "none" | "source" | "target" | "gradient";
+            hoverStyle?: {
+                border?: { color?: string; visible?: boolean; width?: number };
+                color?: string;
+                hatching?: {
+                    direction?: "left" | "none" | "right";
+                    opacity?: number;
+                    step?: number;
+                    width?: number;
+                };
+                opacity?: number;
+            };
+            opacity?: number;
+        };
         /** @name dxSankey.Options.node */
-        node?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, hoverStyle?: { border?: { color?: string, visible?: boolean, width?: number }, color?: string, hatching?: { direction?: 'left' | 'none' | 'right', opacity?: number, step?: number, width?: number }, opacity?: number }, opacity?: number, padding?: number, width?: number };
+        node?: {
+            border?: { color?: string; visible?: boolean; width?: number };
+            color?: string;
+            hoverStyle?: {
+                border?: { color?: string; visible?: boolean; width?: number };
+                color?: string;
+                hatching?: {
+                    direction?: "left" | "none" | "right";
+                    opacity?: number;
+                    step?: number;
+                    width?: number;
+                };
+                opacity?: number;
+            };
+            opacity?: number;
+            padding?: number;
+            width?: number;
+        };
         /** @name dxSankey.Options.onLinkClick */
-        onLinkClick?: ((e: { component?: dxSankey, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, target?: dxSankeyLink }) => any) | string;
+        onLinkClick?:
+            | ((e: {
+                  component?: dxSankey;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  event?: DevExpress.events.event;
+                  target?: dxSankeyLink;
+              }) => any)
+            | string;
         /** @name dxSankey.Options.onLinkHoverChanged */
-        onLinkHoverChanged?: ((e: { component?: dxSankey, element?: DevExpress.core.dxElement, model?: any, target?: dxSankeyLink }) => any);
+        onLinkHoverChanged?: (e: {
+            component?: dxSankey;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: dxSankeyLink;
+        }) => any;
         /** @name dxSankey.Options.onNodeClick */
-        onNodeClick?: ((e: { component?: dxSankey, element?: DevExpress.core.dxElement, model?: any, event?: DevExpress.events.event, target?: dxSankeyNode }) => any) | string;
+        onNodeClick?:
+            | ((e: {
+                  component?: dxSankey;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  event?: DevExpress.events.event;
+                  target?: dxSankeyNode;
+              }) => any)
+            | string;
         /** @name dxSankey.Options.onNodeHoverChanged */
-        onNodeHoverChanged?: ((e: { component?: dxSankey, element?: DevExpress.core.dxElement, model?: any, target?: dxSankeyNode }) => any);
+        onNodeHoverChanged?: (e: {
+            component?: dxSankey;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: dxSankeyNode;
+        }) => any;
         /** @name dxSankey.Options.palette */
-        palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office';
+        palette?:
+            | Array<string>
+            | "Bright"
+            | "Default"
+            | "Harmony Light"
+            | "Ocean"
+            | "Pastel"
+            | "Soft"
+            | "Soft Pastel"
+            | "Vintage"
+            | "Violet"
+            | "Carmine"
+            | "Dark Moon"
+            | "Dark Violet"
+            | "Green Mist"
+            | "Soft Blue"
+            | "Material"
+            | "Office";
         /** @name dxSankey.Options.paletteExtensionMode */
-        paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate';
+        paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
         /** @name dxSankey.Options.sortData */
         sortData?: any;
         /** @name dxSankey.Options.sourceField */
@@ -9900,20 +16885,43 @@ declare module DevExpress.viz {
     /** @name dxSankey.Options.tooltip */
     export interface dxSankeyTooltip extends BaseWidgetTooltip {
         /** @name dxSankey.Options.tooltip.customizeLinkTooltip */
-        customizeLinkTooltip?: ((info: { source?: string, target?: string, weight?: number }) => any);
+        customizeLinkTooltip?: (info: {
+            source?: string;
+            target?: string;
+            weight?: number;
+        }) => any;
         /** @name dxSankey.Options.tooltip.customizeNodeTooltip */
-        customizeNodeTooltip?: ((info: { title?: string, label?: string, weightIn?: number, weightOut?: number }) => any);
+        customizeNodeTooltip?: (info: {
+            title?: string;
+            label?: string;
+            weightIn?: number;
+            weightOut?: number;
+        }) => any;
         /** @name dxSankey.Options.tooltip.enabled */
         enabled?: boolean;
         /** @name dxSankey.Options.tooltip.linkTooltipTemplate */
-        linkTooltipTemplate?: DevExpress.core.template | ((info: { source?: string, target?: string, weight?: number }, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        linkTooltipTemplate?:
+            | DevExpress.core.template
+            | ((
+                  info: { source?: string; target?: string; weight?: number },
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxSankey.Options.tooltip.nodeTooltipTemplate */
-        nodeTooltipTemplate?: DevExpress.core.template | ((info: { label?: string, weightIn?: number, weightOut?: number }, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        nodeTooltipTemplate?:
+            | DevExpress.core.template
+            | ((
+                  info: {
+                      label?: string;
+                      weightIn?: number;
+                      weightOut?: number;
+                  },
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
     }
     /** @name dxSankey */
     export class dxSankey extends BaseWidget {
-        constructor(element: Element, options?: dxSankeyOptions)
-        constructor(element: JQuery, options?: dxSankeyOptions)
+        constructor(element: Element, options?: dxSankeyOptions);
+        constructor(element: JQuery, options?: dxSankeyOptions);
         /** @name dxSankey.getAllLinks() */
         getAllLinks(): Array<dxSankeyLink>;
         /** @name dxSankey.getAllNodes() */
@@ -9966,7 +16974,8 @@ declare module DevExpress.viz {
         showTooltip(): void;
     }
     /** @name dxSparkline.Options */
-    export interface dxSparklineOptions extends BaseSparklineOptions<dxSparkline> {
+    export interface dxSparklineOptions
+        extends BaseSparklineOptions<dxSparkline> {
         /** @name dxSparkline.Options.argumentField */
         argumentField?: string;
         /** @name dxSparkline.Options.barNegativeColor */
@@ -9974,7 +16983,11 @@ declare module DevExpress.viz {
         /** @name dxSparkline.Options.barPositiveColor */
         barPositiveColor?: string;
         /** @name dxSparkline.Options.dataSource */
-        dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string;
+        dataSource?:
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions
+            | string;
         /** @name dxSparkline.Options.firstLastColor */
         firstLastColor?: string;
         /** @name dxSparkline.Options.ignoreEmptyPoints */
@@ -9998,13 +17011,21 @@ declare module DevExpress.viz {
         /** @name dxSparkline.Options.pointSize */
         pointSize?: number;
         /** @name dxSparkline.Options.pointSymbol */
-        pointSymbol?: 'circle' | 'cross' | 'polygon' | 'square' | 'triangle';
+        pointSymbol?: "circle" | "cross" | "polygon" | "square" | "triangle";
         /** @name dxSparkline.Options.showFirstLast */
         showFirstLast?: boolean;
         /** @name dxSparkline.Options.showMinMax */
         showMinMax?: boolean;
         /** @name dxSparkline.Options.type */
-        type?: 'area' | 'bar' | 'line' | 'spline' | 'splinearea' | 'steparea' | 'stepline' | 'winloss';
+        type?:
+            | "area"
+            | "bar"
+            | "line"
+            | "spline"
+            | "splinearea"
+            | "steparea"
+            | "stepline"
+            | "winloss";
         /** @name dxSparkline.Options.valueField */
         valueField?: string;
         /** @name dxSparkline.Options.winColor */
@@ -10014,8 +17035,8 @@ declare module DevExpress.viz {
     }
     /** @name dxSparkline */
     export class dxSparkline extends BaseSparkline {
-        constructor(element: Element, options?: dxSparklineOptions)
-        constructor(element: JQuery, options?: dxSparklineOptions)
+        constructor(element: Element, options?: dxSparklineOptions);
+        constructor(element: JQuery, options?: dxSparklineOptions);
         /** @name DataHelperMixin.getDataSource() */
         getDataSource(): DevExpress.data.DataSource;
     }
@@ -10026,11 +17047,57 @@ declare module DevExpress.viz {
         /** @name dxTreeMap.Options.colorField */
         colorField?: string;
         /** @name dxTreeMap.Options.colorizer */
-        colorizer?: { colorCodeField?: string, colorizeGroups?: boolean, palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office', paletteExtensionMode?: 'alternate' | 'blend' | 'extrapolate', range?: Array<number>, type?: 'discrete' | 'gradient' | 'none' | 'range' };
+        colorizer?: {
+            colorCodeField?: string;
+            colorizeGroups?: boolean;
+            palette?:
+                | Array<string>
+                | "Bright"
+                | "Default"
+                | "Harmony Light"
+                | "Ocean"
+                | "Pastel"
+                | "Soft"
+                | "Soft Pastel"
+                | "Vintage"
+                | "Violet"
+                | "Carmine"
+                | "Dark Moon"
+                | "Dark Violet"
+                | "Green Mist"
+                | "Soft Blue"
+                | "Material"
+                | "Office";
+            paletteExtensionMode?: "alternate" | "blend" | "extrapolate";
+            range?: Array<number>;
+            type?: "discrete" | "gradient" | "none" | "range";
+        };
         /** @name dxTreeMap.Options.dataSource */
-        dataSource?: Array<any> | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string;
+        dataSource?:
+            | Array<any>
+            | DevExpress.data.DataSource
+            | DevExpress.data.DataSourceOptions
+            | string;
         /** @name dxTreeMap.Options.group */
-        group?: { border?: { color?: string, width?: number }, color?: string, headerHeight?: number, hoverEnabled?: boolean, hoverStyle?: { border?: { color?: string, width?: number }, color?: string }, label?: { font?: Font, textOverflow?: 'ellipsis' | 'hide' | 'none', visible?: boolean }, selectionStyle?: { border?: { color?: string, width?: number }, color?: string } };
+        group?: {
+            border?: { color?: string; width?: number };
+            color?: string;
+            headerHeight?: number;
+            hoverEnabled?: boolean;
+            hoverStyle?: {
+                border?: { color?: string; width?: number };
+                color?: string;
+            };
+            label?: {
+                font?: Font;
+                textOverflow?: "ellipsis" | "hide" | "none";
+                visible?: boolean;
+            };
+            selectionStyle?: {
+                border?: { color?: string; width?: number };
+                color?: string;
+            };
+        };
         /** @name dxTreeMap.Options.hoverEnabled */
         hoverEnabled?: boolean;
         /** @name dxTreeMap.Options.idField */
@@ -10040,32 +17107,95 @@ declare module DevExpress.viz {
         /** @name dxTreeMap.Options.labelField */
         labelField?: string;
         /** @name dxTreeMap.Options.layoutAlgorithm */
-        layoutAlgorithm?: 'sliceanddice' | 'squarified' | 'strip' | ((e: { rect?: Array<number>, sum?: number, items?: Array<any> }) => any);
+        layoutAlgorithm?:
+            | "sliceanddice"
+            | "squarified"
+            | "strip"
+            | ((e: {
+                  rect?: Array<number>;
+                  sum?: number;
+                  items?: Array<any>;
+              }) => any);
         /** @name dxTreeMap.Options.layoutDirection */
-        layoutDirection?: 'leftBottomRightTop' | 'leftTopRightBottom' | 'rightBottomLeftTop' | 'rightTopLeftBottom';
+        layoutDirection?:
+            | "leftBottomRightTop"
+            | "leftTopRightBottom"
+            | "rightBottomLeftTop"
+            | "rightTopLeftBottom";
         /** @name dxTreeMap.Options.maxDepth */
         maxDepth?: number;
         /** @name dxTreeMap.Options.onClick */
-        onClick?: ((e: { component?: dxTreeMap, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, node?: dxTreeMapNode }) => any) | string;
+        onClick?:
+            | ((e: {
+                  component?: dxTreeMap;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  node?: dxTreeMapNode;
+              }) => any)
+            | string;
         /** @name dxTreeMap.Options.onDrill */
-        onDrill?: ((e: { component?: dxTreeMap, element?: DevExpress.core.dxElement, model?: any, node?: dxTreeMapNode }) => any);
+        onDrill?: (e: {
+            component?: dxTreeMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            node?: dxTreeMapNode;
+        }) => any;
         /** @name dxTreeMap.Options.onHoverChanged */
-        onHoverChanged?: ((e: { component?: dxTreeMap, element?: DevExpress.core.dxElement, model?: any, node?: dxTreeMapNode }) => any);
+        onHoverChanged?: (e: {
+            component?: dxTreeMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            node?: dxTreeMapNode;
+        }) => any;
         /** @name dxTreeMap.Options.onNodesInitialized */
-        onNodesInitialized?: ((e: { component?: dxTreeMap, element?: DevExpress.core.dxElement, model?: any, root?: dxTreeMapNode }) => any);
+        onNodesInitialized?: (e: {
+            component?: dxTreeMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            root?: dxTreeMapNode;
+        }) => any;
         /** @name dxTreeMap.Options.onNodesRendering */
-        onNodesRendering?: ((e: { component?: dxTreeMap, element?: DevExpress.core.dxElement, model?: any, node?: dxTreeMapNode }) => any);
+        onNodesRendering?: (e: {
+            component?: dxTreeMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            node?: dxTreeMapNode;
+        }) => any;
         /** @name dxTreeMap.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxTreeMap, element?: DevExpress.core.dxElement, model?: any, node?: dxTreeMapNode }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxTreeMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            node?: dxTreeMapNode;
+        }) => any;
         /** @name dxTreeMap.Options.parentField */
         parentField?: string;
         /** @deprecated */
         /** @name dxTreeMap.Options.resolveLabelOverflow */
-        resolveLabelOverflow?: 'ellipsis' | 'hide';
+        resolveLabelOverflow?: "ellipsis" | "hide";
         /** @name dxTreeMap.Options.selectionMode */
-        selectionMode?: 'multiple' | 'none' | 'single';
+        selectionMode?: "multiple" | "none" | "single";
         /** @name dxTreeMap.Options.tile */
-        tile?: { border?: { color?: string, width?: number }, color?: string, hoverStyle?: { border?: { color?: string, width?: number }, color?: string }, label?: { font?: Font, textOverflow?: 'ellipsis' | 'hide' | 'none', visible?: boolean, wordWrap?: 'normal' | 'breakWord' | 'none' }, selectionStyle?: { border?: { color?: string, width?: number }, color?: string } };
+        tile?: {
+            border?: { color?: string; width?: number };
+            color?: string;
+            hoverStyle?: {
+                border?: { color?: string; width?: number };
+                color?: string;
+            };
+            label?: {
+                font?: Font;
+                textOverflow?: "ellipsis" | "hide" | "none";
+                visible?: boolean;
+                wordWrap?: "normal" | "breakWord" | "none";
+            };
+            selectionStyle?: {
+                border?: { color?: string; width?: number };
+                color?: string;
+            };
+        };
         /** @name dxTreeMap.Options.tooltip */
         tooltip?: dxTreeMapTooltip;
         /** @name dxTreeMap.Options.valueField */
@@ -10074,14 +17204,27 @@ declare module DevExpress.viz {
     /** @name dxTreeMap.Options.tooltip */
     export interface dxTreeMapTooltip extends BaseWidgetTooltip {
         /** @name dxTreeMap.Options.tooltip.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((info: { value?: number, valueText?: string, node?: dxTreeMapNode }, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  info: {
+                      value?: number;
+                      valueText?: string;
+                      node?: dxTreeMapNode;
+                  },
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxTreeMap.Options.tooltip.customizeTooltip */
-        customizeTooltip?: ((info: { value?: number, valueText?: string, node?: dxTreeMapNode }) => any);
+        customizeTooltip?: (info: {
+            value?: number;
+            valueText?: string;
+            node?: dxTreeMapNode;
+        }) => any;
     }
     /** @name dxTreeMap */
     export class dxTreeMap extends BaseWidget {
-        constructor(element: Element, options?: dxTreeMapOptions)
-        constructor(element: JQuery, options?: dxTreeMapOptions)
+        constructor(element: Element, options?: dxTreeMapOptions);
+        constructor(element: JQuery, options?: dxTreeMapOptions);
         /** @name dxTreeMap.clearSelection() */
         clearSelection(): void;
         /** @name dxTreeMap.drillUp() */
@@ -10143,35 +17286,194 @@ declare module DevExpress.viz {
     /** @name dxVectorMap.Options */
     export interface dxVectorMapOptions extends BaseWidgetOptions<dxVectorMap> {
         /** @name dxVectorMap.Options.background */
-        background?: { borderColor?: string, color?: string };
+        background?: { borderColor?: string; color?: string };
         /** @name dxVectorMap.Options.bounds */
         bounds?: Array<number>;
         /** @name dxVectorMap.Options.center */
         center?: Array<number>;
         /** @name dxVectorMap.Options.controlBar */
-        controlBar?: { borderColor?: string, color?: string, enabled?: boolean, horizontalAlignment?: 'center' | 'left' | 'right', margin?: number, opacity?: number, verticalAlignment?: 'bottom' | 'top' };
+        controlBar?: {
+            borderColor?: string;
+            color?: string;
+            enabled?: boolean;
+            horizontalAlignment?: "center" | "left" | "right";
+            margin?: number;
+            opacity?: number;
+            verticalAlignment?: "bottom" | "top";
+        };
         /** @name dxVectorMap.Options.layers */
-        layers?: Array<{ borderColor?: string, borderWidth?: number, color?: string, colorGroupingField?: string, colorGroups?: Array<number>, customize?: ((elements: Array<MapLayerElement>) => any), dataField?: string, dataSource?: any | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string, elementType?: 'bubble' | 'dot' | 'image' | 'pie', hoverEnabled?: boolean, hoveredBorderColor?: string, hoveredBorderWidth?: number, hoveredColor?: string, label?: { dataField?: string, enabled?: boolean, font?: Font }, maxSize?: number, minSize?: number, name?: string, opacity?: number, palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office', paletteSize?: number, selectedBorderColor?: string, selectedBorderWidth?: number, selectedColor?: string, selectionMode?: 'multiple' | 'none' | 'single', size?: number, sizeGroupingField?: string, sizeGroups?: Array<number>, type?: 'area' | 'line' | 'marker' }> | { borderColor?: string, borderWidth?: number, color?: string, colorGroupingField?: string, colorGroups?: Array<number>, customize?: ((elements: Array<MapLayerElement>) => any), dataField?: string, dataSource?: any | DevExpress.data.DataSource | DevExpress.data.DataSourceOptions | string, elementType?: 'bubble' | 'dot' | 'image' | 'pie', hoverEnabled?: boolean, hoveredBorderColor?: string, hoveredBorderWidth?: number, hoveredColor?: string, label?: { dataField?: string, enabled?: boolean, font?: Font }, maxSize?: number, minSize?: number, name?: string, opacity?: number, palette?: Array<string> | 'Bright' | 'Default' | 'Harmony Light' | 'Ocean' | 'Pastel' | 'Soft' | 'Soft Pastel' | 'Vintage' | 'Violet' | 'Carmine' | 'Dark Moon' | 'Dark Violet' | 'Green Mist' | 'Soft Blue' | 'Material' | 'Office', paletteSize?: number, selectedBorderColor?: string, selectedBorderWidth?: number, selectedColor?: string, selectionMode?: 'multiple' | 'none' | 'single', size?: number, sizeGroupingField?: string, sizeGroups?: Array<number>, type?: 'area' | 'line' | 'marker' };
+        layers?:
+            | Array<{
+                  borderColor?: string;
+                  borderWidth?: number;
+                  color?: string;
+                  colorGroupingField?: string;
+                  colorGroups?: Array<number>;
+                  customize?: (elements: Array<MapLayerElement>) => any;
+                  dataField?: string;
+                  dataSource?:
+                      | any
+                      | DevExpress.data.DataSource
+                      | DevExpress.data.DataSourceOptions
+                      | string;
+                  elementType?: "bubble" | "dot" | "image" | "pie";
+                  hoverEnabled?: boolean;
+                  hoveredBorderColor?: string;
+                  hoveredBorderWidth?: number;
+                  hoveredColor?: string;
+                  label?: {
+                      dataField?: string;
+                      enabled?: boolean;
+                      font?: Font;
+                  };
+                  maxSize?: number;
+                  minSize?: number;
+                  name?: string;
+                  opacity?: number;
+                  palette?:
+                      | Array<string>
+                      | "Bright"
+                      | "Default"
+                      | "Harmony Light"
+                      | "Ocean"
+                      | "Pastel"
+                      | "Soft"
+                      | "Soft Pastel"
+                      | "Vintage"
+                      | "Violet"
+                      | "Carmine"
+                      | "Dark Moon"
+                      | "Dark Violet"
+                      | "Green Mist"
+                      | "Soft Blue"
+                      | "Material"
+                      | "Office";
+                  paletteSize?: number;
+                  selectedBorderColor?: string;
+                  selectedBorderWidth?: number;
+                  selectedColor?: string;
+                  selectionMode?: "multiple" | "none" | "single";
+                  size?: number;
+                  sizeGroupingField?: string;
+                  sizeGroups?: Array<number>;
+                  type?: "area" | "line" | "marker";
+              }>
+            | {
+                  borderColor?: string;
+                  borderWidth?: number;
+                  color?: string;
+                  colorGroupingField?: string;
+                  colorGroups?: Array<number>;
+                  customize?: (elements: Array<MapLayerElement>) => any;
+                  dataField?: string;
+                  dataSource?:
+                      | any
+                      | DevExpress.data.DataSource
+                      | DevExpress.data.DataSourceOptions
+                      | string;
+                  elementType?: "bubble" | "dot" | "image" | "pie";
+                  hoverEnabled?: boolean;
+                  hoveredBorderColor?: string;
+                  hoveredBorderWidth?: number;
+                  hoveredColor?: string;
+                  label?: {
+                      dataField?: string;
+                      enabled?: boolean;
+                      font?: Font;
+                  };
+                  maxSize?: number;
+                  minSize?: number;
+                  name?: string;
+                  opacity?: number;
+                  palette?:
+                      | Array<string>
+                      | "Bright"
+                      | "Default"
+                      | "Harmony Light"
+                      | "Ocean"
+                      | "Pastel"
+                      | "Soft"
+                      | "Soft Pastel"
+                      | "Vintage"
+                      | "Violet"
+                      | "Carmine"
+                      | "Dark Moon"
+                      | "Dark Violet"
+                      | "Green Mist"
+                      | "Soft Blue"
+                      | "Material"
+                      | "Office";
+                  paletteSize?: number;
+                  selectedBorderColor?: string;
+                  selectedBorderWidth?: number;
+                  selectedColor?: string;
+                  selectionMode?: "multiple" | "none" | "single";
+                  size?: number;
+                  sizeGroupingField?: string;
+                  sizeGroups?: Array<number>;
+                  type?: "area" | "line" | "marker";
+              };
         /** @name dxVectorMap.Options.legends */
         legends?: Array<dxVectorMapLegends>;
         /** @name dxVectorMap.Options.maxZoomFactor */
         maxZoomFactor?: number;
         /** @name dxVectorMap.Options.onCenterChanged */
-        onCenterChanged?: ((e: { component?: dxVectorMap, element?: DevExpress.core.dxElement, model?: any, center?: Array<number> }) => any);
+        onCenterChanged?: (e: {
+            component?: dxVectorMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            center?: Array<number>;
+        }) => any;
         /** @name dxVectorMap.Options.onClick */
-        onClick?: ((e: { component?: dxVectorMap, element?: DevExpress.core.dxElement, model?: any, jQueryEvent?: JQueryEventObject, event?: DevExpress.events.event, target?: MapLayerElement }) => any) | string;
+        onClick?:
+            | ((e: {
+                  component?: dxVectorMap;
+                  element?: DevExpress.core.dxElement;
+                  model?: any;
+                  jQueryEvent?: JQueryEventObject;
+                  event?: DevExpress.events.event;
+                  target?: MapLayerElement;
+              }) => any)
+            | string;
         /** @name dxVectorMap.Options.onSelectionChanged */
-        onSelectionChanged?: ((e: { component?: dxVectorMap, element?: DevExpress.core.dxElement, model?: any, target?: MapLayerElement }) => any);
+        onSelectionChanged?: (e: {
+            component?: dxVectorMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: MapLayerElement;
+        }) => any;
         /** @name dxVectorMap.Options.onTooltipHidden */
-        onTooltipHidden?: ((e: { component?: dxVectorMap, element?: DevExpress.core.dxElement, model?: any, target?: MapLayerElement }) => any);
+        onTooltipHidden?: (e: {
+            component?: dxVectorMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: MapLayerElement;
+        }) => any;
         /** @name dxVectorMap.Options.onTooltipShown */
-        onTooltipShown?: ((e: { component?: dxVectorMap, element?: DevExpress.core.dxElement, model?: any, target?: MapLayerElement }) => any);
+        onTooltipShown?: (e: {
+            component?: dxVectorMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            target?: MapLayerElement;
+        }) => any;
         /** @name dxVectorMap.Options.onZoomFactorChanged */
-        onZoomFactorChanged?: ((e: { component?: dxVectorMap, element?: DevExpress.core.dxElement, model?: any, zoomFactor?: number }) => any);
+        onZoomFactorChanged?: (e: {
+            component?: dxVectorMap;
+            element?: DevExpress.core.dxElement;
+            model?: any;
+            zoomFactor?: number;
+        }) => any;
         /** @name dxVectorMap.Options.panningEnabled */
         panningEnabled?: boolean;
         /** @name dxVectorMap.Options.projection */
-        projection?: 'equirectangular' | 'lambert' | 'mercator' | 'miller' | VectorMapProjectionConfig | string | any;
+        projection?:
+            | "equirectangular"
+            | "lambert"
+            | "mercator"
+            | "miller"
+            | VectorMapProjectionConfig
+            | string
+            | any;
         /** @name dxVectorMap.Options.tooltip */
         tooltip?: dxVectorMapTooltip;
         /** @name dxVectorMap.Options.touchEnabled */
@@ -10186,35 +17488,59 @@ declare module DevExpress.viz {
     /** @name dxVectorMap.Options.legends */
     export interface dxVectorMapLegends extends BaseLegend {
         /** @name dxVectorMap.Options.legends.customizeHint */
-        customizeHint?: ((itemInfo: { start?: number, end?: number, index?: number, color?: string, size?: number }) => string);
+        customizeHint?: (itemInfo: {
+            start?: number;
+            end?: number;
+            index?: number;
+            color?: string;
+            size?: number;
+        }) => string;
         /** @name dxVectorMap.Options.legends.customizeItems */
-        customizeItems?: ((items: Array<VectorMapLegendItem>) => Array<VectorMapLegendItem>);
+        customizeItems?: (
+            items: Array<VectorMapLegendItem>
+        ) => Array<VectorMapLegendItem>;
         /** @name dxVectorMap.Options.legends.customizeText */
-        customizeText?: ((itemInfo: { start?: number, end?: number, index?: number, color?: string, size?: number }) => string);
+        customizeText?: (itemInfo: {
+            start?: number;
+            end?: number;
+            index?: number;
+            color?: string;
+            size?: number;
+        }) => string;
         /** @name dxVectorMap.Options.legends.font */
         font?: Font;
         /** @name dxVectorMap.Options.legends.markerColor */
         markerColor?: string;
         /** @name dxVectorMap.Options.legends.markerShape */
-        markerShape?: 'circle' | 'square';
+        markerShape?: "circle" | "square";
         /** @name dxVectorMap.Options.legends.markerSize */
         markerSize?: number;
         /** @name dxVectorMap.Options.legends.markerTemplate */
-        markerTemplate?: DevExpress.core.template | ((legendItem: VectorMapLegendItem, element: SVGGElement) => string | SVGElement | JQuery);
+        markerTemplate?:
+            | DevExpress.core.template
+            | ((
+                  legendItem: VectorMapLegendItem,
+                  element: SVGGElement
+              ) => string | SVGElement | JQuery);
         /** @name dxVectorMap.Options.legends.source */
-        source?: { grouping?: string, layer?: string };
+        source?: { grouping?: string; layer?: string };
     }
     /** @name dxVectorMap.Options.tooltip */
     export interface dxVectorMapTooltip extends BaseWidgetTooltip {
         /** @name dxVectorMap.Options.tooltip.contentTemplate */
-        contentTemplate?: DevExpress.core.template | ((info: MapLayerElement, element: DevExpress.core.dxElement) => string | Element | JQuery);
+        contentTemplate?:
+            | DevExpress.core.template
+            | ((
+                  info: MapLayerElement,
+                  element: DevExpress.core.dxElement
+              ) => string | Element | JQuery);
         /** @name dxVectorMap.Options.tooltip.customizeTooltip */
-        customizeTooltip?: ((info: MapLayerElement) => any);
+        customizeTooltip?: (info: MapLayerElement) => any;
     }
     /** @name dxVectorMap */
     export class dxVectorMap extends BaseWidget {
-        constructor(element: Element, options?: dxVectorMapOptions)
-        constructor(element: JQuery, options?: dxVectorMapOptions)
+        constructor(element: Element, options?: dxVectorMapOptions);
+        constructor(element: JQuery, options?: dxVectorMapOptions);
         /** @name dxVectorMap.center() */
         center(): Array<number>;
         /** @name dxVectorMap.center(centerCoordinates) */
@@ -10256,8 +17582,7 @@ declare module DevExpress.viz {
     /** @name linearTriangleMarker */
     export type linearTriangleMarker = CommonIndicator;
     /** @name pieChartSeriesObject */
-    export class pieChartSeriesObject extends baseSeriesObject {
-    }
+    export class pieChartSeriesObject extends baseSeriesObject {}
     /** @name piePointObject */
     export class piePointObject extends basePointObject {
         /** @name piePointObject.percent */
@@ -10270,11 +17595,9 @@ declare module DevExpress.viz {
         show(): void;
     }
     /** @name polarChartSeriesObject */
-    export class polarChartSeriesObject extends baseSeriesObject {
-    }
+    export class polarChartSeriesObject extends baseSeriesObject {}
     /** @name polarPointObject */
-    export class polarPointObject extends basePointObject {
-    }
+    export class polarPointObject extends basePointObject {}
 }
 declare module DevExpress.viz.map {
     /** @name viz.map.projection(data) */
@@ -10282,7 +17605,12 @@ declare module DevExpress.viz.map {
 }
 declare module DevExpress.viz.map.projection {
     /** @name viz.map.projection.add(name, projection) */
-    export function add(name: string, projection: VectorMapProjectionConfig | any): void;
+    export function add(
+        name: string,
+        projection: VectorMapProjectionConfig | any
+    ): void;
     /** @name viz.map.projection.get(name) */
-    export function get(name: 'equirectangular' | 'lambert' | 'mercator' | 'miller' | string): any;
+    export function get(
+        name: "equirectangular" | "lambert" | "mercator" | "miller" | string
+    ): any;
 }
