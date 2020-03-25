@@ -7,7 +7,6 @@
 /themebuilder/data/less
 /themebuilder/data/metadata
 /scss
-bin
 node_modules
 obj
 project.lock.json
